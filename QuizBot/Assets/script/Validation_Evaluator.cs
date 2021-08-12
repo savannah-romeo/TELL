@@ -19,8 +19,9 @@ public class Validation_Evaluator : MonoBehaviour
         if (!expressive_yes.isOn && !expressive_no.isOn)
             valid = false;
 
-        //Invalid if neither receptive is ticked
-        if (!receptive_yes.isOn && !receptive_no.isOn)
+        //Invalid if expressive no is ticked AND 
+        //neither receptive is ticked
+        if (expressive_no.isOn && !receptive_yes.isOn && !receptive_no.isOn)
             valid = false;
 
         return valid;
