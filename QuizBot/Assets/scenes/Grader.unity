@@ -617,7 +617,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519637035}
-  - component: {fileID: 519637034}
   - component: {fileID: 519637033}
   - component: {fileID: 519637032}
   m_Layer: 0
@@ -636,12 +635,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 519637031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bfbfb4ed2bd65d4d861878823a572d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 900c5815f7155ad47bfd6831854e9493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickedButton: {fileID: 0}
-  displayText: {fileID: 0}
-  checker: {fileID: 519637033}
 --- !u!114 &519637033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,27 +647,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 519637031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4447328d0408864eb8edebe7f1892c4, type: 3}
+  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expressive_yes: {fileID: 0}
-  expressive_no: {fileID: 0}
-  receptive_yes: {fileID: 0}
-  receptive_no: {fileID: 0}
---- !u!114 &519637034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519637031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff977a6682276e4bba1a98ad92b0a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedToggle: {fileID: 0}
-  displayCanvas: {fileID: 0}
+  clickedButton: {fileID: 1726975425}
+  sceneName: UserInfo
+  checker: {fileID: 519637032}
 --- !u!4 &519637035
 Transform:
   m_ObjectHideFlags: 0
