@@ -8,7 +8,7 @@ public class OnClick_Button_DisplayText_Conditional : MonoBehaviour
 {
     public Button clickedButton; //Button clicked
     public TextMeshProUGUI displayText; //Text that might be displayed
-    public Validation_Evaluator checker; //Used to check game state
+    public Validation_Parent checker; //Used to check game state
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class OnClick_Button_DisplayText_Conditional : MonoBehaviour
     void TaskOnClick()
     {
         //Make text opaque based on condition
-        if(!checker.EvaluatorValidation()) //if input is invalid
+        if(!checker.Validator()) //if input is invalid
             displayText.alpha = 255;
     }
 }

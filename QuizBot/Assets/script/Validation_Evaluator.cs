@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Validation_Evaluator checks to see if Evaluator input is valid
-public class Validation_Evaluator : MonoBehaviour
+public class Validation_Evaluator : Validation_Parent
 {
     //Takes the required toggle inputs from the evaluator
     public Toggle expressive_yes;
@@ -11,7 +11,7 @@ public class Validation_Evaluator : MonoBehaviour
     public Toggle receptive_no;
 
     //Check the input
-    public bool EvaluatorValidation()
+    public override bool Validator()
     {
         bool valid = true;
 
