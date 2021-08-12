@@ -1129,6 +1129,7 @@ GameObject:
   - component: {fileID: 727950453}
   - component: {fileID: 727950452}
   - component: {fileID: 727950456}
+  - component: {fileID: 727950457}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1210,6 +1211,34 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   sceneName: Grader
   checker: {fileID: 727950453}
+  cleanup: {fileID: 727950457}
+--- !u!114 &727950457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7484b9afba32cbc40ad1a44052f0348c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScene:
+    m_Handle: 0
+  teacherField: {fileID: 0}
+  assessorField: {fileID: 0}
+  childNameField: {fileID: 0}
+  childIDField: {fileID: 0}
+  responseField: {fileID: 1459630532}
+  expressiveToggle: {fileID: 746151781}
+  receptiveToggle: {fileID: 491013125}
+  teacherText: {fileID: 0}
+  assessorText: {fileID: 0}
+  childText: {fileID: 0}
+  expressiveText: {fileID: 0}
+  receptiveText: {fileID: 0}
+  responsesText: {fileID: 0}
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0

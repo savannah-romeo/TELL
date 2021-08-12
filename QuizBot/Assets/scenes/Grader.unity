@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 519637035}
   - component: {fileID: 519637033}
   - component: {fileID: 519637032}
+  - component: {fileID: 519637034}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -653,6 +654,34 @@ MonoBehaviour:
   clickedButton: {fileID: 1726975425}
   sceneName: UserInfo
   checker: {fileID: 519637032}
+  cleanup: {fileID: 519637034}
+--- !u!114 &519637034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519637031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7484b9afba32cbc40ad1a44052f0348c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScene:
+    m_Handle: 0
+  teacherField: {fileID: 0}
+  assessorField: {fileID: 0}
+  childNameField: {fileID: 0}
+  childIDField: {fileID: 0}
+  responseField: {fileID: 0}
+  expressiveToggle: {fileID: 0}
+  receptiveToggle: {fileID: 0}
+  teacherText: {fileID: 1095203552}
+  assessorText: {fileID: 1275826717}
+  childText: {fileID: 551538698}
+  expressiveText: {fileID: 515272233}
+  receptiveText: {fileID: 392600170}
+  responsesText: {fileID: 1524610933}
 --- !u!4 &519637035
 Transform:
   m_ObjectHideFlags: 0
@@ -1407,7 +1436,7 @@ GameObject:
   - component: {fileID: 1524610934}
   - component: {fileID: 1524610933}
   m_Layer: 5
-  m_Name: text_child_response
+  m_Name: text_variable_response
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

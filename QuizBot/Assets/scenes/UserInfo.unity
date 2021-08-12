@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 99568379}
   - component: {fileID: 99568381}
   - component: {fileID: 99568382}
+  - component: {fileID: 99568383}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -625,6 +626,33 @@ MonoBehaviour:
   clickedButton: {fileID: 824475904}
   sceneName: Evaluator
   checker: {fileID: 99568381}
+  cleanup: {fileID: 99568383}
+--- !u!114 &99568383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99568378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7484b9afba32cbc40ad1a44052f0348c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScene: UserInfo
+  teacherField: {fileID: 110056749}
+  assessorField: {fileID: 2066179747}
+  childNameField: {fileID: 1830286738}
+  childIDField: {fileID: 1333115290}
+  responseField: {fileID: 0}
+  expressiveToggle: {fileID: 0}
+  receptiveToggle: {fileID: 0}
+  teacherText: {fileID: 0}
+  assessorText: {fileID: 0}
+  childText: {fileID: 0}
+  expressiveText: {fileID: 0}
+  receptiveText: {fileID: 0}
+  responsesText: {fileID: 0}
 --- !u!1 &110056747
 GameObject:
   m_ObjectHideFlags: 0

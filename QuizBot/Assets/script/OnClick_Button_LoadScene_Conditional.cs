@@ -11,6 +11,7 @@ public class OnClick_Button_LoadScene_Conditional : MonoBehaviour
     public Button clickedButton; //Button clicked
     public string sceneName; //Name of the scene to load
     public Validation_Parent checker; //Used to check input
+    public DataManager cleanup; //Saves data before loading
 
     void Start()
     {
@@ -21,8 +22,12 @@ public class OnClick_Button_LoadScene_Conditional : MonoBehaviour
 
     void TaskOnClick()
     {
-        //Make text opaque based on condition
+        //Saves data and loads next string
         if(checker.Validator()) //if input is invalid
+        {
+            cleanup.SceneCleanup();
+            DataManager.currentScene = sceneName; //Updates DataManager scene string
             SceneManager.LoadScene(sceneName);
+        }
     }
 }
