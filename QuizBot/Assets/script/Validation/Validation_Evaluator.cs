@@ -9,11 +9,17 @@ public class Validation_Evaluator : Validation_Parent
     public Toggle expressive_no;
     public Toggle receptive_yes;
     public Toggle receptive_no;
+    public OnClick_Button_AdvanceText prompts;
+    public bool valid;
 
     //Check the input
     public override bool Validator()
     {
-        bool valid = true;
+        valid = true;
+
+        //Do not advance scene until prompts are done
+        if (!prompts.complete)
+            valid = false;
 
         //Invalid if neither expressive is ticked
         if (!expressive_yes.isOn && !expressive_no.isOn)

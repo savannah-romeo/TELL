@@ -1130,6 +1130,7 @@ GameObject:
   - component: {fileID: 727950452}
   - component: {fileID: 727950456}
   - component: {fileID: 727950457}
+  - component: {fileID: 727950458}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1168,6 +1169,8 @@ MonoBehaviour:
   expressive_no: {fileID: 302869374}
   receptive_yes: {fileID: 491013125}
   receptive_no: {fileID: 993226670}
+  prompts: {fileID: 727950458}
+  valid: 0
 --- !u!4 &727950454
 Transform:
   m_ObjectHideFlags: 0
@@ -1237,6 +1240,29 @@ MonoBehaviour:
   expressiveText: {fileID: 0}
   receptiveText: {fileID: 0}
   responsesText: {fileID: 0}
+--- !u!114 &727950458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507ed1b556a447a4ead4ff896fa08c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shownText: {fileID: 1423126920}
+  textArray:
+  - 1. Alphabet
+  - 2. Senses
+  - 3. Schedule
+  - 4. Students
+  - 5. Scent
+  - 6. Taste
+  iterator: 0
+  clickedButton: {fileID: 1065061408}
+  complete: 0
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
