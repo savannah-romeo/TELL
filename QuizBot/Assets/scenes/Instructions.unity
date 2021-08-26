@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1698277143}
-  sceneName: Evaluator
+  sceneName: Prompter
   checker: {fileID: 140666067}
   cleanup: {fileID: 140666066}
 --- !u!1 &501855902
