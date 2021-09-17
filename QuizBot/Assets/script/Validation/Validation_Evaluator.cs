@@ -10,26 +10,39 @@ public class Validation_Evaluator : Validation_Parent
     public Toggle receptive_yes;
     public Toggle receptive_no;
     public OnClick_Button_AdvanceText prompts;
-    public bool valid;
+    public bool validScene; //Used for checks to advance scene
+    public bool validInput; //Used for checks to advance prompts
 
     //Check the input
     public override bool Validator()
     {
-        valid = true;
+        validScene = true;
+        validInput = true;
 
         //Do not advance scene until prompts are done
         if (!prompts.complete)
-            valid = false;
+            validScene = false;
 
         //Invalid if neither expressive is ticked
         if (!expressive_yes.isOn && !expressive_no.isOn)
-            valid = false;
+        {
+            validScene = false;
+            validInput = false;
+        }
 
         //Invalid if expressive no is ticked AND 
         //neither receptive is ticked
         if (expressive_no.isOn && !receptive_yes.isOn && !receptive_no.isOn)
-            valid = false;
+        {
+            validScene = false;
+            validInput = false;
+        }
 
-        return valid;
+        return validScene;
+    }
+
+    public bool GetValidInput()
+    {
+        return validInput;
     }
 }
