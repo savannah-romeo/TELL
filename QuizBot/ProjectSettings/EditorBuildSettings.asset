@@ -9,6 +9,27 @@ EditorBuildSettings:
     path: Assets/scenes/UserInfo.unity
     guid: 45856c07d5a11544ba26111d6b5b5557
   - enabled: 1
+    path: Assets/scenes/MainMenu.unity
+    guid: 0c2d7256ae1029f409e6666ea9afb3c2
+  - enabled: 1
+    path: Assets/scenes/ReportCard.unity
+    guid: b9801d2b7cac7a04c9bb767561234a93
+  - enabled: 1
+    path: Assets/scenes/SelectCBM/Time1.unity
+    guid: 04b30b307a91298449bed1a4761d7273
+  - enabled: 1
+    path: Assets/scenes/SelectCBM/Time2.unity
+    guid: 9341ae2cdaa34974db1f86f47c5c183c
+  - enabled: 1
+    path: Assets/scenes/Instructions.unity
+    guid: 90b6975ee553650469735f7f3495298a
+  - enabled: 1
+    path: Assets/scenes/Prompter.unity
+    guid: ae748e8cce53a7e48b5308797a24049b
+  - enabled: 1
+    path: Assets/scenes/Prompter+Evaluator.unity
+    guid: a62df9b3dc01db846b9097b79d6a00d1
+  - enabled: 1
     path: Assets/scenes/Evaluator.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
