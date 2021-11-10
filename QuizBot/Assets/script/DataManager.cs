@@ -2,10 +2,8 @@
 //Useful for scene transitions, data exports, and local saves.
 //By using static variables we keep a persistent location in memory.
 //Note: Use doubles to store all numbers to avoid expensive casting
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -101,12 +99,12 @@ public class DataManager : MonoBehaviour
 
             totalText.text = score_total.ToString();
         }
-        if (currentScene ==  "Grader" || currentScene == "ReportCard")
+        if (currentScene ==  "Grader" || currentScene == "Results")
         {
             childText.text = childID;            
-            expressivePercent.text = grade_vocabularyExpressive.ToString("0.00") + '%'; //Parameter ensures two decimal points
-            receptivePercent.text = grade_vocabularyReceptive.ToString("0.00") + '%';
-            totalPercent.text = grade_vocabularyTotal.ToString("0.00") + '%';
+            expressivePercent.text = grade_vocabularyExpressive.ToString("0") + '%'; //Parameter ensures two decimal points
+            receptivePercent.text = grade_vocabularyReceptive.ToString("0") + '%';
+            totalPercent.text = grade_vocabularyTotal.ToString("0") + '%';
         }
     }
 

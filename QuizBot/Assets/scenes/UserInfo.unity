@@ -559,6 +559,7 @@ GameObject:
   - component: {fileID: 99568381}
   - component: {fileID: 99568382}
   - component: {fileID: 99568383}
+  - component: {fileID: 99568384}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -646,12 +647,32 @@ MonoBehaviour:
   responseField: {fileID: 0}
   expressiveToggle: {fileID: 0}
   receptiveToggle: {fileID: 0}
-  teacherText: {fileID: 0}
-  assessorText: {fileID: 0}
   childText: {fileID: 0}
   expressiveText: {fileID: 0}
   receptiveText: {fileID: 0}
-  responsesText: {fileID: 0}
+  totalText: {fileID: 0}
+  expressivePercent: {fileID: 0}
+  receptivePercent: {fileID: 0}
+  totalPercent: {fileID: 0}
+  responsesText1: {fileID: 0}
+  responsesText2: {fileID: 0}
+  responsesText3: {fileID: 0}
+  responsesText4: {fileID: 0}
+  responsesText5: {fileID: 0}
+  responsesText6: {fileID: 0}
+--- !u!114 &99568384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99568378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c7bac9bcc1fab4a8995d6edc917949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveButton: {fileID: 824475904}
 --- !u!1 &110056747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,10 +1176,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.5803922, g: 0.7960785, b: 0.32156864, a: 1}
+    m_HighlightedColor: {r: 0.5803922, g: 0.7960785, b: 0.32156864, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5803922, g: 0.7960785, b: 0.32156864, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3504,8 +3525,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4289156671
+  m_fontColor: {r: 0.24705884, g: 0.3372549, b: 0.654902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3522,8 +3543,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
