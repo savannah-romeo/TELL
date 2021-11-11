@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OnClick_Quit : MonoBehaviour
+public class Quit : MonoBehaviour
 {
     public Button quitButton; //Button clicked
 

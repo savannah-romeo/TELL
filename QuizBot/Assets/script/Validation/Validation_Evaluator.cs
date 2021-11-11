@@ -9,7 +9,7 @@ public class Validation_Evaluator : Validation_Parent
     public Toggle expressive_no;
     public Toggle receptive_yes;
     public Toggle receptive_no;
-    public OnClick_Button_AdvanceText prompts;
+    public AdvanceText prompts;
     public bool validScene; //Used for checks to advance scene
     public bool validInput; //Used for checks to advance prompts
 

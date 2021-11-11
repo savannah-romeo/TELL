@@ -15,6 +15,8 @@ public class DataManager : MonoBehaviour
     public static string assessorID;
     public static string childID;
 
+    public static int globalTime; //Var used to store which 'Time'/unit/week we are on
+
     //Per-game scored answers
     public static double score_expressive;
     public static double score_receptive;

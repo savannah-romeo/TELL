@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class OnClick_Button_DisplayText_Conditional : MonoBehaviour
+public class DisplayText_Conditional : MonoBehaviour
 {
     public Button clickedButton; //Button clicked
     public TextMeshProUGUI displayText; //Text that might be displayed

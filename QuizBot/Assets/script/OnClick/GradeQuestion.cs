@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OnClick_GradeQuestion : MonoBehaviour
+public class GradeQuestion : MonoBehaviour
 {
     public Button gradeButton; //Button clicked
     public DataManager gradeData;
-    public OnClick_Button_AdvanceText gradedQuestions;
+    public AdvanceText gradedQuestions;
     public Validation_Evaluator checker; //Used to check for valid answer before proceeding
 
     void Start()

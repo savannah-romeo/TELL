@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OnClick_Toggle_DisplayCanvas : MonoBehaviour
+public class DisplayCanvas : MonoBehaviour
 {
     public Toggle clickedToggle; //Toggle to watch
     public Canvas displayCanvas; //Canvas to display

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class OnClick_Button_AdvanceText : MonoBehaviour
+public class AdvanceText : MonoBehaviour
 {
     public TextMeshProUGUI shownText;
     int localTime; //Tracks which "Time"/Week/Unit to use for prompt
@@ -18,7 +18,7 @@ public class OnClick_Button_AdvanceText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        localTime = 9;
+        localTime = DataManager.globalTime;
         textArray = promptSelect(localTime);
         complete = false;
         gradeMe = true;

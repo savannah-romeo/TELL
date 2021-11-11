@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Button_Save : MonoBehaviour
+public class Save : MonoBehaviour
 {
     public Button saveButton;
     SaveLoad saver;
