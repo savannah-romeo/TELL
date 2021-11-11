@@ -45,6 +45,7 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI expressivePercent;
     public TextMeshProUGUI receptivePercent;
     public TextMeshProUGUI totalPercent;
+
     //Responses
     public TextMeshProUGUI responsesText1;
     public TextMeshProUGUI responsesText2;

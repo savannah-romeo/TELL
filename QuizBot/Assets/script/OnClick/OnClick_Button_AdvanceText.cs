@@ -7,7 +7,8 @@ using TMPro;
 public class OnClick_Button_AdvanceText : MonoBehaviour
 {
     public TextMeshProUGUI shownText;
-    public string[] textArray = Array_Prompts.prompts;
+    int localTime; //Tracks which "Time"/Week/Unit to use for prompt
+    public string[] textArray; //Holds answer prompts at top
     public int iterator; //Used to track our position in the array.
     public Button clickedButton;
     public bool complete; //Indicates when iteration moves to last element, viewed by other scripts for scene transition logic
@@ -17,12 +18,27 @@ public class OnClick_Button_AdvanceText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        localTime = 9;
+        textArray = promptSelect(localTime);
         complete = false;
         gradeMe = true;
         iterator = 0; //Selects the starting text to display
         shownText.text = textArray[iterator]; //Display the first text
         clickedButton.onClick.AddListener(TaskOnClick);
     }
+
+    //This function uses an int to select a prompt from Array_Prompts.
+    //The default case "prompts" contains an error message array.
+    string[] promptSelect(int selection) => selection switch
+    {
+        1 => Array_Prompts.prompts1,
+        2 => Array_Prompts.prompts2,
+        3 => Array_Prompts.prompts3,
+        4 => Array_Prompts.prompts4,
+        5 => Array_Prompts.prompts5,
+        6 => Array_Prompts.prompts6,
+        _ => Array_Prompts.prompts
+    };
 
     //Occurs when button is clicked
     void TaskOnClick()
