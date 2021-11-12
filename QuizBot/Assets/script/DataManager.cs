@@ -32,9 +32,11 @@ public class DataManager : MonoBehaviour
     
 
     //UserInfo Fields
-    public TMP_InputField teacherField;
-    public TMP_InputField assessorField;
+    public TMP_InputField teacherNameField;
+    public TMP_InputField assessorNameField;
     public TMP_InputField childNameField;
+    public TMP_InputField teacherIDField;
+    public TMP_InputField assessorIDField;
     public TMP_InputField childIDField;
 
     //Evaluator Fields
@@ -82,8 +84,8 @@ public class DataManager : MonoBehaviour
         //Fill saved UserInfo
         if(currentScene == "UserInfo")
         {
-            teacherField.text = teacherID;
-            assessorField.text = assessorID;
+            teacherIDField.text = teacherID;
+            assessorIDField.text = assessorID;
             childIDField.text = childID;
         }
 
@@ -170,10 +172,13 @@ public class DataManager : MonoBehaviour
         //Save UserInfo
         if(currentScene == "UserInfo")
         {
-            teacherID = teacherField.text;
-            assessorID = assessorField.text;
-            
             //Save child name or ID, with ID taking precedence
+            teacherID = teacherNameField.text;
+            if (teacherIDField.text != "")
+                teacherID = teacherIDField.text;
+            assessorID = assessorNameField.text;
+            if (assessorIDField.text != "")
+                assessorID = assessorIDField.text;
             childID = childNameField.text;
             if(childIDField.text != "")
                 childID = childIDField.text;
