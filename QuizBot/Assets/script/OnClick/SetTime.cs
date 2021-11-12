@@ -20,7 +20,7 @@ public class SetTime : MonoBehaviour
     {
         DataManager.globalTime = SaveTime(timeButton.name);
     }
-    int SaveTime(string btnTime) => btnTime switch
+    public static int SaveTime(string btnTime) => btnTime switch
     {
         "button1" => 1,
         "button2" => 2,

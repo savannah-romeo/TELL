@@ -15,18 +15,21 @@ public class DataManager : MonoBehaviour
     public static string assessorID;
     public static string childID;
 
+    public static string currentScene; //used to determine what logic to use
+
     public static int globalTime; //Var used to store which 'Time'/unit/week we are on
 
     //Per-game scored answers
+    //These lists hold each answer's result
+    public static List<bool> individual_expressive;
+    public static List<bool> individual_receptive;
+    public static List<int> individual_total;
+    //These hold the total score for the game
     public static double score_expressive;
     public static double score_receptive;
     public static double score_total;
-
-    //List of answers given
-    //Will need a string array once using multiple
-    public static List<string> responses;
-
-    public static string currentScene; //used to determine what logic to use
+    public static List<string> responses; //List of answers given
+    
 
     //UserInfo Fields
     public TMP_InputField teacherField;
@@ -40,27 +43,24 @@ public class DataManager : MonoBehaviour
     public Toggle receptiveToggle;
 
     //Grader Fields
-    public TextMeshProUGUI childText;
-    public TextMeshProUGUI expressiveText;
-    public TextMeshProUGUI receptiveText;
-    public TextMeshProUGUI totalText;
-    public TextMeshProUGUI[] expressivePercent = new TextMeshProUGUI[6];
-    public TextMeshProUGUI[] receptivePercent = new TextMeshProUGUI[6];
-    public TextMeshProUGUI[] totalPercent = new TextMeshProUGUI[6];
+    public TextMeshProUGUI childText; //Displays child ID
+    public TextMeshProUGUI[] promptText;
+    public TextMeshProUGUI[] responsesText; //Displays child answers
+    public TextMeshProUGUI[] expressiveText;
+    public TextMeshProUGUI[] receptiveText;
+    public TextMeshProUGUI[] totalText;
 
-    //Responses
-    public TextMeshProUGUI responsesText1;
-    public TextMeshProUGUI responsesText2;
-    public TextMeshProUGUI responsesText3;
-    public TextMeshProUGUI responsesText4;
-    public TextMeshProUGUI responsesText5;
-    public TextMeshProUGUI responsesText6;
+    //Results Fields
+    public TextMeshProUGUI[] expressivePercent;
+    public TextMeshProUGUI[] receptivePercent;
+    public TextMeshProUGUI[] totalPercent;
 
-    //Long-term grades
+    //Long-Term Grades
     public static double vocabularyTotalQuestions; //How many vocab questions are asked per unit?
     public static double[] grade_vocabularyExpressive;
     public static double[] grade_vocabularyReceptive;
     public static double[] grade_vocabularyTotal;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +90,9 @@ public class DataManager : MonoBehaviour
         //Reset scores and wipe responses
         if(currentScene == "Evaluator")
         {
+            individual_expressive = new List<bool>();
+            individual_receptive = new List<bool>();
+            individual_total = new List<int>();
             score_expressive = 0;
             score_receptive = 0;
             score_total = 0;
@@ -99,25 +102,18 @@ public class DataManager : MonoBehaviour
         //Display all our data!
         if (currentScene == "Grader")
         {
-            responsesText1.text = responses[0];
-            responsesText2.text = responses[1];
-            responsesText3.text = responses[2];
-            responsesText4.text = responses[3];
-            responsesText5.text = responses[4];
-            responsesText6.text = responses[5];
-            expressiveText.text = score_expressive.ToString();
-            receptiveText.text = score_receptive.ToString();
-
-            totalText.text = score_total.ToString();
-        }
-        //Report card - show current time only
-        if (currentScene ==  "Grader")
-        {
             childText.text = childID;
-            int timeIndex2 = globalTime - 1; //Global Time starts at 1 instead of 0
-            expressivePercent[0].text = grade_vocabularyExpressive[timeIndex2].ToString("0") + '%'; //Parameter ensures two decimal points
-            receptivePercent[0].text = grade_vocabularyReceptive[timeIndex2].ToString("0") + '%';
-            totalPercent[0].text = grade_vocabularyTotal[timeIndex2].ToString("0") + '%';
+            //Temp storage
+            string[] promptStorage = AdvanceText.promptSelect(globalTime);
+            //Loop populates table textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
+            for (int wheel = 0; wheel < 6; wheel++)
+            {
+                promptText[wheel].text = promptStorage[wheel];
+                responsesText[wheel].text = responses[wheel];
+                expressiveText[wheel].text = individual_expressive[wheel].ToString();
+                receptiveText[wheel].text = individual_receptive[wheel].ToString();
+                totalText[wheel].text = individual_total[wheel].ToString();
+            }            
         }
 
         //Report card - show all times
@@ -143,11 +139,25 @@ public class DataManager : MonoBehaviour
         {
             if (expressiveToggle.isOn)
             {
+                individual_expressive.Add(true);
+                individual_receptive.Add(true);
+                individual_total.Add(2);
                 score_expressive++;
                 score_receptive++;
             }
-            if (receptiveToggle.isOn) //Only visible if expressive is off
+            else if (receptiveToggle.isOn) //Only visible if expressive is off
+            {
+                individual_expressive.Add(false);
+                individual_receptive.Add(true);
+                individual_total.Add(1);
                 score_receptive++;
+            }
+            else
+            {
+                individual_expressive.Add(false);
+                individual_receptive.Add(false);
+                individual_total.Add(0);
+            }
 
             responses.Add(responseField.text);
         }

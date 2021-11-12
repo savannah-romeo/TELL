@@ -343,9 +343,12 @@ MonoBehaviour:
   expressiveText: {fileID: 0}
   receptiveText: {fileID: 0}
   totalText: {fileID: 0}
-  expressivePercent: {fileID: 0}
-  receptivePercent: {fileID: 0}
-  totalPercent: {fileID: 0}
+  expressivePercent:
+  - {fileID: 0}
+  receptivePercent:
+  - {fileID: 0}
+  totalPercent:
+  - {fileID: 0}
   responsesText1: {fileID: 0}
   responsesText2: {fileID: 0}
   responsesText3: {fileID: 0}
