@@ -7,4 +7,9 @@ public class SerialData
     public string sTeacherID;
     public string sAssessorID;
     public string sChildID;
+
+    //Grade storage
+    public double[] sGradeVocabExp;
+    public double[] sGradeVocabRec;
+    public double[] sGradeVocabTotal;
 }

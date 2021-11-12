@@ -6,11 +6,14 @@ public class SaveLoad
 {
 	public SerialData staging;
 
-    // Start is called before the first frame update
+    //When called, load data from file if no active childID
     public SaveLoad()
     {
-		Load();
-    }
+		if(DataManager.childID==null)
+			Load();
+		
+		staging = new SerialData();
+	}
 
 	//Creates save file out of datamanager class called LocalSave.dat
 	public void Save()
@@ -19,6 +22,9 @@ public class SaveLoad
 		staging.sAssessorID = DataManager.assessorID;
 		staging.sChildID = DataManager.childID;
 		staging.sTeacherID = DataManager.teacherID;
+		staging.sGradeVocabExp = DataManager.grade_vocabularyExpressive;
+		staging.sGradeVocabRec = DataManager.grade_vocabularyReceptive;
+		staging.sGradeVocabTotal = DataManager.grade_vocabularyTotal;
 
 		//Create and save file
 		BinaryFormatter bf = new BinaryFormatter();
@@ -26,7 +32,6 @@ public class SaveLoad
 					 + "/LocalSave.dat");
 		bf.Serialize(file, staging);
 		file.Close();
-		Debug.Log("Game data saved!");
 	}
 
 	//Attempts to load LocalSave.dat into current DataManager
@@ -43,14 +48,14 @@ public class SaveLoad
 					   + "/LocalSave.dat", FileMode.Open);
 			staging = (SerialData)bf.Deserialize(file);
 			file.Close();
-			Debug.Log("Game data loaded!");
 		}
-		else
-			Debug.LogError("There is no save data!");
 
 		//Load serializable into Datamanager
 		DataManager.assessorID = staging.sAssessorID;
 		DataManager.childID = staging.sChildID;
 		DataManager.teacherID = staging.sTeacherID;
+		DataManager.grade_vocabularyExpressive = staging.sGradeVocabExp;
+		DataManager.grade_vocabularyReceptive = staging.sGradeVocabRec;
+		DataManager.grade_vocabularyTotal = staging.sGradeVocabTotal;
 	}
 }

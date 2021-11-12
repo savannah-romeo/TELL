@@ -58,14 +58,22 @@ public class DataManager : MonoBehaviour
 
     //Long-term grades
     public static double vocabularyTotalQuestions; //How many vocab questions are asked per unit?
-    public static double[] grade_vocabularyExpressive = new double[6];
-    public static double[] grade_vocabularyReceptive = new double[6];
-    public static double[] grade_vocabularyTotal = new double[6];
+    public static double[] grade_vocabularyExpressive;
+    public static double[] grade_vocabularyReceptive;
+    public static double[] grade_vocabularyTotal;
 
     // Start is called before the first frame update
     void Start()
     {
         vocabularyTotalQuestions = 6;
+
+        //Instantializes arrays if brand new
+        if (grade_vocabularyExpressive == null)
+        {
+            grade_vocabularyExpressive = new double[6] { -1, -1, -1, -1, -1, -1 };
+            grade_vocabularyReceptive = new double[6] { -1, -1, -1, -1, -1, -1 };
+            grade_vocabularyTotal = new double[6] { -1, -1, -1, -1, -1, -1 };
+        }
 
         //Initializes currentScene
         if(currentScene == null)
