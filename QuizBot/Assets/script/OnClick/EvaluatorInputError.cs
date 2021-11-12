@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class OnClick_EvaluatorInputError : MonoBehaviour
+public class EvaluatorInputError : MonoBehaviour
 {
     public Button clickedButton; //Button clicked
     public TextMeshProUGUI displayText; //Text that might be displayed

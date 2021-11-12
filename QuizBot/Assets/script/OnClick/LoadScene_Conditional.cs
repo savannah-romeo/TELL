@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class OnClick_Button_LoadScene_Conditional : MonoBehaviour
+public class LoadScene_Conditional : MonoBehaviour
 {
     public Button clickedButton; //Button clicked
     public string sceneName; //Name of the scene to load

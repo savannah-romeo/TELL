@@ -1204,6 +1204,7 @@ GameObject:
   - component: {fileID: 519637033}
   - component: {fileID: 519637032}
   - component: {fileID: 519637034}
+  - component: {fileID: 519637036}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1262,9 +1263,12 @@ MonoBehaviour:
   expressiveText: {fileID: 515272233}
   receptiveText: {fileID: 392600170}
   totalText: {fileID: 1986199913}
-  expressivePercent: {fileID: 2019153894}
-  receptivePercent: {fileID: 147670128}
-  totalPercent: {fileID: 391718251}
+  expressivePercent:
+  - {fileID: 2019153894}
+  receptivePercent:
+  - {fileID: 147670128}
+  totalPercent:
+  - {fileID: 391718251}
   responsesText1: {fileID: 1524610933}
   responsesText2: {fileID: 646131348}
   responsesText3: {fileID: 1009580607}
@@ -1285,6 +1289,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519637036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519637031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c7bac9bcc1fab4a8995d6edc917949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveButton: {fileID: 1726975425}
 --- !u!1 &551538696
 GameObject:
   m_ObjectHideFlags: 0

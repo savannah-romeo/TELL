@@ -281,7 +281,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509879279}
-  - component: {fileID: 509879278}
   - component: {fileID: 509879277}
   - component: {fileID: 509879280}
   - component: {fileID: 509879282}
@@ -307,22 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900c5815f7155ad47bfd6831854e9493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &509879278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509879276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedButton: {fileID: 1990270160}
-  sceneName: Time1
-  checker: {fileID: 509879277}
-  cleanup: {fileID: 509879280}
 --- !u!4 &509879279
 Transform:
   m_ObjectHideFlags: 0
