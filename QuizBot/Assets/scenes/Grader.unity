@@ -1262,9 +1262,12 @@ MonoBehaviour:
   expressiveText: {fileID: 515272233}
   receptiveText: {fileID: 392600170}
   totalText: {fileID: 1986199913}
-  expressivePercent: {fileID: 2019153894}
-  receptivePercent: {fileID: 147670128}
-  totalPercent: {fileID: 391718251}
+  expressivePercent:
+  - {fileID: 2019153894}
+  receptivePercent:
+  - {fileID: 147670128}
+  totalPercent:
+  - {fileID: 391718251}
   responsesText1: {fileID: 1524610933}
   responsesText2: {fileID: 646131348}
   responsesText3: {fileID: 1009580607}
