@@ -9,19 +9,24 @@ using TMPro;
 public class Validation_UserInfo : Validation_Parent
 {
     //Expected fields to check in the scene
-    public TMP_InputField teacher;
-    public TMP_InputField assessor;
+    public TMP_InputField teacherName;
+    public TMP_InputField teacherID;
+    public TMP_InputField assessorName;
+    public TMP_InputField assessorID;
     public TMP_InputField childName;
     public TMP_InputField childID;
 
     //Time to validate!
-    //Requires teacher, assessor, and one child field filled
+    //Requires one of each teacher, assessor, and child field filled
     public override bool Validator()
     {
         bool valid = true; //Return result
         string empty = ""; //Used to more clearly indicate null strings
 
-        if(teacher.text == empty || assessor.text == empty)
+        if(teacherName.text == empty && teacherID.text == empty)
+            valid = false;
+
+        if (assessorName.text == empty && assessorID.text == empty)
             valid = false;
 
         if(childName.text == empty && childID.text == empty)

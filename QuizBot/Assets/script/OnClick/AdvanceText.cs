@@ -29,7 +29,7 @@ public class AdvanceText : MonoBehaviour
 
     //This function uses an int to select a prompt from Array_Prompts.
     //The default case "prompts" contains an error message array.
-    string[] promptSelect(int selection) => selection switch
+    public static string[] promptSelect(int selection) => selection switch
     {
         1 => Array_Prompts.prompts1,
         2 => Array_Prompts.prompts2,
