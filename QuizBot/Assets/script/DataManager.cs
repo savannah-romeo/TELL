@@ -11,6 +11,7 @@ public class DataManager : MonoBehaviour
 {
     //User info
     //Note ID can be name or an ID #
+    public static string recordID;
     public static string teacherID;
     public static string assessorID;
     public static string childID;
@@ -24,6 +25,8 @@ public class DataManager : MonoBehaviour
     //These lists hold each answer's result
     public static List<bool> individual_expressive;
     public static List<bool> individual_receptive;
+    public static List<bool> individual_expressiveFlag;
+    public static List<bool> individual_receptiveFlag;
     public static List<int> individual_total;
     //These hold the total score for the game
     public static double score_expressive;
@@ -46,6 +49,8 @@ public class DataManager : MonoBehaviour
     public TMP_InputField responseField;
     public Toggle expressiveToggle;
     public Toggle receptiveToggle;
+    public Toggle expressiveFlag;
+    public Toggle receptiveFlag;
 
     //Grader Fields
     public TextMeshProUGUI childText; //Displays child ID
@@ -65,6 +70,11 @@ public class DataManager : MonoBehaviour
     public static double[] grade_vocabularyExpressive;
     public static double[] grade_vocabularyReceptive;
     public static double[] grade_vocabularyTotal;
+    public static List<List<bool>> individual_vocabularyExpressive;
+    public static List<List<bool>> individual_vocabularyReceptive;
+    public static List<List<string>> individual_vocabularyResponses;
+    public static List<List<bool>> individual_vocabularyExpressiveFlag;
+    public static List<List<bool>> individual_vocabularyReceptiveFlag;
     
 
     // Start is called before the first frame update
@@ -78,6 +88,11 @@ public class DataManager : MonoBehaviour
             grade_vocabularyExpressive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyReceptive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyTotal = new double[6] { -1, -1, -1, -1, -1, -1 };
+            individual_vocabularyExpressive = new List<List<bool>>();
+            individual_vocabularyExpressiveFlag = new List<List<bool>>();
+            individual_vocabularyReceptive = new List<List<bool>>();
+            individual_vocabularyReceptiveFlag = new List<List<bool>>();
+            individual_vocabularyResponses = new List<List<string>>();
         }
 
         //Initializes currentScene
@@ -91,13 +106,25 @@ public class DataManager : MonoBehaviour
             assessorIDField.text = assessorID;
             childIDField.text = childID;
             classroomIDField.text = classroomId;
+            
+            // Add logout code here
+            grade_vocabularyExpressive = new double[6] { -1, -1, -1, -1, -1, -1 };
+            grade_vocabularyReceptive = new double[6] { -1, -1, -1, -1, -1, -1 };
+            grade_vocabularyTotal = new double[6] { -1, -1, -1, -1, -1, -1 };
+            individual_vocabularyExpressive = new List<List<bool>>();
+            individual_vocabularyExpressiveFlag = new List<List<bool>>();
+            individual_vocabularyReceptive = new List<List<bool>>();
+            individual_vocabularyReceptiveFlag = new List<List<bool>>();
+            individual_vocabularyResponses = new List<List<string>>();
         }
 
         //Reset scores and wipe responses
         if(currentScene == "Evaluator")
         {
             individual_expressive = new List<bool>();
+            individual_expressiveFlag = new List<bool>();
             individual_receptive = new List<bool>();
+            individual_receptiveFlag = new List<bool>();
             individual_total = new List<int>();
             score_expressive = 0;
             score_receptive = 0;
@@ -166,6 +193,16 @@ public class DataManager : MonoBehaviour
                 individual_receptive.Add(false);
                 individual_total.Add(0);
             }
+            
+            if (expressiveFlag.isOn)
+                individual_expressiveFlag.Add(true);
+            else
+                individual_expressiveFlag.Add(false);
+            
+            if (receptiveFlag.isOn)
+                individual_receptiveFlag.Add(true);
+            else
+                individual_receptiveFlag.Add(false);
 
             responses.Add(responseField.text);
         }
@@ -204,6 +241,13 @@ public class DataManager : MonoBehaviour
             grade_vocabularyReceptive[timeIndex] = (score_receptive / vocabularyTotalQuestions) * 100;
             score_total = score_expressive + score_receptive;
             grade_vocabularyTotal[timeIndex] = (score_total / (vocabularyTotalQuestions * 2)) * 100;
+            
+            // Add individual answers
+            individual_vocabularyExpressive.Insert(timeIndex, individual_expressive);
+            individual_vocabularyReceptive.Insert(timeIndex, individual_receptive);
+            individual_vocabularyExpressiveFlag.Insert(timeIndex, individual_expressiveFlag);
+            individual_vocabularyReceptiveFlag.Insert(timeIndex, individual_receptiveFlag);
+            individual_vocabularyResponses.Insert(timeIndex, responses);
         }
     }
 

@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json;
+using TMPro;
 using UnityEngine.UI;
 
 // Responsible for exporting data into RedCap
@@ -8,14 +11,17 @@ public class ExportData : MonoBehaviour
 {
     public Button clickedButton; //Button clicked
     public static string pdP; // persistentDataPath, this contains the local storage path
+    public Button doneBtn; // Load Button in Panel
+    public GameObject panel; // Panel
+    public TMP_Text popUpText; // Value for childId
     void Start()
     {
         clickedButton.onClick.AddListener(() => ExportActions());
+        doneBtn.onClick.AddListener(doneButtonClick);
         pdP = Application.persistentDataPath;
     }
 
-    // Function that executes on button click and is responsible for exporting data.
-    // The aim is to develop this function for each scene (if export required)
+    // Function that is responsible for exporting data into RedCap, triggered after button click.
     void ExportActions()
     {
         // Preparing export request
@@ -42,19 +48,25 @@ public class ExportData : MonoBehaviour
             if (splits.Length == 0 || splits[0] != DataManager.classroomId)
                 continue;
 
-            // Read data in file
+            // Read data in file and convert it into RedCap records
             FileStream file = File.Open(fileName, FileMode.Open);
             SerialData serialData = (SerialData) bf.Deserialize(file);
-            Credential credential = Credential.convertToCredential(serialData);
+            List<RedCapRecord> redCapRecords = RedCapRecord.convertToRedCapRecord(serialData);
             file.Close();
 
-            //string data = JsonConvert.SerializeObject(userDetails.users);
-            string data = JsonUtility.ToJson(credential);
-            outboundRequest.forceAutoNumber = credential.record_id == int.MaxValue ? "true" : "false";
-            outboundRequest.data = "[" + data + "]";
+            string data = JsonConvert.SerializeObject(redCapRecords);
+            //string data = JsonUtility.ToJson(redCapRecords);
+            outboundRequest.forceAutoNumber = redCapRecords[0].recordID == int.MaxValue ? "true" : "false";
+            outboundRequest.data = data;
 
             // Execute export request
             StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest));
         }
+        
+        panel.gameObject.SetActive(true);
+    }
+    void doneButtonClick()
+    {
+        panel.gameObject.SetActive(false);
     }
 }
