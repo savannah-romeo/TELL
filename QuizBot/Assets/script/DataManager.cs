@@ -15,25 +15,44 @@ public class DataManager : MonoBehaviour
     public static string teacherID;
     public static string assessorID;
     public static string childID;
-    public static string classroomId;
+    public static string classroomID;
 
     public static string currentScene; //used to determine what logic to use
 
+    public static string globalGame; //Var used to store what game we are playing
     public static int globalTime; //Var used to store which 'Time'/unit/week we are on
 
+    public static string childNameLNI; //used to store child name for use in LNI
+                                       //PII THAT SHOULD NOT BE SAVED LONG-TERM
+
     //Per-game scored answers
-    //These lists hold each answer's result
-    public static List<bool> individual_expressive;
-    public static List<bool> individual_receptive;
-    public static List<bool> individual_expressiveFlag;
-    public static List<bool> individual_receptiveFlag;
-    public static List<int> individual_total;
+    //LNI Grades
+    public static bool[] learnedLetterNames; //Tracks letters that we have 'tested out of'
+    public static AdaptiveResponse[,] individual_LNI; //26 letters, 6 times
+
+    //Vocab Grades
     //These hold the total score for the game
     public static double score_expressive;
     public static double score_receptive;
     public static double score_total;
     public static List<string> responses; //List of answers given
-    
+
+    public static List<bool> individual_expressive;
+    public static List<bool> individual_receptive;
+    public static List<bool> individual_expressiveFlag;
+    public static List<bool> individual_receptiveFlag;
+    public static List<int> individual_total;
+
+    public static double vocabularyTotalQuestions; //How many vocab questions are asked per unit?
+    public static double[] grade_vocabularyExpressive;
+    public static double[] grade_vocabularyReceptive;
+    public static double[] grade_vocabularyTotal;
+
+    public static List<List<bool>> individual_vocabularyExpressive;
+    public static List<List<bool>> individual_vocabularyReceptive;
+    public static List<List<string>> individual_vocabularyResponses;
+    public static List<List<bool>> individual_vocabularyExpressiveFlag;
+    public static List<List<bool>> individual_vocabularyReceptiveFlag;
 
     //UserInfo Fields
     public TMP_InputField teacherNameField;
@@ -45,14 +64,19 @@ public class DataManager : MonoBehaviour
     public TMP_InputField childIDField;
     public TMP_InputField classroomIDField;
 
+    //Instructions Fields
+    public TMP_InputField lniNameField;
+
     //Evaluator Fields
     public TMP_InputField responseField;
+    public Toggle primaryToggle;
+    public Toggle receptiveToggle; //Vocab
     public Toggle expressiveToggle;
-    public Toggle receptiveToggle;
     public Toggle expressiveFlag;
     public Toggle receptiveFlag;
 
     //Grader Fields
+    public AdvanceText promptCycler;
     public TextMeshProUGUI childText; //Displays child ID
     public TextMeshProUGUI[] promptText;
     public TextMeshProUGUI[] responsesText; //Displays child answers
@@ -61,20 +85,13 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI expressiveTotalText;
     public TextMeshProUGUI receptiveTotalText;
 
-    //Results Fields
+    //RVocab Fields
     public TextMeshProUGUI[] expressivePercent;
     public TextMeshProUGUI[] receptivePercent;
 
-    //Long-Term Grades
-    public static double vocabularyTotalQuestions; //How many vocab questions are asked per unit?
-    public static double[] grade_vocabularyExpressive;
-    public static double[] grade_vocabularyReceptive;
-    public static double[] grade_vocabularyTotal;
-    public static List<List<bool>> individual_vocabularyExpressive;
-    public static List<List<bool>> individual_vocabularyReceptive;
-    public static List<List<string>> individual_vocabularyResponses;
-    public static List<List<bool>> individual_vocabularyExpressiveFlag;
-    public static List<List<bool>> individual_vocabularyReceptiveFlag;
+    //RLI Fields
+    public TextMeshProUGUI[] RLNI_letterText;
+
     
 
     // Start is called before the first frame update
@@ -88,11 +105,15 @@ public class DataManager : MonoBehaviour
             grade_vocabularyExpressive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyReceptive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyTotal = new double[6] { -1, -1, -1, -1, -1, -1 };
+
             individual_vocabularyExpressive = new List<List<bool>>();
             individual_vocabularyExpressiveFlag = new List<List<bool>>();
             individual_vocabularyReceptive = new List<List<bool>>();
             individual_vocabularyReceptiveFlag = new List<List<bool>>();
             individual_vocabularyResponses = new List<List<string>>();
+
+            learnedLetterNames = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false, false, false, false};
         }
 
         //Initializes currentScene
@@ -105,7 +126,7 @@ public class DataManager : MonoBehaviour
             teacherIDField.text = teacherID;
             assessorIDField.text = assessorID;
             childIDField.text = childID;
-            classroomIDField.text = classroomId;
+            classroomIDField.text = classroomID;
             
             // Add logout code here
             grade_vocabularyExpressive = new double[6] { -1, -1, -1, -1, -1, -1 };
@@ -116,10 +137,14 @@ public class DataManager : MonoBehaviour
             individual_vocabularyReceptive = new List<List<bool>>();
             individual_vocabularyReceptiveFlag = new List<List<bool>>();
             individual_vocabularyResponses = new List<List<string>>();
+            individual_LNI =  new AdaptiveResponse[26, 6];
+
+            learnedLetterNames = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false, false, false, false};
         }
 
         //Reset scores and wipe responses
-        if(currentScene == "Evaluator")
+        if(currentScene == "Evaluator" || currentScene == "LNI_Evaluator")
         {
             individual_expressive = new List<bool>();
             individual_expressiveFlag = new List<bool>();
@@ -136,8 +161,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "Grader")
         {
             childText.text = childID;
-            //Temp storage
-            string[] promptStorage = AdvanceText.promptSelect(globalTime);
+            string[] promptStorage = promptCycler.PromptSelect(globalTime);
             //Loop populates table textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
             for (int wheel = 0; wheel < 6; wheel++)
             {
@@ -152,8 +176,47 @@ public class DataManager : MonoBehaviour
             receptiveTotalText.text = grade_vocabularyReceptive[globalTime - 1].ToString("F0") + '%';
         }
 
+        if (currentScene == "LNI_Grader")
+        {
+            //Check for "Tested Out" Letters
+            for (int letter = 0; letter < individual_LNI.GetLength(0); letter++)
+            {
+                int adaptiveCounter = 0; //Var used to track 'consecutive' correct answers
+
+                for (int time = 0; time < individual_LNI.GetLength(1); time++)
+                {
+                    //If score was correct or CSkipped, increase adaptive counter
+                    if (individual_LNI[letter, time] == AdaptiveResponse.Correct ||
+                    individual_LNI[letter, time] == AdaptiveResponse.CSKIP)
+                    {
+                        adaptiveCounter++;                        
+                    }
+
+                    //If incorrect, reset adaptive counter. Note that we don't count ISKIP
+                    else if  (individual_LNI[letter, time] == AdaptiveResponse.Incorrect)
+                    {
+                        adaptiveCounter = 0;
+                    }
+
+                    if(adaptiveCounter>=2)
+                    {
+                        learnedLetterNames[letter] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
+                        //there's no mechanic to take this back to false--test out once and you're good
+                    }
+                }
+            }
+
+            /*Populate answers and scores entered for this time
+            string[] promptStorage = promptCycler.PromptSelect(globalTime);
+            for (int wheel = 0; wheel < 6; wheel++)
+            {
+                promptText[wheel].text = promptStorage[wheel];
+                responsesText[wheel].text = responses[wheel];
+            }*/
+        }
+
         //Report card - show all times
-        if (currentScene == "Results")
+        if (currentScene == "RVocab")
         {
             childText.text = childID;
             //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
@@ -162,6 +225,26 @@ public class DataManager : MonoBehaviour
                 expressivePercent[loop].text = grade_vocabularyExpressive[loop].ToString("F0"); //Parameter ensures two decimal points
                 receptivePercent[loop].text = grade_vocabularyReceptive[loop].ToString("F0");
             }
+        }
+
+        //RLI - show scores for each letter
+        if (currentScene == "RLI")
+        {
+            //look for last good score
+            for(int loop = 0; loop < learnedLetterNames.Length; loop++)
+            {
+                string result;
+                if (learnedLetterNames[loop] == true)
+                {
+                    result = "<color=green>+</color>";
+                }
+                else result = "<color=red>-</color>";
+                RLNI_letterText[loop].text = result;
+            }
+            //if none, zero
+            //else track back and add, exit once tested out
+            
+             
         }
     }
 
@@ -172,7 +255,7 @@ public class DataManager : MonoBehaviour
         //Calculate scores based on toggles
         if (currentScene == "Evaluator")
         {
-            if (expressiveToggle.isOn)
+            if (primaryToggle.isOn)
             {
                 individual_expressive.Add(true);
                 individual_receptive.Add(true);
@@ -206,6 +289,23 @@ public class DataManager : MonoBehaviour
 
             responses.Add(responseField.text);
         }
+
+        if (currentScene == "LNI_Evaluator")
+        {
+            //Get prompt array for current time, get exact prompt we're on, convert from str to char to int to number of alphabet
+            int charNum = (int)(char.Parse(promptCycler.PromptSelect(globalTime)[promptCycler.iterator])) - 65; //'A' ASCII int is 65   
+
+            if (primaryToggle.isOn)
+            {
+                individual_LNI[charNum, globalTime-1] = AdaptiveResponse.Correct;
+                responses.Add("<color=green>Correct</color>");
+            }
+            else
+            {
+                individual_LNI[charNum, globalTime-1] = AdaptiveResponse.Incorrect;
+                responses.Add("<color=red>Incorrect</color>");
+            }
+        }
     }
 
     //General-purpose function
@@ -225,10 +325,16 @@ public class DataManager : MonoBehaviour
             childID = childNameField.text;
             if(childIDField.text != "")
                 childID = childIDField.text;
-            classroomId = classroomField.text;
+            classroomID = classroomField.text;
             if(classroomIDField.text != "")
-                classroomId = classroomIDField.text;
+                classroomID = classroomIDField.text;
             
+        }
+
+        //Store child name for letter randomization
+        if(currentScene == "LNI_Instructions")
+        {
+            childNameLNI = lniNameField.text;
         }
 
         //Grade final question and calculate results before moving on
@@ -250,5 +356,4 @@ public class DataManager : MonoBehaviour
             individual_vocabularyResponses.Insert(timeIndex, responses);
         }
     }
-
 }

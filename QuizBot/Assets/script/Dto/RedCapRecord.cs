@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
+using UnityEngine;
 
 [Serializable]
 // Represents a sample record in RedCap across all instruments
@@ -91,8 +92,172 @@ public class RedCapRecord
     public int? q6ReceptiveFlag = null;
     [JsonProperty("q6_solution", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string q6Solution = null;
-    
 
+    //Letter Name Identification - Student Progress
+    [JsonProperty("lni_a", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? A = null;
+    [JsonProperty("lni_b", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? B = null;
+    [JsonProperty("lni_c", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? C = null;
+    [JsonProperty("lni_d", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? D = null;
+    [JsonProperty("lni_e", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? E = null;
+    [JsonProperty("lni_f", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? F = null;
+    [JsonProperty("lni_g", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? G = null;
+    [JsonProperty("lni_h", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? H = null;
+    [JsonProperty("lni_i", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? I = null;
+    [JsonProperty("lni_j", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? J = null;
+    [JsonProperty("lni_k", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? K = null;
+    [JsonProperty("lni_l", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? L = null;
+    [JsonProperty("lni_m", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? M = null;
+    [JsonProperty("lni_n", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? N = null;
+    [JsonProperty("lni_o", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? O = null;
+    [JsonProperty("lni_p", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? P = null;
+    [JsonProperty("lni_q", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? Q = null;
+    [JsonProperty("lni_r", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? R = null;
+    [JsonProperty("lni_s", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? S = null;
+    [JsonProperty("lni_t", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? T = null;
+    [JsonProperty("lni_u", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? U = null;
+    [JsonProperty("lni_v", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? V = null;
+    [JsonProperty("lni_w", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? W = null;
+    [JsonProperty("lni_x", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? X = null;
+    [JsonProperty("lni_y", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? Y = null;
+    [JsonProperty("lni_z", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? Z = null;
+
+    //Fields for Letter Name Recognition - Results instrument
+    [JsonProperty("lnir_session_no", NullValueHandling = NullValueHandling.Ignore)]
+    public int? lnirSessionNumber = null;
+    [JsonProperty("lnir_a", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rA = null;
+    [JsonProperty("lnir_b", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rB = null;
+    [JsonProperty("lnir_c", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rC = null;
+    [JsonProperty("lnir_d", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rD = null;
+    [JsonProperty("lnir_e", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rE = null;
+    [JsonProperty("lnir_f", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rF = null;
+    [JsonProperty("lnir_g", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rG = null;
+    [JsonProperty("lnir_h", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rH = null;
+    [JsonProperty("lnir_i", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rI = null;
+    [JsonProperty("lnir_j", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rJ = null;
+    [JsonProperty("lnir_k", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rK = null;
+    [JsonProperty("lnir_l", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rL = null;
+    [JsonProperty("lnir_m", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rM = null;
+    [JsonProperty("lnir_n", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rN = null;
+    [JsonProperty("lnir_o", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rO = null;
+    [JsonProperty("lnir_p", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rP = null;
+    [JsonProperty("lnir_q", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rQ = null;
+    [JsonProperty("lnir_r", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rR = null;
+    [JsonProperty("lnir_s", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rS = null;
+    [JsonProperty("lnir_t", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rT = null;
+    [JsonProperty("lnir_u", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rU = null;
+    [JsonProperty("lnir_v", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rV = null;
+    [JsonProperty("lnir_w", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rW = null;
+    [JsonProperty("lnir_x", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rX = null;
+    [JsonProperty("lnir_y", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rY = null;
+    [JsonProperty("lnir_z", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public int? rZ = null;
+
+
+    //Seems like the idea here is to create a big list of RedcapRecords
+    //that match the db field names so they can be serialized later
     public static List<RedCapRecord> convertToRedCapRecord(SerialData inputData)
     {
         List<RedCapRecord> redCapRecords = new List<RedCapRecord>();
@@ -255,6 +420,100 @@ public class RedCapRecord
         }
         
         redCapRecords.AddRange(vocabularyRedCapRecords);
+
+        //Create Letter Name Identification - Student Progress records
+        RedCapRecord lniSpRecord = new();
+
+        lniSpRecord.recordID = recordID;
+        lniSpRecord.redcapRepeatInstrument = "letter_name_identification_student_progress";
+        lniSpRecord.redcapRepeatInstance = 1;
+        //go through each element of sLearnedLetterNames and map to flag
+        //handle null case for data w/o letternames
+        if(inputData.sLearnedLetterNames is null)
+        {
+            inputData.sLearnedLetterNames = new bool[26];
+        }
+        lniSpRecord.A = getBinaryTrueFalse(inputData.sLearnedLetterNames[0]);
+        lniSpRecord.B = getBinaryTrueFalse(inputData.sLearnedLetterNames[1]);
+        lniSpRecord.C = getBinaryTrueFalse(inputData.sLearnedLetterNames[2]);
+        lniSpRecord.D = getBinaryTrueFalse(inputData.sLearnedLetterNames[3]);
+        lniSpRecord.E = getBinaryTrueFalse(inputData.sLearnedLetterNames[4]);
+        lniSpRecord.F = getBinaryTrueFalse(inputData.sLearnedLetterNames[5]);
+        lniSpRecord.G = getBinaryTrueFalse(inputData.sLearnedLetterNames[6]);
+        lniSpRecord.H = getBinaryTrueFalse(inputData.sLearnedLetterNames[7]);
+        lniSpRecord.I = getBinaryTrueFalse(inputData.sLearnedLetterNames[8]);
+        lniSpRecord.J = getBinaryTrueFalse(inputData.sLearnedLetterNames[9]);
+        lniSpRecord.K = getBinaryTrueFalse(inputData.sLearnedLetterNames[10]);
+        lniSpRecord.L = getBinaryTrueFalse(inputData.sLearnedLetterNames[11]);
+        lniSpRecord.M = getBinaryTrueFalse(inputData.sLearnedLetterNames[12]);
+        lniSpRecord.N = getBinaryTrueFalse(inputData.sLearnedLetterNames[13]);
+        lniSpRecord.O = getBinaryTrueFalse(inputData.sLearnedLetterNames[14]);
+        lniSpRecord.P = getBinaryTrueFalse(inputData.sLearnedLetterNames[15]);
+        lniSpRecord.Q = getBinaryTrueFalse(inputData.sLearnedLetterNames[16]);
+        lniSpRecord.R = getBinaryTrueFalse(inputData.sLearnedLetterNames[17]);
+        lniSpRecord.S = getBinaryTrueFalse(inputData.sLearnedLetterNames[18]);
+        lniSpRecord.T = getBinaryTrueFalse(inputData.sLearnedLetterNames[19]);
+        lniSpRecord.U = getBinaryTrueFalse(inputData.sLearnedLetterNames[20]);
+        lniSpRecord.V = getBinaryTrueFalse(inputData.sLearnedLetterNames[21]);
+        lniSpRecord.W = getBinaryTrueFalse(inputData.sLearnedLetterNames[22]);
+        lniSpRecord.X = getBinaryTrueFalse(inputData.sLearnedLetterNames[23]);
+        lniSpRecord.Y = getBinaryTrueFalse(inputData.sLearnedLetterNames[24]);
+        lniSpRecord.Z = getBinaryTrueFalse(inputData.sLearnedLetterNames[25]);
+
+        redCapRecords.Add(lniSpRecord);
+
+        //Create Letter Name Recognition - Results
+        // Populate fields for Vocabulary Instrument (field-receptive flag) in RedCap
+        List<RedCapRecord> lniRedCapRecords = new();
+        for (int lnrRIndex = 0; inputData.sIndividual_LNI != null &&
+                                    lnrRIndex < inputData.sIndividual_LNI.GetLength(1); lnrRIndex++)
+        {
+            //Headers, credentials, etc.
+            RedCapRecord lniRRecord;
+            AdaptiveResponse[,] lniRSD = inputData.sIndividual_LNI;
+            if (lniRedCapRecords.Count - 1 < lnrRIndex)
+                lniRedCapRecords.Add(new RedCapRecord());
+
+            lniRRecord = lniRedCapRecords[lnrRIndex];
+            lniRRecord.lnirSessionNumber = lnrRIndex + 1;
+            lniRRecord.recordID = recordID;
+            lniRRecord.redcapRepeatInstrument = "letter_name_identification_results";
+            lniRRecord.redcapRepeatInstance = lniRRecord.lnirSessionNumber;
+
+            //Actual data values
+            //Not using nullproofing on sessiondata
+            //Since AdaptiveResponse(enum) is non-nullable
+            //And the 0 value is significant in grading
+            lniRRecord.rA = (int)lniRSD[0, lnrRIndex];
+            lniRRecord.rB = (int)lniRSD[1, lnrRIndex];
+            lniRRecord.rC = (int)lniRSD[2, lnrRIndex];
+            lniRRecord.rD = (int)lniRSD[3, lnrRIndex];
+            lniRRecord.rE = (int)lniRSD[4, lnrRIndex];
+            lniRRecord.rF = (int)lniRSD[5, lnrRIndex];
+            lniRRecord.rG = (int)lniRSD[6, lnrRIndex];
+            lniRRecord.rH = (int)lniRSD[7, lnrRIndex];
+            lniRRecord.rI = (int)lniRSD[8, lnrRIndex];
+            lniRRecord.rJ = (int)lniRSD[9, lnrRIndex];
+            lniRRecord.rK = (int)lniRSD[10, lnrRIndex];
+            lniRRecord.rL = (int)lniRSD[11, lnrRIndex];
+            lniRRecord.rM = (int)lniRSD[12, lnrRIndex];
+            lniRRecord.rN = (int)lniRSD[13, lnrRIndex];
+            lniRRecord.rO = (int)lniRSD[14, lnrRIndex];
+            lniRRecord.rP = (int)lniRSD[15, lnrRIndex];
+            lniRRecord.rQ = (int)lniRSD[16, lnrRIndex];
+            lniRRecord.rR = (int)lniRSD[17, lnrRIndex];
+            lniRRecord.rS = (int)lniRSD[18, lnrRIndex];
+            lniRRecord.rT = (int)lniRSD[19, lnrRIndex];
+            lniRRecord.rU = (int)lniRSD[20, lnrRIndex];//PROBLEM HERE OR BELOW
+            lniRRecord.rV = (int)lniRSD[21, lnrRIndex];
+            lniRRecord.rW = (int)lniRSD[22, lnrRIndex];
+            lniRRecord.rX = (int)lniRSD[23, lnrRIndex];
+            lniRRecord.rY = (int)lniRSD[24, lnrRIndex];
+            lniRRecord.rZ = (int)lniRSD[25, lnrRIndex];
+        }
+        redCapRecords.AddRange(lniRedCapRecords);
+
+
         return redCapRecords;
     }
 

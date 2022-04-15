@@ -17,7 +17,7 @@ public class LoadScene_Conditional : MonoBehaviour
         clickedButton.onClick.AddListener(TaskOnClick);
     }
 
-    void TaskOnClick()
+    protected void TaskOnClick()
     {
         //Saves data and loads next string
         if(checker.Validator()) //if input is invalid
