@@ -3,6 +3,7 @@
 //By using static variables we keep a persistent location in memory.
 //Note: Use doubles to store all numbers to avoid expensive casting
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -22,13 +23,24 @@ public class DataManager : MonoBehaviour
     public static string globalGame; //Var used to store what game we are playing
     public static int globalTime; //Var used to store which 'Time'/unit/week we are on
 
+    // Student should answer 3 of these alphabets to skip these alphabets
+    public static string[] exceptionalAdaptCharactersLSI = new[] { "A", "B", "E", "O", "S", "U" }; 
+    public static string[] exceptionalTwoStageCharactersLSI = new[] { "A", "B", "M", "P", "S", "T" }; 
+    
     public static string childNameLNI; //used to store child name for use in LNI
                                        //PII THAT SHOULD NOT BE SAVED LONG-TERM
+    
+                                       
 
     //Per-game scored answers
     //LNI Grades
-    public static bool[] learnedLetterNames; //Tracks letters that we have 'tested out of'
+    public static bool[] learnedLetterNamesLNI; //Tracks letters that we have 'tested out of'
     public static AdaptiveResponse[,] individual_LNI; //26 letters, 6 times
+
+    //Per-game scored answers
+    //LSI Grades
+    public static bool[] learnedLetterNamesLSI; //Tracks letters that we have 'tested out of'
+    public static AdaptiveResponse[,] individual_LSI; //26 letters, 6 times
 
     //Vocab Grades
     //These hold the total score for the game
@@ -91,6 +103,7 @@ public class DataManager : MonoBehaviour
 
     //RLI Fields
     public TextMeshProUGUI[] RLNI_letterText;
+    public TextMeshProUGUI[] RLSI_letterText;
 
     
 
@@ -112,7 +125,10 @@ public class DataManager : MonoBehaviour
             individual_vocabularyReceptiveFlag = new List<List<bool>>();
             individual_vocabularyResponses = new List<List<string>>();
 
-            learnedLetterNames = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+            learnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false, false, false, false};
+
+            learnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false, false, false, false, false, false};
         }
 
@@ -138,13 +154,17 @@ public class DataManager : MonoBehaviour
             individual_vocabularyReceptiveFlag = new List<List<bool>>();
             individual_vocabularyResponses = new List<List<string>>();
             individual_LNI =  new AdaptiveResponse[26, 6];
+            individual_LSI =  new AdaptiveResponse[26, 6];
 
-            learnedLetterNames = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+            learnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false, false, false, false};
+
+            learnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false, false, false, false, false, false};
         }
 
         //Reset scores and wipe responses
-        if(currentScene == "Evaluator" || currentScene == "LNI_Evaluator")
+        if(currentScene == "Evaluator" || currentScene == "LNI_Evaluator" || currentScene == "LSI_Evaluator")
         {
             individual_expressive = new List<bool>();
             individual_expressiveFlag = new List<bool>();
@@ -176,7 +196,7 @@ public class DataManager : MonoBehaviour
             receptiveTotalText.text = grade_vocabularyReceptive[globalTime - 1].ToString("F0") + '%';
         }
 
-        if (currentScene == "LNI_Grader")
+        if (currentScene == "LNI_Grader" )
         {
             //Check for "Tested Out" Letters
             for (int letter = 0; letter < individual_LNI.GetLength(0); letter++)
@@ -200,7 +220,7 @@ public class DataManager : MonoBehaviour
                     
                     //If score was correct or CSkipped, increase adaptive counter
                     if (individual_LNI[letter, time] == AdaptiveResponse.Correct ||
-                    individual_LNI[letter, time] == AdaptiveResponse.CSKIP)
+                        individual_LNI[letter, time] == AdaptiveResponse.CSKIP)
                     {
                         adaptiveCounter++;
                     }
@@ -213,7 +233,71 @@ public class DataManager : MonoBehaviour
 
                     if(adaptiveCounter>=2)
                     {
-                        learnedLetterNames[letter] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
+                        learnedLetterNamesLNI[letter] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
+                        //there's no mechanic to take this back to false--test out once and you're good
+                    }
+                }
+            }
+
+            /*Populate answers and scores entered for this time
+            string[] promptStorage = promptCycler.PromptSelect(globalTime);
+            for (int wheel = 0; wheel < 6; wheel++)
+            {
+                promptText[wheel].text = promptStorage[wheel];
+                responsesText[wheel].text = responses[wheel];
+            }*/
+        }
+
+        if (currentScene == "LSI_Grader" )
+        {
+            //Check for "Tested Out" Letters
+            for (int letterIndex = 0; letterIndex < individual_LSI.GetLength(0); letterIndex++)
+            {
+                string letter = ((char)(letterIndex + 65)).ToString(); //65 is code for 'A'
+                int adaptiveCounter = 0; //Var used to track 'consecutive' correct answers
+
+                for (int time = 0; time < individual_LSI.GetLength(1); time++)
+                {
+                    if (time == globalTime-1)
+                    {
+                        if (individual_LSI[letterIndex, time] == AdaptiveResponse.Correct ||
+                            individual_LSI[letterIndex, time] == AdaptiveResponse.CSKIP)
+                        {
+                            RLSI_letterText[letterIndex].text = "<color=green>+</color>";
+                        }
+                        else
+                        {
+                            RLSI_letterText[letterIndex].text = "<color=red>-</color>";
+                        }
+                    }
+                    
+                    //If score was correct or CSkipped, increase adaptive counter
+                    if (individual_LSI[letterIndex, time] == AdaptiveResponse.Correct ||
+                        individual_LSI[letterIndex, time] == AdaptiveResponse.CSKIP)
+                    {
+                        adaptiveCounter++;
+                    }
+
+                    //If incorrect, reset adaptive counter. Note that we don't count ISKIP
+                    else if  (individual_LSI[letterIndex, time] == AdaptiveResponse.Incorrect)
+                    {
+                        adaptiveCounter = 0;
+                    }
+                }
+
+                if (exceptionalAdaptCharactersLSI.Contains(letter))
+                {
+                    if(adaptiveCounter>=3)
+                    {
+                        learnedLetterNamesLSI[letterIndex] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
+                        //there's no mechanic to take this back to false--test out once and you're good
+                    }
+                }
+                else
+                {
+                    if(adaptiveCounter>=2)
+                    {
+                        learnedLetterNamesLSI[letterIndex] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
                         //there's no mechanic to take this back to false--test out once and you're good
                     }
                 }
@@ -244,15 +328,26 @@ public class DataManager : MonoBehaviour
         if (currentScene == "RLI")
         {
             //look for last good score
-            for(int loop = 0; loop < learnedLetterNames.Length; loop++)
+            for(int loop = 0; loop < learnedLetterNamesLNI.Length; loop++)
             {
                 string result;
-                if (learnedLetterNames[loop] == true)
+                if (learnedLetterNamesLNI[loop] == true)
                 {
                     result = "<color=green>+</color>";
                 }
                 else result = "<color=red>-</color>";
                 RLNI_letterText[loop].text = result;
+            }
+
+            for(int loop = 0; loop < learnedLetterNamesLSI.Length; loop++)
+            {
+                string result;
+                if (learnedLetterNamesLSI[loop] == true)
+                {
+                    result = "<color=green>+</color>";
+                }
+                else result = "<color=red>-</color>";
+                RLSI_letterText[loop].text = result;
             }
             //if none, zero
             //else track back and add, exit once tested out
@@ -316,6 +411,23 @@ public class DataManager : MonoBehaviour
             else
             {
                 individual_LNI[charNum, globalTime-1] = AdaptiveResponse.Incorrect;
+                responses.Add("<color=red>Incorrect</color>");
+            }
+        }
+
+        if (currentScene == "LSI_Evaluator")
+        {
+            //Get prompt array for current time, get exact prompt we're on, convert from str to char to int to number of alphabet
+            int charNum = (int)(char.Parse(promptCycler.PromptSelect(globalTime)[promptCycler.iterator])) - 65; //'A' ASCII int is 65   
+
+            if (primaryToggle.isOn)
+            {
+                individual_LSI[charNum, globalTime-1] = AdaptiveResponse.Correct;
+                responses.Add("<color=green>Correct</color>");
+            }
+            else
+            {
+                individual_LSI[charNum, globalTime-1] = AdaptiveResponse.Incorrect;
                 responses.Add("<color=red>Incorrect</color>");
             }
         }
