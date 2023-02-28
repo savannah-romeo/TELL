@@ -21,6 +21,7 @@ public class Validation_UserInfo : Validation_Parent
     public TMP_InputField classRoomId;
     public static string persistentDataPath;
     public Nullable<bool> displayWarning;
+    public Nullable<bool> duplicateWarning;
 
     void Awake()
     {
@@ -44,8 +45,9 @@ public class Validation_UserInfo : Validation_Parent
             valid = false;
 
         displayWarning = shouldDisplayWarning();
+        duplicateWarning = shouldDisplayDuplicateWarning();
 
-        return valid && !displayWarning.Value;
+        return valid && !displayWarning.Value && !duplicateWarning.Value;
     }
 
     // This function is responsible for evaluating if a file can be loaded into application or not, displays
@@ -62,5 +64,25 @@ public class Validation_UserInfo : Validation_Parent
             return true;
         }
         return false;
+    }
+
+    public bool shouldDisplayDuplicateWarning()
+    {            
+        RedCapRequest redCapRequestForRecordIDs = new RedCapRequest();
+        redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
+        redCapRequestForRecordIDs.content = "record";
+        redCapRequestForRecordIDs.action = "export";
+        redCapRequestForRecordIDs.format = "json";
+        redCapRequestForRecordIDs.type = "flat";
+        redCapRequestForRecordIDs.returnFormat = "json";
+        if (childID.text != String.Empty && childName.text == String.Empty) {
+            redCapRequestForRecordIDs.filterLogic = "[child_id]=" + "\"" + DataManager.childID + "\"";
+        }
+        else if (childID.text == String.Empty && childName.text != String.Empty){
+            redCapRequestForRecordIDs.filterLogic = "[child_name]=" + "\"" + DataManager.childID + "\"";
+            }
+
+        return RedCapService.Instance.WaitOnData(redCapRequestForRecordIDs, childID.text, childName.text);
+            
     }
 }

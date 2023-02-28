@@ -184,7 +184,7 @@ MonoBehaviour:
   m_text: Child Name or Child ID already exists. Do you want to proceed?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
-  m_sharedMaterial: {fileID: 4987265420253103367, guid: a81e8249167673b4e8365e9e2f8d0afe, type: 2}
+  m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_text: YES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
-  m_sharedMaterial: {fileID: 4987265420253103367, guid: a81e8249167673b4e8365e9e2f8d0afe, type: 2}
+  m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 1, a: 0.9019608}
+  m_Color: {r: 0.11320752, g: 0.09665359, b: 0.09665359, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -948,12 +948,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 99568380}
-  - component: {fileID: 99568379}
-  - component: {fileID: 99568382}
   - component: {fileID: 99568381}
-  - component: {fileID: 99568386}
-  - component: {fileID: 99568383}
+  - component: {fileID: 99568379}
   - component: {fileID: 99568385}
+  - component: {fileID: 99568386}
+  - component: {fileID: 99568382}
+  - component: {fileID: 99568383}
   - component: {fileID: 99568384}
   m_Layer: 0
   m_Name: Scripts
@@ -1028,6 +1028,7 @@ MonoBehaviour:
   sceneName: MainMenu
   checker: {fileID: 99568381}
   cleanup: {fileID: 99568383}
+  showExportMessage: 0
 --- !u!114 &99568383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,13 +1050,26 @@ MonoBehaviour:
   childIDField: {fileID: 99378696}
   classroomIDField: {fileID: 1592095471}
   lniNameField: {fileID: 0}
+  bsChildResponseField: {fileID: 0}
   responseField: {fileID: 0}
   primaryToggle: {fileID: 0}
   receptiveToggle: {fileID: 0}
   expressiveToggle: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
+  questionField: {fileID: 0}
+  name0Toggle: {fileID: 0}
+  name1Toggle: {fileID: 0}
+  name2Toggle: {fileID: 0}
+  name3Toggle: {fileID: 0}
+  name4Toggle: {fileID: 0}
+  sen0Toggle: {fileID: 0}
+  sen1Toggle: {fileID: 0}
+  sen2Toggle: {fileID: 0}
+  sen3Toggle: {fileID: 0}
+  sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
+  promptCyclerBS: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -1065,11 +1079,31 @@ MonoBehaviour:
   - {fileID: 0}
   expressiveTotalText: {fileID: 0}
   receptiveTotalText: {fileID: 0}
+  csScoreTotal: {fileID: 0}
+  csPromptText: []
+  csResponseScore: []
+  srScoreTotal: {fileID: 0}
+  srPromptText: []
+  srResponseScore: []
+  bookSumScoreTotal: {fileID: 0}
+  writingNameScore: {fileID: 0}
+  writingSentenceScore: {fileID: 0}
   expressivePercent:
   - {fileID: 0}
   receptivePercent:
   - {fileID: 0}
+  csScoresForResultPage: []
+  writingNameScoreForResultPage: []
+  writingSentenceScoreForResultPage: []
+  srScoresForResultPage: []
+  booksumScoresForResultPage: []
   RLNI_letterText: []
+  RLSI_letterText: []
+  BS_items: []
+  BS_letterText: []
+  BS_EAPScore: []
+  gameText: {fileID: 0}
+  timeText: {fileID: 0}
 --- !u!114 &99568384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2430,7 +2464,7 @@ MonoBehaviour:
   m_text: NO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
-  m_sharedMaterial: {fileID: 4987265420253103367, guid: a81e8249167673b4e8365e9e2f8d0afe, type: 2}
+  m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

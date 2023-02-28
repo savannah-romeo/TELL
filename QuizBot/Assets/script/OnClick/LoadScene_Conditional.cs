@@ -11,6 +11,8 @@ public class LoadScene_Conditional : MonoBehaviour
     public Validation_Parent checker; //Used to check input
     public DataManager cleanup; //Saves data before loading
 
+    public bool showExportMessage;
+
     void Start()
     {
         //Create listener for the button in question
@@ -19,12 +21,20 @@ public class LoadScene_Conditional : MonoBehaviour
 
     protected void TaskOnClick()
     {
-        //Saves data and loads next string
-        if(checker.Validator()) //if input is invalid
-        {
-            cleanup.SceneCleanup();
+        if(clickedButton.name == "button_exit" && sceneName== "MainMenu"){
             DataManager.currentScene = sceneName; //Updates DataManager scene string
             SceneManager.LoadScene(sceneName);
+        }
+        else if(!showExportMessage && checker.Validator()) //if input is invalid
+        {  
+            cleanup.SceneCleanup();
+            DataManager.currentScene = sceneName; //Updates DataManager scene string
+            if(DataManager.continuation_flag){
+                DataManager.continuation_flag = false;
+                SceneManager.LoadScene(DataManager.continuation_scene);
+            } else{
+                SceneManager.LoadScene(sceneName);
+            }
         }
     }
 }

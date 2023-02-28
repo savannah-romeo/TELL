@@ -163,6 +163,7 @@ MonoBehaviour:
   childIDField: {fileID: 0}
   classroomIDField: {fileID: 0}
   lniNameField: {fileID: 0}
+  bsChildResponseField: {fileID: 0}
   responseField: {fileID: 0}
   primaryToggle: {fileID: 0}
   receptiveToggle: {fileID: 0}
@@ -170,6 +171,7 @@ MonoBehaviour:
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   promptCycler: {fileID: 0}
+  promptCyclerBS: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -184,6 +186,10 @@ MonoBehaviour:
   receptivePercent:
   - {fileID: 0}
   RLNI_letterText: []
+  RLSI_letterText: []
+  BS_items: []
+  BS_letterText: []
+  BS_EAPScore: []
 --- !u!114 &140666067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,8 +893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 534.5, y: 88.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1487311241
 MonoBehaviour:
@@ -939,8 +945,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

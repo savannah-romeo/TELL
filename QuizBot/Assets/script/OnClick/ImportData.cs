@@ -38,13 +38,18 @@ public class ImportData  : MonoBehaviour
             
             // 1. Getting all record_id corresponding to the classroom_id filter in hand
             RedCapRequest redCapRequestForRecordIDs = new RedCapRequest();
-            redCapRequestForRecordIDs.token = "B345C5E9AFB7556F4627986E305D4F81"; // This is Akshay's creds, to be replaced!
+            redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
             redCapRequestForRecordIDs.content = "record";
             redCapRequestForRecordIDs.action = "export";
             redCapRequestForRecordIDs.format = "json";
             redCapRequestForRecordIDs.type = "flat";
             redCapRequestForRecordIDs.returnFormat = "json";
-            redCapRequestForRecordIDs.filterLogic = "[classroom_id]=" + "\"" + DataManager.classroomID + "\"";
+            if(DataManager.exportImportRef == "ID") {
+                redCapRequestForRecordIDs.filterLogic = "[child_id]=" + "\"" + DataManager.childID + "\"";
+            }
+            else {
+                redCapRequestForRecordIDs.filterLogic = "[child_name]=" + "\"" + DataManager.childID + "\"";
+            }
 
             // Execute import request
             yield return StartCoroutine(
@@ -53,7 +58,7 @@ public class ImportData  : MonoBehaviour
 
             // 2. Getting all records with the corresponding record_id and store locally.
             RedCapRequest redCapRequestForRecords = new RedCapRequest();
-            redCapRequestForRecords.token = "B345C5E9AFB7556F4627986E305D4F81"; // This is Akshay's creds, to be replaced!
+            redCapRequestForRecords.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
             redCapRequestForRecords.content = "record";
             redCapRequestForRecords.action = "export";
             redCapRequestForRecords.format = "json";
@@ -128,11 +133,10 @@ public class ImportData  : MonoBehaviour
         {
             RedCapRecord redCapRecord = usersDetails.users[index];
             if (redCapRecord != null &&
-                string.IsNullOrEmpty(redCapRecord.classroomID) == false &&
-                string.IsNullOrEmpty(redCapRecord.childID) == false)
+                (string.IsNullOrEmpty(redCapRecord.classroomID) == false || string.IsNullOrEmpty(redCapRecord.classroomName)) &&
+                (string.IsNullOrEmpty(redCapRecord.childID) == false || string.IsNullOrEmpty(redCapRecord.childName)))
                 isValid = true;
         }
-
         return isValid;
     }
     

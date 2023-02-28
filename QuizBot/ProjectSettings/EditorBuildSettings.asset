@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/scenes/Times.unity
     guid: c1989a2cced618644afdd204e2612ad5
   - enabled: 1
+    path: Assets/scenes/Times_1.unity
+    guid: cfb7a6540ddcf4761b15c6a82efb99c1
+  - enabled: 1
     path: Assets/scenes/CBM Scenes/Vocabulary/Instructions.unity
     guid: 90b6975ee553650469735f7f3495298a
   - enabled: 1
@@ -46,13 +49,73 @@ EditorBuildSettings:
     guid: 4c2172d4a41204d98a463190ac2d04b4
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Instructions.unity
+    guid: e830a759aeba444ee8faf998c3a295a3
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Example_Test.unity
     guid: 1dd93e21e533241278ac78a07dca14c0
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Ex_Evaluator.unity
+    guid: da1bb4e31b7524953b61f4839448c114
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Evaluator.unity
     guid: 498155f0dab084287bf2ee3bbe371102
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Grader.unity
     guid: 4c0a6f15afade4a40bec690014cc4a26
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Actual_Test.unity
+    guid: 24efb271e4598442aa3fd10d80797fb5
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Clapping Syllables/CS_Instructions.unity
+    guid: ec3fe55786ed1466aad2e85a10fa58a0
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Clapping Syllables/CS_Evaluator.unity
+    guid: e7dda49d1af47467fba28943e97029a8
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Clapping Syllables/CS_Grader.unity
+    guid: 4b99e1024c6f440ea8b8d1a8d6a7ce4d
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Writing/Writing_Instructions.unity
+    guid: a253ce9c91def46c98cfd428af68733a
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Writing/Writing_Evaluator.unity
+    guid: d4751577339744176824f401f272fa24
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Writing/Writing_Grader.unity
+    guid: 485372e69f27148a88cdcdc5cb3a80d4
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Story Retell/SR_Instructions.unity
+    guid: 1a275b83fd83240129c2e12937c1b3eb
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Story Retell/SR_Evaluator.unity
+    guid: f26789556e944478aa7c0d5f58ebf452
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Story Retell/SR_Evaluator_2.unity
+    guid: 452d2384690094aeda03a420052d6c07
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Story Retell/SR_Grader.unity
+    guid: bdf305b63b891463aa6796d361257a1a
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Instructions.unity
+    guid: 278e80c67fa884b7c886efc8132cce5f
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Evaluator.unity
+    guid: 6af8a544c47d5430c9481c8ec53058a2
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Evaluator_2.unity
+    guid: 1e55ea66044d24b3784f513ca0367eee
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Evaluator_3.unity
+    guid: 1b8da629bae6b4b3980e8d966f9a7f7b
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Grader.unity
+    guid: 754ecdb868f5e480fb929a5f3dbc0b1c
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Concepts of Print/COP_Instructions.unity
+    guid: 5f8d75946f93941b59bf731f675eae09
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Concepts of Print/COP_Evaluator.unity
+    guid: 8a0d845ad9f8745b4947d2e081710771
   - enabled: 1
     path: Assets/scenes/Results Scenes/RSelect.unity
     guid: 646f2d85dd42cae45b1dd37042c0e1fa
@@ -65,4 +128,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/Results Scenes/RBS.unity
     guid: 8e7dcf14449bfee4d959d9b705b2e062
+  - enabled: 1
+    path: Assets/scenes/Results Scenes/RCS.unity
+    guid: a694892cb7d8f4e3fbe0aa9d417dba1f
+  - enabled: 0
+    path: Assets/script/Validation/Games/Validation_Writing.cs
+    guid: 438fa832c3bf4433fbc73acdc5509995
+  - enabled: 1
+    path: Assets/scenes/Results Scenes/RSR.unity
+    guid: 633db5930b4ae46558e8207da2192709
+  - enabled: 1
+    path: Assets/scenes/Results Scenes/RBookSum.unity
+    guid: b0a532437bce3415cbcbb0b2587bad18
   m_configObjects: {}
