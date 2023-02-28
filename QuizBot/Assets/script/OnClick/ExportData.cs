@@ -26,7 +26,7 @@ public class ExportData : MonoBehaviour
     {
         // Preparing export request
         RedCapRequest outboundRequest = new RedCapRequest();
-        outboundRequest.token = "B345C5E9AFB7556F4627986E305D4F81"; // This is Akshay's creds, to be replaced!
+        outboundRequest.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
         outboundRequest.content = "record";
         outboundRequest.action = "import";
         outboundRequest.format = "json";
@@ -45,7 +45,7 @@ public class ExportData : MonoBehaviour
             string[] splits = fileInDirectory.Name.Split('_');
 
             // Only pick files in directory that belong to same class
-            if (splits.Length == 0 || splits[0] != DataManager.classroomID)
+            if (splits.Length == 0 || splits[0] != (DataManager.childID + ".dat"))
                 continue;
 
             // Read data in file and convert it into RedCap records
@@ -55,12 +55,12 @@ public class ExportData : MonoBehaviour
             file.Close();
 
             string data = JsonConvert.SerializeObject(redCapRecords);
-            //string data = JsonUtility.ToJson(redCapRecords);
+            // string data = JsonUtility.ToJson(redCapRecords);
             outboundRequest.forceAutoNumber = redCapRecords[0].recordID == int.MaxValue ? "true" : "false";
             outboundRequest.data = data;
 
             // Execute export request
-            StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest));
+            StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest, fileName));
         }
         
         panel.gameObject.SetActive(true);

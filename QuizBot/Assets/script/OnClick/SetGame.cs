@@ -26,6 +26,11 @@ public class SetGame : MonoBehaviour
         "buttonLNI" => "LNI_Instructions",
         "buttonLSI" => "LSI_Instructions",
         "buttonBS" => "BS_Instructions",
+        "buttonCS" => "CS_Instructions",
+        "buttonWriting" => "Writing_Instructions",
+        "buttonSR" => "SR_Instructions",
+        "buttonBookSum" => "BookSum_Instructions",
+        "buttonCOP" => "COP_Instructions",
         _ => "Error: No game found for button!" //Default 'error' case
     };
 }

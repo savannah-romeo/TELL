@@ -40,9 +40,13 @@ public class Prompts_Random : Array_Prompts
 
             //Randomize string
             System.Random randomizer = new();
-            string scrambled = new(textToScramble.ToCharArray().OrderBy(s => (randomizer.Next(2) % 2) == 0).ToArray());
+            string scrambled = new(textToScramble.ToCharArray().OrderBy(s => (randomizer.Next(2) % 2) == 0).Distinct().ToArray());
             //Convert each letter in scrambled to a string in an array
-            string[] promptAlpha = {"NULL", "NULL", "NULL", "NULL", "NULL", "NULL"};
+            int array_len = 6;
+            if(scrambled.Length < 6){
+                array_len=scrambled.Length;
+            }
+            string[] promptAlpha = new string[array_len];
             for (int pos = 0; (pos < scrambled.Length) && (pos < 6); pos++)
             {
                 promptAlpha[pos] = scrambled[pos].ToString();
@@ -69,6 +73,7 @@ public class Prompts_Random : Array_Prompts
             //Initialize and shuffle alphabet
             suffixAlphabets = new string[] {"C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "N", "O", 
                 "Q", "R", "U", "V", "W", "X", "Y", "Z" };
+
             //Knuth shuffle algorithm
             for (int t = 0; t < prefixAlphabets.Length; t++)
             {

@@ -33,7 +33,8 @@ public class Load : MonoBehaviour
     // Occurs when next button is clicked
     void loadButtonClick()
     {
-        bool showWarning = validator.shouldDisplayWarning();
+        bool showWarning = validator.shouldDisplayDuplicateWarning();
+
 
         // Check if panel should be displayed (validator for panel)
         if (showWarning)
@@ -44,7 +45,7 @@ public class Load : MonoBehaviour
         else
         {
             panel.gameObject.SetActive(false);
-            loader.Load(childIDField.text, classroomIDField.text);
+            loader.Load("", "");
         }
     }
 
@@ -53,7 +54,7 @@ public class Load : MonoBehaviour
     {
         loadBtn.interactable = true;
         panel.gameObject.SetActive(false);
-        loader.Load(childIDField.text, classroomIDField.text);
+        loader.Load("", "");
 
         // Load new scene
         cleanup.SceneCleanup();

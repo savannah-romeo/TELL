@@ -14,50 +14,196 @@ public class SerialData
     public string sChildID;
     public string sClassroomID;
 
+    public string sExportImportRef = DataManager.exportImportRef=="ID" ? "ID" : "Name";
+
     //Vocab storage
     public double[] sGradeVocabExp;
     public double[] sGradeVocabRec;
     public double[] sGradeVocabTotal;
+    public List<string> sAssessorIdVocabList;
+    public List<string> sTeacherIdVocabList;
+    public List<string> sClassroomIdVocabList;
+    public List<string> sAssessorNameVocabList;
+    public List<string> sTeacherNameVocabList;
+    public List<string> sClassroomNameVocabList;
     public List<List<bool>> sIndividualExpressiveList;
     public List<List<bool>> sIndividualExpressiveFlagList;
     public List<List<bool>> sIndividualReceptiveList;
     public List<List<bool>> sIndividualReceptiveFlagList;
     public List<List<string>> sIndividualResponses;
 
+    //Clapping Syllable storage
+    public int[] sGradeCSTotal;
+    public List<string> sAssessorIdCSList;
+    public List<string> sTeacherIdCSList;
+    public List<string> sClassroomIdCSList;
+    public List<string> sAssessorNameCSList;
+    public List<string> sTeacherNameCSList;
+    public List<string> sClassroomNameCSList;
+    public List<List<bool>> sIndividualCSResponseList;
+
+    //Writing Syllable storage
+    public List<List<int>> sIndividualWritingScoreList;
+    public List<string> sAssessorIdWritingList;
+    public List<string> sTeacherIdWritingList;
+    public List<string> sClassroomIdWritingList;
+    public List<string> sAssessorNameWritingList;
+    public List<string> sTeacherNameWritingList;
+    public List<string> sClassroomNameWritingList;
+
+
     //LNI Storage
     [FormerlySerializedAs("sLearnedLetterNames")] public bool[] sLearnedLetterNamesLNI;
     public AdaptiveResponse[,] sIndividual_LNI;
+    public List<string> sAssessorIdLniList = new List<string>{"", "", "", "", "", ""};
+    public List<string> sTeacherIdLniList = new List<string>{"", "", "", "", "", ""};
+    public List<string> sClassroomIdLniList = new List<string>{"", "", "", "", "", ""};
+    public List<string> sAssessorNameLniList = new List<string>{"", "", "", "", "", ""};
+    public List<string> sTeacherNameLniList = new List<string>{"", "", "", "", "", ""};
+    public List<string> sClassroomNameLniList = new List<string>{"", "", "", "", "", ""};
 
     //LSI Storage
     public bool[] sLearnedLetterNamesLSI;
     public AdaptiveResponse[,] sIndividual_LSI;
+    public List<string> sAssessorIdLsiList;
+    public List<string> sTeacherIdLsiList;
+    public List<string> sClassroomIdLsiList;
+    public List<string> sAssessorNameLsiList;
+    public List<string> sTeacherNameLsiList;
+    public List<string> sClassroomNameLsiList;
     
     //BS Storage
+    public List<string> sAssessorIdBsList;
+    public List<string> sTeacherIdBsList;
+    public List<string> sClassroomIdBsList;
+    public List<string> sAssessorNameBsList;
+    public List<string> sTeacherNameBsList;
+    public List<string> sClassroomNameBsList;
     public AdaptiveResponse[,] sIndividual_BS; //answer array with preset of 36 sounds, see bs_items.json
     public string[,] sIndividual_BSChildResponse; //[index, globaltime-1] holds child response to every question
     public Tuple<double, double>[] final_BSscores; //This tuple holds eap_estimation_value and standard_error
+
+    //SR
+    public int[] sGradeSRTotal;
+    public List<string> sAssessorIdSRList;
+    public List<string> sTeacherIdSRList;
+    public List<string> sClassroomIdSRList;
+    public List<string> sAssessorNameSRList;
+    public List<string> sTeacherNameSRList;
+    public List<string> sClassroomNameSRList;
+    public List<List<bool>> sIndividualSRResponseList;
+    public List<List<string>> sIndividualSRQuestionsList;
+
+    //Book Summary
+    public int[] sGradeBookSumTotal;
+    public List<string> sAssessorIdBookSumList;
+    public List<string> sTeacherIdBookSumList;
+    public List<string> sClassroomIdBookSumList;
+    public List<string> sAssessorNameBookSumList;
+    public List<string> sTeacherNameBookSumList;
+    public List<string> sClassroomNameBookSumList;
+    public List<List<bool>> sIndividualBookSumResponseList;
+    public List<List<string>> sIndividualBookSumQuestionsList;
 
     public static SerialData convertToSerialData(UsersDetails usersDetails)
     {
         SerialData serialData = new SerialData();
         List<List<bool>> expressiveList = new List<List<bool>>(){Capacity = 6};;
+        List<string> assessors_vocab_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_vocab_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_vocab_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_vocab_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_vocab_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_vocab_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_bs_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_bs_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_bs_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_bs_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_bs_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_bs_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_lni_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_lni_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_lni_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_lni_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_lni_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_lni_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_lsi_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_lsi_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_lsi_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_lsi_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_lsi_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_lsi_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_cs_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_cs_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_cs_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_cs_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_cs_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_cs_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_writing_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_writing_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_writing_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_writing_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_writing_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_writing_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_sr_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_sr_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_sr_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_sr_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_sr_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_sr_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_booksum_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_booksum_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_booksum_list = new List<string>(){Capacity = 6};;
+        List<string> assessors_name_booksum_list = new List<string>(){Capacity = 6};;
+        List<string> classrooms_name_booksum_list = new List<string>(){Capacity = 6};;
+        List<string> teachers_name_booksum_list = new List<string>(){Capacity = 6};;
+
         List<List<bool>> expressiveFlagList = new List<List<bool>>(){Capacity = 6};;
         List<List<bool>> receptiveList = new List<List<bool>>(){Capacity = 6};;
         List<List<bool>> receptiveFlagList = new List<List<bool>>(){Capacity = 6};;
         List<List<string>> individualResponses = new List<List<string>>(){Capacity = 6};;
+        List<List<bool>> csResponseList = new List<List<bool>>(){Capacity = 6};;
+        List<List<bool>> srResponseList = new List<List<bool>>(){Capacity = 3};;
+        List<List<string>> srQuestionsList = new List<List<string>>(){Capacity = 3};;
+        List<List<bool>> booksumResponseList = new List<List<bool>>(){Capacity = 3};;
+        List<List<string>> booksumQuestionsList = new List<List<string>>(){Capacity = 3};;
+        List<List<int>> writingScoreList = new List<List<int>>(){Capacity = 6};;
+        // List<int> writingSentenceScoreList = new List<int>(){Capacity = 6};;
         
         foreach (var redCapRecord in usersDetails.users)
         {
             if (redCapRecord.recordID != null && redCapRecord.recordID != 0)
                 serialData.sRecordId = redCapRecord.recordID.ToString();
-            if (!string.IsNullOrEmpty(redCapRecord.assessorID))
-                serialData.sAssessorID = redCapRecord.assessorID;
-            if (!string.IsNullOrEmpty(redCapRecord.childID))
-                serialData.sChildID = redCapRecord.childID;
-            if (!string.IsNullOrEmpty(redCapRecord.classroomID))
-                serialData.sClassroomID = redCapRecord.classroomID;
-            if (!string.IsNullOrEmpty(redCapRecord.teacherID))
+
+            if(DataManager.exportImportRef == "ID"){
+                // serialData.sExportImportRef = "ID";
+                if (!string.IsNullOrEmpty(redCapRecord.assessorID))
+                    serialData.sAssessorID = redCapRecord.assessorID;
+                if (!string.IsNullOrEmpty(redCapRecord.childID))
+                    serialData.sChildID = redCapRecord.childID;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomID))
+                    serialData.sClassroomID = redCapRecord.classroomID;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherID))
                 serialData.sTeacherID = redCapRecord.teacherID;
+            }
+            else{
+                // serialData.sExportImportRef = "Name";
+                if (!string.IsNullOrEmpty(redCapRecord.assessorName))
+                    serialData.sAssessorID = redCapRecord.assessorName;
+                if (!string.IsNullOrEmpty(redCapRecord.childName))
+                    serialData.sChildID = redCapRecord.childName;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomName))
+                    serialData.sClassroomID = redCapRecord.classroomName;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherName))
+                    serialData.sTeacherID = redCapRecord.teacherName;
+            }
 
             // Responsible for storing vocab related data
             if (redCapRecord.vocabSession != null && redCapRecord.vocabSession != 0)
@@ -67,6 +213,12 @@ public class SerialData
                 List<bool> sessionReceptiveList = new List<bool>{false, false, false, false, false, false};
                 List<bool> sessionReceptiveFlagList = new List<bool>{false, false, false, false, false, false};
                 List<string> sessionIndividualResponses = new List<string>{"", "", "", "", "", ""};
+                String sessionAssesorIdResponse = "";
+                String sessionClassroomIdResponse = "";
+                String sessionTeacherIdResponse = "";
+                String sessionAssesorNameResponse = "";
+                String sessionClassroomNameResponse = "";
+                String sessionTeacherNameResponse = "";
                 if (serialData.sGradeVocabExp == null)
                     serialData.sGradeVocabExp = new double[6] { -1, -1, -1, -1, -1, -1 };
                 if (serialData.sGradeVocabRec == null)
@@ -138,7 +290,20 @@ public class SerialData
                     sessionIndividualResponses[4] = redCapRecord.q5Solution;
                 if (!string.IsNullOrEmpty(redCapRecord.q6Solution))
                     sessionIndividualResponses[5] = redCapRecord.q6Solution;
-                
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdVocab))
+                    sessionAssesorIdResponse = redCapRecord.assessorIdVocab;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdVocab))
+                    sessionClassroomIdResponse = redCapRecord.classroomIdVocab;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdVocab))
+                    sessionTeacherIdResponse = redCapRecord.teacherIdVocab;
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameVocab))
+                    sessionAssesorNameResponse = redCapRecord.assessorNameVocab;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameVocab))
+                    sessionClassroomNameResponse = redCapRecord.classroomNameVocab;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameVocab))
+                    sessionTeacherNameResponse = redCapRecord.teacherNameVocab;
+
                 while (expressiveList.Count < redCapRecord.vocabSession)
                     expressiveList.Add(new List<bool>());
                 expressiveList[redCapRecord.vocabSession.Value-1] = sessionExpressiveList;
@@ -159,10 +324,406 @@ public class SerialData
                     individualResponses.Add(new List<string>());
                 individualResponses[redCapRecord.vocabSession.Value-1] = sessionIndividualResponses;
 
+                while (assessors_vocab_list.Count < redCapRecord.vocabSession)
+                    assessors_vocab_list.Add(sessionAssesorIdResponse);
+                
+                while (classrooms_vocab_list.Count < redCapRecord.vocabSession)
+                    classrooms_vocab_list.Add(sessionClassroomIdResponse);
+
+                while (teachers_vocab_list.Count < redCapRecord.vocabSession)
+                    teachers_vocab_list.Add(sessionTeacherIdResponse);
+
+                while (assessors_name_vocab_list.Count < redCapRecord.vocabSession)
+                    assessors_name_vocab_list.Add(sessionAssesorNameResponse);
+                
+                while (classrooms_name_vocab_list.Count < redCapRecord.vocabSession)
+                    classrooms_name_vocab_list.Add(sessionClassroomNameResponse);
+
+                while (teachers_name_vocab_list.Count < redCapRecord.vocabSession)
+                    teachers_name_vocab_list.Add(sessionTeacherNameResponse);
+                
                 addExpressiveAndReceptiveScore(sessionExpressiveList, 
                                                sessionReceptiveList, 
                                                redCapRecord.vocabSession.Value, 
                                                serialData);
+            }
+
+            // Responsible for storing clapping syllables related data
+            if (redCapRecord.csSession != null && redCapRecord.csSession != 0)
+            {
+                List<bool> sessionResponseList = new List<bool>{false, false, false};
+                String sessionCSAssesorIdResponse = "";
+                String sessionCSClassroomIdResponse = "";
+                String sessionCSTeacherIdResponse = "";
+                String sessionCSAssesorNameResponse = "";
+                String sessionCSClassroomNameResponse = "";
+                String sessionCSTeacherNameResponse = "";
+                if (serialData.sGradeCSTotal == null)
+                    serialData.sGradeCSTotal = new int[6] { -1, -1, -1, -1, -1, -1};
+                 
+                if (redCapRecord.popcornResponse != null)
+                    sessionResponseList[0] = getTrueFalse(redCapRecord.popcornResponse);
+                if (redCapRecord.teacherResponse != null)
+                    sessionResponseList[1] = getTrueFalse(redCapRecord.teacherResponse);
+                if (redCapRecord.umbrellaResponse != null)
+                    sessionResponseList[2] = getTrueFalse(redCapRecord.umbrellaResponse);
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdCS))
+                    sessionCSAssesorIdResponse = redCapRecord.assessorIdCS;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdCS))
+                    sessionCSClassroomIdResponse = redCapRecord.classroomIdCS;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdCS))
+                    sessionCSTeacherIdResponse = redCapRecord.teacherIdCS;
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameCS))
+                    sessionCSAssesorNameResponse = redCapRecord.assessorNameCS;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameCS))
+                    sessionCSClassroomNameResponse = redCapRecord.classroomNameCS;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameCS))
+                    sessionCSTeacherNameResponse = redCapRecord.teacherNameCS;
+
+                while (csResponseList.Count < redCapRecord.csSession)
+                    csResponseList.Add(new List<bool>());
+                csResponseList[redCapRecord.csSession.Value-1] = sessionResponseList;
+                
+                while (assessors_cs_list.Count < redCapRecord.csSession)
+                    assessors_cs_list.Add(sessionCSAssesorIdResponse);
+                
+                while (classrooms_cs_list.Count < redCapRecord.csSession)
+                    classrooms_cs_list.Add(sessionCSClassroomIdResponse);
+
+                while (teachers_cs_list.Count < redCapRecord.csSession)
+                    teachers_cs_list.Add(sessionCSTeacherIdResponse);
+
+                while (assessors_name_cs_list.Count < redCapRecord.csSession)
+                    assessors_name_cs_list.Add(sessionCSAssesorNameResponse);
+                
+                while (classrooms_name_cs_list.Count < redCapRecord.csSession)
+                    classrooms_name_cs_list.Add(sessionCSClassroomNameResponse);
+
+                while (teachers_name_cs_list.Count < redCapRecord.csSession)
+                    teachers_name_cs_list.Add(sessionCSTeacherNameResponse);
+                
+                int index = redCapRecord.csSession.Value - 1;
+                int score_cs = sessionResponseList.Count(item => item);
+                serialData.sGradeCSTotal[index] = score_cs;
+            }
+
+            // Responsible for storing Writing related data
+            if (redCapRecord.writingSessionNo != null && redCapRecord.writingSessionNo != 0)
+            {
+                List<int> sessionWiritngScoreList = new List<int>{-999,-999};
+                
+                String sessionWritingAssesorIdResponse = "";
+                String sessionWritingClassroomIdResponse = "";
+                String sessionWritingTeacherIdResponse = "";
+                String sessionWritingAssesorNameResponse = "";
+                String sessionWritingClassroomNameResponse = "";
+                String sessionWritingTeacherNameResponse = "";
+
+                if (redCapRecord.nameWritingScore != null)
+                    sessionWiritngScoreList[0] = (int)redCapRecord.nameWritingScore;
+                if (redCapRecord.sentenceWritingScore != null)
+                    sessionWiritngScoreList[1] = (int)redCapRecord.sentenceWritingScore;
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdWriting))
+                    sessionWritingAssesorIdResponse = redCapRecord.assessorIdWriting;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdWriting))
+                    sessionWritingClassroomIdResponse = redCapRecord.classroomIdWriting;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdWriting))
+                    sessionWritingTeacherIdResponse = redCapRecord.teacherIdWriting;
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameWriting))
+                    sessionWritingAssesorNameResponse = redCapRecord.assessorNameWriting;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameWriting))
+                    sessionWritingClassroomNameResponse = redCapRecord.classroomNameWriting;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameWriting))
+                    sessionWritingTeacherNameResponse = redCapRecord.teacherNameWriting;
+
+                while (writingScoreList.Count < redCapRecord.writingSessionNo)
+                    writingScoreList.Add(new List<int>());
+                
+                while (assessors_writing_list.Count < redCapRecord.csSession)
+                    assessors_writing_list.Add(sessionWritingAssesorIdResponse);
+                
+                while (classrooms_writing_list.Count < redCapRecord.csSession)
+                    classrooms_writing_list.Add(sessionWritingClassroomIdResponse);
+
+                while (teachers_writing_list.Count < redCapRecord.csSession)
+                    teachers_writing_list.Add(sessionWritingTeacherIdResponse);
+
+                while (assessors_name_writing_list.Count < redCapRecord.csSession)
+                    assessors_name_writing_list.Add(sessionWritingAssesorNameResponse);
+                
+                while (classrooms_name_writing_list.Count < redCapRecord.csSession)
+                    classrooms_name_writing_list.Add(sessionWritingClassroomNameResponse);
+
+                while (teachers_name_writing_list.Count < redCapRecord.csSession)
+                    teachers_name_writing_list.Add(sessionWritingTeacherNameResponse);
+
+                writingScoreList[redCapRecord.writingSessionNo.Value-1] = sessionWiritngScoreList;
+             }
+
+            //Populate Story Retell
+            serialData.sGradeSRTotal = new int[3];
+            serialData.sIndividualSRResponseList = new List<List<bool>>();
+            serialData.sIndividualSRQuestionsList = new List<List<string>>();
+            // Responsible for storing Story retell syllables related data
+            if (redCapRecord.srSession != null && redCapRecord.srSession != 0)
+            {
+                String sessionSRAssesorIdResponse = "";
+                String sessionSRClassroomIdResponse = "";
+                String sessionSRTeacherIdResponse = "";
+                String sessionSRAssesorNameResponse = "";
+                String sessionSRClassroomNameResponse = "";
+                String sessionSRTeacherNameResponse = "";
+                if (redCapRecord.srTotal != null)
+                    serialData.sGradeSRTotal[redCapRecord.srSession.Value - 1] = (int)redCapRecord.srTotal;
+
+                List<bool> sessionResultList = new List<bool>{false, false, false, false, false, false, false, false, 
+                false, false, false, false, false, false, false, false};
+                List<string> sessionIndividualQuestions = new List<string>{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
+
+                 
+                if (redCapRecord.srQs1result != null)
+                    sessionResultList[0] = getTrueFalse(redCapRecord.srQs1result);
+                if (redCapRecord.srQs2result != null)
+                    sessionResultList[1] = getTrueFalse(redCapRecord.srQs2result);
+                if (redCapRecord.srQs2result != null)
+                    sessionResultList[2] = getTrueFalse(redCapRecord.srQs3result);
+                if (redCapRecord.srQs4result != null)
+                    sessionResultList[3] = getTrueFalse(redCapRecord.srQs4result);
+                if (redCapRecord.srQs5result != null)
+                    sessionResultList[4] = getTrueFalse(redCapRecord.srQs5result);
+                if (redCapRecord.srQs6result != null)
+                    sessionResultList[5] = getTrueFalse(redCapRecord.srQs6result);
+                if (redCapRecord.srQs7result != null)
+                    sessionResultList[6] = getTrueFalse(redCapRecord.srQs7result);
+                if (redCapRecord.srQs8result != null)
+                    sessionResultList[7] = getTrueFalse(redCapRecord.srQs8result);
+                if (redCapRecord.srQs9result != null)
+                    sessionResultList[8] = getTrueFalse(redCapRecord.srQs9result);
+                if (redCapRecord.srQs10result != null)
+                    sessionResultList[9] = getTrueFalse(redCapRecord.srQs10result);
+                if (redCapRecord.srQs11result != null)
+                    sessionResultList[10] = getTrueFalse(redCapRecord.srQs11result);
+                if (redCapRecord.srQs12result != null)
+                    sessionResultList[11] = getTrueFalse(redCapRecord.srQs12result);
+                if (redCapRecord.srQs13result != null)
+                    sessionResultList[12] = getTrueFalse(redCapRecord.srQs13result);
+                if (redCapRecord.srQs14result != null)
+                    sessionResultList[13] = getTrueFalse(redCapRecord.srQs14result);
+                if (redCapRecord.srQs15result != null)
+                    sessionResultList[14] = getTrueFalse(redCapRecord.srQs15result);
+                if (redCapRecord.srQs16result != null)
+                    sessionResultList[15] = getTrueFalse(redCapRecord.srQs16result);
+
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion1))
+                    sessionIndividualQuestions[0] = redCapRecord.srQuestion1;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion2))
+                    sessionIndividualQuestions[1] = redCapRecord.srQuestion2;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion3))
+                    sessionIndividualQuestions[2] = redCapRecord.srQuestion3;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion4))
+                    sessionIndividualQuestions[3] = redCapRecord.srQuestion4;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion5))
+                    sessionIndividualQuestions[4] = redCapRecord.srQuestion5;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion6))
+                    sessionIndividualQuestions[5] = redCapRecord.srQuestion6;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion7))
+                    sessionIndividualQuestions[6] = redCapRecord.srQuestion7;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion8))
+                    sessionIndividualQuestions[7] = redCapRecord.srQuestion8;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion9))
+                    sessionIndividualQuestions[8] = redCapRecord.srQuestion9;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion10))
+                    sessionIndividualQuestions[9] = redCapRecord.srQuestion10;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion11))
+                    sessionIndividualQuestions[10] = redCapRecord.srQuestion11;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion12))
+                    sessionIndividualQuestions[11] = redCapRecord.srQuestion12;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion13))
+                    sessionIndividualQuestions[12] = redCapRecord.srQuestion13;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion14))
+                    sessionIndividualQuestions[13] = redCapRecord.srQuestion14;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion15))
+                    sessionIndividualQuestions[14] = redCapRecord.srQuestion15;
+                if (!string.IsNullOrEmpty(redCapRecord.srQuestion16))
+                    sessionIndividualQuestions[15] = redCapRecord.srQuestion16;
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdSR))
+                    sessionSRAssesorIdResponse = redCapRecord.assessorIdSR;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdCS))
+                    sessionSRClassroomIdResponse = redCapRecord.classroomIdSR;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdSR))
+                    sessionSRTeacherIdResponse = redCapRecord.teacherIdSR;
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameSR))
+                    sessionSRAssesorNameResponse = redCapRecord.assessorNameSR;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameSR))
+                    sessionSRClassroomNameResponse = redCapRecord.classroomNameSR;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameSR))
+                    sessionSRTeacherNameResponse = redCapRecord.teacherNameSR;
+
+                while (srResponseList.Count < redCapRecord.srSession)
+                    srResponseList.Add(new List<bool>());
+                srResponseList[redCapRecord.srSession.Value-1] = sessionResultList;
+                
+                while (srQuestionsList.Count < redCapRecord.srSession)
+                    srQuestionsList.Add(new List<string>());
+                srQuestionsList[redCapRecord.srSession.Value-1] = sessionIndividualQuestions;
+                
+                while (assessors_sr_list.Count < redCapRecord.srSession)
+                    assessors_sr_list.Add(sessionSRAssesorIdResponse);
+                
+                while (classrooms_sr_list.Count < redCapRecord.srSession)
+                    classrooms_sr_list.Add(sessionSRClassroomIdResponse);
+
+                while (teachers_sr_list.Count < redCapRecord.srSession)
+                    teachers_sr_list.Add(sessionSRTeacherIdResponse);
+
+                while (assessors_name_sr_list.Count < redCapRecord.srSession)
+                    assessors_name_sr_list.Add(sessionSRAssesorNameResponse);
+                
+                while (classrooms_name_sr_list.Count < redCapRecord.srSession)
+                    classrooms_name_sr_list.Add(sessionSRClassroomNameResponse);
+
+                while (teachers_name_sr_list.Count < redCapRecord.srSession)
+                    teachers_name_sr_list.Add(sessionSRTeacherNameResponse);
+
+                // int index = redCapRecord.srSession.Value - 1;
+                // int score_sr = sessionResultList.Count(item => item);
+                // if(sessionResultList.Count==8){
+                //     score_sr = score_sr +8;
+                // }
+                // while (sGradeSRTotal.Count < redCapRecord.srSession)
+                //     serialData.sGradeSRTotal[index] = score_sr;
+                
+                // int index = redCapRecord.srSession.Value - 1;
+                // int score_sr = sessionResultList.Count(item => item);
+                // if(sessionResultList.Count==8){
+                //     score_sr = score_sr +8;
+                // }
+                // serialData.sGradeSRTotal[index] = score_sr;
+            }
+
+            //Populate Book Summary
+            serialData.sGradeBookSumTotal = new int[3];
+            serialData.sIndividualBookSumResponseList = new List<List<bool>>();
+            serialData.sIndividualBookSumQuestionsList = new List<List<string>>();
+            // Responsible for storing Story retell syllables related data
+            if (redCapRecord.bookSumSession != null && redCapRecord.bookSumSession != 0)
+            {
+                String sessionBookSumAssesorIdResponse = "";
+                String sessionBookSumClassroomIdResponse = "";
+                String sessionBookSumTeacherIdResponse = "";
+                String sessionBookSumAssesorNameResponse = "";
+                String sessionBookSumClassroomNameResponse = "";
+                String sessionBookSumTeacherNameResponse = "";
+                if (serialData.sGradeBookSumTotal != null)
+                    serialData.sGradeBookSumTotal[redCapRecord.bookSumSession.Value - 1] = (int)redCapRecord.bookSumTotal;
+
+                List<bool> sessionResultList = new List<bool>{false, false, false, false, false, false, false, false, 
+                false, false, false};
+                List<string> sessionIndividualQuestions = new List<string>{"", "", "", "", "", "", "", "", "", "", ""};
+
+                 
+                if (redCapRecord.booksumQs1result != null)
+                    sessionResultList[0] = getTrueFalse(redCapRecord.booksumQs1result);
+                if (redCapRecord.booksumQs2result != null)
+                    sessionResultList[1] = getTrueFalse(redCapRecord.booksumQs2result);
+                if (redCapRecord.booksumQs2result != null)
+                    sessionResultList[2] = getTrueFalse(redCapRecord.booksumQs3result);
+                if (redCapRecord.booksumQs4result != null)
+                    sessionResultList[3] = getTrueFalse(redCapRecord.booksumQs4result);
+                if (redCapRecord.booksumQs5result != null)
+                    sessionResultList[4] = getTrueFalse(redCapRecord.booksumQs5result);
+                if (redCapRecord.booksumQs6result != null)
+                    sessionResultList[5] = getTrueFalse(redCapRecord.booksumQs6result);
+                if (redCapRecord.booksumQs7result != null)
+                    sessionResultList[6] = getTrueFalse(redCapRecord.booksumQs7result);
+                if (redCapRecord.booksumQs8result != null)
+                    sessionResultList[7] = getTrueFalse(redCapRecord.booksumQs8result);
+                if (redCapRecord.booksumQs9result != null)
+                    sessionResultList[8] = getTrueFalse(redCapRecord.booksumQs9result);
+                if (redCapRecord.booksumQs10result != null)
+                    sessionResultList[9] = getTrueFalse(redCapRecord.booksumQs10result);
+                if (redCapRecord.booksumQs11result != null)
+                    sessionResultList[10] = getTrueFalse(redCapRecord.booksumQs11result);
+
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion1))
+                    sessionIndividualQuestions[0] = redCapRecord.booksumQuestion1;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion2))
+                    sessionIndividualQuestions[1] = redCapRecord.booksumQuestion2;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion3))
+                    sessionIndividualQuestions[2] = redCapRecord.booksumQuestion3;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion4))
+                    sessionIndividualQuestions[3] = redCapRecord.booksumQuestion4;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion5))
+                    sessionIndividualQuestions[4] = redCapRecord.booksumQuestion5;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion6))
+                    sessionIndividualQuestions[5] = redCapRecord.booksumQuestion6;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion7))
+                    sessionIndividualQuestions[6] = redCapRecord.booksumQuestion7;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion8))
+                    sessionIndividualQuestions[7] = redCapRecord.booksumQuestion8;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion9))
+                    sessionIndividualQuestions[8] = redCapRecord.booksumQuestion9;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion10))
+                    sessionIndividualQuestions[9] = redCapRecord.booksumQuestion10;
+                if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion11))
+                    sessionIndividualQuestions[10] = redCapRecord.booksumQuestion11;
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdBookSum))
+                    sessionBookSumAssesorIdResponse = redCapRecord.assessorIdBookSum;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdBookSum))
+                    sessionBookSumClassroomIdResponse = redCapRecord.classroomIdBookSum;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdBookSum))
+                    sessionBookSumTeacherIdResponse = redCapRecord.teacherIdBookSum;
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameSR))
+                    sessionBookSumAssesorNameResponse = redCapRecord.assessorNameBookSum;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameBookSum))
+                    sessionBookSumClassroomNameResponse = redCapRecord.classroomNameBookSum;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameBookSum))
+                    sessionBookSumTeacherNameResponse = redCapRecord.teacherNameBookSum;
+
+                while (booksumResponseList.Count < redCapRecord.bookSumSession)
+                    booksumResponseList.Add(new List<bool>());
+                booksumResponseList[redCapRecord.bookSumSession.Value-1] = sessionResultList;
+                
+                while (booksumQuestionsList.Count < redCapRecord.bookSumSession)
+                    booksumQuestionsList.Add(new List<string>());
+                booksumQuestionsList[redCapRecord.bookSumSession.Value-1] = sessionIndividualQuestions;
+                
+                while (assessors_booksum_list.Count < redCapRecord.bookSumSession)
+                    assessors_booksum_list.Add(sessionBookSumAssesorIdResponse);
+                
+                while (classrooms_booksum_list.Count < redCapRecord.bookSumSession)
+                    classrooms_booksum_list.Add(sessionBookSumClassroomIdResponse);
+
+                while (teachers_booksum_list.Count < redCapRecord.bookSumSession)
+                    teachers_booksum_list.Add(sessionBookSumTeacherIdResponse);
+
+                while (assessors_name_booksum_list.Count < redCapRecord.bookSumSession)
+                    assessors_name_booksum_list.Add(sessionBookSumAssesorNameResponse);
+                
+                while (classrooms_name_booksum_list.Count < redCapRecord.bookSumSession)
+                    classrooms_name_booksum_list.Add(sessionBookSumClassroomNameResponse);
+
+                while (teachers_name_booksum_list.Count < redCapRecord.bookSumSession)
+                    teachers_name_booksum_list.Add(sessionBookSumTeacherNameResponse);
+
+                // int index = redCapRecord.srSession.Value - 1;
+                // int score_sr = sessionResultList.Count(item => item);
+                // if(sessionResultList.Count==8){
+                //     score_sr = score_sr +8;
+                // }
+                // while (sGradeSRTotal.Count < redCapRecord.srSession)
+                //     serialData.sGradeSRTotal[index] = score_sr;
+                
+                // int index = redCapRecord.srSession.Value - 1;
+                // int score_sr = sessionResultList.Count(item => item);
+                // if(sessionResultList.Count==8){
+                //     score_sr = score_sr +8;
+                // }
+                // serialData.sGradeSRTotal[index] = score_sr;
             }
 
             //Populate sLearnedLetterNames
@@ -227,6 +788,28 @@ public class SerialData
             if (redCapRecord.lnirSessionNumber != null && redCapRecord.lnirSessionNumber != 0)
             {
                 int lniTime = (int)redCapRecord.lnirSessionNumber-1;
+
+                String sessionAssesorIdResponseLni = "";
+                String sessionClassroomIdResponseLni = "";
+                String sessionTeacherIdResponseLni = "";
+                String sessionAssesorNameResponseLni = "";
+                String sessionClassroomNameResponseLni = "";
+                String sessionTeacherNameResponseLni = "";
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdLni))
+                    sessionAssesorIdResponseLni = redCapRecord.assessorIdLni;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdLni))
+                    sessionClassroomIdResponseLni = redCapRecord.classroomIdLni;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdLni))
+                    sessionTeacherIdResponseLni = redCapRecord.teacherIdLni;
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameLni))
+                    sessionAssesorNameResponseLni = redCapRecord.assessorNameLni;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameLni))
+                    sessionClassroomNameResponseLni = redCapRecord.classroomNameLni;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameLni))
+                    sessionTeacherNameResponseLni = redCapRecord.teacherNameLni;
+
                 if (redCapRecord.rLNI_A != null)
                     serialData.sIndividual_LNI[0, lniTime] = (AdaptiveResponse)(int)redCapRecord.rLNI_A;
                 if (redCapRecord.rLNI_B != null)
@@ -279,6 +862,24 @@ public class SerialData
                     serialData.sIndividual_LNI[24, lniTime] = (AdaptiveResponse)(int)redCapRecord.rLNI_Y;
                 if (redCapRecord.rLNI_Z != null)
                     serialData.sIndividual_LNI[25, lniTime] = (AdaptiveResponse)(int)redCapRecord.rLNI_Z;
+
+                while (assessors_lni_list.Count < lniTime+1)
+                    assessors_lni_list.Add(sessionAssesorIdResponseLni);
+                
+                while (classrooms_lni_list.Count < lniTime+1)
+                    classrooms_lni_list.Add(sessionClassroomIdResponseLni);
+
+                while (teachers_lni_list.Count < lniTime+1)
+                    teachers_lni_list.Add(sessionTeacherIdResponseLni);
+
+                while (assessors_name_lni_list.Count < lniTime+1)
+                    assessors_name_lni_list.Add(sessionAssesorNameResponseLni);
+                
+                while (classrooms_name_lni_list.Count < lniTime+1)
+                    classrooms_name_lni_list.Add(sessionClassroomNameResponseLni);
+
+                while (teachers_name_lni_list.Count < lniTime+1)
+                    teachers_name_lni_list.Add(sessionTeacherNameResponseLni);
             }
             
             
@@ -341,11 +942,31 @@ public class SerialData
                 serialData.sLearnedLetterNamesLSI[25] = getTrueFalse(redCapRecord.LSI_Z);
 
 
-            //Populate sIndividual_LNI
+            //Populate sIndividual_LSI
             serialData.sIndividual_LSI = new AdaptiveResponse[26,6];
             if (redCapRecord.lsirSessionNumber != null && redCapRecord.lsirSessionNumber != 0)
             {
                 int lsiTime = (int)redCapRecord.lsirSessionNumber-1;
+
+                String sessionAssesorIdResponseLsi = "";
+                String sessionClassroomIdResponseLsi = "";
+                String sessionTeacherIdResponseLsi = "";
+                String sessionAssesorNameResponseLsi = "";
+                String sessionClassroomNameResponseLsi = "";
+                String sessionTeacherNameResponseLsi = "";
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdLsi))
+                    sessionAssesorIdResponseLsi = redCapRecord.assessorIdLsi;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdLsi))
+                    sessionClassroomIdResponseLsi = redCapRecord.classroomIdLsi;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdLsi))
+                    sessionTeacherIdResponseLsi = redCapRecord.teacherIdLsi;
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameLsi))
+                    sessionAssesorNameResponseLsi = redCapRecord.assessorNameLsi;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameLsi))
+                    sessionClassroomNameResponseLsi = redCapRecord.classroomNameLsi;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameLsi))
+                    sessionTeacherNameResponseLsi = redCapRecord.teacherNameLsi;
+
                 if (redCapRecord.rLSI_A != null)
                     serialData.sIndividual_LSI[0, lsiTime] = (AdaptiveResponse)(int)redCapRecord.rLSI_A;
                 if (redCapRecord.rLSI_B != null)
@@ -398,6 +1019,24 @@ public class SerialData
                     serialData.sIndividual_LSI[24, lsiTime] = (AdaptiveResponse)(int)redCapRecord.rLSI_Y;
                 if (redCapRecord.rLSI_Z != null)
                     serialData.sIndividual_LSI[25, lsiTime] = (AdaptiveResponse)(int)redCapRecord.rLSI_Z;
+
+                while (assessors_lsi_list.Count < lsiTime+1)
+                    assessors_lsi_list.Add(sessionAssesorIdResponseLsi);
+                
+                while (classrooms_lsi_list.Count < lsiTime+1)
+                    classrooms_lsi_list.Add(sessionClassroomIdResponseLsi);
+
+                while (teachers_lsi_list.Count < lsiTime+1)
+                    teachers_lsi_list.Add(sessionTeacherIdResponseLsi);
+
+                while (assessors_name_lsi_list.Count < lsiTime+1)
+                    assessors_name_lsi_list.Add(sessionAssesorNameResponseLsi);
+                
+                while (classrooms_name_lsi_list.Count < lsiTime+1)
+                    classrooms_name_lsi_list.Add(sessionClassroomNameResponseLsi);
+
+                while (teachers_name_lsi_list.Count < lsiTime+1)
+                    teachers_name_lsi_list.Add(sessionTeacherNameResponseLsi);
             }
 
             //Populate Beginning Sounds
@@ -407,10 +1046,30 @@ public class SerialData
             if (redCapRecord.bsSessionNumber != null && redCapRecord.bsSessionNumber != 0)
             {
                 int bsTime = (int)redCapRecord.bsSessionNumber - 1; //offset for zero array
+                String sessionAssesorIdResponseBs = "";
+                String sessionClassroomIdResponseBs = "";
+                String sessionTeacherIdResponseBs = "";
+                String sessionAssesorNameResponseBs = "";
+                String sessionClassroomNameResponseBs = "";
+                String sessionTeacherNameResponseBs = "";
                 if (redCapRecord.bsEAP != null && redCapRecord.bsStdError != null)
                 {
                     serialData.final_BSscores[bsTime] = new Tuple<double, double>((double)redCapRecord.bsEAP, (double)redCapRecord.bsStdError);
                 }
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdBs))
+                    sessionAssesorIdResponseBs = redCapRecord.assessorIdBs;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdBs))
+                    sessionClassroomIdResponseBs = redCapRecord.classroomIdBs;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdBs))
+                    sessionTeacherIdResponseBs = redCapRecord.teacherIdBs;
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameBs))
+                    sessionAssesorNameResponseBs = redCapRecord.assessorNameBs;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameBs))
+                    sessionClassroomNameResponseBs = redCapRecord.classroomNameBs;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameBs))
+                    sessionTeacherNameResponseBs = redCapRecord.teacherNameBs;
 
                 //store the scores
                 //Refer to bs_items.json for reesponse list
@@ -491,6 +1150,24 @@ public class SerialData
                 if (redCapRecord.bsResCat != null) serialData.sIndividual_BSChildResponse[33, bsTime] = redCapRecord.bsResCat;
                 if (redCapRecord.bsResLamp != null) serialData.sIndividual_BSChildResponse[34, bsTime] = redCapRecord.bsResLamp;
                 if (redCapRecord.bsResCheese != null) serialData.sIndividual_BSChildResponse[35, bsTime] = redCapRecord.bsResCheese;
+
+                while (assessors_bs_list.Count < redCapRecord.bsSessionNumber)
+                    assessors_bs_list.Add(sessionAssesorIdResponseBs);
+                
+                while (classrooms_bs_list.Count < redCapRecord.bsSessionNumber)
+                    classrooms_bs_list.Add(sessionClassroomIdResponseBs);
+
+                while (teachers_bs_list.Count < redCapRecord.bsSessionNumber)
+                    teachers_bs_list.Add(sessionTeacherIdResponseBs);
+
+                while (assessors_name_bs_list.Count < redCapRecord.bsSessionNumber)
+                    assessors_name_bs_list.Add(sessionAssesorNameResponseBs);
+                
+                while (classrooms_name_bs_list.Count < redCapRecord.bsSessionNumber)
+                    classrooms_name_bs_list.Add(sessionClassroomNameResponseBs);
+
+                while (teachers_name_bs_list.Count < redCapRecord.bsSessionNumber)
+                    teachers_name_bs_list.Add(sessionTeacherNameResponseBs);
             }
         }
 
@@ -499,6 +1176,66 @@ public class SerialData
         serialData.sIndividualReceptiveList = receptiveList;
         serialData.sIndividualReceptiveFlagList = receptiveFlagList;
         serialData.sIndividualResponses = individualResponses;
+        serialData.sIndividualCSResponseList = csResponseList;
+        serialData.sIndividualWritingScoreList = writingScoreList;
+        serialData.sIndividualSRResponseList = srResponseList;
+        serialData.sIndividualSRQuestionsList = srQuestionsList;
+
+        serialData.sAssessorIdVocabList = assessors_vocab_list;
+        serialData.sClassroomIdVocabList = classrooms_vocab_list;
+        serialData.sTeacherIdVocabList = teachers_vocab_list;
+        serialData.sAssessorNameVocabList = assessors_name_vocab_list;
+        serialData.sClassroomNameVocabList = classrooms_name_vocab_list;
+        serialData.sTeacherNameVocabList = teachers_name_vocab_list;
+
+        serialData.sAssessorIdBsList = assessors_bs_list;
+        serialData.sClassroomIdBsList = classrooms_bs_list;
+        serialData.sTeacherIdBsList = teachers_bs_list;
+        serialData.sAssessorNameBsList = assessors_name_bs_list;
+        serialData.sClassroomNameBsList = classrooms_name_bs_list;
+        serialData.sTeacherNameBsList = teachers_name_bs_list;
+
+        serialData.sAssessorIdLniList = assessors_bs_list;
+        serialData.sClassroomIdLniList = classrooms_bs_list;
+        serialData.sTeacherIdLniList = teachers_bs_list;
+        serialData.sAssessorNameLniList = assessors_name_bs_list;
+        serialData.sClassroomNameLniList = classrooms_name_bs_list;
+        serialData.sTeacherNameLniList = teachers_name_bs_list;
+
+        serialData.sAssessorIdLsiList = assessors_bs_list;
+        serialData.sClassroomIdLsiList = classrooms_bs_list;
+        serialData.sTeacherIdLsiList = teachers_bs_list;
+        serialData.sAssessorNameLsiList = assessors_name_bs_list;
+        serialData.sClassroomNameLsiList = classrooms_name_bs_list;
+        serialData.sTeacherNameLsiList = teachers_name_bs_list;
+
+        serialData.sAssessorIdCSList = assessors_cs_list;
+        serialData.sClassroomIdCSList = classrooms_cs_list;
+        serialData.sTeacherIdCSList = teachers_cs_list;
+        serialData.sAssessorNameCSList = assessors_name_cs_list;
+        serialData.sClassroomNameCSList = classrooms_name_cs_list;
+        serialData.sTeacherNameCSList = teachers_name_cs_list;
+
+        serialData.sAssessorIdWritingList = assessors_writing_list;
+        serialData.sClassroomIdWritingList = classrooms_writing_list;
+        serialData.sTeacherIdWritingList = teachers_writing_list;
+        serialData.sAssessorNameWritingList = assessors_name_writing_list;
+        serialData.sClassroomNameWritingList = classrooms_name_writing_list;
+        serialData.sTeacherNameWritingList = teachers_name_writing_list;
+
+        serialData.sAssessorIdSRList = assessors_sr_list;
+        serialData.sClassroomIdSRList = classrooms_sr_list;
+        serialData.sTeacherIdSRList = teachers_sr_list;
+        serialData.sAssessorNameSRList = assessors_name_sr_list;
+        serialData.sClassroomNameSRList = classrooms_name_sr_list;
+        serialData.sTeacherNameSRList = teachers_name_sr_list;
+
+        serialData.sAssessorIdBookSumList = assessors_booksum_list;
+        serialData.sClassroomIdBookSumList = classrooms_booksum_list;
+        serialData.sTeacherIdBookSumList = teachers_booksum_list;
+        serialData.sAssessorNameBookSumList = assessors_name_booksum_list;
+        serialData.sClassroomNameBookSumList = classrooms_name_booksum_list;
+        serialData.sTeacherNameBookSumList = teachers_name_booksum_list;
 
         return serialData;
     }

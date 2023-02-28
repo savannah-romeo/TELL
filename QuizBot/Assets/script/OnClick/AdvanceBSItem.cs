@@ -23,6 +23,7 @@ public class AdvanceBSItem: MonoBehaviour
 
     public Validation_Games checker; //Used to check for valid answer before proceeding
     public Prompts_BS prompts; //Holds the list of prompts that the evaluator will be cycling through - select relevant child
+    public Prompts_Ex_BS prompts_ex;
 
     public static string sep = "  ";
     
@@ -33,11 +34,16 @@ public class AdvanceBSItem: MonoBehaviour
         gradeMe = true;
         iterator = 0; //Selects the starting text to display
         recordedSolutions = new List<int>();
-        shownText.text = prompts.promptsToDisplay[iterator].item + sep + prompts.promptsToDisplay[iterator].pronounce; //Display the first text
-        clickedButton.onClick.AddListener(TaskOnClick);
-        image.sprite = sprites[prompts.promptsToDisplay[iterator].index + 1];
-        image.preserveAspect = true;
+        if(prompts == null){
+            shownText.text = "HORSE" + sep + "/h/";
+        } else{
+            shownText.text = prompts.promptsToDisplay[iterator].item + sep + prompts.promptsToDisplay[iterator].pronounce; //Display the first text
+            image.sprite = sprites[prompts.promptsToDisplay[iterator].index + 1];
+            image.preserveAspect = true;
+        }   
+        clickedButton.onClick.AddListener(TaskOnClick); 
     }
+    
     
     //Occurs when button is clicked
     protected virtual void TaskOnClick()
@@ -46,6 +52,7 @@ public class AdvanceBSItem: MonoBehaviour
         if (checker.GetValidInput())
         {
             BSItem nextSelectedItem = null;
+            if (prompts!=null){
             if (iterator == 0)
             {
                 nextSelectedItem = prompts.promptsToDisplay[prompts.promptsToDisplay.Count - 1];
@@ -80,6 +87,7 @@ public class AdvanceBSItem: MonoBehaviour
                     image.sprite = sprites[nextSelectedItem.index + 1];
                     image.preserveAspect = true;
                 }
+            }
             }
 
         }
