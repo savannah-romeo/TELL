@@ -1434,7 +1434,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   sceneName: Writing_Grader
   checker: {fileID: 727950463}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950457
 MonoBehaviour:
@@ -1623,7 +1625,9 @@ MonoBehaviour:
   clickedButton: {fileID: 2092519758}
   sceneName: MainMenu
   checker: {fileID: 727950463}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950463
 MonoBehaviour:
@@ -1652,7 +1656,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1255025424}
   sceneName: Wrting_Instructions
   checker: {fileID: 727950463}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950465
 MonoBehaviour:
@@ -3381,8 +3387,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: -206}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 44.1, y: -157}
+  m_SizeDelta: {x: 688.2, y: 51.999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092177218
 MonoBehaviour:
@@ -3404,7 +3410,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Error! Expressive and receptive scores required.
+  m_text: Error! Required to check one of the checkboxes for Name Writing points
+    and Sentence Writing Points.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

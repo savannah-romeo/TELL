@@ -18,8 +18,11 @@ EditorBuildSettings:
     path: Assets/scenes/Times.unity
     guid: c1989a2cced618644afdd204e2612ad5
   - enabled: 1
-    path: Assets/scenes/Times_1.unity
+    path: Assets/scenes/Times_SR.unity
     guid: cfb7a6540ddcf4761b15c6a82efb99c1
+  - enabled: 1
+    path: Assets/scenes/Times_BookSum.unity
+    guid: 67ac54080f6cc4a37b93e9fd3acd8628
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Vocabulary/Instructions.unity
     guid: 90b6975ee553650469735f7f3495298a
@@ -87,6 +90,9 @@ EditorBuildSettings:
     path: Assets/scenes/CBM Scenes/Story Retell/SR_Instructions.unity
     guid: 1a275b83fd83240129c2e12937c1b3eb
   - enabled: 1
+    path: Assets/scenes/CBM Scenes/Story Retell/SR_Instructions_1.unity
+    guid: a2ecbafd26b644d74ba94b7cdb05bf3a
+  - enabled: 1
     path: Assets/scenes/CBM Scenes/Story Retell/SR_Evaluator.unity
     guid: f26789556e944478aa7c0d5f58ebf452
   - enabled: 1
@@ -98,6 +104,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Instructions.unity
     guid: 278e80c67fa884b7c886efc8132cce5f
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Instructions_1.unity
+    guid: 853fe9f1368864912929e0cb540e50a6
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Evaluator.unity
     guid: 6af8a544c47d5430c9481c8ec53058a2

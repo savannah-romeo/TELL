@@ -641,7 +641,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   sceneName: SR_Grader
   checker: {fileID: 727950465}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950457
 MonoBehaviour:
@@ -668,9 +670,10 @@ MonoBehaviour:
   responseField: {fileID: 0}
   primaryToggle: {fileID: 746151781}
   receptiveToggle: {fileID: 0}
-  expressiveToggle: {fileID: 746151781}
+  expressiveToggle: {fileID: 302869374}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
+  questionField: {fileID: 1423126920}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -696,6 +699,7 @@ MonoBehaviour:
   srScoreTotal: {fileID: 0}
   srPromptText: []
   srResponseScore: []
+  bookSumScoreTotal: {fileID: 0}
   writingNameScore: {fileID: 0}
   writingSentenceScore: {fileID: 0}
   expressivePercent: []
@@ -703,6 +707,8 @@ MonoBehaviour:
   csScoresForResultPage: []
   writingNameScoreForResultPage: []
   writingSentenceScoreForResultPage: []
+  srScoresForResultPage: []
+  booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
   BS_items: []
@@ -782,7 +788,9 @@ MonoBehaviour:
   clickedButton: {fileID: 2092519758}
   sceneName: MainMenu
   checker: {fileID: 727950463}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950463
 MonoBehaviour:
@@ -826,7 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompts1:
-  - '(9) Who is the girl? (Answer: Emma)'
+  - '(9) Who is the girl?(Answer: Emma)'
   - '(10) What did she want to make? (Answer: A present/picture)'
   - (11) Who is it for?
   - (12) Why?
@@ -835,50 +843,26 @@ MonoBehaviour:
   - (15) What did Emma do after she finished her picture?
   - (16) What happened at the end?
   prompts2:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
+  - (9) Who is this boy?
+  - (10) What did he want to make?
+  - (11) Who is it for?
+  - (12) Why?
+  - (13) What did Johnny use to make the cake?
+  - (14) What did he do after he mixed the ingredients?
+  - (15) What did Johnny do last?
+  - (16) What happened at the end?
   prompts3:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts4:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts5:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts6:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
+  - (9) Who is this boy?
+  - (10) What did he want to do?
+  - (11) Where do Miguel and his dad go?
+  - (12) What did Miguel do first?
+  - (13) What did Miguel do next?
+  - (14) Where did Miguel ride?
+  - (15) How did Miguel feel at the end?
+  - "(16) What does Miguel\u2019s dad say at the end?"
+  prompts4: []
+  prompts5: []
+  prompts6: []
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: -206}
+  m_AnchoredPosition: {x: -6, y: -138}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092177218
@@ -1280,7 +1264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Error! Expressive and receptive scores required.
+  m_text: Error! Required to check one of the checkboxes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2397,7 +2381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -405.86, y: 204}
+  m_AnchoredPosition: {x: -405.86, y: -202}
   m_SizeDelta: {x: 111.72, y: 46.002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758

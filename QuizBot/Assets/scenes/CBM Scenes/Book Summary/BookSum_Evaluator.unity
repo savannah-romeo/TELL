@@ -850,7 +850,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   sceneName: BookSum_Grader
   checker: {fileID: 727950465}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950457
 MonoBehaviour:
@@ -999,7 +1001,9 @@ MonoBehaviour:
   clickedButton: {fileID: 2092519758}
   sceneName: MainMenu
   checker: {fileID: 727950463}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950463
 MonoBehaviour:
@@ -1450,8 +1454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: -206}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 3, y: -150.5}
+  m_SizeDelta: {x: 510.32, y: 61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092177218
 MonoBehaviour:
@@ -1473,7 +1477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Error! Expressive and receptive scores required.
+  m_text: Error! Required to check one of the checkboxes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2183,8 +2187,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3036,7 +3040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -388.93, y: 204}
+  m_AnchoredPosition: {x: -398, y: -206}
   m_SizeDelta: {x: 145.6, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758

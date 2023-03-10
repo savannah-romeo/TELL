@@ -105,7 +105,12 @@ public class RedCapService : MonoBehaviour
         {
             Debug.Log("Waiting for data to be validated!");
         }
-        return error;
+        dataLoaded = false;
+        if(error){
+            error = false;
+            return true;
+        }
+        return false;
     }
       
 

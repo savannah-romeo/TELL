@@ -257,6 +257,43 @@ public class SaveLoad
 			}
 			DataManager.vocabTime = 7;
 		}}
+
+		if(DataManager.grade_csTotal != null) {
+		for(int i=0; i<DataManager.grade_csTotal.Length;i++){
+			if(DataManager.grade_csTotal[i] == -1){
+				DataManager.CSTime = i+1;
+				break;
+			}
+			DataManager.CSTime = 7;
+		}}
+
+		if(DataManager.grade_srTotal != null) {
+		for(int i=0; i<DataManager.grade_srTotal.Length;i++){
+			if(DataManager.grade_srTotal[i] == -1){
+				DataManager.SRTime = i+1;
+				break;
+			}
+			DataManager.SRTime = 7;
+		}}
+
+		if(DataManager.grade_srTotal != null) {
+		for(int i=0; i<DataManager.grade_srTotal.Length;i++){
+			if(DataManager.grade_srTotal[i] == -1){
+				DataManager.SRTime = i+1;
+				break;
+			}
+			DataManager.SRTime = 7;
+		}}
+
+		if(DataManager.grade_bookSumTotal != null) {
+		for(int i=0; i<DataManager.grade_bookSumTotal.Length;i++){
+			if(DataManager.grade_bookSumTotal[i] == -1){
+				DataManager.bookSumTime = i+1;
+				break;
+			}
+			DataManager.bookSumTime = 7;
+		}}
+
 	}
 	
 	// Creates files and saves data passed as parameter

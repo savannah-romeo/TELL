@@ -22,8 +22,7 @@ public class Prompts_BookSum_2 : Array_Prompts
             "(5) Is this book mostly about giraffes or about leaves?",
             "(6) Do giraffes like to eat leaves or flowers?",
             "(7) Giraffes do not like to be alone. How do you know that?",
-            "(8) About how many giraffes are in a herd?"
-
+            "(8) About how many giraffes are in a herd?" 
         };
 
         prompts3 = new string[5] {

@@ -47,6 +47,14 @@ public class Load_popUp_Message : MonoBehaviour
                 gameName = "Letter Name Identification";
             } else if(sceneName == "LSI_Instructions"){
                 gameName = "Letter Sound Indentification";
+            } else if(sceneName == "SR_Instructions"){
+                gameName = "Story Retell";
+            } else if(sceneName == "Writing_Instructions"){
+                gameName = "Writing";
+            } else if(sceneName == "CS_Instructions"){
+                gameName = "Clapping Syllable";
+            } else if(sceneName == "BookSum_Instructions"){
+                gameName = "Book Summary";
             }
             if(timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
                 loadBtn.enabled = false;
