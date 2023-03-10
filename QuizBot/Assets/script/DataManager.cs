@@ -13,7 +13,9 @@ using UnityEngine.UI;
 using TMPro;
 
 public class DataManager : MonoBehaviour
-{
+{  
+    public static bool childExists;
+
     //User info
     //Note ID can be name or an ID #
     public static string recordID;
@@ -24,6 +26,13 @@ public class DataManager : MonoBehaviour
 
     public static string exportImportRef;
     public static int vocabTime;
+    public static int BSTime;
+    public static int LNITime;
+    public static int LSITime;
+    public static int SRTime;
+    public static int CSTime;
+    public static int writingTime;
+    public static int bookSumTime;
 
     public static string currentScene; //used to determine what logic to use
 
@@ -377,17 +386,29 @@ public class DataManager : MonoBehaviour
             // classroomIDField.text = classroomID;
             
             // Add logout code here
+            childExists = false;
             teacherID = null;
             assessorID = null;
             childID = null;
             classroomID = null;
             vocabTime = 0;
+            BSTime = 0;
+            LNITime = 0;
+            LSITime = 0;
+            CSTime = 0;
+            SRTime = 0;
+            writingTime = 0;
+            bookSumTime = 0;
             grade_vocabularyExpressive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyReceptive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyTotal = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_csTotal = new int[6] {-1,-1,-1,-1,-1,-1};
             grade_srTotal = new int[3] {-1,-1,-1};
+            individual_sr = new List<bool>();
+            individual_srQues = new List<string>();
             grade_bookSumTotal = new int[3] {-1,-1,-1};
+            individual_bookSumQues = new List<string>();
+            individual_bookSum = new List<bool>();
             continuation_flag = false;
             question_no = 0;
             continuation_scene = "";
@@ -466,8 +487,8 @@ public class DataManager : MonoBehaviour
         //Reset scores and wipe responses
         if(currentScene == "Evaluator" || currentScene == "LNI_Evaluator" || 
            currentScene == "LSI_Evaluator" || currentScene == "BS_Evaluator" || currentScene == "CS_Evaluator"
-           || currentScene == "Writing_Evaluator" || currentScene == "SR_Evaluator" || currentScene == "SR_Evaluator_2" 
-           || currentScene == "BookSum_Evaluator" || currentScene == "BookSum_Evaluator_2" || currentScene=="BookSum_Evaluator_3")
+           || currentScene == "Writing_Evaluator" || currentScene == "SR_Evaluator"
+           || currentScene == "BookSum_Evaluator")
         {
             individual_expressive = new List<bool>();
             individual_expressiveFlag = new List<bool>();
@@ -534,6 +555,7 @@ public class DataManager : MonoBehaviour
             childText.text = childID;
             gameText.text = "Game : Story Retell";
             timeText.text = "Time : " + globalTime;
+            print("_______-");
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
             srScoreTotal.text = grade_srTotal[globalTime - 1].ToString("F0");
         }
@@ -755,7 +777,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "RSR")
         {
             childText.text = childID;
-            //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
+            //Loop populates grades textboxes, hardcoded at 3 due to issues reading unfully instantiated sizes
             for(int loop = 0; loop < 3; loop++) 
             {
                 srScoresForResultPage[loop].text = grade_srTotal[loop].ToString("F0"); //Parameter ensures two decimal points
@@ -766,7 +788,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "RBookSum")
         {
             childText.text = childID;
-            //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
+            //Loop populates grades textboxes, hardcoded at 3 due to issues reading unfully instantiated sizes
             for(int loop = 0; loop < 3; loop++) 
             {
                 booksumScoresForResultPage[loop].text = grade_bookSumTotal[loop].ToString("F0"); //Parameter ensures two decimal points
@@ -1109,23 +1131,25 @@ public class DataManager : MonoBehaviour
                 continuation_scene = "SR_Evaluator_2";
             }
             if(currentScene == "SR_Evaluator_2"){
-                continuation_flag = false;
+                continuation_flag = false;                
             }
             if(grade_srTotal==null){
                 grade_srTotal = new int[3] {-1,-1,-1};
             }
-            grade_srTotal[timeIndex] = score_sr;
-            individual_srResponse.Insert(timeIndex, individual_sr);
-            individual_srQuestions.Insert(timeIndex, individual_srQues);
+            if((currentScene == "SR_Evaluator" && continuation_flag==false) || currentScene == "SR_Evaluator_2"){
+                grade_srTotal[timeIndex] = score_sr;
+                individual_srResponse.Insert(timeIndex, individual_sr);
+                individual_srQuestions.Insert(timeIndex, individual_srQues);
 
-            if(exportImportRef == "ID"){
-                assessorIdSRReponses.Insert(timeIndex, assessorID);
-                teacherIdSRResponses.Insert(timeIndex, teacherID);
-                classroomIdSRResponses.Insert(timeIndex, classroomID);
-            } else{
-                assessorNameSRReponses.Insert(timeIndex, assessorID);
-                teacherNameSRResponses.Insert(timeIndex, teacherID);
-                classroomNameSRResponses.Insert(timeIndex, classroomID);
+                if(exportImportRef == "ID"){
+                    assessorIdSRReponses.Insert(timeIndex, assessorID);
+                    teacherIdSRResponses.Insert(timeIndex, teacherID);
+                    classroomIdSRResponses.Insert(timeIndex, classroomID);
+                } else{
+                    assessorNameSRReponses.Insert(timeIndex, assessorID);
+                    teacherNameSRResponses.Insert(timeIndex, teacherID);
+                    classroomNameSRResponses.Insert(timeIndex, classroomID);
+                }
             }
         }
 

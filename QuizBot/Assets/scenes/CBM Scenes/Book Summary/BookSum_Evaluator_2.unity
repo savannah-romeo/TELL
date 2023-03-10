@@ -850,7 +850,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   sceneName: BookSum_Grader
   checker: {fileID: 727950465}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950457
 MonoBehaviour:
@@ -919,6 +921,7 @@ MonoBehaviour:
   writingNameScoreForResultPage: []
   writingSentenceScoreForResultPage: []
   srScoresForResultPage: []
+  booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
   BS_items: []
@@ -998,7 +1001,9 @@ MonoBehaviour:
   clickedButton: {fileID: 2092519758}
   sceneName: MainMenu
   checker: {fileID: 727950465}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950463
 MonoBehaviour:
@@ -1042,11 +1047,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompts1:
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
+  - (4) Do you toss the dough to keep it from getting dry?
+  - (5) Is this book mostly about pizza or about dough?
+  - (6) Do you make pizza dough with flour or sugar?
+  - (7) The pizza is ready to eat when it's hot. How do you know it is hot?
+  - (8) After we toss the dough, what is the next step in making the pizza?
   prompts2:
   - (4) Do all giraffes have the same pattern of spots?
   - (5) Is this book mostly about giraffes or about leaves?
@@ -1059,24 +1064,9 @@ MonoBehaviour:
   - (6) Do seals like to eat clams or seaweed?
   - (7) Seals can hold their breath. How do you know that?
   - (8) Why do seals need a thick layer of fat?
-  prompts4:
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts5:
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts6:
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
+  prompts4: []
+  prompts5: []
+  prompts6: []
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,8 +1445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: -206}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: -10, y: -154}
+  m_SizeDelta: {x: 580, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092177218
 MonoBehaviour:
@@ -1478,7 +1468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Error! Expressive and receptive scores required.
+  m_text: Error! Required to check one of the checkboxes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2188,8 +2178,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2792,7 +2782,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Exit '
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2819,8 +2809,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3041,8 +3031,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -405.86, y: 204}
-  m_SizeDelta: {x: 111.72, y: 46.002}
+  m_AnchoredPosition: {x: -386.53, y: -206}
+  m_SizeDelta: {x: 150.39, y: 50.001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758
 MonoBehaviour:

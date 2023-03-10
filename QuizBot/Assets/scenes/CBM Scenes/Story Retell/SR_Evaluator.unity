@@ -641,7 +641,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   sceneName: SR_Grader
   checker: {fileID: 727950465}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950457
 MonoBehaviour:
@@ -786,7 +788,9 @@ MonoBehaviour:
   clickedButton: {fileID: 2092519758}
   sceneName: MainMenu
   checker: {fileID: 727950463}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950463
 MonoBehaviour:
@@ -841,48 +845,26 @@ MonoBehaviour:
   prompts2:
   - (1) Did the child use the main character's name?
   - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
+  - "(3) Did the child say that the cake was for Johnny\u2019s mother?"
+  - (4) Did the child give a reason why Johnny wanted to make a cake for his mother?
+  - (5) Did the child say what Johnny used to make the cake?
+  - (6) Did the child say that Johnny mixed the ingredients and/or put it in the
+    pan?
+  - (7) Did the child say that Johnny frosted the cake?
+  - "(8) Did the child say that the mother was very happy with Johnny\u2019s cake?"
   prompts3:
   - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts4:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts5:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts6:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
+  - (2) Did the child say what the main character wanted to do?
+  - (3) Did the child say that Miguel and his dad went outside?
+  - (4) Did the child say that Miguel put on his helmet?
+  - (5) Did the child say Miguel climbed on his bike and/or that his dad held the
+    bike?
+  - (6) Did the child say that Miguel rode down the street?
+  - (7) Did the child say that Miguel was so happy that he could ride his bike?
+  - (8) Did the child say that the dad was very happy for Miguel?
+  prompts4: []
+  prompts5: []
+  prompts6: []
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: -206}
+  m_AnchoredPosition: {x: -6, y: -137}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092177218
@@ -1284,7 +1266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Error! Expressive and receptive scores required.
+  m_text: Error! Required to check one of the checkboxes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2401,7 +2383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -393.36, y: 204}
+  m_AnchoredPosition: {x: -393.36, y: -206}
   m_SizeDelta: {x: 136.72, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758

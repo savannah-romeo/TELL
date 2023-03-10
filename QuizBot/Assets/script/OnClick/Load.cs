@@ -20,11 +20,13 @@ public class Load : MonoBehaviour
     public DataManager cleanup; //Saves data before loading
     public Validation_UserInfo validator;
     SaveLoad loader;
+    bool showWarning;
 
     // Use this for initialization
     void Start()
     {
         loader = new SaveLoad();
+        showWarning = false;
         loadBtn.onClick.AddListener(loadButtonClick);
         yesBtn.onClick.AddListener(yesButtonClick);
         noBtn.onClick.AddListener(noButtonClick);
@@ -33,19 +35,18 @@ public class Load : MonoBehaviour
     // Occurs when next button is clicked
     void loadButtonClick()
     {
-        bool showWarning = validator.shouldDisplayDuplicateWarning();
-
-
+        showWarning = validator.shouldDisplayWarning();
         // Check if panel should be displayed (validator for panel)
-        if (showWarning)
+        if (!showWarning)
         {
-            loadBtn.interactable = false;
-            panel.gameObject.SetActive(true);
+            loadBtn.interactable = true;
+            panel.gameObject.SetActive(false);
+            loader.Load("", "");
         }
         else
         {
-            panel.gameObject.SetActive(false);
-            loader.Load("", "");
+            loadBtn.interactable = false;
+            panel.gameObject.SetActive(true); 
         }
     }
 
@@ -60,6 +61,7 @@ public class Load : MonoBehaviour
         cleanup.SceneCleanup();
         DataManager.currentScene = sceneName; //Updates DataManager scene string
         SceneManager.LoadScene(sceneName);
+        showWarning = false;
     }
 
 
@@ -68,5 +70,6 @@ public class Load : MonoBehaviour
     {
         loadBtn.interactable = true;
         panel.gameObject.SetActive(false);
+        showWarning = false;
     }
 }

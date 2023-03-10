@@ -9,7 +9,8 @@ public class Prompts_SR_2 : Array_Prompts
     {
         //See array_prompts for definition
         prompts1 = new string[8] {
-            "(9) Who is the girl? (Answer: Emma)",
+            "(9) Who is the girl?" +
+            "(Answer: Emma)",
             "(10) What did she want to make? (Answer: A present/picture)",
             "(11) Who is it for?",
             "(12) Why?",
@@ -41,42 +42,6 @@ public class Prompts_SR_2 : Array_Prompts
             "(14) Where did Miguel ride?",
             "(15) How did Miguel feel at the end?",
             "(16) What does Miguel’s dad say at the end?"
-        };
-
-        prompts4 = new string[8] {
-            "(1) Did the child use the main character's name?",
-            "(2) Did the child say what the main character wanted to make?",
-            "(3) Did the child say that the present was for Emma's father?",
-            "(4) Did the child give a reason why Emma wanted to give a present to her father?",
-            "(5) Did the child say what Emma used to make the picture?",
-            "(6) Did the child say that Emma drew a pictire of her family?",
-            "(7) Did the child say that Emma wrapped the present?",
-            "(8) Did the child say that the father was very happy with Emma's present?"
-
-        };
-
-        prompts5 = new string[8] {
-            "(1) Did the child use the main character's name?",
-            "(2) Did the child say what the main character wanted to make?",
-            "(3) Did the child say that the present was for Emma's father?",
-            "(4) Did the child give a reason why Emma wanted to give a present to her father?",
-            "(5) Did the child say what Emma used to make the picture?",
-            "(6) Did the child say that Emma drew a pictire of her family?",
-            "(7) Did the child say that Emma wrapped the present?",
-            "(8) Did the child say that the father was very happy with Emma's present?"
-
-        };
-
-        prompts6 = new string[8] {
-            "(1) Did the child use the main character's name?",
-            "(2) Did the child say what the main character wanted to make?",
-            "(3) Did the child say that the present was for Emma's father?",
-            "(4) Did the child give a reason why Emma wanted to give a present to her father?",
-            "(5) Did the child say what Emma used to make the picture?",
-            "(6) Did the child say that Emma drew a pictire of her family?",
-            "(7) Did the child say that Emma wrapped the present?",
-            "(8) Did the child say that the father was very happy with Emma's present?"
-
         };
     }
 }

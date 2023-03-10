@@ -1174,6 +1174,17 @@ MonoBehaviour:
   expressiveToggle: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
+  questionField: {fileID: 0}
+  name0Toggle: {fileID: 0}
+  name1Toggle: {fileID: 0}
+  name2Toggle: {fileID: 0}
+  name3Toggle: {fileID: 0}
+  name4Toggle: {fileID: 0}
+  sen0Toggle: {fileID: 0}
+  sen1Toggle: {fileID: 0}
+  sen2Toggle: {fileID: 0}
+  sen3Toggle: {fileID: 0}
+  sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
   childText: {fileID: 0}
@@ -1185,15 +1196,31 @@ MonoBehaviour:
   - {fileID: 0}
   expressiveTotalText: {fileID: 0}
   receptiveTotalText: {fileID: 0}
+  csScoreTotal: {fileID: 0}
+  csPromptText: []
+  csResponseScore: []
+  srScoreTotal: {fileID: 0}
+  srPromptText: []
+  srResponseScore: []
+  bookSumScoreTotal: {fileID: 0}
+  writingNameScore: {fileID: 0}
+  writingSentenceScore: {fileID: 0}
   expressivePercent:
   - {fileID: 0}
   receptivePercent:
   - {fileID: 0}
+  csScoresForResultPage: []
+  writingNameScoreForResultPage: []
+  writingSentenceScoreForResultPage: []
+  srScoresForResultPage: []
+  booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
   BS_items: []
   BS_letterText: []
   BS_EAPScore: []
+  gameText: {fileID: 0}
+  timeText: {fileID: 0}
 --- !u!114 &1405885869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,9 +1234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 916893807}
-  sceneName: BS_Example_Test
+  sceneName: BS_Instructions_1
   checker: {fileID: 1405885871}
   cleanup: {fileID: 1405885867}
+  showExportMessage: 0
 --- !u!4 &1405885870
 Transform:
   m_ObjectHideFlags: 0

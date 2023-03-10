@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1698277143}
-  sceneName: BookSum_Instructions_1
+  sceneName: SR_Evaluator
   checker: {fileID: 140666067}
   cleanup: {fileID: 140666066}
   showExportMessage: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Book Summary
+  m_text: Story Retell
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -921,8 +921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 7.76}
-  m_SizeDelta: {x: 601.75, y: 94.99}
+  m_AnchoredPosition: {x: -0, y: 10}
+  m_SizeDelta: {x: 687.07, y: 109.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1487311241
 MonoBehaviour:
@@ -944,17 +944,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Turn on the recorder and say the child''s name and the date. Say, <b>"I''m
-    going to read this interesting book to you. Listen carefully because I am going
-    to ask you questions about what you learned."</b> Read the book to the child.
-    Paint to the pictires as you read. When you finish, hadn the book to the child
-    and say, <b>"Now, I have some questions. You can look at the book and the pictures
-    to help you answers the questions." </b>(model turning the pages and reviewing
-    the pictures)
-
-
-    When the child is finished answering the questions. Turn
-    off the recorder.'
+  m_text: This is an adaptive test. Different children may be given different questions
+    based on their responses. The final test score is calculated based on the adaptive
+    scoring algorithm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -981,14 +973,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

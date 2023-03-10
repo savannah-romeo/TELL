@@ -949,9 +949,9 @@ GameObject:
   m_Component:
   - component: {fileID: 99568380}
   - component: {fileID: 99568381}
+  - component: {fileID: 99568386}
   - component: {fileID: 99568379}
   - component: {fileID: 99568385}
-  - component: {fileID: 99568386}
   - component: {fileID: 99568382}
   - component: {fileID: 99568383}
   - component: {fileID: 99568384}
@@ -1027,7 +1027,9 @@ MonoBehaviour:
   clickedButton: {fileID: 824475904}
   sceneName: MainMenu
   checker: {fileID: 99568381}
+  userInfoChecker: {fileID: 99568381}
   cleanup: {fileID: 99568383}
+  panel: {fileID: 68087905}
   showExportMessage: 0
 --- !u!114 &99568383
 MonoBehaviour:
@@ -1124,7 +1126,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99568378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f939df6a2723c4e668d91b1faa7b8338, type: 3}
   m_Name: 
@@ -2294,7 +2296,7 @@ GameObject:
   - component: {fileID: 824475905}
   - component: {fileID: 824475904}
   m_Layer: 5
-  m_Name: button_next
+  m_Name: button_next_userinfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

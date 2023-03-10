@@ -35,7 +35,7 @@ public class Load_logout_export_popUpMessage : MonoBehaviour
 
     }
 
-    // Occurs when yes button is clicked
+    // Occurs when logout button is clicked
     void logoutButtonClick()
     {
         loadBtn.interactable = true;
