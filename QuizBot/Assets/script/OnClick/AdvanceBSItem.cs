@@ -37,14 +37,33 @@ public class AdvanceBSItem: MonoBehaviour
         if(prompts == null){
             shownText.text = "HORSE" + sep + "/h/";
         } else{
-            shownText.text = prompts.promptsToDisplay[iterator].item + sep + prompts.promptsToDisplay[iterator].pronounce; //Display the first text
+            /*shownText.text = prompts.promptsToDisplay[iterator].item + sep + prompts.promptsToDisplay[iterator].pronounce; //Display the first text
             image.sprite = sprites[prompts.promptsToDisplay[iterator].index + 1];
-            image.preserveAspect = true;
+            image.preserveAspect = true;*/
+            assignImage();
         }   
         clickedButton.onClick.AddListener(TaskOnClick); 
     }
     
-    
+    protected virtual void assignImage()
+    {
+        checker.Validator();
+        Tuple<double, double> eapResults = getEAPEstimationScore();
+        double eap_estimation_value = eapResults.Item1;
+        //double standard_error = eapResults.Item2;
+
+        BSItem nextSelectedItem = pickNextItemRandomly(eap_estimation_value);
+
+        if (nextSelectedItem != null)
+        {
+            prompts.promptsToDisplay.Add(nextSelectedItem);
+            prompts.universalItems.Remove(nextSelectedItem);
+            iterator++;
+            shownText.text = nextSelectedItem.item + sep + prompts.promptsToDisplay[iterator].pronounce; ; //Display the first text
+            image.sprite = sprites[nextSelectedItem.index + 1];
+            image.preserveAspect = true;
+        }
+    }
     //Occurs when button is clicked
     protected virtual void TaskOnClick()
     {

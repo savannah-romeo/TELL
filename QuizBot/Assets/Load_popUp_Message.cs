@@ -47,16 +47,18 @@ public class Load_popUp_Message : MonoBehaviour
                 gameName = "Letter Name Identification";
             } else if(sceneName == "LSI_Instructions"){
                 gameName = "Letter Sound Indentification";
-            } else if(sceneName == "SR_Instructions"){
-                gameName = "Story Retell";
-            } else if(sceneName == "Writing_Instructions"){
+            } else if (sceneName == "CS_Instructions"){
+                gameName = "Clapping Syllabus";
+            } else if (sceneName == "Writing_Instructions"){
                 gameName = "Writing";
-            } else if(sceneName == "CS_Instructions"){
-                gameName = "Clapping Syllable";
-            } else if(sceneName == "BookSum_Instructions"){
+            } else if (sceneName == "SR_Instructions"){
+                gameName = "Story Retell";
+            }else if (sceneName == "BookSum_Instructions"){
                 gameName = "Book Summary";
+            }else if (sceneName == "COP_Instructions"){
+                gameName = "Concepts of Print";
             }
-            if(timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
+        if (timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
                 loadBtn.enabled = false;
                 warningText.text = "Oops! This test has already been taken. Please select the latest test!";
             } else{        

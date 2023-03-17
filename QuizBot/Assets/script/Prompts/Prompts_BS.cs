@@ -46,12 +46,12 @@ public class Prompts_BS : MonoBehaviour
             
             List<BSItem> items = new List<BSItem>(){};
             items.Add(testItemToAdd);
-            items.Add(itemToAdd);
+            //items.Add(itemToAdd);
             promptsToDisplay = items;
             if (testItemToAdd != null)
                 universalItems.Remove(testItemToAdd);
-            if (itemToAdd != null)
-                universalItems.Remove(itemToAdd);
+            /*if (itemToAdd != null)
+                universalItems.Remove(itemToAdd);*/
         }
     }
 }
