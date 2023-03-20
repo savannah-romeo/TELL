@@ -58,9 +58,10 @@ public class Load_popUp_Message : MonoBehaviour
             }else if (sceneName == "COP_Instructions"){
                 gameName = "Concepts of Print";
             }
-        if (timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
-                loadBtn.enabled = false;
-                warningText.text = "Oops! This test has already been taken. Please select the latest test!";
+            if(timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
+                warningText.text = " ";
+                warningText.text = "You have selected the "+gameName+" test, Time "+DataManager.globalTime+". This test has already been taken. Do you still want to go ahead with this test?";
+                panel.gameObject.SetActive(true);
             } else{        
                 warningText.text = " ";
                 displayText.text = "You have selected the "+gameName+" test, Time "+DataManager.globalTime+". Is that correct?";
