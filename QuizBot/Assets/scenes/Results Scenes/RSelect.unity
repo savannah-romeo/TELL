@@ -2079,6 +2079,7 @@ GameObject:
   - component: {fileID: 2082702631}
   - component: {fileID: 2082702632}
   - component: {fileID: 2082702633}
+  - component: {fileID: 2082702634}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2101,7 +2102,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1559227309}
   sceneName: RLI
   checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &2082702625
 MonoBehaviour:
@@ -2193,7 +2196,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1337582522}
   sceneName: MainMenu
   checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &2082702627
 MonoBehaviour:
@@ -2222,7 +2227,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1623037309}
   sceneName: RVocab
   checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!4 &2082702629
 Transform:
@@ -2254,7 +2261,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1954194997}
   sceneName: RBS
   checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &2082702631
 MonoBehaviour:
@@ -2271,7 +2280,9 @@ MonoBehaviour:
   clickedButton: {fileID: 941197825}
   sceneName: RCS
   checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &2082702632
 MonoBehaviour:
@@ -2288,7 +2299,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1135851042}
   sceneName: RWriting
   checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &2082702633
 MonoBehaviour:
@@ -2305,7 +2318,28 @@ MonoBehaviour:
   clickedButton: {fileID: 2117641234}
   sceneName: RSR
   checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
+  showExportMessage: 0
+--- !u!114 &2082702634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082702619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedButton: {fileID: 1040891542}
+  sceneName: RBookSum
+  checker: {fileID: 2082702627}
+  userInfoChecker: {fileID: 0}
+  cleanup: {fileID: 2082702625}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!1 &2117641232
 GameObject:

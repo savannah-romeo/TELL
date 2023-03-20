@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 727950460}
   - component: {fileID: 727950463}
   - component: {fileID: 727950462}
-  - component: {fileID: 727950464}
+  - component: {fileID: 727950466}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -741,7 +741,7 @@ MonoBehaviour:
   complete: 0
   gradeMe: 0
   checker: {fileID: 727950465}
-  prompts: {fileID: 727950464}
+  prompts: {fileID: 727950466}
 --- !u!114 &727950459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,42 +804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900c5815f7155ad47bfd6831854e9493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &727950464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bca5873b210ec41ec882ead4551205d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompts1:
-  - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
-  prompts2:
-  - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
-  prompts3:
-  - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
-  prompts4:
-  - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
-  prompts5:
-  - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
-  prompts6:
-  - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
 --- !u!114 &727950465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +821,36 @@ MonoBehaviour:
   prompts: {fileID: 727950458}
   validScene: 0
   validInput: 0
+--- !u!114 &727950466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69fb8b8959344de68666a55b2b516cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompts1:
+  - '(2) Teacher : teach/er'
+  - '(3) Umbrella : um/brel/a'
+  prompts2:
+  - '(2) Teacher : teach/er'
+  - '(3) Umbrella : um/brel/a'
+  prompts3:
+  - '(2) Teacher : teach/er'
+  - '(3) Umbrella : um/brel/a'
+  prompts4:
+  - '(2) Teacher : teach/er'
+  - '(3) Umbrella : um/brel/a'
+  prompts5:
+  - '(2) Teacher : teach/er'
+  - '(3) Umbrella : um/brel/a'
+  prompts6:
+  - '(2) Teacher : teach/er'
+  - '(3) Umbrella : um/brel/a'
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
