@@ -31,6 +31,7 @@ public class Load_logout_export_popUpMessage : MonoBehaviour
     // Occurs when next button is clicked
     void loadButtonClick()
     {
+        Debug.Log(panel.name);
         panel.gameObject.SetActive(true);
 
     }

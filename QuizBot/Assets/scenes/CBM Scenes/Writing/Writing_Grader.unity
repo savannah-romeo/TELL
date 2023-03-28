@@ -566,7 +566,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1726975425}
   sceneName: MainMenu
   checker: {fileID: 519637032}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 519637034}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &519637034
 MonoBehaviour:
@@ -2027,8 +2029,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 210.84, y: -178.83}
-  m_SizeDelta: {x: 1071.67, y: 47.66}
+  m_AnchoredPosition: {x: 197, y: -145}
+  m_SizeDelta: {x: 1071.67, y: 29.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141247038
 MonoBehaviour:

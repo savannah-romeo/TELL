@@ -150,6 +150,7 @@ public class RedCapService : MonoBehaviour
         if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
             form.AddField("filterLogic", redCapRequest.filterLogic);
 
+
         using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
         {
             yield return www.SendWebRequest();
@@ -174,6 +175,7 @@ public class RedCapService : MonoBehaviour
                 UsersDetails usersDetails = JsonConvert.DeserializeObject<UsersDetails>("{\"users\":" + response + "}");
                 for (int index = usersDetails.users.Count - 1; index >= 0; index--){
                     RedCapRecord redCapRecord = usersDetails.users[index];
+
                     if (redCapRecord.recordID == null || redCapRecord.recordID == 0)
                     {
                         error = false;
@@ -216,7 +218,8 @@ public class RedCapService : MonoBehaviour
         
         if (!String.IsNullOrEmpty(redCapRequest.forceAutoNumber))
             form.AddField("forceAutoNumber", redCapRequest.forceAutoNumber);
-        
+
+        Debug.Log("redCapRequest.data "+redCapRequest.data);
         if (!String.IsNullOrEmpty(redCapRequest.data))
             form.AddField("data", redCapRequest.data);
         
