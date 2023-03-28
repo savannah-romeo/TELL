@@ -54,6 +54,9 @@ EditorBuildSettings:
     path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Instructions.unity
     guid: e830a759aeba444ee8faf998c3a295a3
   - enabled: 1
+    path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Instructions_1.unity
+    guid: 55ae5860200a14a8599da9fbc76070a8
+  - enabled: 1
     path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Example_Test.unity
     guid: 1dd93e21e533241278ac78a07dca14c0
   - enabled: 1
@@ -74,6 +77,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Clapping Syllables/CS_Evaluator.unity
     guid: e7dda49d1af47467fba28943e97029a8
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Clapping Syllables/CS_Evaluator_1.unity
+    guid: 6e902c7948d18433d8cb60c081c29f64
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Clapping Syllables/CS_Grader.unity
     guid: 4b99e1024c6f440ea8b8d1a8d6a7ce4d

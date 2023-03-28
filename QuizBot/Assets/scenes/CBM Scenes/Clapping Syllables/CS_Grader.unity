@@ -515,7 +515,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519637031}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
   m_Name: 
@@ -523,7 +523,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1726975425}
   sceneName: MainMenu
   checker: {fileID: 519637032}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 519637034}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &519637034
 MonoBehaviour:
@@ -737,7 +739,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519637031}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed51aabbe23064b55ae2e86eae6476e7, type: 3}
   m_Name: 
@@ -756,7 +758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519637031}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ee964911300045d989956dfadddc7b9, type: 3}
   m_Name: 

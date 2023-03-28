@@ -64,7 +64,8 @@ public class Load_popUp_Message : MonoBehaviour
         if (timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
                 loadBtn.enabled = false;
                 warningText.text = "Oops! This test has already been taken. Please select the latest test!";
-            } else{        
+            }
+            else{        
                 warningText.text = " ";
                 displayText.text = "You have selected the "+gameName+" test, Time "+tpShown+". Is that correct?";
                 panel.gameObject.SetActive(true);
