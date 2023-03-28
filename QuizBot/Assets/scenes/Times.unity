@@ -224,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &71075444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -242,8 +242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -100.85}
-  m_SizeDelta: {x: 532.32, y: 51.66}
+  m_AnchoredPosition: {x: -217.96, y: -95.28}
+  m_SizeDelta: {x: 94.4, y: 10.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &71075445
 MonoBehaviour:
@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 163.46, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &322240607
@@ -866,7 +866,9 @@ MonoBehaviour:
   clickedButton: {fileID: 269458792}
   sceneName: SelectCBM
   checker: {fileID: 322240623}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 322240610}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &322240609
 MonoBehaviour:
@@ -883,7 +885,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1695333438}
   sceneName: 
   checker: {fileID: 322240623}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 322240610}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &322240610
 MonoBehaviour:
@@ -975,7 +979,9 @@ MonoBehaviour:
   clickedButton: {fileID: 373160702}
   sceneName: 
   checker: {fileID: 322240623}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 322240610}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &322240612
 MonoBehaviour:
@@ -992,7 +998,9 @@ MonoBehaviour:
   clickedButton: {fileID: 676674379}
   sceneName: 
   checker: {fileID: 322240623}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 322240610}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!4 &322240613
 Transform:
@@ -1024,7 +1032,9 @@ MonoBehaviour:
   clickedButton: {fileID: 528406697}
   sceneName: 
   checker: {fileID: 322240623}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 322240610}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &322240615
 MonoBehaviour:
@@ -1041,7 +1051,9 @@ MonoBehaviour:
   clickedButton: {fileID: 747153038}
   sceneName: 
   checker: {fileID: 322240623}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 322240610}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &322240616
 MonoBehaviour:
@@ -1058,7 +1070,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1736704333}
   sceneName: 
   checker: {fileID: 322240623}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 322240610}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &322240617
 MonoBehaviour:

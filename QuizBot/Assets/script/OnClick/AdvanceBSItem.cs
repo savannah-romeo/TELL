@@ -37,10 +37,11 @@ public class AdvanceBSItem: MonoBehaviour
         if(prompts == null){
             shownText.text = "HORSE" + sep + "/h/";
         } else{
-            /*shownText.text = prompts.promptsToDisplay[iterator].item + sep + prompts.promptsToDisplay[iterator].pronounce; //Display the first text
+            shownText.text = prompts.promptsToDisplay[iterator].item + sep + prompts.promptsToDisplay[iterator].pronounce; //Display the first text
             image.sprite = sprites[prompts.promptsToDisplay[iterator].index + 1];
-            image.preserveAspect = true;*/
-            assignImage();
+            image.preserveAspect = true;
+            //iterator++;
+            //assignImage();
         }   
         clickedButton.onClick.AddListener(TaskOnClick); 
     }
@@ -72,20 +73,20 @@ public class AdvanceBSItem: MonoBehaviour
         {
             BSItem nextSelectedItem = null;
             if (prompts!=null){
-            if (iterator == 0)
+            /*if (iterator == 0)
             {
                 nextSelectedItem = prompts.promptsToDisplay[prompts.promptsToDisplay.Count - 1];
                 iterator++;
                 shownText.text = nextSelectedItem.item + sep + prompts.promptsToDisplay[iterator].pronounce;; //Display the first text
                 image.sprite = sprites[nextSelectedItem.index + 1];
-            } 
-            else 
-            {
+            } */
+            //else 
+            //{
                 Tuple<double, double> eapResults = getEAPEstimationScore();
                 double eap_estimation_value = eapResults.Item1;
                 double standard_error = eapResults.Item2;
 
-                nextSelectedItem = pickNextItemRandomly(eap_estimation_value);
+                
 
                 if (prompts.promptsToDisplay.Count == 8 || standard_error <= 0.4)
                 {
@@ -94,19 +95,22 @@ public class AdvanceBSItem: MonoBehaviour
 
                 if (iterator == 8)
                 {
-                    DataManager.final_BSscores[DataManager.globalTime-1] = eapResults;
+                    DataManager.final_BSscores[DataManager.globalTime - 1] = eapResults;
                 }
-                
-                if (nextSelectedItem != null)
+                else
                 {
-                    prompts.promptsToDisplay.Add(nextSelectedItem);
-                    prompts.universalItems.Remove(nextSelectedItem);
-                    iterator++;
-                    shownText.text = nextSelectedItem.item + sep + prompts.promptsToDisplay[iterator].pronounce;; //Display the first text
-                    image.sprite = sprites[nextSelectedItem.index + 1];
-                    image.preserveAspect = true;
+                    nextSelectedItem = pickNextItemRandomly(eap_estimation_value);
+                    if (nextSelectedItem != null)
+                    {
+                        prompts.promptsToDisplay.Add(nextSelectedItem);
+                        prompts.universalItems.Remove(nextSelectedItem);
+                        iterator++;
+                        shownText.text = nextSelectedItem.item + sep + prompts.promptsToDisplay[iterator].pronounce; ; //Display the first text
+                        image.sprite = sprites[nextSelectedItem.index + 1];
+                        image.preserveAspect = true;
+                    }
                 }
-            }
+            //}
             }
 
         }

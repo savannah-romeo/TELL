@@ -38,33 +38,36 @@ public class Load_popUp_Message : MonoBehaviour
             loadBtn.interactable = false;
             string gameName = "";
             int timeaccepted=0;
-            if(sceneName == "Instructions"){
-                timeaccepted = DataManager.vocabTime;
-                gameName = "Vocabulary";
-            } else if(sceneName == "BS_Instructions") {
-                gameName = "Beginning Sound";
-            } else if(sceneName == "LNI_Instructions") {
-                gameName = "Letter Name Identification";
-            } else if(sceneName == "LSI_Instructions"){
-                gameName = "Letter Sound Indentification";
-            } else if (sceneName == "CS_Instructions"){
-                gameName = "Clapping Syllabus";
-            } else if (sceneName == "Writing_Instructions"){
-                gameName = "Writing";
-            } else if (sceneName == "SR_Instructions"){
-                gameName = "Story Retell";
-            }else if (sceneName == "BookSum_Instructions"){
-                gameName = "Book Summary";
-            }else if (sceneName == "COP_Instructions"){
+            int tpShown = DataManager.globalTime;
+        if (sceneName == "Instructions") {
+            timeaccepted = DataManager.vocabTime;
+            gameName = "Vocabulary";
+        } else if (sceneName == "BS_Instructions") {
+            gameName = "Beginning Sound";
+        } else if (sceneName == "LNI_Instructions") {
+            gameName = "Letter Name Identification";
+        } else if (sceneName == "LSI_Instructions") {
+            gameName = "Letter Sound Indentification";
+        } else if (sceneName == "CS_Instructions") {
+            gameName = "Clapping Syllabus";
+        } else if (sceneName == "Writing_Instructions") {
+            gameName = "Writing";
+        } else if (sceneName == "SR_Instructions") {
+            gameName = "Story Retell";
+            tpShown = (2 * tpShown) - 1;
+        } else if (sceneName == "BookSum_Instructions") {
+            gameName = "Book Summary";
+            tpShown = tpShown*2;
+        }else if (sceneName == "COP_Instructions"){
                 gameName = "Concepts of Print";
+        }
+        if (timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
+                loadBtn.enabled = false;
+                warningText.text = "Oops! This test has already been taken. Please select the latest test!";
             }
-            if(timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
+            else{        
                 warningText.text = " ";
-                warningText.text = "You have selected the "+gameName+" test, Time "+DataManager.globalTime+". This test has already been taken. Do you still want to go ahead with this test?";
-                panel.gameObject.SetActive(true);
-            } else{        
-                warningText.text = " ";
-                displayText.text = "You have selected the "+gameName+" test, Time "+DataManager.globalTime+". Is that correct?";
+                displayText.text = "You have selected the "+gameName+" test, Time "+tpShown+". Is that correct?";
                 panel.gameObject.SetActive(true);
             }
             

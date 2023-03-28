@@ -563,7 +563,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "BookSum_Grader")
         {
             childText.text = childID;
-            gameText.text = "Game : Story Retell";
+            gameText.text = "Game : Book Summary";
             timeText.text = "Time : " + globalTime;
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
@@ -711,11 +711,12 @@ public class DataManager : MonoBehaviour
             
             //Check for "Tested Out" Letters
             int iterator = 0;
+
             for (int item = 0; item < individual_BS.GetLength(0); item++)
             {
                 for (int time = 0; time < individual_BS.GetLength(1); time++)
                 {
-                    if (time == globalTime-1)
+                    if (time == globalTime-1 && iterator < BS_items.Length)
                     {
                         if (individual_BS[item, time] == AdaptiveResponse.Correct)
                         {
@@ -1079,9 +1080,18 @@ public class DataManager : MonoBehaviour
             if (assessorIDField.text != "")
                 assessorID = assessorIDField.text;
             childID = childNameField.text;
+            if(childNameField.text != "")
+            {
+                childNameField.text = childNameField.text.ToLower();
+            }
             if(childIDField.text != "") {
                 childID = childIDField.text;
+                childIDField.text = childIDField.text.ToLower();
                 exportImportRef = "ID";
+            }
+            if (childID != "")
+            {
+                childID = childID.ToLower();
             }
             classroomID = classroomField.text;
             if(classroomIDField.text != "")

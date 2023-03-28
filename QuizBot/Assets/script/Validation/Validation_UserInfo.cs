@@ -82,6 +82,15 @@ public class Validation_UserInfo : Validation_Parent
             redCapRequestForRecordIDs.filterLogic = "[child_name]=" + "\"" + DataManager.childID + "\"";
             }
 
+        if (childName.text != String.Empty)
+        {
+            childName.text = childName.text.ToLower();
+        }
+        if (childID.text != String.Empty)
+        {
+            childID.text = childID.text.ToLower();
+        }
+
         return RedCapService.Instance.WaitOnData(redCapRequestForRecordIDs, childID.text, childName.text);
             
     }
