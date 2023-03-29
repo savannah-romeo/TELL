@@ -31,6 +31,7 @@ public class AdvanceText : MonoBehaviour
         complete = false;
         gradeMe = true;
         iterator = 0; //Selects the starting text to display
+        Debug.Log("game " + DataManager.globalGame);
         if (DataManager.globalGame == "SR_Instructions" || DataManager.globalGame == "BookSum_Instructions"){
             textArray = PromptSelect1(localTime);
         }
