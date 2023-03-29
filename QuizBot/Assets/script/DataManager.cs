@@ -1002,13 +1002,20 @@ public class DataManager : MonoBehaviour
                 responses.Add("<color=red>Incorrect</color>");
             }
             if(exportImportRef == "ID"){
-                assessorIdLniReponses.Insert(globalTime-1, assessorID);
+                /*assessorIdLniReponses.Insert(globalTime-1, assessorID);
                 teacherIdLniResponses.Insert(globalTime-1, teacherID);
-                classroomIdLniResponses.Insert(globalTime-1, classroomID);
+                classroomIdLniResponses.Insert(globalTime-1, classroomID);*/
+                assessorIdLniReponses.Add(assessorID);
+                teacherIdLniResponses.Add(teacherID);
+                classroomIdLniResponses.Add(classroomID);
             } else{
-                assessorNameLniReponses.Insert(globalTime-1, assessorID);
+                Debug.Log("LNI entered global time "+globalTime+" assessorID "+assessorID);
+                /*assessorNameLniReponses.Insert(globalTime-1, assessorID);
                 teacherNameLniResponses.Insert(globalTime-1, teacherID);
-                classroomNameLniResponses.Insert(globalTime-1, classroomID);
+                classroomNameLniResponses.Insert(globalTime-1, classroomID);*/
+                assessorNameLniReponses.Add(assessorID);
+                teacherNameLniResponses.Add(teacherID);
+                classroomNameLniResponses.Add(classroomID);
             }
         }
 
@@ -1028,13 +1035,20 @@ public class DataManager : MonoBehaviour
                 responses.Add("<color=red>Incorrect</color>");
             }
             if(exportImportRef == "ID"){
-                assessorIdLsiReponses.Insert(globalTime-1, assessorID);
+                /*assessorIdLsiReponses.Insert(globalTime-1, assessorID);
                 teacherIdLsiResponses.Insert(globalTime-1, teacherID);
-                classroomIdLsiResponses.Insert(globalTime-1, classroomID);
+                classroomIdLsiResponses.Insert(globalTime-1, classroomID);*/
+                assessorIdLsiReponses.Add(assessorID);
+                teacherIdLsiResponses.Add(teacherID);
+                classroomIdLsiResponses.Add(classroomID);
             } else{
-                assessorNameLsiReponses.Insert(globalTime-1, assessorID);
+                Debug.Log("LSI entered global time " + globalTime + " assessorID " + assessorID);
+                /*assessorNameLsiReponses.Insert(globalTime-1, assessorID);
                 teacherNameLsiResponses.Insert(globalTime-1, teacherID);
-                classroomNameLsiResponses.Insert(globalTime-1, classroomID);
+                classroomNameLsiResponses.Insert(globalTime-1, classroomID);*/
+                assessorNameLsiReponses.Add(assessorID);
+                teacherNameLsiResponses.Add(teacherID);
+                classroomNameLsiResponses.Add(classroomID);
             }
         }
 
@@ -1055,13 +1069,20 @@ public class DataManager : MonoBehaviour
                     individual_BSChildResponse[itemToGrade.index, globalTime-1] = bsChildResponseField.text;
             }
             if(exportImportRef == "ID"){
-                assessorIdBsReponses.Insert(globalTime-1, assessorID);
+                /*assessorIdBsReponses.Insert(globalTime-1, assessorID);
                 teacherIdBsResponses.Insert(globalTime-1, teacherID);
-                classroomIdBsResponses.Insert(globalTime-1, classroomID);
+                classroomIdBsResponses.Insert(globalTime-1, classroomID);*/
+                assessorIdBsReponses.Add(assessorID);
+                teacherIdBsResponses.Add(teacherID);
+                classroomIdBsResponses.Add(classroomID);
             } else{
-                assessorNameBsReponses.Insert(globalTime-1, assessorID);
+                Debug.Log("BS entered global time " + globalTime + " assessorID " + assessorID);
+                /*assessorNameBsReponses.Insert(globalTime-1, assessorID);
                 teacherNameBsResponses.Insert(globalTime-1, teacherID);
-                classroomNameBsResponses.Insert(globalTime-1, classroomID);
+                classroomNameBsResponses.Insert(globalTime-1, classroomID);*/
+                assessorNameBsReponses.Add(assessorID);
+                teacherNameBsResponses.Add(teacherID);
+                classroomNameBsResponses.Add(classroomID);
             }
         }
     }
@@ -1119,16 +1140,22 @@ public class DataManager : MonoBehaviour
                 grade_csTotal = new int[6] {-1,-1,-1,-1,-1,-1};
             }
             grade_csTotal[timeIndex] = score_cs;
-            individual_csResponse.Insert(timeIndex, individual_cs);
-
-            if(exportImportRef == "ID"){
-                assessorIdCSReponses.Insert(timeIndex, assessorID);
+            //individual_csResponse.Insert(timeIndex, individual_cs);
+            individual_csResponse.Add(individual_cs);
+            if (exportImportRef == "ID"){
+                /*assessorIdCSReponses.Insert(timeIndex, assessorID);
                 teacherIdCSResponses.Insert(timeIndex, teacherID);
-                classroomIdCSResponses.Insert(timeIndex, classroomID);
+                classroomIdCSResponses.Insert(timeIndex, classroomID);*/
+                assessorIdCSReponses.Add(assessorID);
+                teacherIdCSResponses.Add(teacherID);
+                classroomIdCSResponses.Add(classroomID);
             } else{
-                assessorNameCSReponses.Insert(timeIndex, assessorID);
+                /*assessorNameCSReponses.Insert(timeIndex, assessorID);
                 teacherNameCSResponses.Insert(timeIndex, teacherID);
-                classroomNameCSResponses.Insert(timeIndex, classroomID);
+                classroomNameCSResponses.Insert(timeIndex, classroomID);*/
+                assessorNameCSReponses.Add(assessorID);
+                teacherNameCSResponses.Add(teacherID);
+                classroomNameCSResponses.Add(classroomID);
             }
         }
 
@@ -1150,17 +1177,25 @@ public class DataManager : MonoBehaviour
             }
             if((currentScene == "SR_Evaluator" && continuation_flag==false) || currentScene == "SR_Evaluator_2"){
                 grade_srTotal[timeIndex] = score_sr;
-                individual_srResponse.Insert(timeIndex, individual_sr);
-                individual_srQuestions.Insert(timeIndex, individual_srQues);
+                individual_srResponse.Add(individual_sr);
+                individual_srQuestions.Add(individual_srQues);
+                /*individual_srResponse.Insert(timeIndex, individual_sr);
+                individual_srQuestions.Insert(timeIndex, individual_srQues);*/
 
-                if(exportImportRef == "ID"){
-                    assessorIdSRReponses.Insert(timeIndex, assessorID);
+                if (exportImportRef == "ID"){
+                    /*assessorIdSRReponses.Insert(timeIndex, assessorID);
                     teacherIdSRResponses.Insert(timeIndex, teacherID);
-                    classroomIdSRResponses.Insert(timeIndex, classroomID);
+                    classroomIdSRResponses.Insert(timeIndex, classroomID);*/
+                    assessorIdSRReponses.Add(assessorID);
+                    teacherIdSRResponses.Add(teacherID);
+                    classroomIdSRResponses.Add(classroomID);
                 } else{
-                    assessorNameSRReponses.Insert(timeIndex, assessorID);
+                    /*assessorNameSRReponses.Insert(timeIndex, assessorID);
                     teacherNameSRResponses.Insert(timeIndex, teacherID);
-                    classroomNameSRResponses.Insert(timeIndex, classroomID);
+                    classroomNameSRResponses.Insert(timeIndex, classroomID);*/
+                    assessorNameSRReponses.Add(assessorID);
+                    teacherNameSRResponses.Add(teacherID);
+                    classroomNameSRResponses.Add(classroomID);
                 }
             }
         }
@@ -1186,18 +1221,26 @@ public class DataManager : MonoBehaviour
             }
             if(continuation_flag == false) {
             grade_bookSumTotal[timeIndex] = score_bookSum;
-            individual_bookSumResponse.Insert(timeIndex, individual_bookSum);
-            individual_bookSumQuestions.Insert(timeIndex, individual_bookSumQues);
+             individual_bookSumResponse.Add(individual_bookSum);
+             individual_bookSumQuestions.Add(individual_bookSumQues);
+                /*individual_bookSumResponse.Insert(timeIndex, individual_bookSum);
+                individual_bookSumQuestions.Insert(timeIndex, individual_bookSumQues);*/
 
-            if(exportImportRef == "ID"){
-                assessorIdBookSumReponses.Insert(timeIndex, assessorID);
-                teacherIdBookSumResponses.Insert(timeIndex, teacherID);
-                classroomIdBookSumResponses.Insert(timeIndex, classroomID);
-            } else{
-                assessorNameBookSumReponses.Insert(timeIndex, assessorID);
-                teacherNameBookSumResponses.Insert(timeIndex, teacherID);
-                classroomNameBookSumResponses.Insert(timeIndex, classroomID);
-            }
+                if (exportImportRef == "ID"){
+                    /*assessorIdBookSumReponses.Insert(timeIndex, assessorID);
+                    teacherIdBookSumResponses.Insert(timeIndex, teacherID);
+                    classroomIdBookSumResponses.Insert(timeIndex, classroomID);*/
+                    assessorIdBookSumReponses.Add(assessorID);
+                    teacherIdBookSumResponses.Add(teacherID);
+                    classroomIdBookSumResponses.Add(classroomID);
+                } else{
+                    /*assessorNameBookSumReponses.Insert(timeIndex, assessorID);
+                    teacherNameBookSumResponses.Insert(timeIndex, teacherID);
+                    classroomNameBookSumResponses.Insert(timeIndex, classroomID);*/
+                    assessorNameBookSumReponses.Add(assessorID);
+                    teacherNameBookSumResponses.Add(teacherID);
+                    classroomNameBookSumResponses.Add(classroomID);
+                }
             }
         }
 
@@ -1207,13 +1250,19 @@ public class DataManager : MonoBehaviour
             GradeQuestion();
             int timeIndex = globalTime - 1;
             if(exportImportRef == "ID"){
-                assessorIdWritingReponses.Insert(timeIndex, assessorID);
+                /*assessorIdWritingReponses.Insert(timeIndex, assessorID);
                 teacherIdWritingResponses.Insert(timeIndex, teacherID);
-                classroomIdWritingResponses.Insert(timeIndex, classroomID);
+                classroomIdWritingResponses.Insert(timeIndex, classroomID);*/
+                assessorIdWritingReponses.Add(assessorID);
+                teacherIdWritingResponses.Add(teacherID);
+                classroomIdWritingResponses.Add(classroomID);
             } else{
-                assessorNameWritingReponses.Insert(timeIndex, assessorID);
+                /*assessorNameWritingReponses.Insert(timeIndex, assessorID);
                 teacherNameWritingResponses.Insert(timeIndex, teacherID);
-                classroomNameWritingResponses.Insert(timeIndex, classroomID);
+                classroomNameWritingResponses.Insert(timeIndex, classroomID);*/
+                assessorNameWritingReponses.Add(assessorID);
+                teacherNameWritingResponses.Add(teacherID);
+                classroomNameWritingResponses.Add(classroomID);
             }
         }
 
@@ -1227,21 +1276,32 @@ public class DataManager : MonoBehaviour
             grade_vocabularyReceptive[timeIndex] = (score_receptive / vocabularyTotalQuestions) * 100;
             score_total = score_expressive + score_receptive;
             grade_vocabularyTotal[timeIndex] = (score_total / (vocabularyTotalQuestions * 2)) * 100;
-            
+
             // Add individual answers
-            individual_vocabularyExpressive.Insert(timeIndex, individual_expressive);
+            individual_vocabularyExpressive.Add(individual_expressive);
+            individual_vocabularyReceptive.Add(individual_receptive);
+            individual_vocabularyExpressiveFlag.Add(individual_expressiveFlag);
+            individual_vocabularyReceptiveFlag.Add(individual_receptiveFlag);
+            individual_vocabularyResponses.Add(responses);
+            /*individual_vocabularyExpressive.Insert(timeIndex, individual_expressive);
             individual_vocabularyReceptive.Insert(timeIndex, individual_receptive);
             individual_vocabularyExpressiveFlag.Insert(timeIndex, individual_expressiveFlag);
             individual_vocabularyReceptiveFlag.Insert(timeIndex, individual_receptiveFlag);
-            individual_vocabularyResponses.Insert(timeIndex, responses);
-            if(exportImportRef == "ID"){
-                assessorIdVocabReponses.Insert(timeIndex, assessorID);
+            individual_vocabularyResponses.Insert(timeIndex, responses);*/
+            if (exportImportRef == "ID"){
+                assessorIdVocabReponses.Add(assessorID);
+                teacherIdVocabResponses.Add(teacherID);
+                classroomIdVocabResponses.Add(classroomID);
+                /*assessorIdVocabReponses.Insert(timeIndex, assessorID);
                 teacherIdVocabResponses.Insert(timeIndex, teacherID);
-                classroomIdVocabResponses.Insert(timeIndex, classroomID);
+                classroomIdVocabResponses.Insert(timeIndex, classroomID);*/
             } else{
-                assessorNameVocabReponses.Insert(timeIndex, assessorID);
+                assessorNameVocabReponses.Add(assessorID);
+                teacherNameVocabResponses.Add(teacherID);
+                classroomNameVocabResponses.Add(classroomID);
+                /*assessorNameVocabReponses.Insert(timeIndex, assessorID);
                 teacherNameVocabResponses.Insert(timeIndex, teacherID);
-                classroomNameVocabResponses.Insert(timeIndex, classroomID);
+                classroomNameVocabResponses.Insert(timeIndex, classroomID);*/
             }
         }
     }

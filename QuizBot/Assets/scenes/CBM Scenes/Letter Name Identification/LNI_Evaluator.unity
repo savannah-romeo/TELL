@@ -2237,7 +2237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Menu Menu '
+  m_text: 'Main Menu '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2698,7 +2698,9 @@ MonoBehaviour:
   clickedButton: {fileID: 867038192}
   sceneName: LNI_Grader
   checker: {fileID: 1362174507}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 1362174511}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &1362174513
 MonoBehaviour:
@@ -2799,7 +2801,9 @@ MonoBehaviour:
   clickedButton: {fileID: 115728729}
   sceneName: MainMenu
   checker: {fileID: 1362174507}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 1362174511}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!1 &1379084409
 GameObject:

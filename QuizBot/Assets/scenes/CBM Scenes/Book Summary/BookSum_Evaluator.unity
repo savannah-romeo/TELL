@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 727950460}
   - component: {fileID: 727950463}
   - component: {fileID: 727950462}
-  - component: {fileID: 727950464}
+  - component: {fileID: 727950466}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -954,7 +954,7 @@ MonoBehaviour:
   complete: 0
   gradeMe: 0
   checker: {fileID: 727950465}
-  prompts: {fileID: 727950464}
+  prompts: {fileID: 727950466}
 --- !u!114 &727950459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,48 +1017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900c5815f7155ad47bfd6831854e9493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &727950464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14f99eb72e67e4a298e8200eeab49677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompts1:
-  - (1) What is this book about?
-  - (2) Tell me one interesting detail you learned in this book.
-  - (3) Tell me something else you learned about making a pizza. (If the child gives
-    the same detial, assessor may prompt, 'Tell me something different you learned.'
-  prompts2:
-  - (1) What is this book about?
-  - (2) Tell me one interesting detail you learned in this book.
-  - (3) Tell me something else you learned about making a pizza. (If the child gives
-    the same detial, assessor may prompt, 'Tell me something different you learned.'
-  prompts3:
-  - (1) What is this book about?
-  - (2) Tell me one interesting detail you learned in this book.
-  - (3) Tell me something else you learned about making a pizza. (If the child gives
-    the same detial, assessor may prompt, 'Tell me something different you learned.'
-  prompts4:
-  - (1) What is this book about?
-  - (2) Tell me one interesting detail you learned in this book.
-  - (3) Tell me something else you learned about making a pizza. (If the child gives
-    the same detial, assessor may prompt, 'Tell me something different you learned.'
-  prompts5:
-  - (1) What is this book about?
-  - (2) Tell me one interesting detail you learned in this book.
-  - (3) Tell me something else you learned about making a pizza. (If the child gives
-    the same detial, assessor may prompt, 'Tell me something different you learned.'
-  prompts6:
-  - (1) What is this book about?
-  - (2) Tell me one interesting detail you learned in this book.
-  - (3) Tell me something else you learned about making a pizza. (If the child gives
-    the same detial, assessor may prompt, 'Tell me something different you learned.'
 --- !u!114 &727950465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1034,42 @@ MonoBehaviour:
   prompts: {fileID: 727950458}
   validScene: 0
   validInput: 0
+--- !u!114 &727950466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f99eb72e67e4a298e8200eeab49677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompts1:
+  - (1) What is this book about?
+  - (2) Tell me one interesting detail you learned in this book.
+  - (3) Tell me something else you learned about making a pizza. (If the child gives
+    the same detail, assessor may prompt, 'Tell me something different you learned.'
+  prompts2:
+  - (1) What is this book about?
+  - (2) Tell me one interesting detail you learned in this book.
+  - (3) Tell me something else you learned about giraffes. (If the child gives the
+    same detail, assessor may prompt, 'Tell me something different you learned.'
+  prompts3:
+  - (1) What is this book about?
+  - (2) Tell me one interesting detail you learned in this book.
+  - (3) Tell me something else you learned about seals. (If the child gives the same
+    detail, assessor may prompt, 'Tell me something different you learned.'
+  prompts4:
+  - 
+  - 
+  - 
+  prompts5:
+  - 
+  - 
+  - 
+  prompts6: []
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
