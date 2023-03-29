@@ -1165,7 +1165,8 @@ public class DataManager : MonoBehaviour
         {
             GradeQuestion();
             int timeIndex = globalTime - 1;
-            if(currentScene == "SR_Evaluator" && score_sr ==0){
+            
+            if (currentScene == "SR_Evaluator" && score_sr ==0){
                 continuation_flag = true;
                 continuation_scene = "SR_Evaluator_2";
             }
@@ -1205,10 +1206,12 @@ public class DataManager : MonoBehaviour
         {
             GradeQuestion();
             int timeIndex = globalTime - 1;
-            if(currentScene == "BookSum_Evaluator" && question_no==3 && grade_bookSumTotal[timeIndex] == 0){
+            
+            if (currentScene == "BookSum_Evaluator" && question_no==3 && score_bookSum == 0 /*grade_bookSumTotal[timeIndex] == 0*/)
+            {
                 continuation_flag = true;
                 continuation_scene = "BookSum_Evaluator_3";
-            } else if(currentScene == "BookSum_Evaluator" && question_no==3 && grade_bookSumTotal[timeIndex] <=3){
+            } else if(currentScene == "BookSum_Evaluator" && question_no==3 && score_bookSum<=3 /*grade_bookSumTotal[timeIndex] <=3*/){
                 continuation_flag = true;
                 continuation_scene = "BookSum_Evaluator_2";
             }
