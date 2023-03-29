@@ -31,6 +31,7 @@ public class LoadDuplicateChild : MonoBehaviour
     {
         panel.gameObject.SetActive(false);
         DataManager.childExists = false;
+        DataManager.childFileExists = false;
     }
 
 
@@ -39,6 +40,7 @@ public class LoadDuplicateChild : MonoBehaviour
     {
         panel.gameObject.SetActive(false);
         DataManager.childExists = false;
+        DataManager.childFileExists = false;
         // Load new scene
         cleanup.SceneCleanup();
         DataManager.currentScene = "UserInfo"; //Updates DataManager scene string

@@ -54,11 +54,8 @@ public class Validation_UserInfo : Validation_Parent
     // a warning if it is not possible to load file (missing either child or classroom information)
     public bool shouldDisplayWarning()
     {
-        if (childID.text == String.Empty || classRoomId.text == null)
-            return false;
-
-        string fileName = childID.text + "_" + classRoomId.text + ".dat";
-        string loadPath = persistentDataPath + "/" + fileName;
+        string fileName = DataManager.childID + ".dat";
+        string loadPath = persistentDataPath + fileName;
         if (File.Exists(loadPath))
         {
             return true;
