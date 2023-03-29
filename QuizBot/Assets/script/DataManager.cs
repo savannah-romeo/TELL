@@ -15,6 +15,7 @@ using TMPro;
 public class DataManager : MonoBehaviour
 {  
     public static bool childExists;
+    public static bool childFileExists;
 
     //User info
     //Note ID can be name or an ID #
@@ -387,6 +388,7 @@ public class DataManager : MonoBehaviour
             
             // Add logout code here
             childExists = false;
+            childFileExists = false;
             teacherID = null;
             assessorID = null;
             childID = null;

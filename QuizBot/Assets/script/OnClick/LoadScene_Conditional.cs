@@ -44,9 +44,12 @@ public class LoadScene_Conditional : MonoBehaviour
             }
             if(clickedButton.name == "button_next_userinfo" && sceneName== "MainMenu"){
                 bool showWarning = userInfoChecker.shouldDisplayDuplicateWarning();
+                bool fileAlreadyExists = userInfoChecker.shouldDisplayWarning();
                 if(showWarning){
                     DataManager.childExists = true;
-                    // panel.gameObject.SetActive(true);
+                    if(fileAlreadyExists){
+                        DataManager.childFileExists = true;
+                    }
                 }                    
             }
             
