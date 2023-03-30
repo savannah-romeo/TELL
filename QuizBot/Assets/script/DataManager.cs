@@ -933,9 +933,9 @@ public class DataManager : MonoBehaviour
             {
                 individual_bookSum.Add(true);
                 score_bookSum++;
-                if(currentScene=="BookSum_Evaluator_2" && question_no==4){
+                /*if(currentScene=="BookSum_Evaluator_2" && question_no==4){
                     score_bookSum++;
-                }
+                }*/
             }
             else
             {
