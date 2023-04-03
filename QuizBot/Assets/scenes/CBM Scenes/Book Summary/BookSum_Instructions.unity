@@ -257,9 +257,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1698277143}
-  sceneName: BookSum_Instructions_1
+  sceneName: BookSum_Evaluator
   checker: {fileID: 140666067}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!1 &501855902
 GameObject:

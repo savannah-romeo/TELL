@@ -39,6 +39,10 @@ public class LoadScene_Conditional : MonoBehaviour
                 cleanup.SceneCleanup();
                 DataManager.currentScene = DataManager.continuation_scene;
                 SceneManager.LoadScene(DataManager.continuation_scene);
+                if(DataManager.continuation_scene == "BS_Evaluator_2")
+                {
+                    GameObject.Find("bookSum_ExtraMark_Toggle").SetActive(false);
+                }
             } else{
                 SceneManager.LoadScene(sceneName);
             }

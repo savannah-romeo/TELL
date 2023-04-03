@@ -883,6 +883,7 @@ MonoBehaviour:
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 1423126920}
+  bookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -1059,17 +1060,14 @@ MonoBehaviour:
   - (10) What are baby seals called? (Turn to 4th page)
   - (11) What does a seal have to do when it swims underwater? (Turn to last page)
   prompts4:
-  - (9) What do we do first to make the pizza? (Turn to 3rd page)
-  - (10) Whatdowedowith the dough after we make it? (Turn to 5th page)
-  - (11) What do we do when the pizza is ready? (Turn to last page)
+  - 
+  - 
+  - 
   prompts5:
-  - (9) What do we do first to make the pizza? (Turn to 3rd page)
-  - (10) Whatdowedowith the dough after we make it? (Turn to 5th page)
-  - (11) What do we do when the pizza is ready? (Turn to last page)
-  prompts6:
-  - (9) What do we do first to make the pi[zza? (Turn to 3rd page)
-  - (10) Whatdowedowith the dough after we make it? (Turn to 5th page)
-  - (11) What do we do when the pizza is ready? (Turn to last page)
+  - 
+  - 
+  - 
+  prompts6: []
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0

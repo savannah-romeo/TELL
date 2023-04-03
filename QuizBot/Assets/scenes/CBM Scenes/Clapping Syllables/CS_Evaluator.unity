@@ -580,10 +580,10 @@ GameObject:
   m_Component:
   - component: {fileID: 727950454}
   - component: {fileID: 727950465}
-  - component: {fileID: 727950456}
   - component: {fileID: 727950457}
   - component: {fileID: 727950458}
   - component: {fileID: 727950459}
+  - component: {fileID: 727950467}
   - component: {fileID: 727950452}
   - component: {fileID: 727950460}
   - component: {fileID: 727950463}
@@ -626,25 +626,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &727950456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedButton: {fileID: 1065061408}
-  sceneName: CS_Grader
-  checker: {fileID: 727950465}
-  userInfoChecker: {fileID: 0}
-  cleanup: {fileID: 727950457}
-  panel: {fileID: 0}
-  showExportMessage: 0
 --- !u!114 &727950457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +719,7 @@ MonoBehaviour:
   - 6. Taste
   iterator: 0
   clickedButton: {fileID: 1065061408}
-  complete: 0
+  complete: 1
   gradeMe: 0
   checker: {fileID: 727950465}
   prompts: {fileID: 727950466}
@@ -749,7 +730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad8bf7d1ec3c8d542b1f8690fcb1898f, type: 3}
   m_Name: 
@@ -819,7 +800,7 @@ MonoBehaviour:
   expressive_yes: {fileID: 746151781}
   expressive_no: {fileID: 302869374}
   prompts: {fileID: 727950458}
-  validScene: 0
+  validScene: 1
   validInput: 0
 --- !u!114 &727950466
 MonoBehaviour:
@@ -835,28 +816,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompts1:
   - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
   prompts2:
   - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
   prompts3:
   - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
   prompts4:
   - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
   prompts5:
   - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
   prompts6:
   - '(1) Popcorn : pop/corn'
-  - '(2) Teacher : teach/er'
-  - '(3) Umbrella : um/brel/a'
+--- !u!114 &727950467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedButton: {fileID: 1065061408}
+  sceneName: CS_Grader
+  checker: {fileID: 727950465}
+  userInfoChecker: {fileID: 0}
+  cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
+  showExportMessage: 0
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
