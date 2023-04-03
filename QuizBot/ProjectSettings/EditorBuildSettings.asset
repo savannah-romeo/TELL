@@ -155,4 +155,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/Results Scenes/RBookSum.unity
     guid: b0a532437bce3415cbcbb0b2587bad18
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Instructions_1.unity
+    guid: 55ae5860200a14a8599da9fbc76070a8
   m_configObjects: {}

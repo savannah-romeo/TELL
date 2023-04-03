@@ -202,6 +202,8 @@ public class DataManager : MonoBehaviour
     public Toggle receptiveFlag;
     public TextMeshProUGUI questionField;
 
+    public Toggle bookSumExtraMarkToggle;
+
     //Writing Evaluator Fields
     public Toggle name0Toggle;
     public Toggle name1Toggle; 
@@ -506,6 +508,7 @@ public class DataManager : MonoBehaviour
             score_cs = 0;
             score_sr = 0;
             score_bookSum = 0;
+            question_no = 0;
             individual_sr = new List<bool>();
             individual_srQues = new List<string>();
             individual_bookSumQues = new List<string>();
@@ -542,11 +545,12 @@ public class DataManager : MonoBehaviour
             timeText.text = "Time : " + globalTime;
             string[] promptStorage = promptCycler.PromptSelect(globalTime);
             //Loop populates table textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
-            for (int wheel = 0; wheel < 3; wheel++)
+            //for (int wheel = 0; wheel < 3; wheel++)
+            /*for (int wheel = 0; wheel < individual_cs.Count; wheel++)
             {
                 csPromptText[wheel].text = promptStorage[wheel];
                 csResponseScore[wheel].text = individual_cs[wheel] ? "1" : "0";
-            }
+            }*/
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
             csScoreTotal.text = grade_csTotal[globalTime - 1].ToString("F0");
@@ -887,8 +891,9 @@ public class DataManager : MonoBehaviour
         }
 
         //Calculate scores based on toggles
-        if (currentScene == "CS_Evaluator")
+        if (currentScene == "CS_Evaluator" || currentScene == "CS_Evaluator_1")
         {
+            Debug.Log("score getting incremented");
             if (primaryToggle.isOn)
             {
                 individual_cs.Add(true);
@@ -933,6 +938,17 @@ public class DataManager : MonoBehaviour
             {
                 individual_bookSum.Add(true);
                 score_bookSum++;
+                Debug.Log("question_no "+question_no);
+                
+                if (currentScene == "BookSum_Evaluator_2" && question_no == 7 && bookSumExtraMarkToggle.isOn)
+                {
+                    score_bookSum++;
+                    bookSumExtraMarkToggle.gameObject.SetActive(false);
+                }
+                else if(currentScene == "BookSum_Evaluator_2" && question_no == 6)
+                {
+                    bookSumExtraMarkToggle.gameObject.SetActive(true);
+                }
                 /*if(currentScene=="BookSum_Evaluator_2" && question_no==4){
                     score_bookSum++;
                 }*/
@@ -1091,8 +1107,10 @@ public class DataManager : MonoBehaviour
     //that can be called to store data before scene transitions
     public void SceneCleanup()
     {
+        Debug.Log("currentScene " + currentScene);
+
         //Save UserInfo
-        if(currentScene == "UserInfo")
+        if (currentScene == "UserInfo")
         {
             //Save child name or ID, with ID taking precedence
             exportImportRef = "Name";
@@ -1129,27 +1147,45 @@ public class DataManager : MonoBehaviour
         }
 
         //Grade final question and calculate results before moving on
-        if (currentScene == "CS_Evaluator")
+        if (currentScene == "CS_Evaluator" || currentScene == "CS_Evaluator_1")
         {
+            Debug.Log("currentScene "+currentScene);
+            Debug.Log("continuation_flag " + continuation_flag);
             GradeQuestion();
+            /*if (DataManager.currentScene != DataManager.continuation_scene)
+            {
+                GradeQuestion();
+            }*/
             int timeIndex = globalTime - 1;
-            
-            
-            // Add individual answers
-            if(grade_csTotal==null){
-                grade_csTotal = new int[6] {-1,-1,-1,-1,-1,-1};
+            Debug.Log("score_cs " + score_cs);
+            if (currentScene == "CS_Evaluator" && score_cs > 0)
+            {
+                continuation_flag = true;
+                continuation_scene = "CS_Evaluator_1";
             }
-            grade_csTotal[timeIndex] = score_cs;
+            /*if (currentScene == "CS_Evaluator_1")
+            {
+                continuation_flag = false;
+            }*/
+
+            // Add individual answers
+            if (grade_csTotal == null) {
+                grade_csTotal = new int[6] { -1, -1, -1, -1, -1, -1 };
+            }
+
+            if ((currentScene == "CS_Evaluator" && continuation_flag == false) || currentScene == "CS_Evaluator_1")
+            {
+                grade_csTotal[timeIndex] = score_cs;
             //individual_csResponse.Insert(timeIndex, individual_cs);
             individual_csResponse.Add(individual_cs);
-            if (exportImportRef == "ID"){
+            if (exportImportRef == "ID") {
                 /*assessorIdCSReponses.Insert(timeIndex, assessorID);
                 teacherIdCSResponses.Insert(timeIndex, teacherID);
                 classroomIdCSResponses.Insert(timeIndex, classroomID);*/
                 assessorIdCSReponses.Add(assessorID);
                 teacherIdCSResponses.Add(teacherID);
                 classroomIdCSResponses.Add(classroomID);
-            } else{
+            } else {
                 /*assessorNameCSReponses.Insert(timeIndex, assessorID);
                 teacherNameCSResponses.Insert(timeIndex, teacherID);
                 classroomNameCSResponses.Insert(timeIndex, classroomID);*/
@@ -1157,6 +1193,7 @@ public class DataManager : MonoBehaviour
                 teacherNameCSResponses.Add(teacherID);
                 classroomNameCSResponses.Add(classroomID);
             }
+        }
         }
 
         

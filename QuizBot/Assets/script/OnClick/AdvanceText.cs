@@ -32,12 +32,14 @@ public class AdvanceText : MonoBehaviour
         gradeMe = true;
         iterator = 0; //Selects the starting text to display
         Debug.Log("game " + DataManager.globalGame);
-        if (DataManager.globalGame == "SR_Instructions" || DataManager.globalGame == "BookSum_Instructions"){
+        if (DataManager.globalGame == "SR_Instructions" || DataManager.globalGame == "BookSum_Instructions" || 
+            DataManager.globalGame == "CS_Instructions")
+        {
             textArray = PromptSelect1(localTime);
         }
         if (DataManager.globalGame != "Writing_Instructions"){
             textArray = PromptSelect(localTime);
-            if (DataManager.globalGame == "LNI_Instructions") {
+            if (DataManager.globalGame == "LSI_Instructions") {
              shownText.text = textArray[iterator] + sep + alphabet_pronounciation[textArray[iterator]]; //Display the first text
             } else{
                 shownText.text = textArray[iterator]; //Display the first text
@@ -80,7 +82,7 @@ public class AdvanceText : MonoBehaviour
             }else if (iterator < textArray.Length - 1)
             {
                 iterator++;
-                if (DataManager.globalGame == "LNI_Instructions")
+                if (DataManager.globalGame == "LSI_Instructions")
                 {
                     shownText.text = textArray[iterator] + sep + alphabet_pronounciation[textArray[iterator]]; //Display the first text
                 } else{
@@ -89,6 +91,11 @@ public class AdvanceText : MonoBehaviour
                 //On last question display, mark completed
                 if (iterator == textArray.Length - 1)
                     complete = true;
+            }
+            else if (DataManager.globalGame == "CS_Instructions")
+            {
+                complete = true;
+                shownText.text = textArray[iterator];
             }
             //Last element
             else
