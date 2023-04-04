@@ -52,10 +52,10 @@ public class Load_popUp_Message : MonoBehaviour
             gameName = "Clapping Syllabus";
         } else if (sceneName == "Writing_Instructions") {
             gameName = "Writing";
-        } else if (sceneName == "SR_Instructions") {
+        } else if (sceneName == "SR_Instructions_1") {
             gameName = "Story Retell";
             tpShown = (2 * tpShown) - 1;
-        } else if (sceneName == "BookSum_Instructions") {
+        } else if (sceneName == "BookSum_Instructions_1") {
             gameName = "Book Summary";
             tpShown = tpShown*2;
         }else if (sceneName == "COP_Instructions"){
