@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BookSumExtraMarkToggle : MonoBehaviour
 {
     public Toggle bookSum;
+    public TextMeshProUGUI textBookSumExtraMarkToggle;
     void Start()
     {
         Toggle toggleResponseYes = GameObject.Find("toggle_expressive_yes").GetComponent<Toggle>();
@@ -26,10 +28,12 @@ public class BookSumExtraMarkToggle : MonoBehaviour
         {
             //GameObject.Find("bookSum_ExtraMark_Toggle").SetActive(true);
             bookSum.gameObject.SetActive(true);
-                }
+            textBookSumExtraMarkToggle.gameObject.SetActive(true);
+        }
         else if (bookSum.gameObject != null){
                 bookSum.gameObject.SetActive(false);
-            
+                textBookSumExtraMarkToggle.gameObject.SetActive(false);
+
             //GameObject.Find("bookSum_ExtraMark_Toggle").SetActive(false);
         }
     }

@@ -203,6 +203,7 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI questionField;
 
     public Toggle bookSumExtraMarkToggle;
+    public TextMeshProUGUI textBookSumExtraMarkToggle;
 
     //Writing Evaluator Fields
     public Toggle name0Toggle;
@@ -944,10 +945,12 @@ public class DataManager : MonoBehaviour
                 {
                     score_bookSum++;
                     bookSumExtraMarkToggle.gameObject.SetActive(false);
-                }
+                    textBookSumExtraMarkToggle.gameObject.SetActive(false);
+}
                 else if(currentScene == "BookSum_Evaluator_2" && question_no == 6)
                 {
                     bookSumExtraMarkToggle.gameObject.SetActive(true);
+                    textBookSumExtraMarkToggle.gameObject.SetActive(true);
                 }
                 /*if(currentScene=="BookSum_Evaluator_2" && question_no==4){
                     score_bookSum++;

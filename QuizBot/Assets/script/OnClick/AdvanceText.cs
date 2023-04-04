@@ -33,14 +33,15 @@ public class AdvanceText : MonoBehaviour
         iterator = 0; //Selects the starting text to display
         Debug.Log("game " + DataManager.globalGame);
         if (DataManager.globalGame == "SR_Instructions" || DataManager.globalGame == "BookSum_Instructions" || 
-            DataManager.globalGame == "CS_Instructions")
+            DataManager.globalGame == "CS_Instructions" || DataManager.globalGame == "SR_Instructions_1" || 
+            DataManager.globalGame == "BookSum_Instructions_1")
         {
             textArray = PromptSelect1(localTime);
         }
         if (DataManager.globalGame != "Writing_Instructions"){
             textArray = PromptSelect(localTime);
             if (DataManager.globalGame == "LSI_Instructions") {
-             shownText.text = textArray[iterator] + sep + alphabet_pronounciation[textArray[iterator]]; //Display the first text
+             shownText.text = /*textArray[iterator] + sep + */alphabet_pronounciation[textArray[iterator]]; //Display the first text
             } else{
                 shownText.text = textArray[iterator]; //Display the first text
             }
@@ -84,7 +85,7 @@ public class AdvanceText : MonoBehaviour
                 iterator++;
                 if (DataManager.globalGame == "LSI_Instructions")
                 {
-                    shownText.text = textArray[iterator] + sep + alphabet_pronounciation[textArray[iterator]]; //Display the first text
+                    shownText.text = /*textArray[iterator] + sep + */alphabet_pronounciation[textArray[iterator]]; //Display the first text
                 } else{
                     shownText.text = textArray[iterator];
                 }
