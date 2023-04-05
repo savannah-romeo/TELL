@@ -941,9 +941,12 @@ public class DataManager : MonoBehaviour
                 score_bookSum++;
                 Debug.Log("question_no "+question_no);
                 
-                if (currentScene == "BookSum_Evaluator_2" && question_no == 7 && bookSumExtraMarkToggle.isOn)
+                if (currentScene == "BookSum_Evaluator_2" && question_no == 7)
                 {
-                    score_bookSum++;
+                    if (bookSumExtraMarkToggle.isOn)
+                    {
+                        score_bookSum++;
+                    }
                     bookSumExtraMarkToggle.gameObject.SetActive(false);
                     textBookSumExtraMarkToggle.gameObject.SetActive(false);
 }
