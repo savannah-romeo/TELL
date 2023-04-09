@@ -18,7 +18,7 @@ public class Prompts_BookSum_3 : Array_Prompts
         prompts2 = new string[3] {
             "(9) What do giraffes like to eat? (Turn to 2nd page)",
             "(10) What do you call a group of giraffes? (Turn to 6th-7th page)",
-            "(11)) Do giraffes have big babies?"
+            "(11) Do giraffes have big babies?"
         };
 
         prompts3 = new string[3] {

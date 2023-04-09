@@ -24,7 +24,8 @@ public class GradeQuestion : MonoBehaviour
         checker.Validator();
         if (checker.GetValidInput())
         {
-            if (DataManager.globalGame == "BS_Instructions" && gradedQuestionsBS.gradeMe)
+            if ((DataManager.globalGame == "BS_Instructions"
+                || DataManager.globalGame == "BS_Instructions_1") && gradedQuestionsBS.gradeMe)
                 gradeData.GradeQuestion();
             else if (gradedQuestions.gradeMe)
                 gradeData.GradeQuestion();

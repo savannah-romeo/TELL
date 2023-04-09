@@ -891,7 +891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -35}
+  m_AnchoredPosition: {x: 0, y: -97}
   m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &730288257
@@ -1611,6 +1611,8 @@ MonoBehaviour:
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
+  bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -1672,7 +1674,9 @@ MonoBehaviour:
   clickedButton: {fileID: 916893807}
   sceneName: LNI_Evaluator
   checker: {fileID: 1405885872}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 1405885867}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!4 &1405885870
 Transform:

@@ -1487,8 +1487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250.98, y: -104.69}
-  m_SizeDelta: {x: 124.12, y: 51.39}
+  m_AnchoredPosition: {x: 254.42, y: -106.11}
+  m_SizeDelta: {x: 117.93, y: 48.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &434133236
 MonoBehaviour:
@@ -2966,6 +2966,7 @@ MonoBehaviour:
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
   bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -3443,8 +3444,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 254.62001, y: -51.5}
-  m_SizeDelta: {x: 131.39, y: 51}
+  m_AnchoredPosition: {x: 246.6, y: -46.15}
+  m_SizeDelta: {x: 115.34, y: 40.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618963189
 MonoBehaviour:
@@ -3493,8 +3494,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

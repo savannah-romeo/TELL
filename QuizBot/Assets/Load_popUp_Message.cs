@@ -42,7 +42,7 @@ public class Load_popUp_Message : MonoBehaviour
         if (sceneName == "Instructions") {
             timeaccepted = DataManager.vocabTime;
             gameName = "Vocabulary";
-        } else if (sceneName == "BS_Instructions") {
+        } else if (sceneName == "BS_Instructions_1") {
             gameName = "Beginning Sound";
         } else if (sceneName == "LNI_Instructions") {
             gameName = "Letter Name Identification";

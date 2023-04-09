@@ -25,7 +25,7 @@ public class SetGame : MonoBehaviour
         "buttonVocabulary" => "Instructions",
         "buttonLNI" => "LNI_Instructions",
         "buttonLSI" => "LSI_Instructions",
-        "buttonBS" => "BS_Instructions",
+        "buttonBS" => "BS_Instructions_1",
         "buttonCS" => "CS_Instructions",
         "buttonWriting" => "Writing_Instructions",
         "buttonSR" => "SR_Instructions_1",
