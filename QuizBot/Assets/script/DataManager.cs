@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static System.Math;
 
 public class DataManager : MonoBehaviour
 {  
@@ -267,6 +268,7 @@ public class DataManager : MonoBehaviour
 
     //RBS Fields
     public TextMeshProUGUI[] BS_EAPScore;
+    public TextMeshProUGUI BS_PercentileScore;
 
     public TextMeshProUGUI gameText;
     public TextMeshProUGUI timeText;
@@ -554,7 +556,7 @@ public class DataManager : MonoBehaviour
             }*/
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
-            csScoreTotal.text = grade_csTotal[globalTime - 1].ToString("F0");
+            csScoreTotal.text = grade_csTotal[globalTime - 1].ToString("F0")+" out of 3";
         }
 
         if (currentScene == "SR_Grader")
@@ -574,7 +576,7 @@ public class DataManager : MonoBehaviour
             timeText.text = "Time : " + globalTime;
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
-            bookSumScoreTotal.text = grade_bookSumTotal[globalTime - 1].ToString("F0");
+            bookSumScoreTotal.text = grade_bookSumTotal[globalTime - 1].ToString("F0")+" out of 11";
         }
 
         if (currentScene == "Writing_Grader")
@@ -741,6 +743,12 @@ public class DataManager : MonoBehaviour
                     }
                 }
             }
+
+            double x = final_BSscores[DataManager.globalTime - 1].Item1;
+            double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            Debug.Log("percentile "+x.ToString("0.00"));
+            BS_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: "+percentile.ToString("0.00")+"%";
+            //The relative ranking of this child to the 4-year-old age group: XX%
         }
 
         //Report card - show all times
