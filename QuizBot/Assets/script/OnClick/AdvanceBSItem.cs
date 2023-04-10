@@ -86,11 +86,10 @@ public class AdvanceBSItem: MonoBehaviour
                 double eap_estimation_value = eapResults.Item1;
                 double standard_error = eapResults.Item2;
 
-                
-
                 if (prompts.promptsToDisplay.Count == 8 || standard_error <= 0.4)
                 {
                     complete = true;
+                    DataManager.final_BSscores[DataManager.globalTime - 1] = eapResults;
                 }
 
                 if (iterator == 8)
