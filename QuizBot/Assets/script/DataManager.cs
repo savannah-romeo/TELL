@@ -435,7 +435,7 @@ public class DataManager : MonoBehaviour
             individual_BS =  new AdaptiveResponse[36, 6];
             individual_BSChildResponse =  new string[36, 6];
 
-            for (int loop = 0; loop < 6; loop++)
+            /*for (int loop = 0; loop < 6; loop++)
             {
                 // writingNameScoreForResultPage[loop].text = individual_cs_name[loop].ToString("F0"); //Parameter ensures two decimal points
                 // writingSentenceScoreForResultPage[loop].text = individual_cs_sentence[loop].ToString("F0"); //Parameter ensures two decimal points
@@ -443,7 +443,7 @@ public class DataManager : MonoBehaviour
                 individual_writing_score.Insert(loop,sampleValues); //Parameter ensures two decimal points
                  
 
-            }
+            }*/
 
             assessorIdVocabReponses = new List<string>();
             teacherIdVocabResponses = new List<string>();
