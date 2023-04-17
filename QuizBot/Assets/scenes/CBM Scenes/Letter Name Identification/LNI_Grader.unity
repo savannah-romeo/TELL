@@ -5519,6 +5519,7 @@ MonoBehaviour:
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
   bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -5621,6 +5622,7 @@ MonoBehaviour:
   BS_items: []
   BS_letterText: []
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
   gameText: {fileID: 1708411776}
   timeText: {fileID: 675177887}
 --- !u!114 &916252700
@@ -9221,7 +9223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game
+  m_text: Test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

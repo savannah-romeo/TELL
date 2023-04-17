@@ -1083,6 +1083,7 @@ MonoBehaviour:
   BS_items: []
   BS_letterText: []
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &1405885869
@@ -1191,7 +1192,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: This is an adaptive test. Different children may be given different questions
     based on their responses. The final test score is calculated based on the adaptive
-    scoring algorithm
+    scoring algorithm.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
