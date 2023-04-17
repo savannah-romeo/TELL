@@ -435,6 +435,16 @@ public class DataManager : MonoBehaviour
             individual_BS =  new AdaptiveResponse[36, 6];
             individual_BSChildResponse =  new string[36, 6];
 
+            for (int loop = 0; loop < 6; loop++)
+            {
+                // writingNameScoreForResultPage[loop].text = individual_cs_name[loop].ToString("F0"); //Parameter ensures two decimal points
+                // writingSentenceScoreForResultPage[loop].text = individual_cs_sentence[loop].ToString("F0"); //Parameter ensures two decimal points
+                List<int> sampleValues = new List<int> { -1, -1 };
+                individual_writing_score.Insert(loop,sampleValues); //Parameter ensures two decimal points
+                 
+
+            }
+
             assessorIdVocabReponses = new List<string>();
             teacherIdVocabResponses = new List<string>();
             classroomIdVocabResponses = new List<string>();
@@ -524,7 +534,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "Grader")
         {
             childText.text = childID;
-            gameText.text = "Game : Vocabulary";
+            gameText.text = "Test : Vocabulary";
             timeText.text = "Time : " + globalTime;
             string[] promptStorage = promptCycler.PromptSelect(globalTime);
             //Loop populates table textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
@@ -544,7 +554,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "CS_Grader")
         {
             childText.text = childID;
-            gameText.text = "Game : Clapping Syllables";
+            gameText.text = "Test : Clapping Syllables";
             timeText.text = "Time : " + globalTime;
             string[] promptStorage = promptCycler.PromptSelect(globalTime);
             //Loop populates table textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
@@ -562,7 +572,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "SR_Grader")
         {
             childText.text = childID;
-            gameText.text = "Game : Story Retell";
+            gameText.text = "Test : Story Retell";
             timeText.text = "Time : " + globalTime;
             print("_______-");
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
@@ -572,7 +582,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "BookSum_Grader")
         {
             childText.text = childID;
-            gameText.text = "Game : Book Summary";
+            gameText.text = "Test : Book Summary";
             timeText.text = "Time : " + globalTime;
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
@@ -582,7 +592,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "Writing_Grader")
         {
             childText.text = childID;
-            gameText.text = "Game : Writing";
+            gameText.text = "Test : Writing";
             timeText.text = "Time : " + globalTime;
             writingNameScore.text = individual_name_score.ToString("F0");
             writingSentenceScore.text = individual_sentence_score.ToString("F0");
@@ -590,7 +600,7 @@ public class DataManager : MonoBehaviour
 
         if (currentScene == "LNI_Grader" )
         {
-            gameText.text = "Game : LNI";
+            gameText.text = "Test : Letter Name Identification";
             timeText.text = "Time : " + globalTime;
             //Check for "Tested Out" Letters
             for (int letter = 0; letter < individual_LNI.GetLength(0); letter++)
@@ -645,7 +655,7 @@ public class DataManager : MonoBehaviour
 
         if (currentScene == "LSI_Grader" )
         {
-            gameText.text = "Game : LSI";
+            gameText.text = "Test : Letter Sound Identification";
             timeText.text = "Time : " + globalTime;
             //Check for "Tested Out" Letters
             for (int letterIndex = 0; letterIndex < individual_LSI.GetLength(0); letterIndex++)
@@ -712,7 +722,7 @@ public class DataManager : MonoBehaviour
         
         if (currentScene == "BS_Grader" )
         {
-            gameText.text = "Game : BS";
+            gameText.text = "Test : Beginning Sounds";
             timeText.text = "Time : " + globalTime;
             List<BSItem> universalItems;
             string json = Resources.Load<TextAsset>("bs_items").ToString();
@@ -1155,7 +1165,7 @@ public class DataManager : MonoBehaviour
         }
 
         //Store child name for letter randomization
-        if(currentScene == "LNI_Instructions")
+        if(currentScene == "LNI_Instructions" && null != lniNameField)
         {
             childNameLNI = lniNameField.text;
         }
