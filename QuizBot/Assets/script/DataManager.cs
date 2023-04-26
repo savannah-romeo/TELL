@@ -309,7 +309,10 @@ public class DataManager : MonoBehaviour
             question_no = 0;
             continuation_scene = "";
             final_BSscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0)};
-            final_CAPscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0) };
+            if (final_CAPscores == null)
+            {
+                final_CAPscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0) };
+            }
             individual_cs_name = new int[6] {-1,-1,-1,-1,-1,-1};
             individual_cs_sentence = new int[6] {-1,-1,-1,-1,-1,-1};
             individual_writing_score = new List<List<int>>();
