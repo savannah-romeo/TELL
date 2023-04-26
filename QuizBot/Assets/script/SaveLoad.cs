@@ -127,7 +127,16 @@ public class SaveLoad
 		staging.sAssessorNameBsList = DataManager.assessorNameBsReponses;
 		staging.sTeacherNameBsList = DataManager.teacherNameBsResponses;
 		staging.sClassroomNameBsList = DataManager.classroomNameBsResponses;
-		
+
+		staging.sIndividual_CAP = DataManager.individual_CAP;
+		staging.final_CAPscores = DataManager.final_CAPscores;
+		staging.sAssessorIdCAPList = DataManager.assessorIdCAPReponses;
+		staging.sTeacherIdCAPList = DataManager.teacherIdCAPResponses;
+		staging.sClassroomIdCAPList = DataManager.classroomIdCAPResponses;
+		staging.sAssessorNameCAPList = DataManager.assessorNameCAPReponses;
+		staging.sTeacherNameCAPList = DataManager.teacherNameCAPResponses;
+		staging.sClassroomNameCAPList = DataManager.classroomNameCAPResponses;
+
 		string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
 		Debug.Log(fileName);
 		string savePath = Path.Combine(pdP, fileName); // File path for storage with the file name
@@ -190,8 +199,10 @@ public class SaveLoad
         DataManager.learnedLetterNamesLSI = staging.sLearnedLetterNamesLSI;
         DataManager.individual_LSI = staging.sIndividual_LSI;
         DataManager.individual_BS = staging.sIndividual_BS;
+		DataManager.individual_CAP = staging.sIndividual_CAP;
 		DataManager.individual_BSChildResponse = staging.sIndividual_BSChildResponse;
         DataManager.final_BSscores = staging.final_BSscores;
+		DataManager.final_CAPscores = staging.final_CAPscores;
 
 		DataManager.assessorIdVocabReponses = staging.sAssessorIdVocabList;
 		DataManager.teacherIdVocabResponses = staging.sTeacherIdVocabList;
@@ -206,6 +217,13 @@ public class SaveLoad
 		DataManager.assessorNameBsReponses = staging.sAssessorNameBsList;
 		DataManager.teacherNameBsResponses = staging.sTeacherNameBsList;
 		DataManager.classroomNameBsResponses = staging.sClassroomNameBsList;
+
+		DataManager.assessorIdCAPReponses = staging.sAssessorIdCAPList;
+		DataManager.teacherIdCAPResponses = staging.sTeacherIdCAPList;
+		DataManager.classroomIdCAPResponses = staging.sClassroomIdCAPList;
+		DataManager.assessorNameCAPReponses = staging.sAssessorNameCAPList;
+		DataManager.teacherNameCAPResponses = staging.sTeacherNameCAPList;
+		DataManager.classroomNameCAPResponses = staging.sClassroomNameCAPList;
 
 		DataManager.assessorIdLniReponses = staging.sAssessorIdLniList;
 		DataManager.teacherIdLniResponses = staging.sTeacherIdLniList;

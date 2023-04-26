@@ -84,6 +84,17 @@ public class DataManager : MonoBehaviour
     public static List<string> teacherNameBsResponses;
     public static List<string> classroomNameBsResponses;
 
+    //CAP Grades
+    public static AdaptiveResponse[,] individual_CAP;
+    //public static string[,] individual_CAPChildResponse;
+    public static Tuple<double, double>[] final_CAPscores;
+    public static List<string> assessorIdCAPReponses;
+    public static List<string> teacherIdCAPResponses;
+    public static List<string> classroomIdCAPResponses;
+    public static List<string> assessorNameCAPReponses;
+    public static List<string> teacherNameCAPResponses;
+    public static List<string> classroomNameCAPResponses;
+
     //Vocab Grades
     //These hold the total score for the game
     public static double score_expressive;
@@ -221,6 +232,7 @@ public class DataManager : MonoBehaviour
     //Grader Fields
     public AdvanceText promptCycler;
     public AdvanceBSItem promptCyclerBS;
+    public AdvanceCAPItem advanceCAPItem;
     public TextMeshProUGUI childText; //Displays child ID
     public TextMeshProUGUI[] promptText;
     public TextMeshProUGUI[] responsesText; //Displays child answers
@@ -266,6 +278,10 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI[] BS_items;
     public TextMeshProUGUI[] BS_letterText;
 
+    public TextMeshProUGUI[] CAP_items;
+    public TextMeshProUGUI[] CAP_letterText;
+    public TextMeshProUGUI CAP_PercentileScore;
+
     //RBS Fields
     public TextMeshProUGUI[] BS_EAPScore;
     public TextMeshProUGUI BS_PercentileScore;
@@ -293,7 +309,7 @@ public class DataManager : MonoBehaviour
             question_no = 0;
             continuation_scene = "";
             final_BSscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0)};
-
+            final_CAPscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0) };
             individual_cs_name = new int[6] {-1,-1,-1,-1,-1,-1};
             individual_cs_sentence = new int[6] {-1,-1,-1,-1,-1,-1};
             individual_writing_score = new List<List<int>>();
@@ -318,6 +334,14 @@ public class DataManager : MonoBehaviour
             assessorNameBsReponses = new List<string>();
             teacherNameBsResponses = new List<string>();
             classroomNameBsResponses = new List<string>();
+
+            assessorIdCAPReponses = new List<string>();
+            teacherIdCAPResponses = new List<string>();
+            classroomIdCAPResponses = new List<string>();
+
+            assessorNameCAPReponses = new List<string>();
+            teacherNameCAPResponses = new List<string>();
+            classroomNameCAPResponses = new List<string>();
 
             assessorIdLniReponses = new List<string>();
             teacherIdLniResponses = new List<string>();
@@ -434,6 +458,8 @@ public class DataManager : MonoBehaviour
             individual_LSI =  new AdaptiveResponse[26, 6];
             individual_BS =  new AdaptiveResponse[36, 6];
             individual_BSChildResponse =  new string[36, 6];
+            individual_CAP = new AdaptiveResponse[13,6];
+            //individual_CAPChildResponse = new string[13, 6];
 
             /*for (int loop = 0; loop < 6; loop++)
             {
@@ -758,6 +784,47 @@ public class DataManager : MonoBehaviour
             double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
             Debug.Log("percentile "+x.ToString("0.00"));
             BS_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: "+percentile.ToString("0.00")+"%";
+            //The relative ranking of this child to the 4-year-old age group: XX%
+        }
+
+        if (currentScene == "CAP_Grader")
+        {
+            gameText.text = "Test : Concepts about Print";
+            timeText.text = "Time : " + globalTime;
+            //List<BSItem> universalItems;
+            //string json = Resources.Load<TextAsset>("bs_items").ToString();
+            //universalItems = JsonConvert.DeserializeObject<List<BSItem>>(json);
+
+            //Check for "Tested Out" Letters
+            int iterator = 0;
+
+            for (int item = 0; item < individual_CAP.GetLength(0); item++)
+            {
+                for (int time = 0; time < individual_CAP.GetLength(1); time++)
+                {
+                    if (time == globalTime - 1 && iterator < CAP_items.Length)
+                    {
+                        if (individual_CAP[item, time] == AdaptiveResponse.Correct)
+                        {
+                            CAP_items[iterator].text = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[item]];
+                            CAP_letterText[iterator].text = "+";
+                            CAP_letterText[iterator].color = new Color(0, 0.6f, 0);
+                            iterator++;
+                        }
+                        else if (individual_CAP[item, time] == AdaptiveResponse.Incorrect)
+                        {
+                            CAP_items[iterator].text = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[item]];
+                            CAP_letterText[iterator].text = "<color=red>-</color>";
+                            iterator++;
+                        }
+                    }
+                }
+            }
+
+            double x = final_CAPscores[DataManager.globalTime - 1].Item1;
+            double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            Debug.Log("percentile " + x.ToString("0.00"));
+            CAP_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: " + percentile.ToString("0.00") + "%";
             //The relative ranking of this child to the 4-year-old age group: XX%
         }
 
@@ -1123,6 +1190,44 @@ public class DataManager : MonoBehaviour
                 assessorNameBsReponses.Add(assessorID);
                 teacherNameBsResponses.Add(teacherID);
                 classroomNameBsResponses.Add(classroomID);
+            }
+        }
+
+        if (currentScene == "CAP_Evaluator")
+        {
+            double difficulty = advanceCAPItem.promptDisplayDifficulty[advanceCAPItem.iterator];
+            if (difficulty != 0)
+            {
+                int difficultyIndex = (AdvanceCAPItem.prompts_difficulties_universal).IndexOf(difficulty);
+                if (primaryToggle.isOn)
+                {
+                    individual_CAP[difficultyIndex, globalTime - 1] = AdaptiveResponse.Correct;
+                }
+                else
+                {
+                    individual_CAP[difficultyIndex, globalTime - 1] = AdaptiveResponse.Incorrect;
+                }
+                /*if (!String.IsNullOrEmpty(capChildResponseField.text))
+                    individual_CAPChildResponse[difficultyIndex, globalTime - 1] = capChildResponseField.text;*/
+            }
+            if (exportImportRef == "ID")
+            {
+                /*assessorIdBsReponses.Insert(globalTime-1, assessorID);
+                teacherIdBsResponses.Insert(globalTime-1, teacherID);
+                classroomIdBsResponses.Insert(globalTime-1, classroomID);*/
+                assessorIdCAPReponses.Add(assessorID);
+                teacherIdCAPResponses.Add(teacherID);
+                classroomIdCAPResponses.Add(classroomID);
+            }
+            else
+            {
+                Debug.Log("CAP entered global time " + globalTime + " assessorID " + assessorID);
+                /*assessorNameBsReponses.Insert(globalTime-1, assessorID);
+                teacherNameBsResponses.Insert(globalTime-1, teacherID);
+                classroomNameBsResponses.Insert(globalTime-1, classroomID);*/
+                assessorNameCAPReponses.Add(assessorID);
+                teacherNameCAPResponses.Add(teacherID);
+                classroomNameCAPResponses.Add(classroomID);
             }
         }
     }

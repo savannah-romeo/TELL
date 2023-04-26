@@ -826,6 +826,96 @@ public class RedCapRecord
     [JsonProperty("bsr_cheese", NullValueHandling = NullValueHandling.Ignore)]
     public string bsResCheese = null;
 
+    [JsonProperty("cop_session", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPSessionNumber = null;
+
+    [JsonProperty("assessor_id_cop", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string assessorIdCAP = null;
+    [JsonProperty("teacher_id_cop", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string teacherIdCAP = null;
+    [JsonProperty("classroom_id_cop", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string classroomIdCAP = null;
+    [JsonProperty("assessor_name_cop", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string assessorNameCAP = null;
+    [JsonProperty("teacher_name_cop", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string teacherNameCAP = null;
+    [JsonProperty("classroom_name_cop", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string classroomNameCAP = null;
+
+    [JsonProperty("cop_eap", NullValueHandling = NullValueHandling.Ignore)]
+    public double? CAPEAP = null;
+    [JsonProperty("cop_std_error", NullValueHandling = NullValueHandling.Ignore)]
+    public double? CAPStdError = null;
+
+    [JsonProperty("cop_question_1", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion1 = null;
+    [JsonProperty("cop_qs1_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs1result = null;
+    [JsonProperty("cop_question_2", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion2 = null;
+    [JsonProperty("cop_qs2_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs2result = null;
+    [JsonProperty("cop_question_3", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion3 = null;
+    [JsonProperty("cop_qs3_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs3result = null;
+    [JsonProperty("cop_question_4", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion4 = null;
+    [JsonProperty("cop_qs4_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs4result = null;
+    [JsonProperty("cop_question_5", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion5 = null;
+    [JsonProperty("cop_qs5_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs5result = null;
+    [JsonProperty("cop_question_6", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion6 = null;
+    [JsonProperty("cop_qs6_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs6result = null;
+    [JsonProperty("cop_question_7", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion7 = null;
+    [JsonProperty("cop_qs7_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs7result = null;
+    [JsonProperty("cop_question_8", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion8 = null;
+    [JsonProperty("cop_qs8_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs8result = null;
+    [JsonProperty("cop_question_9", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion9 = null;
+    [JsonProperty("cop_qs9_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs9result = null;
+    [JsonProperty("cop_question_10", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion10 = null;
+    [JsonProperty("cop_qs10_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs10result = null;
+    [JsonProperty("cop_question_11", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion11 = null;
+    [JsonProperty("cop_qs11_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs11result = null;
+    [JsonProperty("cop_question_12", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string CAPQuestion12 = null;
+    [JsonProperty("cop_qs12_result", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPQs12result = null;
+    [JsonProperty("concepts_of_print_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? CAPComplete = null;
+
     //Seems like the idea here is to create a big list of RedcapRecords
     //that match the db field names so they can be serialized later
     public static List<RedCapRecord> convertToRedCapRecord(SerialData inputData)
@@ -1622,8 +1712,138 @@ public class RedCapRecord
         }
         redCapRecords.AddRange(bsRedCapRecords);
 
-        
-        
+        //if (inputData.sAssessorIdCAPList.Count > 0 || inputData.sAssessorNameCAPList.Count > 0)
+        //{
+            List<RedCapRecord> CAPRedCapRecords = new();
+            for (int CAPIndex = 0; inputData.sIndividual_CAP != null &&
+                CAPIndex < inputData.sIndividual_CAP.GetLength(1); CAPIndex++)
+            {
+                //Headers, credentials, etc.
+                RedCapRecord CAPRecord;
+                AdaptiveResponse[,] CAPSD = inputData.sIndividual_CAP;
+                if (CAPRedCapRecords.Count - 1 < CAPIndex)
+                    CAPRedCapRecords.Add(new RedCapRecord());
+
+                CAPRecord = CAPRedCapRecords[CAPIndex];
+                CAPRecord.CAPSessionNumber = CAPIndex + 1;
+                CAPRecord.recordID = recordID;
+                CAPRecord.redcapRepeatInstrument = "concepts_of_print";
+                CAPRecord.redcapRepeatInstance = CAPRecord.CAPSessionNumber;
+
+
+                /*if (inputData.sAssessorIdCAPList.Count > 0)
+                {
+                    CAPRecord.assessorIdCAP = inputData.sAssessorIdCAPList[CAPIndex];
+                    CAPRecord.classroomIdCAP = inputData.sClassroomIdCAPList[CAPIndex];
+                    CAPRecord.teacherIdCAP = inputData.sTeacherIdCAPList[CAPIndex];
+                }
+                if (inputData.sAssessorNameCAPList.Count > 0)
+                {
+                    CAPRecord.assessorNameCAP = inputData.sAssessorNameCAPList[CAPIndex];
+                    CAPRecord.classroomNameCAP = inputData.sClassroomNameCAPList[CAPIndex];
+                    CAPRecord.teacherNameCAP = inputData.sTeacherNameCAPList[CAPIndex];
+                }*/
+
+            if (inputData.sExportImportRef == "ID")
+            {
+                CAPRecord.assessorIdCAP = assessorID;
+                CAPRecord.classroomIdCAP = classroomID;
+                CAPRecord.teacherIdCAP = teacherID;
+            }
+            else
+            {
+                CAPRecord.assessorNameCAP = assessorID;
+                CAPRecord.classroomNameCAP = classroomID;
+                CAPRecord.teacherNameCAP = teacherID;
+            }
+
+                int iter = 0;
+
+                for (int ind = 0; ind < CAPSD.GetLength(0); ind++)
+                {
+                    if (CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct || CAPSD[ind, CAPIndex] == AdaptiveResponse.Incorrect)
+                    {
+                        if (iter == 0)
+                        {
+                            CAPRecord.CAPQuestion1 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs1result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                            CAPRecord.CAPComplete = 2;
+                        }
+                        if (iter == 1)
+                        {
+                            CAPRecord.CAPQuestion2 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs2result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 2)
+                        {
+                            CAPRecord.CAPQuestion3 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs3result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 3)
+                        {
+                            CAPRecord.CAPQuestion4 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs4result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 4)
+                        {
+                            CAPRecord.CAPQuestion5 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs5result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 5)
+                        {
+                            CAPRecord.CAPQuestion6 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs6result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 6)
+                        {
+                            CAPRecord.CAPQuestion7 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs7result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 7)
+                        {
+                            CAPRecord.CAPQuestion8 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs8result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 8)
+                        {
+                            CAPRecord.CAPQuestion9 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs9result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 9)
+                        {
+                            CAPRecord.CAPQuestion10 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs10result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 10)
+                        {
+                            CAPRecord.CAPQuestion11 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs11result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+                        if (iter == 11)
+                        {
+                            CAPRecord.CAPQuestion12 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
+                            CAPRecord.CAPQs12result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
+                        }
+
+                        iter++;
+                    }
+
+                }
+
+
+
+                //Total Scores
+                var tupleTemp = (Tuple<double, double>[])inputData.final_CAPscores;
+                if (tupleTemp[CAPIndex] != null)
+                {
+                    CAPRecord.CAPEAP = tupleTemp[CAPIndex].Item1;
+                    CAPRecord.CAPStdError = tupleTemp[CAPIndex].Item2;
+                }
+
+            }
+            redCapRecords.AddRange(CAPRedCapRecords);
+        //}
+
         return redCapRecords;
     }
 

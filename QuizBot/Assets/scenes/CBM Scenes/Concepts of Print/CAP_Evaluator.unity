@@ -570,337 +570,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586006611}
   m_CullTransparentMesh: 1
---- !u!1 &727950451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 727950454}
-  - component: {fileID: 727950465}
-  - component: {fileID: 727950467}
-  - component: {fileID: 727950456}
-  - component: {fileID: 727950457}
-  - component: {fileID: 727950458}
-  - component: {fileID: 727950459}
-  - component: {fileID: 727950452}
-  - component: {fileID: 727950460}
-  - component: {fileID: 727950463}
-  - component: {fileID: 727950462}
-  - component: {fileID: 727950466}
-  m_Layer: 0
-  m_Name: Scripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &727950452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a34cf7341bc90489b31913ab72ef1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedButton: {fileID: 1065061408}
-  displayText: {fileID: 1092177218}
-  checker: {fileID: 727950465}
---- !u!4 &727950454
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.576796, y: 0.35693923, z: -1.2392634}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &727950456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedButton: {fileID: 1065061408}
-  sceneName: SR_Grader
-  checker: {fileID: 727950465}
-  cleanup: {fileID: 727950457}
-  showExportMessage: 0
---- !u!114 &727950457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7484b9afba32cbc40ad1a44052f0348c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teacherNameField: {fileID: 0}
-  assessorNameField: {fileID: 0}
-  childNameField: {fileID: 0}
-  classroomField: {fileID: 0}
-  teacherIDField: {fileID: 0}
-  assessorIDField: {fileID: 0}
-  childIDField: {fileID: 0}
-  classroomIDField: {fileID: 0}
-  lniNameField: {fileID: 0}
-  bsChildResponseField: {fileID: 0}
-  responseField: {fileID: 0}
-  primaryToggle: {fileID: 746151781}
-  receptiveToggle: {fileID: 0}
-  expressiveToggle: {fileID: 746151781}
-  expressiveFlag: {fileID: 0}
-  receptiveFlag: {fileID: 0}
-  questionField: {fileID: 0}
-  name0Toggle: {fileID: 0}
-  name1Toggle: {fileID: 0}
-  name2Toggle: {fileID: 0}
-  name3Toggle: {fileID: 0}
-  name4Toggle: {fileID: 0}
-  sen0Toggle: {fileID: 0}
-  sen1Toggle: {fileID: 0}
-  sen2Toggle: {fileID: 0}
-  sen3Toggle: {fileID: 0}
-  sen4Toggle: {fileID: 0}
-  promptCycler: {fileID: 0}
-  promptCyclerBS: {fileID: 0}
-  childText: {fileID: 0}
-  promptText: []
-  responsesText: []
-  expressiveText: []
-  receptiveText: []
-  expressiveTotalText: {fileID: 0}
-  receptiveTotalText: {fileID: 0}
-  csScoreTotal: {fileID: 0}
-  csPromptText: []
-  csResponseScore: []
-  srScoreTotal: {fileID: 0}
-  srPromptText: []
-  srResponseScore: []
-  bookSumScoreTotal: {fileID: 0}
-  writingNameScore: {fileID: 0}
-  writingSentenceScore: {fileID: 0}
-  expressivePercent: []
-  receptivePercent: []
-  csScoresForResultPage: []
-  writingNameScoreForResultPage: []
-  writingSentenceScoreForResultPage: []
-  srScoresForResultPage: []
-  booksumScoresForResultPage: []
-  RLNI_letterText: []
-  RLSI_letterText: []
-  BS_items: []
-  BS_letterText: []
-  BS_EAPScore: []
-  gameText: {fileID: 0}
-  timeText: {fileID: 0}
---- !u!114 &727950458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507ed1b556a447a4ead4ff896fa08c62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shownText: {fileID: 1423126920}
-  textArray:
-  - 1. Alphabet
-  - 2. Senses
-  - 3. Schedule
-  - 4. Students
-  - 5. Scent
-  - 6. Taste
-  iterator: 0
-  clickedButton: {fileID: 1065061408}
-  complete: 0
-  gradeMe: 0
-  checker: {fileID: 727950465}
-  prompts: {fileID: 727950466}
---- !u!114 &727950459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad8bf7d1ec3c8d542b1f8690fcb1898f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gradeButton: {fileID: 1065061408}
-  gradeData: {fileID: 727950457}
-  gradedQuestions: {fileID: 727950458}
-  gradedQuestionsBS: {fileID: 0}
-  checker: {fileID: 727950465}
---- !u!114 &727950460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6a35b048549d1429a9f027e6c46fbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clearButton: {fileID: 1065061408}
-  boxToClear: {fileID: 0}
---- !u!114 &727950462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedButton: {fileID: 2092519758}
-  sceneName: MainMenu
-  checker: {fileID: 727950463}
-  cleanup: {fileID: 727950457}
-  showExportMessage: 0
---- !u!114 &727950463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 900c5815f7155ad47bfd6831854e9493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &727950465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f1e7af4e98f47eab2f69bd9523e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  expressive_yes: {fileID: 746151781}
-  expressive_no: {fileID: 302869374}
-  prompts: {fileID: 727950458}
-  validScene: 0
-  validInput: 0
---- !u!114 &727950466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33477221eb86f4569ae9f38d27cf0633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompts1:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts2:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts3:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts4:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts5:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
-  prompts6:
-  - (1) Did the child use the main character's name?
-  - (2) Did the child say what the main character wanted to make?
-  - (3) Did the child say that the present was for Emma's father?
-  - (4) Did the child give a reason why Emma wanted to give a present to her father?
-  - (5) Did the child say what Emma used to make the picture?
-  - (6) Did the child say that Emma drew a pictire of her family?
-  - (7) Did the child say that Emma wrapped the present?
-  - (8) Did the child say that the father was very happy with Emma's present?
---- !u!114 &727950467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickedButton: {fileID: 1065061408}
-  sceneName: SR_Evaluator_2
-  checker: {fileID: 727950465}
-  cleanup: {fileID: 727950457}
-  showExportMessage: 0
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +1832,264 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1544957212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544957224}
+  - component: {fileID: 1544957223}
+  - component: {fileID: 1544957222}
+  - component: {fileID: 1544957221}
+  - component: {fileID: 1544957220}
+  - component: {fileID: 1544957213}
+  - component: {fileID: 1544957216}
+  - component: {fileID: 1544957225}
+  - component: {fileID: 1544957215}
+  - component: {fileID: 1544957214}
+  m_Layer: 0
+  m_Name: Scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1544957213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d353d7e66b9188045b1f2b397c6ec334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  response_yes: {fileID: 746151781}
+  response_no: {fileID: 302869374}
+  advanceCAPItem: {fileID: 1544957225}
+  validScene: 0
+  validInput: 0
+--- !u!114 &1544957214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedButton: {fileID: 2092519758}
+  sceneName: MainMenu
+  checker: {fileID: 1544957213}
+  userInfoChecker: {fileID: 0}
+  cleanup: {fileID: 1544957222}
+  panel: {fileID: 0}
+  showExportMessage: 0
+--- !u!114 &1544957215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900c5815f7155ad47bfd6831854e9493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!222 &1544957216
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_CullTransparentMesh: 1
+--- !u!114 &1544957220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a34cf7341bc90489b31913ab72ef1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedButton: {fileID: 1065061408}
+  displayText: {fileID: 1092177218}
+  checker: {fileID: 1544957213}
+--- !u!114 &1544957221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8bf7d1ec3c8d542b1f8690fcb1898f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gradeButton: {fileID: 1065061408}
+  gradeData: {fileID: 1544957222}
+  gradedQuestions: {fileID: 0}
+  gradedQuestionsBS: {fileID: 0}
+  gradedQuestionsCAP: {fileID: 1544957225}
+  checker: {fileID: 1544957213}
+--- !u!114 &1544957222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7484b9afba32cbc40ad1a44052f0348c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teacherNameField: {fileID: 0}
+  assessorNameField: {fileID: 0}
+  childNameField: {fileID: 0}
+  classroomField: {fileID: 0}
+  teacherIDField: {fileID: 0}
+  assessorIDField: {fileID: 0}
+  childIDField: {fileID: 0}
+  classroomIDField: {fileID: 0}
+  lniNameField: {fileID: 0}
+  bsChildResponseField: {fileID: 0}
+  responseField: {fileID: 0}
+  primaryToggle: {fileID: 746151781}
+  receptiveToggle: {fileID: 0}
+  expressiveToggle: {fileID: 0}
+  expressiveFlag: {fileID: 0}
+  receptiveFlag: {fileID: 0}
+  questionField: {fileID: 0}
+  bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
+  name0Toggle: {fileID: 0}
+  name1Toggle: {fileID: 0}
+  name2Toggle: {fileID: 0}
+  name3Toggle: {fileID: 0}
+  name4Toggle: {fileID: 0}
+  sen0Toggle: {fileID: 0}
+  sen1Toggle: {fileID: 0}
+  sen2Toggle: {fileID: 0}
+  sen3Toggle: {fileID: 0}
+  sen4Toggle: {fileID: 0}
+  promptCycler: {fileID: 0}
+  promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 1544957225}
+  childText: {fileID: 0}
+  promptText: []
+  responsesText: []
+  expressiveText:
+  - {fileID: 0}
+  receptiveText:
+  - {fileID: 0}
+  expressiveTotalText: {fileID: 0}
+  receptiveTotalText: {fileID: 0}
+  csScoreTotal: {fileID: 0}
+  csPromptText: []
+  csResponseScore: []
+  srScoreTotal: {fileID: 0}
+  srPromptText: []
+  srResponseScore: []
+  bookSumScoreTotal: {fileID: 0}
+  writingNameScore: {fileID: 0}
+  writingSentenceScore: {fileID: 0}
+  expressivePercent:
+  - {fileID: 0}
+  receptivePercent:
+  - {fileID: 0}
+  csScoresForResultPage: []
+  writingNameScoreForResultPage: []
+  writingSentenceScoreForResultPage: []
+  srScoresForResultPage: []
+  booksumScoresForResultPage: []
+  RLNI_letterText: []
+  RLSI_letterText: []
+  BS_items: []
+  BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
+  BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  gameText: {fileID: 0}
+  timeText: {fileID: 0}
+--- !u!114 &1544957223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ca533505700643b730d3279d128b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedButton: {fileID: 1065061408}
+  sceneName: CAP_Grader
+  checker: {fileID: 1544957213}
+  userInfoChecker: {fileID: 0}
+  cleanup: {fileID: 1544957222}
+  panel: {fileID: 0}
+  showExportMessage: 0
+--- !u!224 &1544957224
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.2392634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.576796, y: 0.35693923}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1544957225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbd536185a46b34396c27dd519e8eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shownText: {fileID: 1423126920}
+  response_yes: {fileID: 746151781}
+  response_no: {fileID: 302869374}
+  clickedButton: {fileID: 1065061408}
+  iterator: 0
+  complete: 0
+  gradeMe: 0
+  recordedSolutions: 
+  checker: {fileID: 1544957213}
+  prompts_difficulties: []
+  promptDisplayDifficulty: []
 --- !u!1 &1762750655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,7 +2232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Exit '
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2332,8 +2259,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

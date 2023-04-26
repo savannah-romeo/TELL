@@ -58,8 +58,8 @@ public class Load_popUp_Message : MonoBehaviour
         } else if (sceneName == "BookSum_Instructions_1") {
             gameName = "Book Summary";
             tpShown = tpShown*2;
-        }else if (sceneName == "COP_Instructions"){
-                gameName = "Concepts of Print";
+        }else if (sceneName == "CAP_Instructions"){
+                gameName = "Concepts About Print";
         }
         if (timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
                 loadBtn.enabled = false;

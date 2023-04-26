@@ -30,7 +30,7 @@ public class SetGame : MonoBehaviour
         "buttonWriting" => "Writing_Instructions",
         "buttonSR" => "SR_Instructions_1",
         "buttonBookSum" => "BookSum_Instructions_1",
-        "buttonCOP" => "COP_Instructions",
+        "buttonCOP" => "CAP_Instructions",
         _ => "Error: No game found for button!" //Default 'error' case
     };
 }
