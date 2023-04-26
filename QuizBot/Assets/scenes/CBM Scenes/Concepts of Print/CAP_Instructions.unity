@@ -186,6 +186,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -217,6 +218,9 @@ MonoBehaviour:
   RLSI_letterText: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
   BS_PercentileScore: {fileID: 0}
   gameText: {fileID: 0}
@@ -261,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1698277143}
-  sceneName: COP_Evaluator
+  sceneName: CAP_Evaluator
   checker: {fileID: 140666067}
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
@@ -685,7 +689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Concepts of Print
+  m_text: Concepts About Print
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -1228,17 +1232,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Hand the book to the child in a vertical position with the spine facing
-    the child and start with prompt #1. Turn the correct page to ask the remaining
+    the child and start with prompt #1. Turn to the correct page to ask the remaining
     prompts (see the answer sheet for page numbers).
 
+
     * You may repeat the prompt
-    up to two times but do not provive additional coaching or prompting.
+    up to two times but do not provide additional coaching or prompting.
 
-    * Do
-    not provide feedback about the accuracy of responses.
 
-    * Discontinue the
-    assessment if the first four answers are incorrect.'
+    *
+    Do not provide feedback about the accuracy of responses.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

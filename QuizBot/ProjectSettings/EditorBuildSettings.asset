@@ -126,11 +126,14 @@ EditorBuildSettings:
     path: Assets/scenes/CBM Scenes/Book Summary/BookSum_Grader.unity
     guid: 754ecdb868f5e480fb929a5f3dbc0b1c
   - enabled: 1
-    path: Assets/scenes/CBM Scenes/Concepts of Print/COP_Instructions.unity
+    path: Assets/scenes/CBM Scenes/Concepts of Print/CAP_Instructions.unity
     guid: 5f8d75946f93941b59bf731f675eae09
   - enabled: 1
-    path: Assets/scenes/CBM Scenes/Concepts of Print/COP_Evaluator.unity
+    path: Assets/scenes/CBM Scenes/Concepts of Print/CAP_Evaluator.unity
     guid: 8a0d845ad9f8745b4947d2e081710771
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Concepts of Print/CAP_Grader.unity
+    guid: 8e957ad6580d8a64ca1bcdae4df4b26d
   - enabled: 1
     path: Assets/scenes/Results Scenes/RSelect.unity
     guid: 646f2d85dd42cae45b1dd37042c0e1fa

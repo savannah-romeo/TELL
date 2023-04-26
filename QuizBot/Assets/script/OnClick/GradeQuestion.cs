@@ -8,6 +8,7 @@ public class GradeQuestion : MonoBehaviour
     public DataManager gradeData;
     public AdvanceText gradedQuestions;
     public AdvanceBSItem gradedQuestionsBS;
+    public AdvanceCAPItem gradedQuestionsCAP;
     public Validation_Games checker; //Used to check for valid answer before proceeding
 
     void Start()
@@ -27,6 +28,9 @@ public class GradeQuestion : MonoBehaviour
             if ((DataManager.globalGame == "BS_Instructions"
                 || DataManager.globalGame == "BS_Instructions_1") && gradedQuestionsBS.gradeMe)
                 gradeData.GradeQuestion();
+            else if ((DataManager.globalGame == "CAP_Instructions"
+                 || DataManager.globalGame == "CAP_Instructions_1") && gradedQuestionsCAP.gradeMe)
+                    gradeData.GradeQuestion();
             else if (gradedQuestions.gradeMe)
                 gradeData.GradeQuestion();
         }

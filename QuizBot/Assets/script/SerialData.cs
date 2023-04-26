@@ -83,6 +83,16 @@ public class SerialData
     public string[,] sIndividual_BSChildResponse; //[index, globaltime-1] holds child response to every question
     public Tuple<double, double>[] final_BSscores; //This tuple holds eap_estimation_value and standard_error
 
+    //CAP Storage
+    public List<string> sAssessorIdCAPList;
+    public List<string> sTeacherIdCAPList;
+    public List<string> sClassroomIdCAPList;
+    public List<string> sAssessorNameCAPList;
+    public List<string> sTeacherNameCAPList;
+    public List<string> sClassroomNameCAPList;
+    public AdaptiveResponse[,] sIndividual_CAP; //answer array with preset of 36 sounds, see bs_items.json
+    public Tuple<double, double>[] final_CAPscores; //This tuple holds eap_estimation_value and standard_error
+
     //SR
     public int[] sGradeSRTotal;
     public List<string> sAssessorIdSRList;
@@ -122,6 +132,15 @@ public class SerialData
         List<string> assessors_name_bs_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_bs_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_bs_list = new List<string>(){Capacity = 6};;
+
+        List<string> assessors_CAP_list = new List<string>() { Capacity = 6 }; ;
+        List<string> classrooms_CAP_list = new List<string>() { Capacity = 6 }; ;
+        List<string> teachers_CAP_list = new List<string>() { Capacity = 6 }; ;
+        List<string> assessors_name_CAP_list = new List<string>() { Capacity = 6 }; ;
+        List<string> classrooms_name_CAP_list = new List<string>() { Capacity = 6 }; ;
+        List<string> teachers_name_CAP_list = new List<string>() { Capacity = 6 }; ;
+        serialData.final_CAPscores = new Tuple<double, double>[6];
+        serialData.sIndividual_CAP = new AdaptiveResponse[13, 6];
 
         List<string> assessors_lni_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_lni_list = new List<string>(){Capacity = 6};;
@@ -1169,7 +1188,95 @@ public class SerialData
                 while (teachers_name_bs_list.Count < redCapRecord.bsSessionNumber)
                     teachers_name_bs_list.Add(sessionTeacherNameResponseBs);
             }
-        }
+
+            //serialData.final_CAPscores = new Tuple<double, double>[6];
+            //serialData.sIndividual_CAP = new AdaptiveResponse[13, 6];
+            if (redCapRecord.CAPSessionNumber != null && redCapRecord.CAPSessionNumber != 0)
+            {
+                int CAPTime = (int)redCapRecord.CAPSessionNumber - 1; //offset for zero array
+                String sessionAssesorIdResponseCAP = "";
+                String sessionClassroomIdResponseCAP = "";
+                String sessionTeacherIdResponseCAP = "";
+                String sessionAssesorNameResponseCAP = "";
+                String sessionClassroomNameResponseCAP = "";
+                String sessionTeacherNameResponseCAP = "";
+                if (redCapRecord.CAPEAP != null && redCapRecord.CAPStdError != null)
+                {
+                    serialData.final_CAPscores[CAPTime] = new Tuple<double, double>((double)redCapRecord.CAPEAP, (double)redCapRecord.CAPStdError);
+                }
+
+                if (redCapRecord.CAPQs1result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion1))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion1]),
+                        CAPTime] = redCapRecord.CAPQs1result == 1?AdaptiveResponse.Correct:AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs2result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion2))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion2]),
+                        CAPTime] = redCapRecord.CAPQs2result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs3result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion3))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion3]),
+                        CAPTime] = redCapRecord.CAPQs3result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs4result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion4))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion4]),
+                        CAPTime] = redCapRecord.CAPQs4result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs5result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion5))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion5]),
+                        CAPTime] = redCapRecord.CAPQs5result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs6result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion6))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion6]),
+                        CAPTime] = redCapRecord.CAPQs6result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs7result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion7))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion7]),
+                        CAPTime] = redCapRecord.CAPQs7result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs8result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion8))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion8]),
+                        CAPTime] = redCapRecord.CAPQs8result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs9result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion9))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion9]),
+                        CAPTime] = redCapRecord.CAPQs9result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs10result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion10))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion10]),
+                        CAPTime] = redCapRecord.CAPQs10result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs11result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion11))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion11]),
+                        CAPTime] = redCapRecord.CAPQs11result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                if (redCapRecord.CAPQs12result != null && !string.IsNullOrEmpty(redCapRecord.CAPQuestion12))
+                    serialData.sIndividual_CAP[(AdvanceCAPItem.prompts_difficulties_universal).IndexOf(AdvanceCAPItem.prompts_UniversalMap_CAP[redCapRecord.CAPQuestion12]),
+                        CAPTime] = redCapRecord.CAPQs12result == 1 ? AdaptiveResponse.Correct : AdaptiveResponse.Incorrect;
+                        
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorIdCAP))
+                    sessionAssesorIdResponseCAP = redCapRecord.assessorIdCAP;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomIdCAP))
+                    sessionClassroomIdResponseCAP = redCapRecord.classroomIdCAP;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherIdCAP))
+                    sessionTeacherIdResponseCAP = redCapRecord.teacherIdCAP;
+
+                if (!string.IsNullOrEmpty(redCapRecord.assessorNameCAP))
+                    sessionAssesorNameResponseCAP = redCapRecord.assessorNameCAP;
+                if (!string.IsNullOrEmpty(redCapRecord.classroomNameCAP))
+                    sessionClassroomNameResponseCAP = redCapRecord.classroomNameCAP;
+                if (!string.IsNullOrEmpty(redCapRecord.teacherNameCAP))
+                    sessionTeacherNameResponseCAP = redCapRecord.teacherNameCAP;
+
+                
+                while (assessors_CAP_list.Count < redCapRecord.CAPSessionNumber)
+                    assessors_CAP_list.Add(sessionAssesorIdResponseCAP);
+
+                while (classrooms_CAP_list.Count < redCapRecord.CAPSessionNumber)
+                    classrooms_CAP_list.Add(sessionClassroomIdResponseCAP);
+
+                while (teachers_CAP_list.Count < redCapRecord.CAPSessionNumber)
+                    teachers_CAP_list.Add(sessionTeacherIdResponseCAP);
+
+                while (assessors_name_CAP_list.Count < redCapRecord.CAPSessionNumber)
+                    assessors_name_CAP_list.Add(sessionAssesorNameResponseCAP);
+
+                while (classrooms_name_CAP_list.Count < redCapRecord.CAPSessionNumber)
+                    classrooms_name_CAP_list.Add(sessionClassroomNameResponseCAP);
+
+                while (teachers_name_CAP_list.Count < redCapRecord.CAPSessionNumber)
+                    teachers_name_CAP_list.Add(sessionTeacherNameResponseCAP);
+            }
+    }
 
         serialData.sIndividualExpressiveList = expressiveList;
         serialData.sIndividualExpressiveFlagList = expressiveFlagList;
@@ -1194,6 +1301,13 @@ public class SerialData
         serialData.sAssessorNameBsList = assessors_name_bs_list;
         serialData.sClassroomNameBsList = classrooms_name_bs_list;
         serialData.sTeacherNameBsList = teachers_name_bs_list;
+
+        serialData.sAssessorIdCAPList = assessors_CAP_list;
+        serialData.sClassroomIdCAPList = classrooms_CAP_list;
+        serialData.sTeacherIdCAPList = teachers_CAP_list;
+        serialData.sAssessorNameCAPList = assessors_name_CAP_list;
+        serialData.sClassroomNameCAPList = classrooms_name_CAP_list;
+        serialData.sTeacherNameCAPList = teachers_name_CAP_list;
 
         serialData.sAssessorIdLniList = assessors_bs_list;
         serialData.sClassroomIdLniList = classrooms_bs_list;
