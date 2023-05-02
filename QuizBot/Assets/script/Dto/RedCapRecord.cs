@@ -1155,7 +1155,7 @@ public class RedCapRecord
             csRedCapRecord.recordID = recordID;
             csRedCapRecord.redcapRepeatInstrument = "clapping_syllables";
             csRedCapRecord.redcapRepeatInstance = csRedCapRecord.csSession;
-            if(inputData.sAssessorIdCSList.Count > 0){
+            /*if(inputData.sAssessorIdCSList.Count > 0){
                 csRedCapRecord.assessorIdCS = inputData.sAssessorIdCSList[responseIndex];
                 csRedCapRecord.classroomIdCS = inputData.sClassroomIdCSList[responseIndex];
                 csRedCapRecord.teacherIdCS = inputData.sTeacherIdCSList[responseIndex];
@@ -1164,6 +1164,18 @@ public class RedCapRecord
                 csRedCapRecord.assessorNameCS = inputData.sAssessorNameCSList[responseIndex];
                 csRedCapRecord.classroomNameCS = inputData.sClassroomNameCSList[responseIndex];
                 csRedCapRecord.teacherNameCS = inputData.sTeacherNameCSList[responseIndex];
+            }*/
+            if (inputData.sExportImportRef == "ID")
+            {
+                csRedCapRecord.assessorIdCS = assessorID;
+                csRedCapRecord.classroomIdCS = classroomID;
+                csRedCapRecord.teacherIdCS = teacherID;
+            }
+            else
+            {
+                csRedCapRecord.assessorNameCS = assessorID;
+                csRedCapRecord.classroomNameCS = classroomID;
+                csRedCapRecord.teacherNameCS = teacherID;
             }
             if (sessionData.Count > 0)
                 csRedCapRecord.popcornResponse = getBinaryTrueFalse(sessionData[0]);
@@ -1191,7 +1203,7 @@ public class RedCapRecord
             writingRedCapRecord.recordID = recordID;
             writingRedCapRecord.redcapRepeatInstrument = "writing";
             writingRedCapRecord.redcapRepeatInstance = writingRedCapRecord.writingSessionNo;
-            if(inputData.sAssessorIdWritingList.Count > 0){
+            /*if(inputData.sAssessorIdWritingList.Count > 0){
                 writingRedCapRecord.assessorIdWriting = inputData.sAssessorIdWritingList[responseIndex];
                 writingRedCapRecord.classroomIdWriting = inputData.sClassroomIdWritingList[responseIndex];
                 writingRedCapRecord.teacherIdWriting = inputData.sTeacherIdWritingList[responseIndex];
@@ -1200,6 +1212,19 @@ public class RedCapRecord
                 writingRedCapRecord.assessorNameWriting = inputData.sAssessorNameWritingList[responseIndex];
                 writingRedCapRecord.classroomNameWriting = inputData.sClassroomNameWritingList[responseIndex];
                 writingRedCapRecord.teacherNameWriting = inputData.sTeacherNameWritingList[responseIndex];
+            }*/
+
+            if (inputData.sExportImportRef == "ID")
+            {
+                writingRedCapRecord.assessorIdWriting = assessorID;
+                writingRedCapRecord.classroomIdWriting = classroomID;
+                writingRedCapRecord.teacherIdWriting = teacherID;
+            }
+            else
+            {
+                writingRedCapRecord.assessorNameWriting = assessorID;
+                writingRedCapRecord.classroomNameWriting = classroomID;
+                writingRedCapRecord.teacherNameWriting = teacherID;
             }
 
             if (sessionData.Count > 0)
