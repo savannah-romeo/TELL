@@ -132,6 +132,9 @@ public class SerialData
         List<string> assessors_name_bs_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_bs_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_bs_list = new List<string>(){Capacity = 6};;
+        serialData.final_BSscores = new Tuple<double, double>[6];
+        serialData.sIndividual_BS = new AdaptiveResponse[36, 6];
+        serialData.sIndividual_BSChildResponse = new string[36, 6];
 
         List<string> assessors_CAP_list = new List<string>() { Capacity = 6 }; ;
         List<string> classrooms_CAP_list = new List<string>() { Capacity = 6 }; ;
@@ -148,6 +151,9 @@ public class SerialData
         List<string> assessors_name_lni_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_lni_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_lni_list = new List<string>(){Capacity = 6};;
+        serialData.sLearnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false, false, false, false};
+        serialData.sIndividual_LNI = new AdaptiveResponse[26, 6];
 
         List<string> assessors_lsi_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_lsi_list = new List<string>(){Capacity = 6};;
@@ -155,6 +161,9 @@ public class SerialData
         List<string> assessors_name_lsi_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_lsi_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_lsi_list = new List<string>(){Capacity = 6};;
+        serialData.sLearnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false, false, false, false, false, false};
+        serialData.sIndividual_LSI = new AdaptiveResponse[26, 6];
 
         List<string> assessors_cs_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_cs_list = new List<string>(){Capacity = 6};;
@@ -176,6 +185,7 @@ public class SerialData
         List<string> assessors_name_sr_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_sr_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_sr_list = new List<string>(){Capacity = 6};;
+        serialData.sGradeSRTotal = new int[3];
 
         List<string> assessors_booksum_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_booksum_list = new List<string>(){Capacity = 6};;
@@ -183,6 +193,7 @@ public class SerialData
         List<string> assessors_name_booksum_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_booksum_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_booksum_list = new List<string>(){Capacity = 6};;
+        serialData.sGradeBookSumTotal = new int[3];
 
         List<List<bool>> expressiveFlagList = new List<List<bool>>(){Capacity = 6};;
         List<List<bool>> receptiveList = new List<List<bool>>(){Capacity = 6};;
@@ -482,9 +493,9 @@ public class SerialData
              }
 
             //Populate Story Retell
-            serialData.sGradeSRTotal = new int[3];
-            serialData.sIndividualSRResponseList = new List<List<bool>>();
-            serialData.sIndividualSRQuestionsList = new List<List<string>>();
+            //serialData.sGradeSRTotal = new int[3];
+            //serialData.sIndividualSRResponseList = new List<List<bool>>();
+            //serialData.sIndividualSRQuestionsList = new List<List<string>>();
             // Responsible for storing Story retell syllables related data
             if (redCapRecord.srSession != null && redCapRecord.srSession != 0)
             {
@@ -624,9 +635,9 @@ public class SerialData
             }
 
             //Populate Book Summary
-            serialData.sGradeBookSumTotal = new int[3];
-            serialData.sIndividualBookSumResponseList = new List<List<bool>>();
-            serialData.sIndividualBookSumQuestionsList = new List<List<string>>();
+            //serialData.sGradeBookSumTotal = new int[3];
+            //serialData.sIndividualBookSumResponseList = new List<List<bool>>();
+            //serialData.sIndividualBookSumQuestionsList = new List<List<string>>();
             // Responsible for storing Story retell syllables related data
             if (redCapRecord.bookSumSession != null && redCapRecord.bookSumSession != 0)
             {
@@ -746,8 +757,8 @@ public class SerialData
             }
 
             //Populate sLearnedLetterNames
-            serialData.sLearnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
-                false, false, false, false, false, false, false, false, false, false, false, false, false};
+            //serialData.sLearnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+            //    false, false, false, false, false, false, false, false, false, false, false, false, false};
             if (redCapRecord.LNI_A != null)
                 serialData.sLearnedLetterNamesLNI[0] = getTrueFalse(redCapRecord.LNI_A);
             if (redCapRecord.LNI_B != null)
@@ -803,7 +814,7 @@ public class SerialData
 
 
             //Populate sIndividual_LNI
-            serialData.sIndividual_LNI = new AdaptiveResponse[26,6];
+            //serialData.sIndividual_LNI = new AdaptiveResponse[26,6];
             if (redCapRecord.lnirSessionNumber != null && redCapRecord.lnirSessionNumber != 0)
             {
                 int lniTime = (int)redCapRecord.lnirSessionNumber-1;
@@ -905,8 +916,8 @@ public class SerialData
             //---------
             
             //Populate sLearnedLetterNames
-            serialData.sLearnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
-                false, false, false, false, false, false, false, false, false, false, false, false, false};
+            //serialData.sLearnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+            //    false, false, false, false, false, false, false, false, false, false, false, false, false};
             if (redCapRecord.LSI_A != null)
                 serialData.sLearnedLetterNamesLSI[0] = getTrueFalse(redCapRecord.LSI_A);
             if (redCapRecord.LSI_B != null)
@@ -962,7 +973,7 @@ public class SerialData
 
 
             //Populate sIndividual_LSI
-            serialData.sIndividual_LSI = new AdaptiveResponse[26,6];
+            //serialData.sIndividual_LSI = new AdaptiveResponse[26,6];
             if (redCapRecord.lsirSessionNumber != null && redCapRecord.lsirSessionNumber != 0)
             {
                 int lsiTime = (int)redCapRecord.lsirSessionNumber-1;
@@ -1059,9 +1070,9 @@ public class SerialData
             }
 
             //Populate Beginning Sounds
-            serialData.final_BSscores = new Tuple<double, double>[6];
-            serialData.sIndividual_BS = new AdaptiveResponse[36, 6];
-            serialData.sIndividual_BSChildResponse = new string[36, 6];
+            //serialData.final_BSscores = new Tuple<double, double>[6];
+            //serialData.sIndividual_BS = new AdaptiveResponse[36, 6];
+            //serialData.sIndividual_BSChildResponse = new string[36, 6];
             if (redCapRecord.bsSessionNumber != null && redCapRecord.bsSessionNumber != 0)
             {
                 int bsTime = (int)redCapRecord.bsSessionNumber - 1; //offset for zero array
@@ -1350,6 +1361,9 @@ public class SerialData
         serialData.sAssessorNameBookSumList = assessors_name_booksum_list;
         serialData.sClassroomNameBookSumList = classrooms_name_booksum_list;
         serialData.sTeacherNameBookSumList = teachers_name_booksum_list;
+
+        serialData.sIndividualBookSumResponseList = booksumResponseList;
+        serialData.sIndividualBookSumQuestionsList = booksumQuestionsList;
 
         return serialData;
     }

@@ -286,6 +286,8 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI[] BS_EAPScore;
     public TextMeshProUGUI BS_PercentileScore;
 
+    public TextMeshProUGUI[] CAP_EAPScore;
+
     public TextMeshProUGUI gameText;
     public TextMeshProUGUI timeText;
     
@@ -302,20 +304,35 @@ public class DataManager : MonoBehaviour
             grade_vocabularyExpressive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyReceptive = new double[6] { -1, -1, -1, -1, -1, -1 };
             grade_vocabularyTotal = new double[6] { -1, -1, -1, -1, -1, -1 };
-            grade_csTotal = new int[6] {-1,-1,-1,-1,-1,-1};
-            grade_srTotal = new int[3] {-1,-1,-1};
-            grade_bookSumTotal = new int[3] {-1,-1,-1};
+            if (grade_csTotal == null)
+            {
+                grade_csTotal = new int[6] { -1, -1, -1, -1, -1, -1 };
+            }
+            if (grade_srTotal == null) {
+                grade_srTotal = new int[3] { -1, -1, -1 };
+            }
+            if (grade_bookSumTotal == null)
+            {
+                grade_bookSumTotal = new int[3] { -1, -1, -1 };
+            }
             continuation_flag = false;
             question_no = 0;
             continuation_scene = "";
-            final_BSscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0)};
+            if (final_BSscores == null)
+            {
+                final_BSscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0) };
+
+            }
             if (final_CAPscores == null)
             {
                 final_CAPscores = new Tuple<double, double>[6] { Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0), Tuple.Create(-10.0, -10.0) };
             }
             individual_cs_name = new int[6] {-1,-1,-1,-1,-1,-1};
             individual_cs_sentence = new int[6] {-1,-1,-1,-1,-1,-1};
-            individual_writing_score = new List<List<int>>();
+            if (individual_writing_score == null)
+            {
+                individual_writing_score = new List<List<int>>();
+            }
 
             individual_vocabularyExpressive = new List<List<bool>>();
             individual_vocabularyExpressiveFlag = new List<List<bool>>();
@@ -391,19 +408,38 @@ public class DataManager : MonoBehaviour
             classroomNameBookSumResponses = new List<string>();
 
 
+            if (individual_csResponse == null)
+            {
+                individual_csResponse = new List<List<bool>>();
+            }
+            if (individual_srResponse == null)
+            {
+                individual_srResponse = new List<List<bool>>();
+            }
+            if (individual_srQuestions == null)
+            {
+                individual_srQuestions = new List<List<string>>();
+            }
+            if (individual_bookSumResponse == null)
+            {
+                individual_bookSumResponse = new List<List<bool>>();
+            }
+            if (individual_bookSumQuestions == null)
+            {
+                individual_bookSumQuestions = new List<List<string>>();
+            }
 
-            individual_csResponse = new List<List<bool>>();
-            individual_srResponse = new List<List<bool>>();
-            individual_srQuestions = new List<List<string>>();
-            individual_bookSumResponse = new List<List<bool>>();
-            individual_bookSumQuestions = new List<List<string>>();
 
-
-            learnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+            if (learnedLetterNamesLNI == null)
+            {
+                learnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false, false, false, false, false, false};
-
-            learnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
+            }
+            if (learnedLetterNamesLSI == null)
+            {
+                learnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false, false, false, false, false, false};
+            }
         }
 
         //Initializes currentScene
@@ -422,6 +458,7 @@ public class DataManager : MonoBehaviour
             childExists = false;
             childFileExists = false;
             teacherID = null;
+            recordID = null;
             assessorID = null;
             childID = null;
             classroomID = null;
@@ -863,8 +900,16 @@ public class DataManager : MonoBehaviour
             {
                 // writingNameScoreForResultPage[loop].text = individual_cs_name[loop].ToString("F0"); //Parameter ensures two decimal points
                 // writingSentenceScoreForResultPage[loop].text = individual_cs_sentence[loop].ToString("F0"); //Parameter ensures two decimal points
-                writingNameScoreForResultPage[loop].text = individual_writing_score[loop][0].ToString("F0"); //Parameter ensures two decimal points
-                writingSentenceScoreForResultPage[loop].text = individual_writing_score[loop][1].ToString("F0"); //Parameter ensures two decimal points
+                if (individual_writing_score != null && individual_writing_score.Count>loop)
+                {
+                    writingNameScoreForResultPage[loop].text = individual_writing_score[loop][0].ToString("F0"); //Parameter ensures two decimal points
+                    writingSentenceScoreForResultPage[loop].text = individual_writing_score[loop][1].ToString("F0"); //Parameter ensures two decimal points
+                }
+                else
+                {
+                    writingNameScoreForResultPage[loop].text = (-999).ToString("F0");
+                    writingSentenceScoreForResultPage[loop].text = (-999).ToString("F0"); //Parameter ensures two decimal points
+                }
             
             }
         }
@@ -932,6 +977,19 @@ public class DataManager : MonoBehaviour
             {
                 if(final_BSscores[loop] != null){
                     BS_EAPScore[loop].text = final_BSscores[loop].Item1.ToString("0.00"); //Parameter ensures two decimal points
+                }
+            }
+        }
+
+        if (currentScene == "RCAP")
+        {
+            childText.text = childID;
+            //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
+            for (int loop = 0; loop < 6; loop++)
+            {
+                if (final_CAPscores[loop] != null)
+                {
+                    CAP_EAPScore[loop].text = final_CAPscores[loop].Item1.ToString("0.00"); //Parameter ensures two decimal points
                 }
             }
         }
