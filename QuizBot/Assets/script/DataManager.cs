@@ -639,7 +639,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             gameText.text = "Test : Story Retell";
-            timeText.text = "Time : " + globalTime;
+            timeText.text = "Time : " + ((2 * globalTime) - 1);
             print("_______-");
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
             srScoreTotal.text = grade_srTotal[globalTime - 1].ToString("F0");
@@ -649,7 +649,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             gameText.text = "Test : Book Summary";
-            timeText.text = "Time : " + globalTime;
+            timeText.text = "Time : " + (2 * globalTime);
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
             bookSumScoreTotal.text = grade_bookSumTotal[globalTime - 1].ToString("F0")+" out of 11";
@@ -821,8 +821,9 @@ public class DataManager : MonoBehaviour
             }
 
             double x = final_BSscores[DataManager.globalTime - 1].Item1;
-            double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
-            Debug.Log("percentile "+x.ToString("0.00"));
+            //double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            //Debug.Log("percentile "+x.ToString("0.00"));
+            double percentile = calculateStandardNormalPercenatage(x) * 100;
             BS_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: "+percentile.ToString("0.00")+"%";
             //The relative ranking of this child to the 4-year-old age group: XX%
         }
@@ -862,7 +863,8 @@ public class DataManager : MonoBehaviour
             }
 
             double x = final_CAPscores[DataManager.globalTime - 1].Item1;
-            double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            //double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            double percentile = calculateStandardNormalPercenatage(x) * 100;
             Debug.Log("percentile " + x.ToString("0.00"));
             CAP_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: " + percentile.ToString("0.00") + "%";
             //The relative ranking of this child to the 4-year-old age group: XX%
@@ -1532,6 +1534,41 @@ public class DataManager : MonoBehaviour
                 /*assessorNameVocabReponses.Insert(timeIndex, assessorID);
                 teacherNameVocabResponses.Insert(timeIndex, teacherID);
                 classroomNameVocabResponses.Insert(timeIndex, classroomID);*/
+            }
+        }
+    }
+
+    public static double calculateStandardNormalPercenatage(double z)
+    {
+        if (z < -6.0)
+        {
+            return 0.0;
+        }
+        else if (z > 6.0)
+        {
+            return 1.0;
+        }
+        else
+        {
+            const double b1 = 0.31938153;
+            const double b2 = -0.356563782;
+            const double b3 = 1.781477937;
+            const double b4 = -1.821255978;
+            const double b5 = 1.330274429;
+            const double p = 0.2316419;
+            const double c2 = 0.3989423;
+            double a = Math.Abs(z);
+            double t = 1.0 / (1.0 + a * p);
+            double b = c2 * Math.Exp((-z) * z / 2.0);
+            double n = ((((b5 * t + b4) * t + b3) * t + b2) * t + b1) * t;
+            n = 1.0 - b * n;
+            if (z < 0.0)
+            {
+                return 1.0 - n;
+            }
+            else
+            {
+                return n;
             }
         }
     }

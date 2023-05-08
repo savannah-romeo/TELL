@@ -675,6 +675,7 @@ MonoBehaviour:
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 1423126920}
   bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -687,6 +688,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -714,7 +716,12 @@ MonoBehaviour:
   RLSI_letterText: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &727950458
@@ -759,6 +766,7 @@ MonoBehaviour:
   gradeData: {fileID: 727950457}
   gradedQuestions: {fileID: 727950458}
   gradedQuestionsBS: {fileID: 0}
+  gradedQuestionsCAP: {fileID: 0}
   checker: {fileID: 727950465}
 --- !u!114 &727950460
 MonoBehaviour:
@@ -2297,8 +2305,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2384,8 +2392,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 131.64, y: -58}
-  m_SizeDelta: {x: 136.72, y: 46}
+  m_AnchoredPosition: {x: 122.53, y: -53.44}
+  m_SizeDelta: {x: 118.5, y: 36.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758
 MonoBehaviour:

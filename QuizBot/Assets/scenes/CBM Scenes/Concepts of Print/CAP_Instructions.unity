@@ -223,6 +223,7 @@ MonoBehaviour:
   CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
   BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &140666067
@@ -1241,7 +1242,11 @@ MonoBehaviour:
 
 
     *
-    Do not provide feedback about the accuracy of responses.'
+    Do not provide feedback about the accuracy of responses.
+
+
+    Record items as
+    INCORRECT if the child does not respond within 5 seconds.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
