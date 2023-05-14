@@ -61,6 +61,7 @@ public class Load_popUp_Message : MonoBehaviour
         }else if (sceneName == "CAP_Instructions"){
                 gameName = "Concepts About Print";
         }
+
         if (timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){
                 loadBtn.enabled = false;
                 warningText.text = "Oops! This test has already been taken. Please select the latest test!";
