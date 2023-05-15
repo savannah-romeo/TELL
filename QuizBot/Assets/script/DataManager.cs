@@ -339,73 +339,226 @@ public class DataManager : MonoBehaviour
             individual_vocabularyReceptive = new List<List<bool>>();
             individual_vocabularyReceptiveFlag = new List<List<bool>>();
             individual_vocabularyResponses = new List<List<string>>();
-            assessorIdVocabReponses = new List<string>();
-            teacherIdVocabResponses = new List<string>();
-            classroomIdVocabResponses = new List<string>();
+            if (assessorIdVocabReponses == null)
+            {
+                assessorIdVocabReponses = new List<string>();
+            }
+            if (teacherIdVocabResponses == null)
+            {
+                teacherIdVocabResponses = new List<string>();
+            }
+            if (classroomIdVocabResponses == null)
+            {
+                classroomIdVocabResponses = new List<string>();
+            }
+            if (assessorNameVocabReponses == null)
+            {
+                assessorNameVocabReponses = new List<string>();
+            }
+            if (teacherNameVocabResponses == null)
+            {
+                teacherNameVocabResponses = new List<string>();
+            }
+            if (classroomNameVocabResponses == null)
+            {
+                classroomNameVocabResponses = new List<string>();
+            }
+            if (assessorIdBsReponses == null)
+            {
+                assessorIdBsReponses = new List<string>();
+            }
+            if (teacherIdBsResponses == null)
+            {
+                teacherIdBsResponses = new List<string>();
+            }
+            if (classroomIdBsResponses == null)
+            {
+                classroomIdBsResponses = new List<string>();
+            }
+            if (assessorNameBsReponses == null)
+            {
+                assessorNameBsReponses = new List<string>();
+            }
+            if (teacherNameBsResponses == null)
+            {
+                teacherNameBsResponses = new List<string>();
+            }
+            if (classroomNameBsResponses == null)
+            {
+                classroomNameBsResponses = new List<string>();
+            }
+            if (assessorIdCAPReponses == null)
+            {
+                assessorIdCAPReponses = new List<string>();
+            }
+            if (teacherIdCAPResponses == null)
+            {
+                teacherIdCAPResponses = new List<string>();
+            }
+            if (classroomIdCAPResponses == null)
+            {
+                classroomIdCAPResponses = new List<string>();
+            }
+            if (assessorNameCAPReponses == null)
+            {
+                assessorNameCAPReponses = new List<string>();
+            }
+            if (teacherNameCAPResponses == null)
+            {
+                teacherNameCAPResponses = new List<string>();
+            }
+            if (classroomNameCAPResponses == null)
+            {
+                classroomNameCAPResponses = new List<string>();
+            }
+            if (assessorIdLniReponses == null)
+            {
+                assessorIdLniReponses = new List<string>();
+            }
+            if (teacherIdLniResponses == null)
+            {
+                teacherIdLniResponses = new List<string>();
+            }
+            if (classroomIdLniResponses == null)
+            {
+                classroomIdLniResponses = new List<string>();
+            }
+            if (assessorNameLniReponses == null)
+            {
+                assessorNameLniReponses = new List<string>();
+            }
+            if (teacherNameLniResponses == null)
+            {
+                teacherNameLniResponses = new List<string>();
+            }
+            if (classroomNameLniResponses == null)
+            {
+                classroomNameLniResponses = new List<string>();
+            }
 
-            assessorNameVocabReponses = new List<string>();
-            teacherNameVocabResponses = new List<string>();
-            classroomNameVocabResponses = new List<string>();
+            if (assessorIdLsiReponses == null)
+            {
+                assessorIdLsiReponses = new List<string>();
+            }
+            if (teacherIdLsiResponses == null)
+            {
+                teacherIdLsiResponses = new List<string>();
+            }
+            if (classroomIdLsiResponses == null)
+            {
+                classroomIdLsiResponses = new List<string>();
+            }
+            if (assessorNameLsiReponses == null)
+            {
+                assessorNameLsiReponses = new List<string>();
+            }
+            if (teacherNameLsiResponses == null)
+            {
+                teacherNameLsiResponses = new List<string>();
+            }
+            if (classroomNameLsiResponses == null)
+            {
+                classroomNameLsiResponses = new List<string>();
+            }
+            if (assessorIdCSReponses == null)
+            {
+                assessorIdCSReponses = new List<string>();
+            }
+            if (teacherIdCSResponses == null)
+            {
+                teacherIdCSResponses = new List<string>();
+            }
+            if (classroomIdCSResponses == null)
+            {
+                classroomIdCSResponses = new List<string>();
+            }
+            if (assessorNameCSReponses == null)
+            {
+                assessorNameCSReponses = new List<string>();
+            }
+            if (teacherNameCSResponses == null)
+            {
+                teacherNameCSResponses = new List<string>();
+            }
+            if (classroomNameCSResponses == null)
+            {
+                classroomNameCSResponses = new List<string>();
+            }
 
-            assessorIdBsReponses = new List<string>();
-            teacherIdBsResponses = new List<string>();
-            classroomIdBsResponses = new List<string>();
+            if (assessorIdWritingReponses == null)
+            {
+                assessorIdWritingReponses = new List<string>();
+            }
+            if (teacherIdWritingResponses == null)
+            {
+                teacherIdWritingResponses = new List<string>();
+            }
+            if (classroomIdWritingResponses == null)
+            {
+                classroomIdWritingResponses = new List<string>();
+            }
+            if (assessorNameWritingReponses == null)
+            {
+                assessorNameWritingReponses = new List<string>();
+            }
+            if (teacherNameWritingResponses == null)
+            {
+                teacherNameWritingResponses = new List<string>();
+            }
+            if (classroomNameWritingResponses == null)
+            {
+                classroomNameWritingResponses = new List<string>();
+            }
 
-            assessorNameBsReponses = new List<string>();
-            teacherNameBsResponses = new List<string>();
-            classroomNameBsResponses = new List<string>();
+            if (assessorIdSRReponses == null)
+            {
+                assessorIdSRReponses = new List<string>();
+            }
+            if (teacherIdSRResponses == null)
+            {
+                teacherIdSRResponses = new List<string>();
+            }
+            if (classroomIdSRResponses == null)
+            {
+                classroomIdSRResponses = new List<string>();
+            }
+            if (assessorNameSRReponses == null)
+            {
+                assessorNameSRReponses = new List<string>();
+            }
+            if (teacherNameSRResponses == null)
+            {
+                teacherNameSRResponses = new List<string>();
+            }
+            if (classroomNameSRResponses == null)
+            {
+                classroomNameSRResponses = new List<string>();
+            }
 
-            assessorIdCAPReponses = new List<string>();
-            teacherIdCAPResponses = new List<string>();
-            classroomIdCAPResponses = new List<string>();
-
-            assessorNameCAPReponses = new List<string>();
-            teacherNameCAPResponses = new List<string>();
-            classroomNameCAPResponses = new List<string>();
-
-            assessorIdLniReponses = new List<string>();
-            teacherIdLniResponses = new List<string>();
-            classroomIdLniResponses = new List<string>();
-
-            assessorNameLniReponses = new List<string>();
-            teacherNameLniResponses = new List<string>();
-            classroomNameLniResponses = new List<string>();
-
-            assessorIdLsiReponses = new List<string>();
-            teacherIdLsiResponses = new List<string>();
-            classroomIdLsiResponses = new List<string>();
-
-            assessorIdCSReponses = new List<string>();
-            teacherIdCSResponses = new List<string>();
-            classroomIdCSResponses = new List<string>();
-
-            assessorNameCSReponses = new List<string>();
-            teacherNameCSResponses = new List<string>();
-            classroomNameCSResponses = new List<string>();
-
-            assessorIdWritingReponses = new List<string>();
-            teacherIdWritingResponses = new List<string>();
-            classroomIdWritingResponses = new List<string>();
-
-            assessorNameWritingReponses = new List<string>();
-            teacherNameWritingResponses = new List<string>();
-            classroomNameWritingResponses = new List<string>();
-
-            assessorIdSRReponses = new List<string>();
-            teacherIdSRResponses = new List<string>();
-            classroomIdSRResponses = new List<string>();
-
-            assessorNameSRReponses = new List<string>();
-            teacherNameSRResponses = new List<string>();
-            classroomNameSRResponses = new List<string>();
-
-            assessorIdBookSumReponses = new List<string>();
-            teacherIdBookSumResponses = new List<string>();
-            classroomIdBookSumResponses = new List<string>();
-
-            assessorNameBookSumReponses = new List<string>();
-            teacherNameBookSumResponses = new List<string>();
-            classroomNameBookSumResponses = new List<string>();
+            if (assessorIdBookSumReponses == null)
+            {
+                assessorIdBookSumReponses = new List<string>();
+            }
+            if (teacherIdBookSumResponses == null)
+            {
+                teacherIdBookSumResponses = new List<string>();
+            }
+            if (classroomIdBookSumResponses == null)
+            {
+                classroomIdBookSumResponses = new List<string>();
+            }
+            if (assessorNameBookSumReponses == null)
+            {
+                assessorNameBookSumReponses = new List<string>();
+            }
+            if (teacherNameBookSumResponses == null)
+            {
+                teacherNameBookSumResponses = new List<string>();
+            }
+            if (classroomNameBookSumResponses == null)
+            {
+                classroomNameBookSumResponses = new List<string>();
+            }
 
 
             if (individual_csResponse == null)
