@@ -678,6 +678,13 @@ public class DataManager : MonoBehaviour
             teacherNameBsResponses = new List<string>();
             classroomNameBsResponses = new List<string>();
 
+            assessorIdCAPReponses = new List<string>();
+            teacherIdCAPResponses = new List<string>();
+            classroomIdCAPResponses = new List<string>();        
+            assessorNameCAPReponses = new List<string>();        
+            teacherNameCAPResponses = new List<string>();        
+            classroomNameCAPResponses = new List<string>();
+
             assessorIdLsiReponses = new List<string>();
             teacherIdLsiResponses = new List<string>();
             classroomIdLsiResponses = new List<string>();

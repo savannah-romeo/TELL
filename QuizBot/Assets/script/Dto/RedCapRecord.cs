@@ -1037,12 +1037,14 @@ public class RedCapRecord
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "vocabulary";
             redCapRecord.redcapRepeatInstance = redCapRecord.vocabSession;
-            if(inputData.sAssessorIdVocabList.Count > responseIndex){
+            if(inputData.sAssessorIdVocabList.Count > responseIndex && inputData.sAssessorIdVocabList[responseIndex] != "")
+            {
                 redCapRecord.assessorIdVocab = inputData.sAssessorIdVocabList[responseIndex];
                 redCapRecord.classroomIdVocab = inputData.sClassroomIdVocabList[responseIndex];
                 redCapRecord.teacherIdVocab = inputData.sTeacherIdVocabList[responseIndex];
             }
-            if(inputData.sAssessorNameVocabList.Count > responseIndex){
+            if(inputData.sAssessorNameVocabList.Count > responseIndex && inputData.sAssessorNameVocabList[responseIndex] != "")
+            {
                 redCapRecord.assessorNameVocab = inputData.sAssessorNameVocabList[responseIndex];
                 redCapRecord.classroomNameVocab = inputData.sClassroomNameVocabList[responseIndex];
                 redCapRecord.teacherNameVocab = inputData.sTeacherNameVocabList[responseIndex];
@@ -1155,17 +1157,19 @@ public class RedCapRecord
             csRedCapRecord.recordID = recordID;
             csRedCapRecord.redcapRepeatInstrument = "clapping_syllables";
             csRedCapRecord.redcapRepeatInstance = csRedCapRecord.csSession;
-            /*if(inputData.sAssessorIdCSList.Count > 0){
+            if(inputData.sAssessorIdCSList.Count > 0 && responseIndex< inputData.sAssessorIdCSList.Count && inputData.sAssessorIdCSList[responseIndex] != "")
+            {
                 csRedCapRecord.assessorIdCS = inputData.sAssessorIdCSList[responseIndex];
                 csRedCapRecord.classroomIdCS = inputData.sClassroomIdCSList[responseIndex];
                 csRedCapRecord.teacherIdCS = inputData.sTeacherIdCSList[responseIndex];
             }
-            if(inputData.sAssessorNameCSList.Count > 0){
+            if(inputData.sAssessorNameCSList.Count > 0 && responseIndex< inputData.sAssessorNameCSList.Count && inputData.sAssessorNameCSList[responseIndex] != "")
+            {
                 csRedCapRecord.assessorNameCS = inputData.sAssessorNameCSList[responseIndex];
                 csRedCapRecord.classroomNameCS = inputData.sClassroomNameCSList[responseIndex];
                 csRedCapRecord.teacherNameCS = inputData.sTeacherNameCSList[responseIndex];
-            }*/
-            if (inputData.sExportImportRef == "ID")
+            }
+            /*if (inputData.sExportImportRef == "ID")
             {
                 csRedCapRecord.assessorIdCS = assessorID;
                 csRedCapRecord.classroomIdCS = classroomID;
@@ -1176,7 +1180,7 @@ public class RedCapRecord
                 csRedCapRecord.assessorNameCS = assessorID;
                 csRedCapRecord.classroomNameCS = classroomID;
                 csRedCapRecord.teacherNameCS = teacherID;
-            }
+            }*/
             if (sessionData.Count > 0)
                 csRedCapRecord.popcornResponse = getBinaryTrueFalse(sessionData[0]);
             if (sessionData.Count > 1)
@@ -1203,18 +1207,20 @@ public class RedCapRecord
             writingRedCapRecord.recordID = recordID;
             writingRedCapRecord.redcapRepeatInstrument = "writing";
             writingRedCapRecord.redcapRepeatInstance = writingRedCapRecord.writingSessionNo;
-            /*if(inputData.sAssessorIdWritingList.Count > 0){
+            if(inputData.sAssessorIdWritingList.Count > 0 && responseIndex< inputData.sAssessorIdWritingList.Count && inputData.sAssessorIdWritingList[responseIndex] != "")
+            {
                 writingRedCapRecord.assessorIdWriting = inputData.sAssessorIdWritingList[responseIndex];
                 writingRedCapRecord.classroomIdWriting = inputData.sClassroomIdWritingList[responseIndex];
                 writingRedCapRecord.teacherIdWriting = inputData.sTeacherIdWritingList[responseIndex];
             }
-            if(inputData.sAssessorNameWritingList.Count > 0){
+            if(inputData.sAssessorNameWritingList.Count > 0 && responseIndex< inputData.sAssessorNameWritingList.Count && inputData.sAssessorNameWritingList[responseIndex] != "")
+            {
                 writingRedCapRecord.assessorNameWriting = inputData.sAssessorNameWritingList[responseIndex];
                 writingRedCapRecord.classroomNameWriting = inputData.sClassroomNameWritingList[responseIndex];
                 writingRedCapRecord.teacherNameWriting = inputData.sTeacherNameWritingList[responseIndex];
-            }*/
+            }
 
-            if (inputData.sExportImportRef == "ID")
+            /*if (inputData.sExportImportRef == "ID")
             {
                 writingRedCapRecord.assessorIdWriting = assessorID;
                 writingRedCapRecord.classroomIdWriting = classroomID;
@@ -1225,7 +1231,7 @@ public class RedCapRecord
                 writingRedCapRecord.assessorNameWriting = assessorID;
                 writingRedCapRecord.classroomNameWriting = classroomID;
                 writingRedCapRecord.teacherNameWriting = teacherID;
-            }
+            }*/
 
             if (sessionData.Count > 0)
                 writingRedCapRecord.nameWritingScore = sessionData[0];
@@ -1250,12 +1256,14 @@ public class RedCapRecord
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "story_retell";
             redCapRecord.redcapRepeatInstance = redCapRecord.srSession;
-            if(inputData.sAssessorIdSRList.Count > responseIndex){
+            if(inputData.sAssessorIdSRList.Count > responseIndex && inputData.sAssessorIdSRList[responseIndex] != "")
+            {
                 redCapRecord.assessorIdSR = inputData.sAssessorIdSRList[responseIndex];
                 redCapRecord.classroomIdSR = inputData.sClassroomIdSRList[responseIndex];
                 redCapRecord.teacherIdSR = inputData.sTeacherIdSRList[responseIndex];
             }
-            if(inputData.sAssessorNameSRList.Count > responseIndex){
+            if(inputData.sAssessorNameSRList.Count > responseIndex && inputData.sAssessorNameSRList[responseIndex] != "")
+            {
                 redCapRecord.assessorNameSR = inputData.sAssessorNameSRList[responseIndex];
                 redCapRecord.classroomNameSR = inputData.sClassroomNameSRList[responseIndex];
                 redCapRecord.teacherNameSR = inputData.sTeacherNameSRList[responseIndex];
@@ -1347,12 +1355,14 @@ public class RedCapRecord
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "book_summary";
             redCapRecord.redcapRepeatInstance = redCapRecord.bookSumSession;
-            if(inputData.sAssessorIdBookSumList.Count > responseIndex){
+            if(inputData.sAssessorIdBookSumList.Count > responseIndex && inputData.sAssessorIdBookSumList[responseIndex] != "")
+            {
                 redCapRecord.assessorIdBookSum = inputData.sAssessorIdBookSumList[responseIndex];
                 redCapRecord.classroomIdBookSum = inputData.sClassroomIdBookSumList[responseIndex];
                 redCapRecord.teacherIdBookSum = inputData.sTeacherIdBookSumList[responseIndex];
             }
-            if(inputData.sAssessorNameBookSumList.Count > responseIndex){
+            if(inputData.sAssessorNameBookSumList.Count > responseIndex && inputData.sAssessorNameBookSumList[responseIndex] != "")
+            {
                 redCapRecord.assessorNameBookSum = inputData.sAssessorNameBookSumList[responseIndex];
                 redCapRecord.classroomNameBookSum = inputData.sClassroomNameBookSumList[responseIndex];
                 redCapRecord.teacherNameBookSum = inputData.sTeacherNameBookSumList[responseIndex];
@@ -1467,12 +1477,14 @@ public class RedCapRecord
             lniRRecord.redcapRepeatInstrument = "letter_name_identification_results";
             lniRRecord.redcapRepeatInstance = lniRRecord.lnirSessionNumber;
 
-            if(inputData.sAssessorIdLniList.Count > 0){
+            if(inputData.sAssessorIdLniList.Count > 0 && lnrRIndex < inputData.sAssessorIdLniList.Count && inputData.sAssessorIdLniList[lnrRIndex] != "")
+            {
                 lniRRecord.assessorIdLni = inputData.sAssessorIdLniList[lnrRIndex];
                 lniRRecord.classroomIdLni = inputData.sClassroomIdLniList[lnrRIndex];
                 lniRRecord.teacherIdLni = inputData.sTeacherIdLniList[lnrRIndex];
             }
-            if(inputData.sAssessorNameLniList.Count > 0){
+            if(inputData.sAssessorNameLniList.Count > 0 && lnrRIndex < inputData.sAssessorNameLniList.Count && inputData.sAssessorNameLniList[lnrRIndex] != "")
+            {
                 lniRRecord.assessorNameLni = inputData.sAssessorNameLniList[lnrRIndex];
                 lniRRecord.classroomNameLni = inputData.sClassroomNameLniList[lnrRIndex];
                 lniRRecord.teacherNameLni = inputData.sTeacherNameLniList[lnrRIndex];
@@ -1572,12 +1584,12 @@ public class RedCapRecord
             lsiRRecord.redcapRepeatInstrument = "letter_sound_identification_results";
             lsiRRecord.redcapRepeatInstance = lsiRRecord.lsirSessionNumber;
 
-            if(inputData.sAssessorIdLsiList.Count > 0) {
+            if(inputData.sAssessorIdLsiList.Count > 0 && lsrRIndex< inputData.sAssessorIdLsiList.Count && inputData.sAssessorIdLsiList[lsrRIndex] != "") {
                 lsiRRecord.assessorIdLsi = inputData.sAssessorIdLsiList[lsrRIndex];
                 lsiRRecord.classroomIdLsi = inputData.sClassroomIdLsiList[lsrRIndex];
                 lsiRRecord.teacherIdLsi = inputData.sTeacherIdLsiList[lsrRIndex];
             }
-            if(inputData.sAssessorNameLsiList.Count > 0) {
+            if(inputData.sAssessorNameLsiList.Count > 0 && lsrRIndex< inputData.sAssessorNameLsiList.Count && inputData.sAssessorNameLsiList[lsrRIndex] != "") {
                 lsiRRecord.assessorNameLsi = inputData.sAssessorNameLsiList[lsrRIndex];
                 lsiRRecord.classroomNameLsi = inputData.sClassroomNameLsiList[lsrRIndex];
                 lsiRRecord.teacherNameLsi = inputData.sTeacherNameLsiList[lsrRIndex];
@@ -1633,12 +1645,14 @@ public class RedCapRecord
             bsRecord.redcapRepeatInstrument = "beginning_sounds";
             bsRecord.redcapRepeatInstance = bsRecord.bsSessionNumber;
 
-            if(inputData.sAssessorIdBsList.Count > 0){
+            if(inputData.sAssessorIdBsList.Count > 0 && bsIndex< inputData.sAssessorIdBsList.Count && inputData.sAssessorIdBsList[bsIndex] != "")
+            {
                 bsRecord.assessorIdBs = inputData.sAssessorIdBsList[bsIndex];
                 bsRecord.classroomIdBs = inputData.sClassroomIdBsList[bsIndex];
                 bsRecord.teacherIdBs = inputData.sTeacherIdBsList[bsIndex];
             }
-            if(inputData.sAssessorNameBsList.Count > 0){
+            if(inputData.sAssessorNameBsList.Count > 0 && bsIndex< inputData.sAssessorNameBsList.Count && inputData.sAssessorNameBsList[bsIndex] != "")
+            {
                 bsRecord.assessorNameBs = inputData.sAssessorNameBsList[bsIndex];
                 bsRecord.classroomNameBs = inputData.sClassroomNameBsList[bsIndex];
                 bsRecord.teacherNameBs = inputData.sTeacherNameBsList[bsIndex];
@@ -1756,20 +1770,20 @@ public class RedCapRecord
                 CAPRecord.redcapRepeatInstance = CAPRecord.CAPSessionNumber;
 
 
-                /*if (inputData.sAssessorIdCAPList.Count > 0)
+                if (inputData.sAssessorIdCAPList.Count > 0 && CAPIndex< inputData.sAssessorIdCAPList.Count && inputData.sAssessorIdCAPList[CAPIndex] != "")
                 {
                     CAPRecord.assessorIdCAP = inputData.sAssessorIdCAPList[CAPIndex];
                     CAPRecord.classroomIdCAP = inputData.sClassroomIdCAPList[CAPIndex];
                     CAPRecord.teacherIdCAP = inputData.sTeacherIdCAPList[CAPIndex];
                 }
-                if (inputData.sAssessorNameCAPList.Count > 0)
+                if (inputData.sAssessorNameCAPList.Count > 0 && CAPIndex< inputData.sAssessorNameCAPList.Count && inputData.sAssessorNameCAPList[CAPIndex] != "")
                 {
                     CAPRecord.assessorNameCAP = inputData.sAssessorNameCAPList[CAPIndex];
                     CAPRecord.classroomNameCAP = inputData.sClassroomNameCAPList[CAPIndex];
                     CAPRecord.teacherNameCAP = inputData.sTeacherNameCAPList[CAPIndex];
-                }*/
+                }
 
-            if (inputData.sExportImportRef == "ID")
+            /*if (inputData.sExportImportRef == "ID")
             {
                 CAPRecord.assessorIdCAP = assessorID;
                 CAPRecord.classroomIdCAP = classroomID;
@@ -1780,7 +1794,7 @@ public class RedCapRecord
                 CAPRecord.assessorNameCAP = assessorID;
                 CAPRecord.classroomNameCAP = classroomID;
                 CAPRecord.teacherNameCAP = teacherID;
-            }
+            }*/
 
                 int iter = 0;
 
