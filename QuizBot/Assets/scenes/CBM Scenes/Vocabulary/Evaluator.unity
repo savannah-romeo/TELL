@@ -574,7 +574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.1365356, y: -2.3212814}
+  m_AnchoredPosition: {x: -6.13649, y: -2.3212814}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491013125
@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &664742943
 Canvas:
   m_ObjectHideFlags: 0
@@ -1150,7 +1150,9 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   sceneName: Grader
   checker: {fileID: 727950453}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950457
 MonoBehaviour:
@@ -1181,6 +1183,8 @@ MonoBehaviour:
   expressiveFlag: {fileID: 918021803}
   receptiveFlag: {fileID: 1375433545}
   questionField: {fileID: 0}
+  bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -1193,6 +1197,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -1224,7 +1229,12 @@ MonoBehaviour:
   RLSI_letterText: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &727950458
@@ -1269,6 +1279,7 @@ MonoBehaviour:
   gradeData: {fileID: 727950457}
   gradedQuestions: {fileID: 727950458}
   gradedQuestionsBS: {fileID: 0}
+  gradedQuestionsCAP: {fileID: 0}
   checker: {fileID: 727950453}
 --- !u!114 &727950460
 MonoBehaviour:
@@ -1353,7 +1364,9 @@ MonoBehaviour:
   clickedButton: {fileID: 2092519758}
   sceneName: MainMenu
   checker: {fileID: 727950453}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &727950463
 MonoBehaviour:

@@ -339,73 +339,226 @@ public class DataManager : MonoBehaviour
             individual_vocabularyReceptive = new List<List<bool>>();
             individual_vocabularyReceptiveFlag = new List<List<bool>>();
             individual_vocabularyResponses = new List<List<string>>();
-            assessorIdVocabReponses = new List<string>();
-            teacherIdVocabResponses = new List<string>();
-            classroomIdVocabResponses = new List<string>();
+            if (assessorIdVocabReponses == null)
+            {
+                assessorIdVocabReponses = new List<string>();
+            }
+            if (teacherIdVocabResponses == null)
+            {
+                teacherIdVocabResponses = new List<string>();
+            }
+            if (classroomIdVocabResponses == null)
+            {
+                classroomIdVocabResponses = new List<string>();
+            }
+            if (assessorNameVocabReponses == null)
+            {
+                assessorNameVocabReponses = new List<string>();
+            }
+            if (teacherNameVocabResponses == null)
+            {
+                teacherNameVocabResponses = new List<string>();
+            }
+            if (classroomNameVocabResponses == null)
+            {
+                classroomNameVocabResponses = new List<string>();
+            }
+            if (assessorIdBsReponses == null)
+            {
+                assessorIdBsReponses = new List<string>();
+            }
+            if (teacherIdBsResponses == null)
+            {
+                teacherIdBsResponses = new List<string>();
+            }
+            if (classroomIdBsResponses == null)
+            {
+                classroomIdBsResponses = new List<string>();
+            }
+            if (assessorNameBsReponses == null)
+            {
+                assessorNameBsReponses = new List<string>();
+            }
+            if (teacherNameBsResponses == null)
+            {
+                teacherNameBsResponses = new List<string>();
+            }
+            if (classroomNameBsResponses == null)
+            {
+                classroomNameBsResponses = new List<string>();
+            }
+            if (assessorIdCAPReponses == null)
+            {
+                assessorIdCAPReponses = new List<string>();
+            }
+            if (teacherIdCAPResponses == null)
+            {
+                teacherIdCAPResponses = new List<string>();
+            }
+            if (classroomIdCAPResponses == null)
+            {
+                classroomIdCAPResponses = new List<string>();
+            }
+            if (assessorNameCAPReponses == null)
+            {
+                assessorNameCAPReponses = new List<string>();
+            }
+            if (teacherNameCAPResponses == null)
+            {
+                teacherNameCAPResponses = new List<string>();
+            }
+            if (classroomNameCAPResponses == null)
+            {
+                classroomNameCAPResponses = new List<string>();
+            }
+            if (assessorIdLniReponses == null)
+            {
+                assessorIdLniReponses = new List<string>();
+            }
+            if (teacherIdLniResponses == null)
+            {
+                teacherIdLniResponses = new List<string>();
+            }
+            if (classroomIdLniResponses == null)
+            {
+                classroomIdLniResponses = new List<string>();
+            }
+            if (assessorNameLniReponses == null)
+            {
+                assessorNameLniReponses = new List<string>();
+            }
+            if (teacherNameLniResponses == null)
+            {
+                teacherNameLniResponses = new List<string>();
+            }
+            if (classroomNameLniResponses == null)
+            {
+                classroomNameLniResponses = new List<string>();
+            }
 
-            assessorNameVocabReponses = new List<string>();
-            teacherNameVocabResponses = new List<string>();
-            classroomNameVocabResponses = new List<string>();
+            if (assessorIdLsiReponses == null)
+            {
+                assessorIdLsiReponses = new List<string>();
+            }
+            if (teacherIdLsiResponses == null)
+            {
+                teacherIdLsiResponses = new List<string>();
+            }
+            if (classroomIdLsiResponses == null)
+            {
+                classroomIdLsiResponses = new List<string>();
+            }
+            if (assessorNameLsiReponses == null)
+            {
+                assessorNameLsiReponses = new List<string>();
+            }
+            if (teacherNameLsiResponses == null)
+            {
+                teacherNameLsiResponses = new List<string>();
+            }
+            if (classroomNameLsiResponses == null)
+            {
+                classroomNameLsiResponses = new List<string>();
+            }
+            if (assessorIdCSReponses == null)
+            {
+                assessorIdCSReponses = new List<string>();
+            }
+            if (teacherIdCSResponses == null)
+            {
+                teacherIdCSResponses = new List<string>();
+            }
+            if (classroomIdCSResponses == null)
+            {
+                classroomIdCSResponses = new List<string>();
+            }
+            if (assessorNameCSReponses == null)
+            {
+                assessorNameCSReponses = new List<string>();
+            }
+            if (teacherNameCSResponses == null)
+            {
+                teacherNameCSResponses = new List<string>();
+            }
+            if (classroomNameCSResponses == null)
+            {
+                classroomNameCSResponses = new List<string>();
+            }
 
-            assessorIdBsReponses = new List<string>();
-            teacherIdBsResponses = new List<string>();
-            classroomIdBsResponses = new List<string>();
+            if (assessorIdWritingReponses == null)
+            {
+                assessorIdWritingReponses = new List<string>();
+            }
+            if (teacherIdWritingResponses == null)
+            {
+                teacherIdWritingResponses = new List<string>();
+            }
+            if (classroomIdWritingResponses == null)
+            {
+                classroomIdWritingResponses = new List<string>();
+            }
+            if (assessorNameWritingReponses == null)
+            {
+                assessorNameWritingReponses = new List<string>();
+            }
+            if (teacherNameWritingResponses == null)
+            {
+                teacherNameWritingResponses = new List<string>();
+            }
+            if (classroomNameWritingResponses == null)
+            {
+                classroomNameWritingResponses = new List<string>();
+            }
 
-            assessorNameBsReponses = new List<string>();
-            teacherNameBsResponses = new List<string>();
-            classroomNameBsResponses = new List<string>();
+            if (assessorIdSRReponses == null)
+            {
+                assessorIdSRReponses = new List<string>();
+            }
+            if (teacherIdSRResponses == null)
+            {
+                teacherIdSRResponses = new List<string>();
+            }
+            if (classroomIdSRResponses == null)
+            {
+                classroomIdSRResponses = new List<string>();
+            }
+            if (assessorNameSRReponses == null)
+            {
+                assessorNameSRReponses = new List<string>();
+            }
+            if (teacherNameSRResponses == null)
+            {
+                teacherNameSRResponses = new List<string>();
+            }
+            if (classroomNameSRResponses == null)
+            {
+                classroomNameSRResponses = new List<string>();
+            }
 
-            assessorIdCAPReponses = new List<string>();
-            teacherIdCAPResponses = new List<string>();
-            classroomIdCAPResponses = new List<string>();
-
-            assessorNameCAPReponses = new List<string>();
-            teacherNameCAPResponses = new List<string>();
-            classroomNameCAPResponses = new List<string>();
-
-            assessorIdLniReponses = new List<string>();
-            teacherIdLniResponses = new List<string>();
-            classroomIdLniResponses = new List<string>();
-
-            assessorNameLniReponses = new List<string>();
-            teacherNameLniResponses = new List<string>();
-            classroomNameLniResponses = new List<string>();
-
-            assessorIdLsiReponses = new List<string>();
-            teacherIdLsiResponses = new List<string>();
-            classroomIdLsiResponses = new List<string>();
-
-            assessorIdCSReponses = new List<string>();
-            teacherIdCSResponses = new List<string>();
-            classroomIdCSResponses = new List<string>();
-
-            assessorNameCSReponses = new List<string>();
-            teacherNameCSResponses = new List<string>();
-            classroomNameCSResponses = new List<string>();
-
-            assessorIdWritingReponses = new List<string>();
-            teacherIdWritingResponses = new List<string>();
-            classroomIdWritingResponses = new List<string>();
-
-            assessorNameWritingReponses = new List<string>();
-            teacherNameWritingResponses = new List<string>();
-            classroomNameWritingResponses = new List<string>();
-
-            assessorIdSRReponses = new List<string>();
-            teacherIdSRResponses = new List<string>();
-            classroomIdSRResponses = new List<string>();
-
-            assessorNameSRReponses = new List<string>();
-            teacherNameSRResponses = new List<string>();
-            classroomNameSRResponses = new List<string>();
-
-            assessorIdBookSumReponses = new List<string>();
-            teacherIdBookSumResponses = new List<string>();
-            classroomIdBookSumResponses = new List<string>();
-
-            assessorNameBookSumReponses = new List<string>();
-            teacherNameBookSumResponses = new List<string>();
-            classroomNameBookSumResponses = new List<string>();
+            if (assessorIdBookSumReponses == null)
+            {
+                assessorIdBookSumReponses = new List<string>();
+            }
+            if (teacherIdBookSumResponses == null)
+            {
+                teacherIdBookSumResponses = new List<string>();
+            }
+            if (classroomIdBookSumResponses == null)
+            {
+                classroomIdBookSumResponses = new List<string>();
+            }
+            if (assessorNameBookSumReponses == null)
+            {
+                assessorNameBookSumReponses = new List<string>();
+            }
+            if (teacherNameBookSumResponses == null)
+            {
+                teacherNameBookSumResponses = new List<string>();
+            }
+            if (classroomNameBookSumResponses == null)
+            {
+                classroomNameBookSumResponses = new List<string>();
+            }
 
 
             if (individual_csResponse == null)
@@ -525,6 +678,13 @@ public class DataManager : MonoBehaviour
             teacherNameBsResponses = new List<string>();
             classroomNameBsResponses = new List<string>();
 
+            assessorIdCAPReponses = new List<string>();
+            teacherIdCAPResponses = new List<string>();
+            classroomIdCAPResponses = new List<string>();        
+            assessorNameCAPReponses = new List<string>();        
+            teacherNameCAPResponses = new List<string>();        
+            classroomNameCAPResponses = new List<string>();
+
             assessorIdLsiReponses = new List<string>();
             teacherIdLsiResponses = new List<string>();
             classroomIdLsiResponses = new List<string>();
@@ -639,7 +799,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             gameText.text = "Test : Story Retell";
-            timeText.text = "Time : " + globalTime;
+            timeText.text = "Time : " + ((2 * globalTime) - 1);
             print("_______-");
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
             srScoreTotal.text = grade_srTotal[globalTime - 1].ToString("F0");
@@ -649,7 +809,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             gameText.text = "Test : Book Summary";
-            timeText.text = "Time : " + globalTime;
+            timeText.text = "Time : " + (2 * globalTime);
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
             bookSumScoreTotal.text = grade_bookSumTotal[globalTime - 1].ToString("F0")+" out of 11";
@@ -821,8 +981,9 @@ public class DataManager : MonoBehaviour
             }
 
             double x = final_BSscores[DataManager.globalTime - 1].Item1;
-            double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
-            Debug.Log("percentile "+x.ToString("0.00"));
+            //double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            //Debug.Log("percentile "+x.ToString("0.00"));
+            double percentile = calculateStandardNormalPercenatage(x) * 100;
             BS_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: "+percentile.ToString("0.00")+"%";
             //The relative ranking of this child to the 4-year-old age group: XX%
         }
@@ -862,7 +1023,8 @@ public class DataManager : MonoBehaviour
             }
 
             double x = final_CAPscores[DataManager.globalTime - 1].Item1;
-            double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            //double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
+            double percentile = calculateStandardNormalPercenatage(x) * 100;
             Debug.Log("percentile " + x.ToString("0.00"));
             CAP_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: " + percentile.ToString("0.00") + "%";
             //The relative ranking of this child to the 4-year-old age group: XX%
@@ -1170,20 +1332,20 @@ public class DataManager : MonoBehaviour
                 responses.Add("<color=red>Incorrect</color>");
             }
             if(exportImportRef == "ID"){
-                /*assessorIdLniReponses.Insert(globalTime-1, assessorID);
+                assessorIdLniReponses.Insert(globalTime-1, assessorID);
                 teacherIdLniResponses.Insert(globalTime-1, teacherID);
-                classroomIdLniResponses.Insert(globalTime-1, classroomID);*/
-                assessorIdLniReponses.Add(assessorID);
+                classroomIdLniResponses.Insert(globalTime-1, classroomID);
+                /*assessorIdLniReponses.Add(assessorID);
                 teacherIdLniResponses.Add(teacherID);
-                classroomIdLniResponses.Add(classroomID);
+                classroomIdLniResponses.Add(classroomID);*/
             } else{
                 Debug.Log("LNI entered global time "+globalTime+" assessorID "+assessorID);
-                /*assessorNameLniReponses.Insert(globalTime-1, assessorID);
+                assessorNameLniReponses.Insert(globalTime-1, assessorID);
                 teacherNameLniResponses.Insert(globalTime-1, teacherID);
-                classroomNameLniResponses.Insert(globalTime-1, classroomID);*/
-                assessorNameLniReponses.Add(assessorID);
+                classroomNameLniResponses.Insert(globalTime-1, classroomID);
+                /*assessorNameLniReponses.Add(assessorID);
                 teacherNameLniResponses.Add(teacherID);
-                classroomNameLniResponses.Add(classroomID);
+                classroomNameLniResponses.Add(classroomID);*/
             }
         }
 
@@ -1203,20 +1365,20 @@ public class DataManager : MonoBehaviour
                 responses.Add("<color=red>Incorrect</color>");
             }
             if(exportImportRef == "ID"){
-                /*assessorIdLsiReponses.Insert(globalTime-1, assessorID);
+                assessorIdLsiReponses.Insert(globalTime-1, assessorID);
                 teacherIdLsiResponses.Insert(globalTime-1, teacherID);
-                classroomIdLsiResponses.Insert(globalTime-1, classroomID);*/
-                assessorIdLsiReponses.Add(assessorID);
+                classroomIdLsiResponses.Insert(globalTime-1, classroomID);
+                /*assessorIdLsiReponses.Add(assessorID);
                 teacherIdLsiResponses.Add(teacherID);
-                classroomIdLsiResponses.Add(classroomID);
+                classroomIdLsiResponses.Add(classroomID);*/
             } else{
                 Debug.Log("LSI entered global time " + globalTime + " assessorID " + assessorID);
-                /*assessorNameLsiReponses.Insert(globalTime-1, assessorID);
+                assessorNameLsiReponses.Insert(globalTime-1, assessorID);
                 teacherNameLsiResponses.Insert(globalTime-1, teacherID);
-                classroomNameLsiResponses.Insert(globalTime-1, classroomID);*/
-                assessorNameLsiReponses.Add(assessorID);
+                classroomNameLsiResponses.Insert(globalTime-1, classroomID);
+                /*assessorNameLsiReponses.Add(assessorID);
                 teacherNameLsiResponses.Add(teacherID);
-                classroomNameLsiResponses.Add(classroomID);
+                classroomNameLsiResponses.Add(classroomID);*/
             }
         }
 
@@ -1237,20 +1399,20 @@ public class DataManager : MonoBehaviour
                     individual_BSChildResponse[itemToGrade.index, globalTime-1] = bsChildResponseField.text;
             }
             if(exportImportRef == "ID"){
-                /*assessorIdBsReponses.Insert(globalTime-1, assessorID);
+                assessorIdBsReponses.Insert(globalTime-1, assessorID);
                 teacherIdBsResponses.Insert(globalTime-1, teacherID);
-                classroomIdBsResponses.Insert(globalTime-1, classroomID);*/
-                assessorIdBsReponses.Add(assessorID);
+                classroomIdBsResponses.Insert(globalTime-1, classroomID);
+                /*assessorIdBsReponses.Add(assessorID);
                 teacherIdBsResponses.Add(teacherID);
-                classroomIdBsResponses.Add(classroomID);
+                classroomIdBsResponses.Add(classroomID);*/
             } else{
                 Debug.Log("BS entered global time " + globalTime + " assessorID " + assessorID);
-                /*assessorNameBsReponses.Insert(globalTime-1, assessorID);
+                assessorNameBsReponses.Insert(globalTime-1, assessorID);
                 teacherNameBsResponses.Insert(globalTime-1, teacherID);
-                classroomNameBsResponses.Insert(globalTime-1, classroomID);*/
-                assessorNameBsReponses.Add(assessorID);
+                classroomNameBsResponses.Insert(globalTime-1, classroomID);
+                /*assessorNameBsReponses.Add(assessorID);
                 teacherNameBsResponses.Add(teacherID);
-                classroomNameBsResponses.Add(classroomID);
+                classroomNameBsResponses.Add(classroomID);*/
             }
         }
 
@@ -1273,22 +1435,22 @@ public class DataManager : MonoBehaviour
             }
             if (exportImportRef == "ID")
             {
-                /*assessorIdBsReponses.Insert(globalTime-1, assessorID);
-                teacherIdBsResponses.Insert(globalTime-1, teacherID);
-                classroomIdBsResponses.Insert(globalTime-1, classroomID);*/
-                assessorIdCAPReponses.Add(assessorID);
+                assessorIdCAPReponses.Insert(globalTime-1, assessorID);
+                teacherIdCAPResponses.Insert(globalTime-1, teacherID);
+                classroomIdCAPResponses.Insert(globalTime-1, classroomID);
+                /*assessorIdCAPReponses.Add(assessorID);
                 teacherIdCAPResponses.Add(teacherID);
-                classroomIdCAPResponses.Add(classroomID);
+                classroomIdCAPResponses.Add(classroomID);*/
             }
             else
             {
                 Debug.Log("CAP entered global time " + globalTime + " assessorID " + assessorID);
-                /*assessorNameBsReponses.Insert(globalTime-1, assessorID);
-                teacherNameBsResponses.Insert(globalTime-1, teacherID);
-                classroomNameBsResponses.Insert(globalTime-1, classroomID);*/
-                assessorNameCAPReponses.Add(assessorID);
+                assessorNameCAPReponses.Insert(globalTime-1, assessorID);
+                teacherNameCAPResponses.Insert(globalTime-1, teacherID);
+                classroomNameCAPResponses.Insert(globalTime-1, classroomID);
+                /*assessorNameCAPReponses.Add(assessorID);
                 teacherNameCAPResponses.Add(teacherID);
-                classroomNameCAPResponses.Add(classroomID);
+                classroomNameCAPResponses.Add(classroomID);*/
             }
         }
     }
@@ -1532,6 +1694,41 @@ public class DataManager : MonoBehaviour
                 /*assessorNameVocabReponses.Insert(timeIndex, assessorID);
                 teacherNameVocabResponses.Insert(timeIndex, teacherID);
                 classroomNameVocabResponses.Insert(timeIndex, classroomID);*/
+            }
+        }
+    }
+
+    public static double calculateStandardNormalPercenatage(double z)
+    {
+        if (z < -6.0)
+        {
+            return 0.0;
+        }
+        else if (z > 6.0)
+        {
+            return 1.0;
+        }
+        else
+        {
+            const double b1 = 0.31938153;
+            const double b2 = -0.356563782;
+            const double b3 = 1.781477937;
+            const double b4 = -1.821255978;
+            const double b5 = 1.330274429;
+            const double p = 0.2316419;
+            const double c2 = 0.3989423;
+            double a = Math.Abs(z);
+            double t = 1.0 / (1.0 + a * p);
+            double b = c2 * Math.Exp((-z) * z / 2.0);
+            double n = ((((b5 * t + b4) * t + b3) * t + b2) * t + b1) * t;
+            n = 1.0 - b * n;
+            if (z < 0.0)
+            {
+                return 1.0 - n;
+            }
+            else
+            {
+                return n;
             }
         }
     }

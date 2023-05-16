@@ -1046,6 +1046,8 @@ MonoBehaviour:
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
+  bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -1058,6 +1060,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -1089,7 +1092,12 @@ MonoBehaviour:
   RLSI_letterText: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &509879282
@@ -1288,7 +1296,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Export and Log Out
+  m_Text: "Export and \nLog Out"
 --- !u!222 &711226726
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1888,7 +1896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0006713867, y: 0.00033569336}
+  m_AnchoredPosition: {x: 0.0006713867, y: 0.00036621094}
   m_SizeDelta: {x: 1493.6924, y: 887.35693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224694055
@@ -3707,7 +3715,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Child Name or Child ID already exists. It is required to import the existing
-    data from thre online Database before proceeding.
+    data from thre online database before proceeding.
 
     Import action requires
     internet connecttion. Please make sure you are connected to the internet. Do

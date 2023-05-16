@@ -186,6 +186,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -217,8 +218,12 @@ MonoBehaviour:
   RLSI_letterText: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
   BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &140666067
@@ -1246,7 +1251,10 @@ MonoBehaviour:
 
     If
     child gives incorrect response say, <b>"The two parts of starfish are ''star''/''fish''
-    (clap as you say it). Try it again. Clap and say the parts of ''starfish''."</b>'
+    (clap as you say it). Try it again. Clap and say the parts of ''starfish''."</b>
+
+    Record
+    items as INCORRECT if the child does not respond within 5 seconds.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
