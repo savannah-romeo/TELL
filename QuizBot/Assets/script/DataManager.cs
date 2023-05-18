@@ -43,8 +43,10 @@ public class DataManager : MonoBehaviour
 
     // Student should answer 3 of these alphabets to skip these alphabets
     public static string[] exceptionalAdaptCharactersLSI = new[] { "A", "B", "E", "O", "S", "U" }; 
-    public static string[] exceptionalTwoStageCharactersLSI = new[] { "A", "B", "M", "P", "S", "T" }; 
-    
+    public static string[] exceptionalTwoStageCharactersLSI = new[] { "A", "B", "M", "P", "S", "T" };
+
+    public static string[] exceptionalAdaptCharactersLNI = new[] { "K", "M", "U", "W", "Z" };
+
     public static string childNameLNI; //used to store child name for use in LNI
                                        //PII THAT SHOULD NOT BE SAVED LONG-TERM
     
@@ -831,6 +833,7 @@ public class DataManager : MonoBehaviour
             //Check for "Tested Out" Letters
             for (int letter = 0; letter < individual_LNI.GetLength(0); letter++)
             {
+                string letterChar = ((char)(letter + 65)).ToString();
                 int adaptiveCounter = 0; //Var used to track 'consecutive' correct answers
 
                 for (int time = 0; time < individual_LNI.GetLength(1); time++)
@@ -862,11 +865,29 @@ public class DataManager : MonoBehaviour
                         adaptiveCounter = 0;
                     }
 
-                    if(adaptiveCounter>=2)
+                    /*if(adaptiveCounter>=2)
                     {
                         learnedLetterNamesLNI[letter] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
                         //there's no mechanic to take this back to false--test out once and you're good
+                    }*/
+
+                    if (exceptionalAdaptCharactersLNI.Contains(letterChar))
+                    {
+                        if (adaptiveCounter >= 3)
+                        {
+                            learnedLetterNamesLNI[letter] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
+                                                                       //there's no mechanic to take this back to false--test out once and you're good
+                        }
                     }
+                    else
+                    {
+                        if (adaptiveCounter >= 2)
+                        {
+                            learnedLetterNamesLNI[letter] = true; //THIS IS OUR PROBLEM LINE--WHAT CHANGES WHEN TRUE
+                                                                       //there's no mechanic to take this back to false--test out once and you're good
+                        }
+                    }
+
                 }
             }
 
