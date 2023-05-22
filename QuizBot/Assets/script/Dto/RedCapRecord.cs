@@ -114,6 +114,9 @@ public class RedCapRecord
     [JsonProperty("q6_solution", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string q6Solution = null;
 
+    [JsonProperty("vocabulary_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? vocabularyComplete = null;
+
     //Clapping Syllables
     [JsonProperty("cs_session", NullValueHandling = NullValueHandling.Ignore)]
     public int? csSession = null;
@@ -139,6 +142,9 @@ public class RedCapRecord
     [JsonProperty("umbrella_response", NullValueHandling = NullValueHandling.Ignore)]
     public int? umbrellaResponse = null;
 
+    [JsonProperty("clapping_syllables_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? clappingSyllablesComplete = null;
+
     //Writing Syllables
     [JsonProperty("writing_session_no", NullValueHandling = NullValueHandling.Ignore)]
     public int? writingSessionNo = null;
@@ -159,6 +165,9 @@ public class RedCapRecord
     public int? nameWritingScore = null;
     [JsonProperty("sentence_points", NullValueHandling = NullValueHandling.Ignore)]
     public int? sentenceWritingScore = null;
+
+    [JsonProperty("writing_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? writingComplete = null;
 
     //Story Retell Syllables
     [JsonProperty("sr_session", NullValueHandling = NullValueHandling.Ignore)]
@@ -243,6 +252,9 @@ public class RedCapRecord
     [JsonProperty("sr_qs16_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? srQs16result = null;
 
+    [JsonProperty("story_retell_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? storyRetellComplete = null;
+
     //Book Summary Syllables
     [JsonProperty("booksum_session", NullValueHandling = NullValueHandling.Ignore)]
     public int? bookSumSession = null;
@@ -305,6 +317,9 @@ public class RedCapRecord
     public string booksumQuestion11 = null;
     [JsonProperty("booksum_qs11_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs11result = null;
+
+    [JsonProperty("book_summary_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? bookSummaryComplete = null;
 
 
     //Letter Name Identification - Student Progress
@@ -386,6 +401,9 @@ public class RedCapRecord
     [JsonProperty("lni_z", NullValueHandling = NullValueHandling.Ignore)]
     [CanBeNull]
     public int? LNI_Z = null;
+
+    [JsonProperty("letter_name_identification_student_progress_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? LNIStudentProgressComplete = null;
 
     //Fields for Letter Name Recognition - Results instrument
     [JsonProperty("lnir_session_no", NullValueHandling = NullValueHandling.Ignore)]
@@ -482,7 +500,10 @@ public class RedCapRecord
     [JsonProperty("lnir_z", NullValueHandling = NullValueHandling.Ignore)]
     [CanBeNull]
     public int? rLNI_Z = null;
-    
+
+    [JsonProperty("letter_name_identification_results_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? LNIResultsComplete = null;
+
 
     //Letter Sound Identification - Student Progress
     [JsonProperty("lsi_a", NullValueHandling = NullValueHandling.Ignore)]
@@ -563,6 +584,9 @@ public class RedCapRecord
     [JsonProperty("lsi_z", NullValueHandling = NullValueHandling.Ignore)]
     [CanBeNull]
     public int? LSI_Z = null;
+
+    [JsonProperty("letter_sound_identification_student_progress_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? LSIStudentProgressComplete = null;
 
     //Fields for Letter Sound Recognition - Results instrument
     [JsonProperty("lsir_session_no", NullValueHandling = NullValueHandling.Ignore)]
@@ -659,6 +683,9 @@ public class RedCapRecord
     [JsonProperty("lsir_z", NullValueHandling = NullValueHandling.Ignore)]
     [CanBeNull]
     public int? rLSI_Z = null;
+
+    [JsonProperty("letter_sound_identification_results_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? LSIResultsComplete = null;
 
     //Fields for beginning sounds
     [JsonProperty("bs_session_no", NullValueHandling = NullValueHandling.Ignore)]
@@ -826,6 +853,9 @@ public class RedCapRecord
     [JsonProperty("bsr_cheese", NullValueHandling = NullValueHandling.Ignore)]
     public string bsResCheese = null;
 
+    [JsonProperty("beginning_sounds_complete", NullValueHandling = NullValueHandling.Ignore)]
+    public int? beginningSoundsComplete = null;
+
     [JsonProperty("cop_session", NullValueHandling = NullValueHandling.Ignore)]
     public int? CAPSessionNumber = null;
 
@@ -969,6 +999,11 @@ public class RedCapRecord
                 redCapRecord.assessorNameVocab = inputData.sAssessorNameVocabList[responseIndex];
                 redCapRecord.classroomNameVocab = inputData.sClassroomNameVocabList[responseIndex];
                 redCapRecord.teacherNameVocab = inputData.sTeacherNameVocabList[responseIndex];
+            }
+
+            if ((redCapRecord.assessorIdVocab != "" && redCapRecord.assessorIdVocab != null) || (redCapRecord.assessorNameVocab != "" && redCapRecord.assessorNameVocab != null))
+            {
+                redCapRecord.vocabularyComplete = 2;
             }
 
             if (sessionData.Count > 0)
@@ -1181,7 +1216,11 @@ public class RedCapRecord
                 csRedCapRecord.classroomNameCS = classroomID;
                 csRedCapRecord.teacherNameCS = teacherID;
             }*/
-            if (sessionData.Count > 0)
+            if ((csRedCapRecord.assessorIdCS != "" && csRedCapRecord.assessorIdCS != null) || (csRedCapRecord.assessorNameCS != "" && csRedCapRecord.assessorNameCS != null))
+            {
+                csRedCapRecord.clappingSyllablesComplete = 2;
+            }
+            if (sessionData.Count > 0) 
                 csRedCapRecord.popcornResponse = getBinaryTrueFalse(sessionData[0]);
             if (sessionData.Count > 1)
                 csRedCapRecord.teacherResponse = getBinaryTrueFalse(sessionData[1]);
@@ -1233,6 +1272,10 @@ public class RedCapRecord
                 writingRedCapRecord.teacherNameWriting = teacherID;
             }*/
 
+            if ((writingRedCapRecord.assessorIdWriting != "" && writingRedCapRecord.assessorIdWriting != null) || (writingRedCapRecord.assessorNameWriting != "" && writingRedCapRecord.assessorNameWriting != null))
+            {
+                writingRedCapRecord.writingComplete = 2;
+            }
             if (sessionData.Count > 0)
                 writingRedCapRecord.nameWritingScore = sessionData[0];
             if (sessionData.Count > 1)
@@ -1267,6 +1310,10 @@ public class RedCapRecord
                 redCapRecord.assessorNameSR = inputData.sAssessorNameSRList[responseIndex];
                 redCapRecord.classroomNameSR = inputData.sClassroomNameSRList[responseIndex];
                 redCapRecord.teacherNameSR = inputData.sTeacherNameSRList[responseIndex];
+            }
+            if ((redCapRecord.assessorIdSR != "" && redCapRecord.assessorIdSR != null) || (redCapRecord.assessorNameSR != "" && redCapRecord.assessorNameSR != null))
+            {
+                redCapRecord.storyRetellComplete = 2;
             }
             if (sessionData.Count > 0)
                 redCapRecord.srQs1result = getBinaryTrueFalse(sessionData[0]);
@@ -1366,6 +1413,10 @@ public class RedCapRecord
                 redCapRecord.assessorNameBookSum = inputData.sAssessorNameBookSumList[responseIndex];
                 redCapRecord.classroomNameBookSum = inputData.sClassroomNameBookSumList[responseIndex];
                 redCapRecord.teacherNameBookSum = inputData.sTeacherNameBookSumList[responseIndex];
+            }
+            if ((redCapRecord.assessorIdBookSum != "" && redCapRecord.assessorIdBookSum != null) || (redCapRecord.assessorNameBookSum != "" && redCapRecord.assessorNameBookSum != null))
+            {
+                redCapRecord.bookSummaryComplete = 2;
             }
             if (sessionData.Count > 0)
                 redCapRecord.booksumQs1result = getBinaryTrueFalse(sessionData[0]);
@@ -1490,6 +1541,11 @@ public class RedCapRecord
                 lniRRecord.teacherNameLni = inputData.sTeacherNameLniList[lnrRIndex];
             }
 
+            if ((lniRRecord.assessorIdLni != "" && lniRRecord.assessorIdLni != null) || (lniRRecord.assessorNameLni != "" && lniRRecord.assessorNameLni != null))
+            {
+                lniRRecord.LNIResultsComplete = 2;
+            }
+
             //Actual data values
             //Not using nullproofing on sessiondata
             //Since AdaptiveResponse(enum) is non-nullable
@@ -1595,6 +1651,11 @@ public class RedCapRecord
                 lsiRRecord.teacherNameLsi = inputData.sTeacherNameLsiList[lsrRIndex];
             }
 
+            if((lsiRRecord.assessorIdLsi != "" && lsiRRecord.assessorIdLsi != null) || (lsiRRecord.assessorNameLsi != "" && lsiRRecord.assessorNameLsi != null))
+            {
+                lsiRRecord.LSIResultsComplete = 2;
+            }
+
             //Actual data values
             //Not using nullproofing on sessiondata
             //Since AdaptiveResponse(enum) is non-nullable
@@ -1657,7 +1718,12 @@ public class RedCapRecord
                 bsRecord.classroomNameBs = inputData.sClassroomNameBsList[bsIndex];
                 bsRecord.teacherNameBs = inputData.sTeacherNameBsList[bsIndex];
             }
-            
+
+            if ((bsRecord.assessorIdBs != "" && bsRecord.assessorIdBs != null) || (bsRecord.assessorNameBs != "" && bsRecord.assessorNameBs != null))
+            {
+                bsRecord.beginningSoundsComplete = 2;
+            }
+
             //Total Scores
             var tupleTemp = (Tuple<double, double>[])inputData.final_BSscores;
             if (tupleTemp[bsIndex] != null)

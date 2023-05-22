@@ -118,7 +118,7 @@ public class SerialData
     public static SerialData convertToSerialData(UsersDetails usersDetails)
     {
         SerialData serialData = new SerialData();
-        List<List<bool>> expressiveList = new List<List<bool>>(){Capacity = 6};;
+        List<List<bool>> expressiveList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };// { Capacity = 6};;
         List<string> assessors_vocab_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_vocab_list = new List<string>(){Capacity = 6};;
         List<string> teachers_vocab_list = new List<string>(){Capacity = 6};;
@@ -195,16 +195,16 @@ public class SerialData
         List<string> teachers_name_booksum_list = new List<string>(){Capacity = 6};;
         serialData.sGradeBookSumTotal = new int[3];
 
-        List<List<bool>> expressiveFlagList = new List<List<bool>>(){Capacity = 6};;
-        List<List<bool>> receptiveList = new List<List<bool>>(){Capacity = 6};;
-        List<List<bool>> receptiveFlagList = new List<List<bool>>(){Capacity = 6};;
-        List<List<string>> individualResponses = new List<List<string>>(){Capacity = 6};;
-        List<List<bool>> csResponseList = new List<List<bool>>(){Capacity = 6};;
-        List<List<bool>> srResponseList = new List<List<bool>>(){Capacity = 3};;
-        List<List<string>> srQuestionsList = new List<List<string>>(){Capacity = 3};;
-        List<List<bool>> booksumResponseList = new List<List<bool>>(){Capacity = 3};;
-        List<List<string>> booksumQuestionsList = new List<List<string>>(){Capacity = 3};;
-        List<List<int>> writingScoreList = new List<List<int>>(){Capacity = 6};;
+        List<List<bool>> expressiveFlagList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };//{ Capacity = 6};;
+        List<List<bool>> receptiveList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };// { Capacity = 6};;
+        List<List<bool>> receptiveFlagList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };// { Capacity = 6};;
+        List<List<string>> individualResponses = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };// { Capacity = 6};;
+        List<List<bool>> csResponseList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };//{Capacity = 6};;
+        List<List<bool>> srResponseList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>() };//{ Capacity = 3};;
+        List<List<string>> srQuestionsList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>()}; //{Capacity = 3};;
+        List<List<bool>> booksumResponseList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>() };//{ Capacity = 3};;
+        List<List<string>> booksumQuestionsList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };//{ Capacity = 3};;
+        List<List<int>> writingScoreList = new List<List<int>>() { new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>() };// { Capacity = 6};;
         // List<int> writingSentenceScoreList = new List<int>(){Capacity = 6};;
         
         foreach (var redCapRecord in usersDetails.users)
@@ -471,22 +471,22 @@ public class SerialData
                 while (writingScoreList.Count < redCapRecord.writingSessionNo)
                     writingScoreList.Add(new List<int>());
                 
-                while (assessors_writing_list.Count < redCapRecord.csSession)
+                while (assessors_writing_list.Count < redCapRecord.writingSessionNo)
                     assessors_writing_list.Add(sessionWritingAssesorIdResponse);
                 
-                while (classrooms_writing_list.Count < redCapRecord.csSession)
+                while (classrooms_writing_list.Count < redCapRecord.writingSessionNo)
                     classrooms_writing_list.Add(sessionWritingClassroomIdResponse);
 
-                while (teachers_writing_list.Count < redCapRecord.csSession)
+                while (teachers_writing_list.Count < redCapRecord.writingSessionNo)
                     teachers_writing_list.Add(sessionWritingTeacherIdResponse);
 
-                while (assessors_name_writing_list.Count < redCapRecord.csSession)
+                while (assessors_name_writing_list.Count < redCapRecord.writingSessionNo)
                     assessors_name_writing_list.Add(sessionWritingAssesorNameResponse);
                 
-                while (classrooms_name_writing_list.Count < redCapRecord.csSession)
+                while (classrooms_name_writing_list.Count < redCapRecord.writingSessionNo)
                     classrooms_name_writing_list.Add(sessionWritingClassroomNameResponse);
 
-                while (teachers_name_writing_list.Count < redCapRecord.csSession)
+                while (teachers_name_writing_list.Count < redCapRecord.writingSessionNo)
                     teachers_name_writing_list.Add(sessionWritingTeacherNameResponse);
 
                 writingScoreList[redCapRecord.writingSessionNo.Value-1] = sessionWiritngScoreList;
@@ -659,7 +659,7 @@ public class SerialData
                     sessionResultList[0] = getTrueFalse(redCapRecord.booksumQs1result);
                 if (redCapRecord.booksumQs2result != null)
                     sessionResultList[1] = getTrueFalse(redCapRecord.booksumQs2result);
-                if (redCapRecord.booksumQs2result != null)
+                if (redCapRecord.booksumQs3result != null)
                     sessionResultList[2] = getTrueFalse(redCapRecord.booksumQs3result);
                 if (redCapRecord.booksumQs4result != null)
                     sessionResultList[3] = getTrueFalse(redCapRecord.booksumQs4result);
@@ -1320,19 +1320,19 @@ public class SerialData
         serialData.sClassroomNameCAPList = classrooms_name_CAP_list;
         serialData.sTeacherNameCAPList = teachers_name_CAP_list;
 
-        serialData.sAssessorIdLniList = assessors_bs_list;
-        serialData.sClassroomIdLniList = classrooms_bs_list;
-        serialData.sTeacherIdLniList = teachers_bs_list;
-        serialData.sAssessorNameLniList = assessors_name_bs_list;
-        serialData.sClassroomNameLniList = classrooms_name_bs_list;
-        serialData.sTeacherNameLniList = teachers_name_bs_list;
+        serialData.sAssessorIdLniList = assessors_lni_list;
+        serialData.sClassroomIdLniList = classrooms_lni_list;
+        serialData.sTeacherIdLniList = teachers_lni_list;
+        serialData.sAssessorNameLniList = assessors_name_lni_list;
+        serialData.sClassroomNameLniList = classrooms_name_lni_list;
+        serialData.sTeacherNameLniList = teachers_name_lni_list;
 
-        serialData.sAssessorIdLsiList = assessors_bs_list;
-        serialData.sClassroomIdLsiList = classrooms_bs_list;
-        serialData.sTeacherIdLsiList = teachers_bs_list;
-        serialData.sAssessorNameLsiList = assessors_name_bs_list;
-        serialData.sClassroomNameLsiList = classrooms_name_bs_list;
-        serialData.sTeacherNameLsiList = teachers_name_bs_list;
+        serialData.sAssessorIdLsiList = assessors_lsi_list;
+        serialData.sClassroomIdLsiList = classrooms_lsi_list;
+        serialData.sTeacherIdLsiList = teachers_lsi_list;
+        serialData.sAssessorNameLsiList = assessors_name_lsi_list;
+        serialData.sClassroomNameLsiList = classrooms_name_lsi_list;
+        serialData.sTeacherNameLsiList = teachers_name_lsi_list;
 
         serialData.sAssessorIdCSList = assessors_cs_list;
         serialData.sClassroomIdCSList = classrooms_cs_list;
