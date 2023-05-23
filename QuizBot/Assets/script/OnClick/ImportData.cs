@@ -114,6 +114,7 @@ public class ImportData  : MonoBehaviour
             //Save teach and assessor since they'll be overwritten
             string tempAssess = DataManager.assessorID;
             string tempTeach = DataManager.teacherID;
+            string tempClass = DataManager.classroomID;
 
             //Reload after importing so we have updated data if file already exists
             saveLoad.Load(DataManager.childID, DataManager.classroomID);
@@ -121,6 +122,7 @@ public class ImportData  : MonoBehaviour
             //reset assessor and teacher
             DataManager.assessorID = tempAssess;
             DataManager.teacherID = tempTeach;
+            DataManager.classroomID = tempClass;
         }
     }
 
