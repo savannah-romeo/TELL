@@ -119,8 +119,8 @@ public static Dictionary<string,double> prompts_UniversalMap_CAP = new Dictionar
     //Occurs when button is clicked
     protected virtual void TaskOnClick()
     {
-        checker.Validator();
-        if (checker.GetValidInput())
+        bool validScene = checker.Validator();
+        if (checker.GetValidInput() && !validScene)
         {
                 Tuple<double, double> eapResults = getEAPEstimationScore();
                 double eap_estimation_value = eapResults.Item1;
@@ -128,7 +128,7 @@ public static Dictionary<string,double> prompts_UniversalMap_CAP = new Dictionar
 
                 if (standard_error <= 0.5 || promptDisplayDifficulty.Count == 12 /*|| (iterator == 3 && !responsedYes)*/)
                 {
-                    complete = true;
+                    this.complete = true;
                     DataManager.final_CAPscores[DataManager.globalTime - 1] = eapResults;
                 }
                 else
@@ -172,6 +172,7 @@ public static Dictionary<string,double> prompts_UniversalMap_CAP = new Dictionar
                 g[i-1] = Math.Exp(-1 * Math.Pow(x[i-1], 2) / 2) / (Math.Sqrt(2 * pi));
 
                 l[i-1] = 1;
+
                 for (int j=1; j <= recordedSolutions.Count; j++)
                 {
                     double difficultyItem = promptDisplayDifficulty[j-1];

@@ -1001,10 +1001,13 @@ public class RedCapRecord
                 redCapRecord.teacherNameVocab = inputData.sTeacherNameVocabList[responseIndex];
             }
 
-            if ((redCapRecord.assessorIdVocab != "" && redCapRecord.assessorIdVocab != null) || (redCapRecord.assessorNameVocab != "" && redCapRecord.assessorNameVocab != null))
+            /*if ((redCapRecord.assessorIdVocab != "" && redCapRecord.assessorIdVocab != null) || (redCapRecord.assessorNameVocab != "" && redCapRecord.assessorNameVocab != null))
             {
                 redCapRecord.vocabularyComplete = 2;
-            }
+            }*/
+
+            if(inputData.sCompleteVocabulary[responseIndex] != -1) 
+                redCapRecord.vocabularyComplete = inputData.sCompleteVocabulary[responseIndex];
 
             if (sessionData.Count > 0)
                 redCapRecord.q1Solution = sessionData[0];
@@ -1216,10 +1219,13 @@ public class RedCapRecord
                 csRedCapRecord.classroomNameCS = classroomID;
                 csRedCapRecord.teacherNameCS = teacherID;
             }*/
-            if ((csRedCapRecord.assessorIdCS != "" && csRedCapRecord.assessorIdCS != null) || (csRedCapRecord.assessorNameCS != "" && csRedCapRecord.assessorNameCS != null))
+            /*if ((csRedCapRecord.assessorIdCS != "" && csRedCapRecord.assessorIdCS != null) || (csRedCapRecord.assessorNameCS != "" && csRedCapRecord.assessorNameCS != null))
             {
                 csRedCapRecord.clappingSyllablesComplete = 2;
-            }
+            }*/
+            if(inputData.sCompleteCS[responseIndex] != -1)
+                csRedCapRecord.clappingSyllablesComplete = inputData.sCompleteCS[responseIndex];
+
             if (sessionData.Count > 0) 
                 csRedCapRecord.popcornResponse = getBinaryTrueFalse(sessionData[0]);
             if (sessionData.Count > 1)
@@ -1272,10 +1278,13 @@ public class RedCapRecord
                 writingRedCapRecord.teacherNameWriting = teacherID;
             }*/
 
-            if ((writingRedCapRecord.assessorIdWriting != "" && writingRedCapRecord.assessorIdWriting != null) || (writingRedCapRecord.assessorNameWriting != "" && writingRedCapRecord.assessorNameWriting != null))
+            /*if ((writingRedCapRecord.assessorIdWriting != "" && writingRedCapRecord.assessorIdWriting != null) || (writingRedCapRecord.assessorNameWriting != "" && writingRedCapRecord.assessorNameWriting != null))
             {
                 writingRedCapRecord.writingComplete = 2;
-            }
+            }*/
+            if(inputData.sCompleteWriting[responseIndex] != -1)
+                writingRedCapRecord.writingComplete = inputData.sCompleteWriting[responseIndex];
+
             if (sessionData.Count > 0)
                 writingRedCapRecord.nameWritingScore = sessionData[0];
             if (sessionData.Count > 1)
@@ -1311,10 +1320,13 @@ public class RedCapRecord
                 redCapRecord.classroomNameSR = inputData.sClassroomNameSRList[responseIndex];
                 redCapRecord.teacherNameSR = inputData.sTeacherNameSRList[responseIndex];
             }
-            if ((redCapRecord.assessorIdSR != "" && redCapRecord.assessorIdSR != null) || (redCapRecord.assessorNameSR != "" && redCapRecord.assessorNameSR != null))
+            /*if ((redCapRecord.assessorIdSR != "" && redCapRecord.assessorIdSR != null) || (redCapRecord.assessorNameSR != "" && redCapRecord.assessorNameSR != null))
             {
                 redCapRecord.storyRetellComplete = 2;
-            }
+            }*/
+            if(inputData.sCompleteSR[responseIndex] != -1)
+                redCapRecord.storyRetellComplete = inputData.sCompleteSR[responseIndex];
+
             if (sessionData.Count > 0)
                 redCapRecord.srQs1result = getBinaryTrueFalse(sessionData[0]);
             if (sessionData.Count > 1)
@@ -1414,10 +1426,13 @@ public class RedCapRecord
                 redCapRecord.classroomNameBookSum = inputData.sClassroomNameBookSumList[responseIndex];
                 redCapRecord.teacherNameBookSum = inputData.sTeacherNameBookSumList[responseIndex];
             }
-            if ((redCapRecord.assessorIdBookSum != "" && redCapRecord.assessorIdBookSum != null) || (redCapRecord.assessorNameBookSum != "" && redCapRecord.assessorNameBookSum != null))
+            /*if ((redCapRecord.assessorIdBookSum != "" && redCapRecord.assessorIdBookSum != null) || (redCapRecord.assessorNameBookSum != "" && redCapRecord.assessorNameBookSum != null))
             {
                 redCapRecord.bookSummaryComplete = 2;
-            }
+            }*/
+            if(inputData.sCompleteBookSum[responseIndex] != -1)
+                redCapRecord.bookSummaryComplete = inputData.sCompleteBookSum[responseIndex];
+
             if (sessionData.Count > 0)
                 redCapRecord.booksumQs1result = getBinaryTrueFalse(sessionData[0]);
             if (sessionData.Count > 1)
@@ -1541,10 +1556,12 @@ public class RedCapRecord
                 lniRRecord.teacherNameLni = inputData.sTeacherNameLniList[lnrRIndex];
             }
 
-            if ((lniRRecord.assessorIdLni != "" && lniRRecord.assessorIdLni != null) || (lniRRecord.assessorNameLni != "" && lniRRecord.assessorNameLni != null))
+            /*if ((lniRRecord.assessorIdLni != "" && lniRRecord.assessorIdLni != null) || (lniRRecord.assessorNameLni != "" && lniRRecord.assessorNameLni != null))
             {
                 lniRRecord.LNIResultsComplete = 2;
-            }
+            }*/
+            if(inputData.sCompleteLNI[lnrRIndex] != -1)
+                lniRRecord.LNIResultsComplete = inputData.sCompleteLNI[lnrRIndex];
 
             //Actual data values
             //Not using nullproofing on sessiondata
@@ -1651,10 +1668,12 @@ public class RedCapRecord
                 lsiRRecord.teacherNameLsi = inputData.sTeacherNameLsiList[lsrRIndex];
             }
 
-            if((lsiRRecord.assessorIdLsi != "" && lsiRRecord.assessorIdLsi != null) || (lsiRRecord.assessorNameLsi != "" && lsiRRecord.assessorNameLsi != null))
+            /*if((lsiRRecord.assessorIdLsi != "" && lsiRRecord.assessorIdLsi != null) || (lsiRRecord.assessorNameLsi != "" && lsiRRecord.assessorNameLsi != null))
             {
                 lsiRRecord.LSIResultsComplete = 2;
-            }
+            }*/
+            if(inputData.sCompleteLSI[lsrRIndex] != -1)
+                lsiRRecord.LSIResultsComplete = inputData.sCompleteLSI[lsrRIndex];
 
             //Actual data values
             //Not using nullproofing on sessiondata
@@ -1719,10 +1738,12 @@ public class RedCapRecord
                 bsRecord.teacherNameBs = inputData.sTeacherNameBsList[bsIndex];
             }
 
-            if ((bsRecord.assessorIdBs != "" && bsRecord.assessorIdBs != null) || (bsRecord.assessorNameBs != "" && bsRecord.assessorNameBs != null))
+            /*if ((bsRecord.assessorIdBs != "" && bsRecord.assessorIdBs != null) || (bsRecord.assessorNameBs != "" && bsRecord.assessorNameBs != null))
             {
                 bsRecord.beginningSoundsComplete = 2;
-            }
+            }*/
+            if(inputData.sCompleteBS[bsIndex] != -1)
+                bsRecord.beginningSoundsComplete = inputData.sCompleteBS[bsIndex];
 
             //Total Scores
             var tupleTemp = (Tuple<double, double>[])inputData.final_BSscores;
@@ -1863,6 +1884,8 @@ public class RedCapRecord
             }*/
 
                 int iter = 0;
+            if(inputData.sCompleteCAP[CAPIndex] != -1)
+                CAPRecord.CAPComplete = inputData.sCompleteCAP[CAPIndex];
 
                 for (int ind = 0; ind < CAPSD.GetLength(0); ind++)
                 {
@@ -1872,7 +1895,7 @@ public class RedCapRecord
                         {
                             CAPRecord.CAPQuestion1 = AdvanceCAPItem.prompts_CAP[AdvanceCAPItem.prompts_difficulties_universal[ind]];
                             CAPRecord.CAPQs1result = CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct ? 1 : 0;
-                            CAPRecord.CAPComplete = 2;
+                            //CAPRecord.CAPComplete = 2;
                         }
                         if (iter == 1)
                         {

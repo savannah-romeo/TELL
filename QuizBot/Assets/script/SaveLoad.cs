@@ -137,6 +137,18 @@ public class SaveLoad
 		staging.sTeacherNameCAPList = DataManager.teacherNameCAPResponses;
 		staging.sClassroomNameCAPList = DataManager.classroomNameCAPResponses;
 
+		staging.sCompleteWriting = DataManager.completeWriting;
+		staging.sCompleteVocabulary= DataManager.completeVocabulary;
+		staging.sCompleteSR = DataManager.completeSR;
+		staging.sCompleteLSI = DataManager.completeLSI;
+		staging.sCompleteLNI = DataManager.completeLNI;
+		staging.sCompleteCS = DataManager.completeCS;
+		staging.sCompleteCAP = DataManager.completeCAP;
+		staging.sCompleteBS = DataManager.completeBS;
+		staging.sCompleteBookSum = DataManager.completeBookSum;
+
+
+
 		string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
 		Debug.Log(fileName);
 		string savePath = Path.Combine(pdP, fileName); // File path for storage with the file name
@@ -193,6 +205,16 @@ public class SaveLoad
 		DataManager.individual_bookSumQuestions = staging.sIndividualBookSumQuestionsList;
 		DataManager.grade_srTotal = staging.sGradeSRTotal;
 		DataManager.grade_bookSumTotal = staging.sGradeBookSumTotal;
+
+		DataManager.completeWriting = staging.sCompleteWriting;
+		DataManager.completeVocabulary = staging.sCompleteVocabulary;
+		DataManager.completeSR = staging.sCompleteSR;
+		DataManager.completeLSI = staging.sCompleteLSI;
+		DataManager.completeLNI = staging.sCompleteLNI;
+		DataManager.completeCS = staging.sCompleteCS;
+		DataManager.completeCAP = staging.sCompleteCAP;
+		DataManager.completeBS = staging.sCompleteBS;
+		DataManager.completeBookSum = staging.sCompleteBookSum;
 
 		DataManager.learnedLetterNamesLNI = staging.sLearnedLetterNamesLNI;
         DataManager.individual_LNI = staging.sIndividual_LNI;
