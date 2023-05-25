@@ -129,6 +129,9 @@ EditorBuildSettings:
     path: Assets/scenes/CBM Scenes/Concepts of Print/CAP_Instructions.unity
     guid: 5f8d75946f93941b59bf731f675eae09
   - enabled: 1
+    path: Assets/scenes/CBM Scenes/Concepts of Print/CAP_Instructions_1.unity
+    guid: 39cabbe9a5370b5469cf0fa44a583323
+  - enabled: 1
     path: Assets/scenes/CBM Scenes/Concepts of Print/CAP_Evaluator.unity
     guid: 8a0d845ad9f8745b4947d2e081710771
   - enabled: 1

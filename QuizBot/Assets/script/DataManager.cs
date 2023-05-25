@@ -62,6 +62,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameLniReponses;
     public static List<string> teacherNameLniResponses;
     public static List<string> classroomNameLniResponses;
+    public static List<int> completeLNI;
 
     //Per-game scored answers
     //LSI Grades
@@ -73,7 +74,8 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameLsiReponses;
     public static List<string> teacherNameLsiResponses;
     public static List<string> classroomNameLsiResponses;
-    
+    public static List<int> completeLSI;
+
     //Per-game scored answers
     //BS Grades
     public static AdaptiveResponse[,] individual_BS;
@@ -85,6 +87,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameBsReponses;
     public static List<string> teacherNameBsResponses;
     public static List<string> classroomNameBsResponses;
+    public static List<int> completeBS;
 
     //CAP Grades
     public static AdaptiveResponse[,] individual_CAP;
@@ -96,6 +99,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameCAPReponses;
     public static List<string> teacherNameCAPResponses;
     public static List<string> classroomNameCAPResponses;
+    public static List<int> completeCAP;
 
     //Vocab Grades
     //These hold the total score for the game
@@ -126,6 +130,7 @@ public class DataManager : MonoBehaviour
     public static List<List<string>> individual_vocabularyResponses;
     public static List<List<bool>> individual_vocabularyExpressiveFlag;
     public static List<List<bool>> individual_vocabularyReceptiveFlag;
+    public static List<int> completeVocabulary;
 
     // CS
     public static int score_cs;
@@ -136,6 +141,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameCSReponses;
     public static List<string> teacherNameCSResponses;
     public static List<string> classroomNameCSResponses;
+    public static List<int> completeCS;
 
     public static int[] grade_csTotal;
     public static List<List<bool>> individual_csResponse;
@@ -151,6 +157,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameSRReponses;
     public static List<string> teacherNameSRResponses;
     public static List<string> classroomNameSRResponses;
+    public static List<int> completeSR;
 
     public static int[] grade_srTotal;
     public static List<List<bool>> individual_srResponse;
@@ -167,6 +174,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameBookSumReponses;
     public static List<string> teacherNameBookSumResponses;
     public static List<string> classroomNameBookSumResponses;
+    public static List<int> completeBookSum;
 
     public static int[] grade_bookSumTotal;
     public static List<List<bool>> individual_bookSumResponse;
@@ -186,6 +194,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameWritingReponses;
     public static List<string> teacherNameWritingResponses;
     public static List<string> classroomNameWritingResponses;
+    public static List<int> completeWriting;
 
     public static int[] individual_cs_name;
     public static int[] individual_cs_sentence;
@@ -346,6 +355,42 @@ public class DataManager : MonoBehaviour
             individual_vocabularyReceptive = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };
             individual_vocabularyReceptiveFlag = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };
             individual_vocabularyResponses = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>()};
+            if(completeVocabulary != null)
+            {
+                completeVocabulary = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            }
+            if (completeBookSum != null)
+            {
+                completeBookSum = new List<int>() { -1, -1, -1 };
+            }
+            if (completeSR != null)
+            {
+                completeSR = new List<int>() { -1, -1, -1 };
+            }
+            if (completeLSI != null)
+            {
+                completeLSI = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            }
+            if (completeLNI != null)
+            {
+                completeLNI = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            }
+            if (completeCAP != null)
+            {
+                completeCAP = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            }
+            if (completeBS != null)
+            {
+                completeBS = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            }
+            if (completeCS != null)
+            {
+                completeCS = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            }
+            if (completeWriting != null)
+            {
+                completeWriting = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            }
             if (assessorIdVocabReponses == null)
             {
                 assessorIdVocabReponses = new List<string>() { "", "", "", "", "", "" }; ;
@@ -656,6 +701,17 @@ public class DataManager : MonoBehaviour
             individual_csResponse = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };
             individual_cs_name = new int[6] { -1, -1, -1, -1, -1, -1 };
             individual_cs_sentence = new int[6] { -1, -1, -1, -1, -1, -1 };
+            
+            completeVocabulary = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            completeBookSum = new List<int>() { -1, -1, -1 };
+            completeSR = new List<int>() { -1, -1, -1 };
+            completeLSI = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            completeLNI = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            completeCAP = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            completeBS = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            completeCS = new List<int>() { -1, -1, -1, -1, -1, -1 };
+            completeWriting = new List<int>() { -1, -1, -1, -1, -1, -1 };
+
             //individual_srResponse = new List<List<bool>>();
             //individual_srQuestions = new List<List<string>>();
             individual_srResponse = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>() };//{ Capacity = 3};;
@@ -755,7 +811,7 @@ public class DataManager : MonoBehaviour
         if(currentScene == "Evaluator" || currentScene == "LNI_Evaluator" || 
            currentScene == "LSI_Evaluator" || currentScene == "BS_Evaluator" || currentScene == "CS_Evaluator"
            || currentScene == "Writing_Evaluator" || currentScene == "SR_Evaluator"
-           || currentScene == "BookSum_Evaluator")
+           || currentScene == "BookSum_Evaluator" || currentScene == "CAP_Evaluator")
         {
             individual_expressive = new List<bool>();
             individual_expressiveFlag = new List<bool>();
@@ -776,14 +832,30 @@ public class DataManager : MonoBehaviour
             individual_srQues = new List<string>();
             individual_bookSumQues = new List<string>();
             individual_bookSum = new List<bool>();
-
             responses = new List<string>();
+            /*for (int letterIndex = 0; letterIndex < individual_LSI.GetLength(0); letterIndex++)
+            {
+                individual_LSI[letterIndex, globalTime - 1] = AdaptiveResponse.Missing;
+            }
+            for (int letterIndex = 0; letterIndex < individual_LNI.GetLength(0); letterIndex++)
+            {
+                individual_LNI[letterIndex, globalTime - 1] = AdaptiveResponse.Missing;
+            }
+            for (int item = 0; item < individual_BS.GetLength(0); item++)
+            {
+                individual_BS[item, globalTime - 1] = AdaptiveResponse.Missing;
+            }
+            for (int item = 0; item < individual_CAP.GetLength(0); item++)
+            {
+                individual_CAP[item, globalTime - 1] = AdaptiveResponse.Missing;
+            }*/
         }
 
         //Display all our data!
         if (currentScene == "Grader")
         {
             childText.text = childID;
+            completeVocabulary[globalTime - 1] = 2;
             gameText.text = "Test : Vocabulary";
             timeText.text = "Time : " + globalTime;
             string[] promptStorage = promptCycler.PromptSelect(globalTime);
@@ -804,6 +876,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "CS_Grader")
         {
             childText.text = childID;
+            completeCS[globalTime - 1] = 2;
             gameText.text = "Test : Clapping Syllables";
             timeText.text = "Time : " + globalTime;
             string[] promptStorage = promptCycler.PromptSelect(globalTime);
@@ -822,6 +895,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "SR_Grader")
         {
             childText.text = childID;
+            completeSR[globalTime - 1] = 2;
             gameText.text = "Test : Story Retell";
             timeText.text = "Time : " + ((2 * globalTime) - 1);
             print("_______-");
@@ -832,6 +906,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "BookSum_Grader")
         {
             childText.text = childID;
+            completeBookSum[globalTime - 1] = 2;
             gameText.text = "Test : Book Summary";
             timeText.text = "Time : " + (2 * globalTime);
             //Access calculated total grades for this time
@@ -842,6 +917,7 @@ public class DataManager : MonoBehaviour
         if (currentScene == "Writing_Grader")
         {
             childText.text = childID;
+            completeWriting[globalTime - 1] = 2;
             gameText.text = "Test : Writing";
             timeText.text = "Time : " + globalTime;
             writingNameScore.text = individual_name_score.ToString("F0");
@@ -852,6 +928,7 @@ public class DataManager : MonoBehaviour
         {
             gameText.text = "Test : Letter Name Identification";
             timeText.text = "Time : " + globalTime;
+            completeLNI[globalTime - 1] = 2;
             //Check for "Tested Out" Letters
             for (int letter = 0; letter < individual_LNI.GetLength(0); letter++)
             {
@@ -926,6 +1003,7 @@ public class DataManager : MonoBehaviour
         {
             gameText.text = "Test : Letter Sound Identification";
             timeText.text = "Time : " + globalTime;
+            completeLSI[globalTime - 1] = 2;
             //Check for "Tested Out" Letters
             for (int letterIndex = 0; letterIndex < individual_LSI.GetLength(0); letterIndex++)
             {
@@ -993,6 +1071,7 @@ public class DataManager : MonoBehaviour
         {
             gameText.text = "Test : Beginning Sounds";
             timeText.text = "Time : " + globalTime;
+            completeBS[globalTime - 1] = 2;
             List<BSItem> universalItems;
             string json = Resources.Load<TextAsset>("bs_items").ToString();
             universalItems = JsonConvert.DeserializeObject<List<BSItem>>(json);
@@ -1035,6 +1114,7 @@ public class DataManager : MonoBehaviour
         {
             gameText.text = "Test : Concepts about Print";
             timeText.text = "Time : " + globalTime;
+            completeCAP[globalTime - 1] = 2;
             //List<BSItem> universalItems;
             //string json = Resources.Load<TextAsset>("bs_items").ToString();
             //universalItems = JsonConvert.DeserializeObject<List<BSItem>>(json);
@@ -1068,7 +1148,7 @@ public class DataManager : MonoBehaviour
             double x = final_CAPscores[DataManager.globalTime - 1].Item1;
             //double percentile = (1 + Math.Sign(x) * Math.Sqrt(1 - Math.Exp(-2 * x * x / Math.PI))) / 2;
             double percentile = calculateStandardNormalPercenatage(x) * 100;
-            Debug.Log("percentile " + x.ToString("0.00"));
+            //Debug.Log("percentile " + x.ToString("0.00"));
             CAP_PercentileScore.text = "The relative ranking of this child to the 4-year-old age group: " + percentile.ToString("0.00") + "%";
             //The relative ranking of this child to the 4-year-old age group: XX%
         }
@@ -1080,8 +1160,16 @@ public class DataManager : MonoBehaviour
             //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
             for(int loop = 0; loop < 6; loop++) 
             {
-                expressivePercent[loop].text = grade_vocabularyExpressive[loop].ToString("F0"); //Parameter ensures two decimal points
-                receptivePercent[loop].text = grade_vocabularyReceptive[loop].ToString("F0");
+                if (completeVocabulary[loop] == 2)
+                {
+                    expressivePercent[loop].text = grade_vocabularyExpressive[loop].ToString("F0"); //Parameter ensures two decimal points
+                    receptivePercent[loop].text = grade_vocabularyReceptive[loop].ToString("F0");
+                }
+                else
+                {
+                    expressivePercent[loop].text = "";
+                    receptivePercent[loop].text = "";
+                }
             }
         }
 
@@ -1092,7 +1180,14 @@ public class DataManager : MonoBehaviour
             //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
             for(int loop = 0; loop < 6; loop++) 
             {
-                csScoresForResultPage[loop].text = grade_csTotal[loop].ToString("F0"); //Parameter ensures two decimal points
+                if (completeCS[loop] == 2)
+                {
+                    csScoresForResultPage[loop].text = grade_csTotal[loop].ToString("F0"); //Parameter ensures two decimal points
+                }
+                else
+                {
+                    csScoresForResultPage[loop].text = "";
+                }
             }
         }
 
@@ -1105,15 +1200,23 @@ public class DataManager : MonoBehaviour
             {
                 // writingNameScoreForResultPage[loop].text = individual_cs_name[loop].ToString("F0"); //Parameter ensures two decimal points
                 // writingSentenceScoreForResultPage[loop].text = individual_cs_sentence[loop].ToString("F0"); //Parameter ensures two decimal points
-                if (individual_writing_score != null && individual_writing_score.Count>loop)
+                if (completeWriting[loop] == 2)
                 {
-                    writingNameScoreForResultPage[loop].text = individual_writing_score[loop][0].ToString("F0"); //Parameter ensures two decimal points
-                    writingSentenceScoreForResultPage[loop].text = individual_writing_score[loop][1].ToString("F0"); //Parameter ensures two decimal points
+                    if (individual_writing_score != null && individual_writing_score.Count > loop)
+                    {
+                        writingNameScoreForResultPage[loop].text = individual_writing_score[loop][0].ToString("F0"); //Parameter ensures two decimal points
+                        writingSentenceScoreForResultPage[loop].text = individual_writing_score[loop][1].ToString("F0"); //Parameter ensures two decimal points
+                    }
+                    else
+                    {
+                        writingNameScoreForResultPage[loop].text = (-999).ToString("F0");
+                        writingSentenceScoreForResultPage[loop].text = (-999).ToString("F0"); //Parameter ensures two decimal points
+                    }
                 }
                 else
                 {
-                    writingNameScoreForResultPage[loop].text = (-999).ToString("F0");
-                    writingSentenceScoreForResultPage[loop].text = (-999).ToString("F0"); //Parameter ensures two decimal points
+                    writingNameScoreForResultPage[loop].text = "";
+                    writingSentenceScoreForResultPage[loop].text = "";
                 }
             
             }
@@ -1126,7 +1229,14 @@ public class DataManager : MonoBehaviour
             //Loop populates grades textboxes, hardcoded at 3 due to issues reading unfully instantiated sizes
             for(int loop = 0; loop < 3; loop++) 
             {
-                srScoresForResultPage[loop].text = grade_srTotal[loop].ToString("F0"); //Parameter ensures two decimal points
+                if (completeSR[loop] == 2)
+                {
+                    srScoresForResultPage[loop].text = grade_srTotal[loop].ToString("F0"); //Parameter ensures two decimal points
+                }
+                else
+                {
+                    srScoresForResultPage[loop].text = "";
+                }
             }
         }
 
@@ -1137,7 +1247,14 @@ public class DataManager : MonoBehaviour
             //Loop populates grades textboxes, hardcoded at 3 due to issues reading unfully instantiated sizes
             for(int loop = 0; loop < 3; loop++) 
             {
-                booksumScoresForResultPage[loop].text = grade_bookSumTotal[loop].ToString("F0"); //Parameter ensures two decimal points
+                if (completeBookSum[loop] == 2)
+                {
+                    booksumScoresForResultPage[loop].text = grade_bookSumTotal[loop].ToString("F0"); //Parameter ensures two decimal points
+                }
+                else
+                {
+                    booksumScoresForResultPage[loop].text = "";
+                }
             }
         }
 
@@ -1180,8 +1297,13 @@ public class DataManager : MonoBehaviour
             //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
             for (int loop = 0; loop < 6; loop++)
             {
-                if(final_BSscores[loop] != null){
-                    BS_EAPScore[loop].text = final_BSscores[loop].Item1.ToString("0.00"); //Parameter ensures two decimal points
+                if(final_BSscores[loop] != null && completeBS[loop] == 2){
+                    double percentile = calculateStandardNormalPercenatage(final_BSscores[loop].Item1) * 100;
+                    BS_EAPScore[loop].text = percentile.ToString("0.00")+"%"; //Parameter ensures two decimal points
+                }
+                else
+                {
+                    BS_EAPScore[loop].text = "";
                 }
             }
         }
@@ -1192,9 +1314,14 @@ public class DataManager : MonoBehaviour
             //Loop populates grades textboxes, hardcoded at 6 due to issues reading unfully instantiated sizes
             for (int loop = 0; loop < 6; loop++)
             {
-                if (final_CAPscores[loop] != null)
+                if (final_CAPscores[loop] != null && completeCAP[loop] == 2)
                 {
-                    CAP_EAPScore[loop].text = final_CAPscores[loop].Item1.ToString("0.00"); //Parameter ensures two decimal points
+                    double percentile = calculateStandardNormalPercenatage(final_CAPscores[loop].Item1) * 100;
+                    CAP_EAPScore[loop].text = percentile.ToString("0.00") + "%"; //Parameter ensures two decimal points
+                }
+                else
+                {
+                    CAP_EAPScore[loop].text = "";
                 }
             }
         }

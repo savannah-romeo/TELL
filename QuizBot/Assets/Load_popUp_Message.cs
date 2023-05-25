@@ -40,7 +40,7 @@ public class Load_popUp_Message : MonoBehaviour
             int timeaccepted=0;
             int tpShown = DataManager.globalTime;
         if (sceneName == "Instructions") {
-            timeaccepted = DataManager.vocabTime;
+            //timeaccepted = DataManager.vocabTime;
             gameName = "Vocabulary";
         } else if (sceneName == "BS_Instructions_1") {
             gameName = "Beginning Sound";
@@ -58,7 +58,7 @@ public class Load_popUp_Message : MonoBehaviour
         } else if (sceneName == "BookSum_Instructions_1") {
             gameName = "Book Summary";
             tpShown = tpShown*2;
-        }else if (sceneName == "CAP_Instructions"){
+        }else if (sceneName == "CAP_Instructions_1"){
                 gameName = "Concepts About Print";
         }
         if (timeaccepted==7 || (int)Char.GetNumericValue(loadBtn.name[loadBtn.name.Length-1]) < timeaccepted){

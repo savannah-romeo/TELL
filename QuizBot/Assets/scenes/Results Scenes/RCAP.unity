@@ -1392,7 +1392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -145.6}
+  m_AnchoredPosition: {x: 0, y: -153}
   m_SizeDelta: {x: 550, y: 50.000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853598544
@@ -1415,8 +1415,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A higher score means the child's level of beginning sound awareness is
-    increasing.
+  m_text: The percentiles shown in the table indicate that the child's score is at
+    or above what percent of the 4-year-old age group.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

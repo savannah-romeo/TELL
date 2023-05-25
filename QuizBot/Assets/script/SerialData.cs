@@ -31,6 +31,7 @@ public class SerialData
     public List<List<bool>> sIndividualReceptiveList;
     public List<List<bool>> sIndividualReceptiveFlagList;
     public List<List<string>> sIndividualResponses;
+    public List<int> sCompleteVocabulary;
 
     //Clapping Syllable storage
     public int[] sGradeCSTotal;
@@ -41,6 +42,7 @@ public class SerialData
     public List<string> sTeacherNameCSList;
     public List<string> sClassroomNameCSList;
     public List<List<bool>> sIndividualCSResponseList;
+    public List<int> sCompleteCS;
 
     //Writing Syllable storage
     public List<List<int>> sIndividualWritingScoreList;
@@ -50,6 +52,7 @@ public class SerialData
     public List<string> sAssessorNameWritingList;
     public List<string> sTeacherNameWritingList;
     public List<string> sClassroomNameWritingList;
+    public List<int> sCompleteWriting;
 
 
     //LNI Storage
@@ -61,6 +64,7 @@ public class SerialData
     public List<string> sAssessorNameLniList = new List<string>{"", "", "", "", "", ""};
     public List<string> sTeacherNameLniList = new List<string>{"", "", "", "", "", ""};
     public List<string> sClassroomNameLniList = new List<string>{"", "", "", "", "", ""};
+    public List<int> sCompleteLNI;
 
     //LSI Storage
     public bool[] sLearnedLetterNamesLSI;
@@ -71,7 +75,8 @@ public class SerialData
     public List<string> sAssessorNameLsiList;
     public List<string> sTeacherNameLsiList;
     public List<string> sClassroomNameLsiList;
-    
+    public List<int> sCompleteLSI;
+
     //BS Storage
     public List<string> sAssessorIdBsList;
     public List<string> sTeacherIdBsList;
@@ -82,6 +87,7 @@ public class SerialData
     public AdaptiveResponse[,] sIndividual_BS; //answer array with preset of 36 sounds, see bs_items.json
     public string[,] sIndividual_BSChildResponse; //[index, globaltime-1] holds child response to every question
     public Tuple<double, double>[] final_BSscores; //This tuple holds eap_estimation_value and standard_error
+    public List<int> sCompleteBS;
 
     //CAP Storage
     public List<string> sAssessorIdCAPList;
@@ -92,6 +98,7 @@ public class SerialData
     public List<string> sClassroomNameCAPList;
     public AdaptiveResponse[,] sIndividual_CAP; //answer array with preset of 36 sounds, see bs_items.json
     public Tuple<double, double>[] final_CAPscores; //This tuple holds eap_estimation_value and standard_error
+    public List<int> sCompleteCAP;
 
     //SR
     public int[] sGradeSRTotal;
@@ -103,6 +110,7 @@ public class SerialData
     public List<string> sClassroomNameSRList;
     public List<List<bool>> sIndividualSRResponseList;
     public List<List<string>> sIndividualSRQuestionsList;
+    public List<int> sCompleteSR;
 
     //Book Summary
     public int[] sGradeBookSumTotal;
@@ -114,6 +122,7 @@ public class SerialData
     public List<string> sClassroomNameBookSumList;
     public List<List<bool>> sIndividualBookSumResponseList;
     public List<List<string>> sIndividualBookSumQuestionsList;
+    public List<int> sCompleteBookSum;
 
     public static SerialData convertToSerialData(UsersDetails usersDetails)
     {
@@ -125,6 +134,7 @@ public class SerialData
         List<string> assessors_name_vocab_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_vocab_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_vocab_list = new List<string>(){Capacity = 6};;
+        serialData.sCompleteVocabulary = new List<int>() { -1, -1, -1, -1, -1, -1 };
 
         List<string> assessors_bs_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_bs_list = new List<string>(){Capacity = 6};;
@@ -135,6 +145,7 @@ public class SerialData
         serialData.final_BSscores = new Tuple<double, double>[6];
         serialData.sIndividual_BS = new AdaptiveResponse[36, 6];
         serialData.sIndividual_BSChildResponse = new string[36, 6];
+        serialData.sCompleteBS = new List<int> { -1, -1, -1, -1, -1, -1 };
 
         List<string> assessors_CAP_list = new List<string>() { Capacity = 6 }; ;
         List<string> classrooms_CAP_list = new List<string>() { Capacity = 6 }; ;
@@ -144,6 +155,7 @@ public class SerialData
         List<string> teachers_name_CAP_list = new List<string>() { Capacity = 6 }; ;
         serialData.final_CAPscores = new Tuple<double, double>[6];
         serialData.sIndividual_CAP = new AdaptiveResponse[13, 6];
+        serialData.sCompleteCAP = new List<int> { -1, -1, -1, -1, -1, -1 };
 
         List<string> assessors_lni_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_lni_list = new List<string>(){Capacity = 6};;
@@ -154,6 +166,7 @@ public class SerialData
         serialData.sLearnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false, false, false, false, false, false};
         serialData.sIndividual_LNI = new AdaptiveResponse[26, 6];
+        serialData.sCompleteLNI = new List<int> { -1, -1, -1, -1, -1, -1 };
 
         List<string> assessors_lsi_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_lsi_list = new List<string>(){Capacity = 6};;
@@ -164,6 +177,7 @@ public class SerialData
         serialData.sLearnedLetterNamesLSI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false, false, false, false, false, false};
         serialData.sIndividual_LSI = new AdaptiveResponse[26, 6];
+        serialData.sCompleteLSI = new List<int> { -1, -1, -1, -1, -1, -1 };
 
         List<string> assessors_cs_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_cs_list = new List<string>(){Capacity = 6};;
@@ -171,6 +185,7 @@ public class SerialData
         List<string> assessors_name_cs_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_cs_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_cs_list = new List<string>(){Capacity = 6};;
+        serialData.sCompleteCS = new List<int> { -1, -1, -1, -1, -1, -1 };
 
         List<string> assessors_writing_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_writing_list = new List<string>(){Capacity = 6};;
@@ -178,6 +193,7 @@ public class SerialData
         List<string> assessors_name_writing_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_name_writing_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_writing_list = new List<string>(){Capacity = 6};;
+        serialData.sCompleteWriting = new List<int> { -1, -1, -1, -1, -1, -1 };
 
         List<string> assessors_sr_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_sr_list = new List<string>(){Capacity = 6};;
@@ -186,6 +202,7 @@ public class SerialData
         List<string> classrooms_name_sr_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_sr_list = new List<string>(){Capacity = 6};;
         serialData.sGradeSRTotal = new int[3];
+        serialData.sCompleteSR = new List<int> { -1, -1, -1 };
 
         List<string> assessors_booksum_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_booksum_list = new List<string>(){Capacity = 6};;
@@ -194,6 +211,7 @@ public class SerialData
         List<string> classrooms_name_booksum_list = new List<string>(){Capacity = 6};;
         List<string> teachers_name_booksum_list = new List<string>(){Capacity = 6};;
         serialData.sGradeBookSumTotal = new int[3];
+        serialData.sCompleteBookSum = new List<int> { -1, -1, -1 };
 
         List<List<bool>> expressiveFlagList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };//{ Capacity = 6};;
         List<List<bool>> receptiveList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };// { Capacity = 6};;
@@ -376,6 +394,7 @@ public class SerialData
                                                sessionReceptiveList, 
                                                redCapRecord.vocabSession.Value, 
                                                serialData);
+                serialData.sCompleteVocabulary[redCapRecord.vocabSession.Value-1] = redCapRecord.vocabularyComplete.Value;
             }
 
             // Responsible for storing clapping syllables related data
@@ -436,6 +455,7 @@ public class SerialData
                 int index = redCapRecord.csSession.Value - 1;
                 int score_cs = sessionResponseList.Count(item => item);
                 serialData.sGradeCSTotal[index] = score_cs;
+                serialData.sCompleteCS[redCapRecord.csSession.Value-1] = redCapRecord.clappingSyllablesComplete.Value;
             }
 
             // Responsible for storing Writing related data
@@ -490,7 +510,8 @@ public class SerialData
                     teachers_name_writing_list.Add(sessionWritingTeacherNameResponse);
 
                 writingScoreList[redCapRecord.writingSessionNo.Value-1] = sessionWiritngScoreList;
-             }
+                serialData.sCompleteWriting[redCapRecord.writingSessionNo.Value - 1] = redCapRecord.writingComplete.Value;
+            }
 
             //Populate Story Retell
             //serialData.sGradeSRTotal = new int[3];
@@ -618,6 +639,8 @@ public class SerialData
                 while (teachers_name_sr_list.Count < redCapRecord.srSession)
                     teachers_name_sr_list.Add(sessionSRTeacherNameResponse);
 
+                serialData.sCompleteSR[redCapRecord.srSession.Value - 1] = redCapRecord.storyRetellComplete.Value;
+
                 // int index = redCapRecord.srSession.Value - 1;
                 // int score_sr = sessionResultList.Count(item => item);
                 // if(sessionResultList.Count==8){
@@ -625,7 +648,7 @@ public class SerialData
                 // }
                 // while (sGradeSRTotal.Count < redCapRecord.srSession)
                 //     serialData.sGradeSRTotal[index] = score_sr;
-                
+
                 // int index = redCapRecord.srSession.Value - 1;
                 // int score_sr = sessionResultList.Count(item => item);
                 // if(sessionResultList.Count==8){
@@ -740,6 +763,8 @@ public class SerialData
                 while (teachers_name_booksum_list.Count < redCapRecord.bookSumSession)
                     teachers_name_booksum_list.Add(sessionBookSumTeacherNameResponse);
 
+                serialData.sCompleteBookSum[redCapRecord.bookSumSession.Value - 1] = redCapRecord.bookSummaryComplete.Value;
+
                 // int index = redCapRecord.srSession.Value - 1;
                 // int score_sr = sessionResultList.Count(item => item);
                 // if(sessionResultList.Count==8){
@@ -747,7 +772,7 @@ public class SerialData
                 // }
                 // while (sGradeSRTotal.Count < redCapRecord.srSession)
                 //     serialData.sGradeSRTotal[index] = score_sr;
-                
+
                 // int index = redCapRecord.srSession.Value - 1;
                 // int score_sr = sessionResultList.Count(item => item);
                 // if(sessionResultList.Count==8){
@@ -910,6 +935,8 @@ public class SerialData
 
                 while (teachers_name_lni_list.Count < lniTime+1)
                     teachers_name_lni_list.Add(sessionTeacherNameResponseLni);
+
+                serialData.sCompleteLNI[redCapRecord.lnirSessionNumber.Value - 1] = redCapRecord.LNIResultsComplete.Value;
             }
             
             
@@ -1067,6 +1094,8 @@ public class SerialData
 
                 while (teachers_name_lsi_list.Count < lsiTime+1)
                     teachers_name_lsi_list.Add(sessionTeacherNameResponseLsi);
+
+                serialData.sCompleteLSI[redCapRecord.lsirSessionNumber.Value - 1] = redCapRecord.LSIResultsComplete.Value;
             }
 
             //Populate Beginning Sounds
@@ -1198,6 +1227,8 @@ public class SerialData
 
                 while (teachers_name_bs_list.Count < redCapRecord.bsSessionNumber)
                     teachers_name_bs_list.Add(sessionTeacherNameResponseBs);
+
+                serialData.sCompleteBS[redCapRecord.bsSessionNumber.Value - 1] = redCapRecord.beginningSoundsComplete.Value;
             }
 
             //serialData.final_CAPscores = new Tuple<double, double>[6];
@@ -1286,6 +1317,8 @@ public class SerialData
 
                 while (teachers_name_CAP_list.Count < redCapRecord.CAPSessionNumber)
                     teachers_name_CAP_list.Add(sessionTeacherNameResponseCAP);
+
+                serialData.sCompleteCAP[redCapRecord.CAPSessionNumber.Value - 1] = redCapRecord.CAPComplete.Value;
             }
     }
 

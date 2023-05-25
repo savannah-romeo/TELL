@@ -6296,6 +6296,8 @@ MonoBehaviour:
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
+  bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -6308,6 +6310,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 839561587}
   promptText: []
   responsesText: []
@@ -6401,7 +6404,12 @@ MonoBehaviour:
   - {fileID: 1550826319}
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &1141281532
@@ -6431,7 +6439,9 @@ MonoBehaviour:
   clickedButton: {fileID: 403323801}
   sceneName: RSelect
   checker: {fileID: 1141281532}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 1141281531}
+  panel: {fileID: 0}
   showExportMessage: 0
 --- !u!4 &1141281534
 Transform:
@@ -7159,7 +7169,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -265, y: -99}
-  m_SizeDelta: {x: 125, y: 0}
+  m_SizeDelta: {x: 89.25, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331451856
 MonoBehaviour:
@@ -7181,7 +7191,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Letter Sound Identification
+  m_text: 'Letter Sound Identification
+
+    Out of 26'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -7208,8 +7220,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10853,8 +10865,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -265, y: -23.999998}
-  m_SizeDelta: {x: 125, y: 30}
+  m_AnchoredPosition: {x: -265, y: -24}
+  m_SizeDelta: {x: 89.25, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1853602643
 MonoBehaviour:
@@ -10876,7 +10888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Letter Name Identifiation
+  m_text: "Letter Name Identifiation \nOut of 26"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -10903,8 +10915,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
