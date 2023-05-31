@@ -976,8 +976,22 @@ MonoBehaviour:
   expressiveToggle: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
+  questionField: {fileID: 0}
+  bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
+  name0Toggle: {fileID: 0}
+  name1Toggle: {fileID: 0}
+  name2Toggle: {fileID: 0}
+  name3Toggle: {fileID: 0}
+  name4Toggle: {fileID: 0}
+  sen0Toggle: {fileID: 0}
+  sen1Toggle: {fileID: 0}
+  sen2Toggle: {fileID: 0}
+  sen3Toggle: {fileID: 0}
+  sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 1394878398}
   promptText: []
   responsesText: []
@@ -987,6 +1001,15 @@ MonoBehaviour:
   - {fileID: 0}
   expressiveTotalText: {fileID: 0}
   receptiveTotalText: {fileID: 0}
+  csScoreTotal: {fileID: 0}
+  csPromptText: []
+  csResponseScore: []
+  srScoreTotal: {fileID: 0}
+  srPromptText: []
+  srResponseScore: []
+  bookSumScoreTotal: {fileID: 0}
+  writingNameScore: {fileID: 0}
+  writingSentenceScore: {fileID: 0}
   expressivePercent: []
   receptivePercent:
   - {fileID: 0}
@@ -995,10 +1018,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  csScoresForResultPage: []
+  writingNameScoreForResultPage: []
+  writingSentenceScoreForResultPage: []
+  srScoresForResultPage: []
+  booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore:
   - {fileID: 1059213032}
   - {fileID: 22017996}
@@ -1006,6 +1037,10 @@ MonoBehaviour:
   - {fileID: 1300599130}
   - {fileID: 816726745}
   - {fileID: 2084315332}
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
+  gameText: {fileID: 0}
+  timeText: {fileID: 0}
 --- !u!114 &534301024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,7 +1068,10 @@ MonoBehaviour:
   clickedButton: {fileID: 1907861135}
   sceneName: RSelect
   checker: {fileID: 534301024}
+  userInfoChecker: {fileID: 0}
   cleanup: {fileID: 534301023}
+  panel: {fileID: 0}
+  showExportMessage: 0
 --- !u!4 &534301026
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,8 +1415,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A higher score means the child's level of beginning sound awareness is
-    increasing.
+  m_text: The percentiles shown in the table indicate that the child's score is at
+    or above what percent of the 4-year-old age group.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
