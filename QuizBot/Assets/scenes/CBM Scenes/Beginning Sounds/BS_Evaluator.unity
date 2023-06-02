@@ -605,8 +605,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2745,6 +2745,7 @@ MonoBehaviour:
   gradeData: {fileID: 1362174511}
   gradedQuestions: {fileID: 0}
   gradedQuestionsBS: {fileID: 1362174520}
+  gradedQuestionsCAP: {fileID: 0}
   checker: {fileID: 1362174521}
 --- !u!114 &1362174511
 MonoBehaviour:
@@ -2789,6 +2790,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 1362174520}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -2818,9 +2820,21 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &1362174512
@@ -3418,7 +3432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 276, y: -292}
+  m_AnchoredPosition: {x: 263, y: -163}
   m_SizeDelta: {x: 233.83002, y: 95.869995}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &1868954374

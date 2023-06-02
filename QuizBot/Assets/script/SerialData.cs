@@ -32,6 +32,7 @@ public class SerialData
     public List<List<bool>> sIndividualReceptiveFlagList;
     public List<List<string>> sIndividualResponses;
     public List<int> sCompleteVocabulary;
+    public List<string> sVocabDateTimeField;
 
     //Clapping Syllable storage
     public int[] sGradeCSTotal;
@@ -42,6 +43,7 @@ public class SerialData
     public List<string> sTeacherNameCSList;
     public List<string> sClassroomNameCSList;
     public List<List<bool>> sIndividualCSResponseList;
+    public List<string> sDateTimeFieldCS;
     public List<int> sCompleteCS;
 
     //Writing Syllable storage
@@ -52,6 +54,7 @@ public class SerialData
     public List<string> sAssessorNameWritingList;
     public List<string> sTeacherNameWritingList;
     public List<string> sClassroomNameWritingList;
+    public List<string> sDateTimeFieldWriting;
     public List<int> sCompleteWriting;
 
 
@@ -64,6 +67,7 @@ public class SerialData
     public List<string> sAssessorNameLniList = new List<string>{"", "", "", "", "", ""};
     public List<string> sTeacherNameLniList = new List<string>{"", "", "", "", "", ""};
     public List<string> sClassroomNameLniList = new List<string>{"", "", "", "", "", ""};
+    public List<string> sDateTimeFieldLNI;
     public List<int> sCompleteLNI;
 
     //LSI Storage
@@ -75,6 +79,7 @@ public class SerialData
     public List<string> sAssessorNameLsiList;
     public List<string> sTeacherNameLsiList;
     public List<string> sClassroomNameLsiList;
+    public List<string> sDateTimeFieldLSI;
     public List<int> sCompleteLSI;
 
     //BS Storage
@@ -87,6 +92,7 @@ public class SerialData
     public AdaptiveResponse[,] sIndividual_BS; //answer array with preset of 36 sounds, see bs_items.json
     public string[,] sIndividual_BSChildResponse; //[index, globaltime-1] holds child response to every question
     public Tuple<double, double>[] final_BSscores; //This tuple holds eap_estimation_value and standard_error
+    public List<string> sDateTimeFieldBS;
     public List<int> sCompleteBS;
 
     //CAP Storage
@@ -98,6 +104,7 @@ public class SerialData
     public List<string> sClassroomNameCAPList;
     public AdaptiveResponse[,] sIndividual_CAP; //answer array with preset of 36 sounds, see bs_items.json
     public Tuple<double, double>[] final_CAPscores; //This tuple holds eap_estimation_value and standard_error
+    public List<string> sDateTimeFieldCAP;
     public List<int> sCompleteCAP;
 
     //SR
@@ -110,6 +117,7 @@ public class SerialData
     public List<string> sClassroomNameSRList;
     public List<List<bool>> sIndividualSRResponseList;
     public List<List<string>> sIndividualSRQuestionsList;
+    public List<string> sDateTimeFieldSR;
     public List<int> sCompleteSR;
 
     //Book Summary
@@ -122,11 +130,23 @@ public class SerialData
     public List<string> sClassroomNameBookSumList;
     public List<List<bool>> sIndividualBookSumResponseList;
     public List<List<string>> sIndividualBookSumQuestionsList;
+    public List<string> sDateTimeFieldBookSum;
     public List<int> sCompleteBookSum;
 
     public static SerialData convertToSerialData(UsersDetails usersDetails)
     {
         SerialData serialData = new SerialData();
+
+        serialData.sVocabDateTimeField = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldBookSum = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldBS = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldCAP = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldCS = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldLNI = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldLSI = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldSR = new List<string> { "", "", "", "", "", "" };
+        serialData.sDateTimeFieldWriting = new List<string> { "", "", "", "", "", "" };
+
         List<List<bool>> expressiveList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };// { Capacity = 6};;
         List<string> assessors_vocab_list = new List<string>(){Capacity = 6};;
         List<string> classrooms_vocab_list = new List<string>(){Capacity = 6};;
@@ -395,6 +415,7 @@ public class SerialData
                                                redCapRecord.vocabSession.Value, 
                                                serialData);
                 serialData.sCompleteVocabulary[redCapRecord.vocabSession.Value-1] = redCapRecord.vocabularyComplete.Value;
+                serialData.sVocabDateTimeField[redCapRecord.vocabSession.Value - 1] = redCapRecord.vocabDateTimeField.ToString();
             }
 
             // Responsible for storing clapping syllables related data
@@ -456,6 +477,7 @@ public class SerialData
                 int score_cs = sessionResponseList.Count(item => item);
                 serialData.sGradeCSTotal[index] = score_cs;
                 serialData.sCompleteCS[redCapRecord.csSession.Value-1] = redCapRecord.clappingSyllablesComplete.Value;
+                serialData.sDateTimeFieldCS[redCapRecord.csSession.Value - 1] = redCapRecord.csDateTimeField.ToString();
             }
 
             // Responsible for storing Writing related data
@@ -511,6 +533,7 @@ public class SerialData
 
                 writingScoreList[redCapRecord.writingSessionNo.Value-1] = sessionWiritngScoreList;
                 serialData.sCompleteWriting[redCapRecord.writingSessionNo.Value - 1] = redCapRecord.writingComplete.Value;
+                serialData.sDateTimeFieldWriting[redCapRecord.writingSessionNo.Value - 1] = redCapRecord.writingDateTimeField.ToString();
             }
 
             //Populate Story Retell
@@ -640,6 +663,7 @@ public class SerialData
                     teachers_name_sr_list.Add(sessionSRTeacherNameResponse);
 
                 serialData.sCompleteSR[redCapRecord.srSession.Value - 1] = redCapRecord.storyRetellComplete.Value;
+                serialData.sDateTimeFieldSR[redCapRecord.srSession.Value - 1] = redCapRecord.srDateTimeField.ToString();
 
                 // int index = redCapRecord.srSession.Value - 1;
                 // int score_sr = sessionResultList.Count(item => item);
@@ -764,6 +788,7 @@ public class SerialData
                     teachers_name_booksum_list.Add(sessionBookSumTeacherNameResponse);
 
                 serialData.sCompleteBookSum[redCapRecord.bookSumSession.Value - 1] = redCapRecord.bookSummaryComplete.Value;
+                serialData.sDateTimeFieldBookSum[redCapRecord.bookSumSession.Value - 1] = redCapRecord.bookSumDateTimeField;
 
                 // int index = redCapRecord.srSession.Value - 1;
                 // int score_sr = sessionResultList.Count(item => item);
@@ -937,6 +962,7 @@ public class SerialData
                     teachers_name_lni_list.Add(sessionTeacherNameResponseLni);
 
                 serialData.sCompleteLNI[redCapRecord.lnirSessionNumber.Value - 1] = redCapRecord.LNIResultsComplete.Value;
+                serialData.sDateTimeFieldLNI[redCapRecord.lnirSessionNumber.Value - 1] = redCapRecord.lniDateTimeField.ToString();
             }
             
             
@@ -1096,6 +1122,7 @@ public class SerialData
                     teachers_name_lsi_list.Add(sessionTeacherNameResponseLsi);
 
                 serialData.sCompleteLSI[redCapRecord.lsirSessionNumber.Value - 1] = redCapRecord.LSIResultsComplete.Value;
+                serialData.sDateTimeFieldLSI[redCapRecord.lsirSessionNumber.Value - 1] = redCapRecord.lsiDateTimeField.ToString();
             }
 
             //Populate Beginning Sounds
@@ -1229,6 +1256,7 @@ public class SerialData
                     teachers_name_bs_list.Add(sessionTeacherNameResponseBs);
 
                 serialData.sCompleteBS[redCapRecord.bsSessionNumber.Value - 1] = redCapRecord.beginningSoundsComplete.Value;
+                serialData.sDateTimeFieldBS[redCapRecord.bsSessionNumber.Value - 1] = redCapRecord.bsDateTimeField.ToString();
             }
 
             //serialData.final_CAPscores = new Tuple<double, double>[6];
@@ -1319,6 +1347,7 @@ public class SerialData
                     teachers_name_CAP_list.Add(sessionTeacherNameResponseCAP);
 
                 serialData.sCompleteCAP[redCapRecord.CAPSessionNumber.Value - 1] = redCapRecord.CAPComplete.Value;
+                serialData.sDateTimeFieldCAP[redCapRecord.CAPSessionNumber.Value - 1] = redCapRecord.capDateTimeField.ToString();
             }
     }
 

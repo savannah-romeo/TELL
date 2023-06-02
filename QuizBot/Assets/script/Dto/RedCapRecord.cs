@@ -47,7 +47,9 @@ public class RedCapRecord
     public string teacherNameVocab = null;
     [JsonProperty("classroom_name_vocab", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string classroomNameVocab = null;
-    
+
+    [JsonProperty("vocab_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string vocabDateTimeField;
     [JsonProperty("q1_expressive", NullValueHandling = NullValueHandling.Ignore)]
     public int? q1Expressive = null;
     [JsonProperty("q1_receptive", NullValueHandling = NullValueHandling.Ignore)]
@@ -120,6 +122,8 @@ public class RedCapRecord
     //Clapping Syllables
     [JsonProperty("cs_session", NullValueHandling = NullValueHandling.Ignore)]
     public int? csSession = null;
+    [JsonProperty("cs_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string csDateTimeField;
 
     [JsonProperty("assessor_id_cs", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string assessorIdCS = null;
@@ -148,6 +152,8 @@ public class RedCapRecord
     //Writing Syllables
     [JsonProperty("writing_session_no", NullValueHandling = NullValueHandling.Ignore)]
     public int? writingSessionNo = null;
+    [JsonProperty("writing_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string writingDateTimeField;
 
     [JsonProperty("assessor_id_writing", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string assessorIdWriting = null;
@@ -172,6 +178,8 @@ public class RedCapRecord
     //Story Retell Syllables
     [JsonProperty("sr_session", NullValueHandling = NullValueHandling.Ignore)]
     public int? srSession = null;
+    [JsonProperty("sr_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string srDateTimeField;
 
     [JsonProperty("assessor_id_sr", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string assessorIdSR = null;
@@ -258,6 +266,8 @@ public class RedCapRecord
     //Book Summary Syllables
     [JsonProperty("booksum_session", NullValueHandling = NullValueHandling.Ignore)]
     public int? bookSumSession = null;
+    [JsonProperty("book_sum_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string bookSumDateTimeField;
 
     [JsonProperty("assessor_id_booksum", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string assessorIdBookSum = null;
@@ -408,6 +418,8 @@ public class RedCapRecord
     //Fields for Letter Name Recognition - Results instrument
     [JsonProperty("lnir_session_no", NullValueHandling = NullValueHandling.Ignore)]
     public int? lnirSessionNumber = null;
+    [JsonProperty("lni_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string lniDateTimeField;
 
     [JsonProperty("assessor_id_lni", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string assessorIdLni = null;
@@ -591,6 +603,8 @@ public class RedCapRecord
     //Fields for Letter Sound Recognition - Results instrument
     [JsonProperty("lsir_session_no", NullValueHandling = NullValueHandling.Ignore)]
     public int? lsirSessionNumber = null;
+    [JsonProperty("lsi_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string lsiDateTimeField;
 
     [JsonProperty("assessor_id_lsi", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string assessorIdLsi = null;
@@ -690,6 +704,8 @@ public class RedCapRecord
     //Fields for beginning sounds
     [JsonProperty("bs_session_no", NullValueHandling = NullValueHandling.Ignore)]
     public int? bsSessionNumber = null;
+    [JsonProperty("bs_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string bsDateTimeField;
 
     [JsonProperty("assessor_id_bs", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string assessorIdBs = null;
@@ -858,6 +874,8 @@ public class RedCapRecord
 
     [JsonProperty("cop_session", NullValueHandling = NullValueHandling.Ignore)]
     public int? CAPSessionNumber = null;
+    [JsonProperty("cop_date_time_field", NullValueHandling = NullValueHandling.Ignore)]
+    public string capDateTimeField;
 
     [JsonProperty("assessor_id_cop", NullValueHandling = NullValueHandling.Ignore)]
     [CanBeNull]
@@ -1008,6 +1026,9 @@ public class RedCapRecord
 
             if(inputData.sCompleteVocabulary[responseIndex] != -1) 
                 redCapRecord.vocabularyComplete = inputData.sCompleteVocabulary[responseIndex];
+
+            if(inputData.sVocabDateTimeField[responseIndex] != "")
+                redCapRecord.vocabDateTimeField = (inputData.sVocabDateTimeField[responseIndex]);
 
             if (sessionData.Count > 0)
                 redCapRecord.q1Solution = sessionData[0];
@@ -1226,6 +1247,9 @@ public class RedCapRecord
             if(inputData.sCompleteCS[responseIndex] != -1)
                 csRedCapRecord.clappingSyllablesComplete = inputData.sCompleteCS[responseIndex];
 
+            if(inputData.sDateTimeFieldCS[responseIndex] != "")
+                csRedCapRecord.csDateTimeField = (inputData.sDateTimeFieldCS[responseIndex]);
+
             if (sessionData.Count > 0) 
                 csRedCapRecord.popcornResponse = getBinaryTrueFalse(sessionData[0]);
             if (sessionData.Count > 1)
@@ -1285,6 +1309,9 @@ public class RedCapRecord
             if(inputData.sCompleteWriting[responseIndex] != -1)
                 writingRedCapRecord.writingComplete = inputData.sCompleteWriting[responseIndex];
 
+            if(inputData.sDateTimeFieldWriting[responseIndex] != "")
+                writingRedCapRecord.writingDateTimeField = (inputData.sDateTimeFieldWriting[responseIndex]);
+
             if (sessionData.Count > 0)
                 writingRedCapRecord.nameWritingScore = sessionData[0];
             if (sessionData.Count > 1)
@@ -1326,6 +1353,9 @@ public class RedCapRecord
             }*/
             if(inputData.sCompleteSR[responseIndex] != -1)
                 redCapRecord.storyRetellComplete = inputData.sCompleteSR[responseIndex];
+
+            if(inputData.sDateTimeFieldSR[responseIndex] != "")
+                redCapRecord.srDateTimeField = (inputData.sDateTimeFieldSR[responseIndex]);
 
             if (sessionData.Count > 0)
                 redCapRecord.srQs1result = getBinaryTrueFalse(sessionData[0]);
@@ -1432,6 +1462,10 @@ public class RedCapRecord
             }*/
             if(inputData.sCompleteBookSum[responseIndex] != -1)
                 redCapRecord.bookSummaryComplete = inputData.sCompleteBookSum[responseIndex];
+
+
+            if(inputData.sDateTimeFieldBookSum[responseIndex] != "")
+                redCapRecord.bookSumDateTimeField = (inputData.sDateTimeFieldBookSum[responseIndex]);
 
             if (sessionData.Count > 0)
                 redCapRecord.booksumQs1result = getBinaryTrueFalse(sessionData[0]);
@@ -1563,6 +1597,9 @@ public class RedCapRecord
             if(inputData.sCompleteLNI[lnrRIndex] != -1)
                 lniRRecord.LNIResultsComplete = inputData.sCompleteLNI[lnrRIndex];
 
+            if(inputData.sDateTimeFieldLNI[lnrRIndex] != "")
+                lniRRecord.lniDateTimeField = (inputData.sDateTimeFieldLNI[lnrRIndex]);
+
             //Actual data values
             //Not using nullproofing on sessiondata
             //Since AdaptiveResponse(enum) is non-nullable
@@ -1675,6 +1712,9 @@ public class RedCapRecord
             if(inputData.sCompleteLSI[lsrRIndex] != -1)
                 lsiRRecord.LSIResultsComplete = inputData.sCompleteLSI[lsrRIndex];
 
+            if(inputData.sDateTimeFieldLSI[lsrRIndex] != "")
+                lsiRRecord.lsiDateTimeField = (inputData.sDateTimeFieldLSI[lsrRIndex]);
+
             //Actual data values
             //Not using nullproofing on sessiondata
             //Since AdaptiveResponse(enum) is non-nullable
@@ -1744,6 +1784,9 @@ public class RedCapRecord
             }*/
             if(inputData.sCompleteBS[bsIndex] != -1)
                 bsRecord.beginningSoundsComplete = inputData.sCompleteBS[bsIndex];
+
+            if(inputData.sDateTimeFieldBS[bsIndex] != "")
+                bsRecord.bsDateTimeField = (inputData.sDateTimeFieldBS[bsIndex]);
 
             //Total Scores
             var tupleTemp = (Tuple<double, double>[])inputData.final_BSscores;
@@ -1887,7 +1930,10 @@ public class RedCapRecord
             if(inputData.sCompleteCAP[CAPIndex] != -1)
                 CAPRecord.CAPComplete = inputData.sCompleteCAP[CAPIndex];
 
-                for (int ind = 0; ind < CAPSD.GetLength(0); ind++)
+            if(inputData.sDateTimeFieldCAP[CAPIndex] != "")
+                CAPRecord.capDateTimeField = (inputData.sDateTimeFieldCAP[CAPIndex]);
+
+            for (int ind = 0; ind < CAPSD.GetLength(0); ind++)
                 {
                     if (CAPSD[ind, CAPIndex] == AdaptiveResponse.Correct || CAPSD[ind, CAPIndex] == AdaptiveResponse.Incorrect)
                     {

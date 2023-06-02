@@ -62,6 +62,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameLniReponses;
     public static List<string> teacherNameLniResponses;
     public static List<string> classroomNameLniResponses;
+    public static List<string> lniDateTimeField;
     public static List<int> completeLNI;
 
     //Per-game scored answers
@@ -74,6 +75,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameLsiReponses;
     public static List<string> teacherNameLsiResponses;
     public static List<string> classroomNameLsiResponses;
+    public static List<string> lsiDateTimeField;
     public static List<int> completeLSI;
 
     //Per-game scored answers
@@ -87,6 +89,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameBsReponses;
     public static List<string> teacherNameBsResponses;
     public static List<string> classroomNameBsResponses;
+    public static List<string> bsDateTimeField;
     public static List<int> completeBS;
 
     //CAP Grades
@@ -99,6 +102,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameCAPReponses;
     public static List<string> teacherNameCAPResponses;
     public static List<string> classroomNameCAPResponses;
+    public static List<string> capDateTimeField;
     public static List<int> completeCAP;
 
     //Vocab Grades
@@ -124,6 +128,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameVocabReponses;
     public static List<string> teacherNameVocabResponses;
     public static List<string> classroomNameVocabResponses;
+    public static List<string> vocabDateTimeField;
 
     public static List<List<bool>> individual_vocabularyExpressive;
     public static List<List<bool>> individual_vocabularyReceptive;
@@ -141,6 +146,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameCSReponses;
     public static List<string> teacherNameCSResponses;
     public static List<string> classroomNameCSResponses;
+    public static List<string> csDateTimeField;
     public static List<int> completeCS;
 
     public static int[] grade_csTotal;
@@ -157,6 +163,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameSRReponses;
     public static List<string> teacherNameSRResponses;
     public static List<string> classroomNameSRResponses;
+    public static List<string> srDateTimeField;
     public static List<int> completeSR;
 
     public static int[] grade_srTotal;
@@ -174,6 +181,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameBookSumReponses;
     public static List<string> teacherNameBookSumResponses;
     public static List<string> classroomNameBookSumResponses;
+    public static List<string> bookSumDateTimeField;
     public static List<int> completeBookSum;
 
     public static int[] grade_bookSumTotal;
@@ -194,6 +202,7 @@ public class DataManager : MonoBehaviour
     public static List<string> assessorNameWritingReponses;
     public static List<string> teacherNameWritingResponses;
     public static List<string> classroomNameWritingResponses;
+    public static List<string> writingDateTimeField;
     public static List<int> completeWriting;
 
     public static int[] individual_cs_name;
@@ -284,6 +293,14 @@ public class DataManager : MonoBehaviour
     //RLI Fields
     public TextMeshProUGUI[] RLNI_letterText;
     public TextMeshProUGUI[] RLSI_letterText;
+
+    public TextMeshProUGUI[] RLI_letterText1;
+    public TextMeshProUGUI[] RLI_letterText2;
+    public TextMeshProUGUI[] RLI_letterText3;
+    public TextMeshProUGUI[] RLI_letterText4;
+    public TextMeshProUGUI[] RLI_letterText5;
+    public TextMeshProUGUI[] RLI_letterText6;
+    public TextMeshProUGUI[] RLI_totalScore;
 
     //RLI Fields - I think akshay started using this for BS but unsure if implemented
     public TextMeshProUGUI[] BS_items;
@@ -636,7 +653,42 @@ public class DataManager : MonoBehaviour
                 individual_bookSumQuestions = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };
                 //individual_bookSumQuestions = new List<List<string>>();
             }
-
+            if(vocabDateTimeField == null)
+            {
+                vocabDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(capDateTimeField == null)
+            {
+                capDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(writingDateTimeField == null)
+            {
+                writingDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(bookSumDateTimeField == null)
+            {
+                bookSumDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(bsDateTimeField == null)
+            {
+                bsDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(srDateTimeField == null)
+            {
+                srDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(lniDateTimeField == null)
+            {
+                lniDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(lsiDateTimeField == null)
+            {
+                lsiDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
+            if(csDateTimeField == null)
+            {
+                csDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            }
 
             if (learnedLetterNamesLNI == null)
             {
@@ -799,7 +851,17 @@ public class DataManager : MonoBehaviour
             assessorNameBookSumReponses = new List<string>() { "", "", "" };
             teacherNameBookSumResponses = new List<string>() { "", "", "" };
             classroomNameBookSumResponses = new List<string>() { "", "", "" };
-            
+
+            vocabDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            capDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            writingDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            bookSumDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            bsDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            srDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            lniDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            lsiDateTimeField = new List<string>() { "", "", "", "", "", "" };
+            csDateTimeField = new List<string>() { "", "", "", "", "", "" };
+
             learnedLetterNamesLNI = new bool[26] {false, false, false, false, false, false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false, false, false, false, false, false};
 
@@ -856,6 +918,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             completeVocabulary[globalTime - 1] = 2;
+            vocabDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             gameText.text = "Test : Vocabulary";
             timeText.text = "Time : " + globalTime;
             string[] promptStorage = promptCycler.PromptSelect(globalTime);
@@ -877,6 +940,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             completeCS[globalTime - 1] = 2;
+            csDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             gameText.text = "Test : Clapping Syllables";
             timeText.text = "Time : " + globalTime;
             string[] promptStorage = promptCycler.PromptSelect(globalTime);
@@ -896,6 +960,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             completeSR[globalTime - 1] = 2;
+            srDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             gameText.text = "Test : Story Retell";
             timeText.text = "Time : " + ((2 * globalTime) - 1);
             print("_______-");
@@ -907,6 +972,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             completeBookSum[globalTime - 1] = 2;
+            bookSumDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             gameText.text = "Test : Book Summary";
             timeText.text = "Time : " + (2 * globalTime);
             //Access calculated total grades for this time
@@ -918,6 +984,7 @@ public class DataManager : MonoBehaviour
         {
             childText.text = childID;
             completeWriting[globalTime - 1] = 2;
+            writingDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             gameText.text = "Test : Writing";
             timeText.text = "Time : " + globalTime;
             writingNameScore.text = individual_name_score.ToString("F0");
@@ -929,6 +996,7 @@ public class DataManager : MonoBehaviour
             gameText.text = "Test : Letter Name Identification";
             timeText.text = "Time : " + globalTime;
             completeLNI[globalTime - 1] = 2;
+            lniDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             //Check for "Tested Out" Letters
             for (int letter = 0; letter < individual_LNI.GetLength(0); letter++)
             {
@@ -1004,6 +1072,7 @@ public class DataManager : MonoBehaviour
             gameText.text = "Test : Letter Sound Identification";
             timeText.text = "Time : " + globalTime;
             completeLSI[globalTime - 1] = 2;
+            lsiDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             //Check for "Tested Out" Letters
             for (int letterIndex = 0; letterIndex < individual_LSI.GetLength(0); letterIndex++)
             {
@@ -1072,6 +1141,7 @@ public class DataManager : MonoBehaviour
             gameText.text = "Test : Beginning Sounds";
             timeText.text = "Time : " + globalTime;
             completeBS[globalTime - 1] = 2;
+            bsDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             List<BSItem> universalItems;
             string json = Resources.Load<TextAsset>("bs_items").ToString();
             universalItems = JsonConvert.DeserializeObject<List<BSItem>>(json);
@@ -1115,6 +1185,7 @@ public class DataManager : MonoBehaviour
             gameText.text = "Test : Concepts about Print";
             timeText.text = "Time : " + globalTime;
             completeCAP[globalTime - 1] = 2;
+            capDateTimeField[globalTime - 1] = DateTime.Now.ToString("MM-dd-yyyy HH:mm");
             //List<BSItem> universalItems;
             //string json = Resources.Load<TextAsset>("bs_items").ToString();
             //universalItems = JsonConvert.DeserializeObject<List<BSItem>>(json);
@@ -1263,7 +1334,7 @@ public class DataManager : MonoBehaviour
         {
             //look for last good score
             childText.text = childID;
-            for(int loop = 0; loop < learnedLetterNamesLNI.Length; loop++)
+            /*for(int loop = 0; loop < learnedLetterNamesLNI.Length; loop++)
             {
                 string result;
                 if (learnedLetterNamesLNI[loop] == true)
@@ -1272,9 +1343,46 @@ public class DataManager : MonoBehaviour
                 }
                 else result = "<color=red>-</color>";
                 RLNI_letterText[loop].text = result;
+            }*/
+
+            for (int time = 0; time < individual_LNI.GetLength(1); time++)
+            {
+                int total_score = 0;
+                for (int letter = 0; letter < individual_LNI.GetLength(0); letter++)
+            {
+                //string letterChar = ((char)(letter + 65)).ToString();
+                //int adaptiveCounter = 0; //Var used to track 'consecutive' correct answers
+                
+                
+                    if (time == 0) {
+                        total_score = populateResults(letter, time, RLI_letterText1, individual_LNI, total_score);
+                    }
+                    else if (time == 1)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText2, individual_LNI, total_score);
+                    }
+                    else if (time == 2)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText3, individual_LNI, total_score);
+                    }
+                    else if (time == 3)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText4, individual_LNI, total_score);
+                    }
+                    else if (time == 4)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText5, individual_LNI, total_score);
+                    }
+                    else if (time == 5)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText6, individual_LNI, total_score);
+                    }
+                    
+                }
+                RLI_totalScore[time].text = total_score.ToString();
             }
 
-            for(int loop = 0; loop < learnedLetterNamesLSI.Length; loop++)
+            /*for(int loop = 0; loop < learnedLetterNamesLSI.Length; loop++)
             {
                 string result;
                 if (learnedLetterNamesLSI[loop] == true)
@@ -1283,11 +1391,67 @@ public class DataManager : MonoBehaviour
                 }
                 else result = "<color=red>-</color>";
                 RLSI_letterText[loop].text = result;
+            }*/
+            //if none, zero
+            //else track back and add, exit once tested out
+
+
+        }
+        if (currentScene == "RLSI")
+        {
+            //look for last good score
+            childText.text = childID;
+
+            /*for (int loop = 0; loop < learnedLetterNamesLSI.Length; loop++)
+            {
+                string result;
+                if (learnedLetterNamesLSI[loop] == true)
+                {
+                    result = "<color=green>+</color>";
+                }
+                else result = "<color=red>-</color>";
+                RLSI_letterText[loop].text = result;
+            }*/
+
+            for (int time = 0; time < individual_LSI.GetLength(1); time++)
+            {
+                int total_score = 0;
+                for (int letter = 0; letter < individual_LSI.GetLength(0); letter++)
+            {
+                //string letterChar = ((char)(letter + 65)).ToString();
+                //int adaptiveCounter = 0; //Var used to track 'consecutive' correct answers
+
+                    if (time == 0)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText1, individual_LSI, total_score);
+                    }
+                    else if (time == 1)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText2, individual_LSI, total_score);
+                    }
+                    else if (time == 2)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText3, individual_LSI, total_score);
+                    }
+                    else if (time == 3)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText4, individual_LSI, total_score);
+                    }
+                    else if (time == 4)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText5, individual_LSI, total_score);
+                    }
+                    else if (time == 5)
+                    {
+                        total_score = populateResults(letter, time, RLI_letterText6, individual_LSI, total_score);
+                    }                    
+                }
+                RLI_totalScore[time].text = total_score.ToString();
             }
             //if none, zero
             //else track back and add, exit once tested out
-            
-             
+
+
         }
 
         //Report card - show all times
@@ -1650,6 +1814,27 @@ public class DataManager : MonoBehaviour
         }
     }
 
+
+    public int populateResults(int letter, int time, TextMeshProUGUI[] RLI, AdaptiveResponse[,] individual_LI, int total_score)
+    {
+        if (individual_LI[letter, time] == AdaptiveResponse.Correct ||
+                            individual_LI[letter, time] == AdaptiveResponse.CSKIP)
+        {
+            RLI[letter].text = "+";
+            RLI[letter].color = new Color(0, 0.6f, 0);
+            total_score++;
+        }
+        else if (individual_LI[letter, time] == AdaptiveResponse.Incorrect ||
+            individual_LI[letter, time] == AdaptiveResponse.ISKIP)
+        {
+            RLI[letter].text = "<color=red>-</color>";
+        }
+        else
+        {
+            RLI[letter].text = "";
+        }
+        return total_score;
+    }
     //General-purpose function
     //that can be called to store data before scene transitions
     public void SceneCleanup()

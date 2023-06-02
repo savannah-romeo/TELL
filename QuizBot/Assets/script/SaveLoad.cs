@@ -147,6 +147,16 @@ public class SaveLoad
 		staging.sCompleteBS = DataManager.completeBS;
 		staging.sCompleteBookSum = DataManager.completeBookSum;
 
+		staging.sVocabDateTimeField = DataManager.vocabDateTimeField;
+		staging.sDateTimeFieldWriting = DataManager.writingDateTimeField;
+		staging.sDateTimeFieldSR = DataManager.srDateTimeField;
+		staging.sDateTimeFieldBookSum = DataManager.bookSumDateTimeField;
+		staging.sDateTimeFieldBS = DataManager.bsDateTimeField;
+		staging.sDateTimeFieldLNI = DataManager.lniDateTimeField;
+		staging.sDateTimeFieldLSI = DataManager.lsiDateTimeField;
+		staging.sDateTimeFieldCAP = DataManager.capDateTimeField;
+		staging.sDateTimeFieldCS = DataManager.csDateTimeField;
+
 
 
 		string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
@@ -215,6 +225,16 @@ public class SaveLoad
 		DataManager.completeCAP = staging.sCompleteCAP;
 		DataManager.completeBS = staging.sCompleteBS;
 		DataManager.completeBookSum = staging.sCompleteBookSum;
+
+		DataManager.vocabDateTimeField = staging.sVocabDateTimeField;
+		DataManager.writingDateTimeField = staging.sDateTimeFieldWriting;
+		DataManager.srDateTimeField = staging.sDateTimeFieldSR;
+		DataManager.bookSumDateTimeField = staging.sDateTimeFieldBookSum;
+		DataManager.bsDateTimeField = staging.sDateTimeFieldBS;
+		DataManager.lniDateTimeField = staging.sDateTimeFieldLNI;
+		DataManager.lsiDateTimeField = staging.sDateTimeFieldLSI;
+		DataManager.capDateTimeField = staging.sDateTimeFieldCAP;
+		DataManager.csDateTimeField = staging.sDateTimeFieldCS;
 
 		DataManager.learnedLetterNamesLNI = staging.sLearnedLetterNamesLNI;
         DataManager.individual_LNI = staging.sIndividual_LNI;
