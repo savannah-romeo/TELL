@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 727950463}
   - component: {fileID: 727950462}
   - component: {fileID: 727950466}
+  - component: {fileID: 727950467}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -714,6 +715,13 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
   CAP_items: []
@@ -876,6 +884,26 @@ MonoBehaviour:
   prompts4: []
   prompts5: []
   prompts6: []
+--- !u!114 &727950467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a216b7fa567510a45bb0f3d830998ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleYes: {fileID: 746151781}
+  toggleNo: {fileID: 302869374}
+  receptiveToggleYes: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
+  expressiveFlag: {fileID: 0}
+  receptiveFlag: {fileID: 0}
+  responseFlag: {fileID: 0}
+  clickedButton: {fileID: 1065061408}
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,7 +2422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 122.53, y: -51.93}
+  m_AnchoredPosition: {x: 122.53003, y: -51.929993}
   m_SizeDelta: {x: 118.5, y: 33.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758

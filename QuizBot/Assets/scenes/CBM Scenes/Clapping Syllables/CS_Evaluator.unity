@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 727950463}
   - component: {fileID: 727950462}
   - component: {fileID: 727950466}
+  - component: {fileID: 727950468}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -669,6 +670,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -694,9 +696,21 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &727950458
@@ -741,6 +755,7 @@ MonoBehaviour:
   gradeData: {fileID: 727950457}
   gradedQuestions: {fileID: 727950458}
   gradedQuestionsBS: {fileID: 0}
+  gradedQuestionsCAP: {fileID: 0}
   checker: {fileID: 727950465}
 --- !u!114 &727950460
 MonoBehaviour:
@@ -847,6 +862,26 @@ MonoBehaviour:
   cleanup: {fileID: 727950457}
   panel: {fileID: 0}
   showExportMessage: 0
+--- !u!114 &727950468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a216b7fa567510a45bb0f3d830998ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleYes: {fileID: 746151781}
+  toggleNo: {fileID: 302869374}
+  receptiveToggleYes: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
+  expressiveFlag: {fileID: 0}
+  receptiveFlag: {fileID: 0}
+  responseFlag: {fileID: 0}
+  clickedButton: {fileID: 1065061408}
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,7 +2400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 131.64, y: -45.999}
+  m_AnchoredPosition: {x: 131.64001, y: -45.999023}
   m_SizeDelta: {x: 136.72, y: 46.001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758

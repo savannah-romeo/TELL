@@ -1065,6 +1065,7 @@ GameObject:
   - component: {fileID: 727950461}
   - component: {fileID: 727950463}
   - component: {fileID: 727950462}
+  - component: {fileID: 727950464}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1227,6 +1228,13 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
   CAP_items: []
@@ -1380,6 +1388,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900c5815f7155ad47bfd6831854e9493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &727950464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727950451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a216b7fa567510a45bb0f3d830998ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleYes: {fileID: 746151781}
+  toggleNo: {fileID: 302869374}
+  receptiveToggleYes: {fileID: 491013125}
+  receptiveToggleNo: {fileID: 993226670}
+  expressiveFlag: {fileID: 918021803}
+  receptiveFlag: {fileID: 1375433545}
+  responseFlag: {fileID: 0}
+  clickedButton: {fileID: 1065061408}
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
