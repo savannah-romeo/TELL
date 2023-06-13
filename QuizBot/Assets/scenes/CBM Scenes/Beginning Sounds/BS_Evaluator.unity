@@ -2707,6 +2707,7 @@ GameObject:
   - component: {fileID: 1362174525}
   - component: {fileID: 1362174526}
   - component: {fileID: 1362174527}
+  - component: {fileID: 1362174528}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -3051,6 +3052,26 @@ MonoBehaviour:
   cleanup: {fileID: 1362174511}
   panel: {fileID: 0}
   showExportMessage: 0
+--- !u!114 &1362174528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362174505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a216b7fa567510a45bb0f3d830998ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleYes: {fileID: 424348525}
+  toggleNo: {fileID: 290119540}
+  receptiveToggleYes: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
+  expressiveFlag: {fileID: 0}
+  receptiveFlag: {fileID: 0}
+  responseFlag: {fileID: 0}
+  clickedButton: {fileID: 867038192}
 --- !u!1 &1379084409
 GameObject:
   m_ObjectHideFlags: 0

@@ -1850,6 +1850,7 @@ GameObject:
   - component: {fileID: 1544957225}
   - component: {fileID: 1544957215}
   - component: {fileID: 1544957214}
+  - component: {fileID: 1544957226}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2019,6 +2020,13 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
   CAP_items: []
@@ -2026,6 +2034,7 @@ MonoBehaviour:
   CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
   BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &1544957223
@@ -2090,6 +2099,26 @@ MonoBehaviour:
   checker: {fileID: 1544957213}
   prompts_difficulties: []
   promptDisplayDifficulty: []
+--- !u!114 &1544957226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544957212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a216b7fa567510a45bb0f3d830998ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleYes: {fileID: 746151781}
+  toggleNo: {fileID: 302869374}
+  receptiveToggleYes: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
+  expressiveFlag: {fileID: 0}
+  receptiveFlag: {fileID: 0}
+  responseFlag: {fileID: 0}
+  clickedButton: {fileID: 1065061408}
 --- !u!1 &1762750655
 GameObject:
   m_ObjectHideFlags: 0
