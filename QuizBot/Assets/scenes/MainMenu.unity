@@ -1090,6 +1090,13 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
   CAP_items: []
@@ -1896,7 +1903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0006713867, y: 0.00036621094}
+  m_AnchoredPosition: {x: 0.00061035156, y: 0.00036621094}
   m_SizeDelta: {x: 1493.6924, y: 887.35693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224694055
@@ -3715,7 +3722,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Child Name or Child ID already exists. It is required to import the existing
-    data from thre online database before proceeding.
+    data from the online database before proceeding.
 
     Import action requires
     internet connecttion. Please make sure you are connected to the internet. Do

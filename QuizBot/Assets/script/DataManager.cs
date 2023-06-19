@@ -1233,8 +1233,8 @@ public class DataManager : MonoBehaviour
             {
                 if (completeVocabulary[loop] == 2)
                 {
-                    expressivePercent[loop].text = grade_vocabularyExpressive[loop].ToString("F0"); //Parameter ensures two decimal points
-                    receptivePercent[loop].text = grade_vocabularyReceptive[loop].ToString("F0");
+                    expressivePercent[loop].text = ((grade_vocabularyExpressive[loop]*vocabularyTotalQuestions)/100).ToString("F0"); //Parameter ensures two decimal points
+                    receptivePercent[loop].text = ((grade_vocabularyReceptive[loop] * vocabularyTotalQuestions)/ 100).ToString("F0");
                 }
                 else
                 {

@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 322240627}
   - component: {fileID: 322240626}
   - component: {fileID: 322240625}
+  - component: {fileID: 322240630}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -918,6 +919,8 @@ MonoBehaviour:
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
+  bookSumExtraMarkToggle: {fileID: 0}
+  textBookSumExtraMarkToggle: {fileID: 0}
   name0Toggle: {fileID: 0}
   name1Toggle: {fileID: 0}
   name2Toggle: {fileID: 0}
@@ -930,6 +933,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 0}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -959,9 +963,21 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
+  BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &322240611
@@ -1284,6 +1300,26 @@ MonoBehaviour:
   warningText: {fileID: 71075445}
   cleanup: {fileID: 322240610}
   sceneName: 
+--- !u!114 &322240630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322240607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7d422578613a74b8acc496d405d05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadTimePointList:
+  - {fileID: 1736704333}
+  - {fileID: 747153038}
+  - {fileID: 528406697}
+  - {fileID: 676674379}
+  - {fileID: 373160702}
+  - {fileID: 1695333438}
+  testName: {fileID: 0}
 --- !u!1 &373160700
 GameObject:
   m_ObjectHideFlags: 0

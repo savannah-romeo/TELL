@@ -1479,6 +1479,7 @@ MonoBehaviour:
   sen4Toggle: {fileID: 1614274503}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -1508,10 +1509,21 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
   BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
 --- !u!114 &727950458
@@ -1556,6 +1568,7 @@ MonoBehaviour:
   gradeData: {fileID: 727950457}
   gradedQuestions: {fileID: 727950458}
   gradedQuestionsBS: {fileID: 0}
+  gradedQuestionsCAP: {fileID: 0}
   checker: {fileID: 727950465}
 --- !u!114 &727950461
 MonoBehaviour:
@@ -2234,7 +2247,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Does not \nattemot"
+  m_text: "Does not \nattempt"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -5434,7 +5447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Does not \nattemot"
+  m_text: "Does not \nattempt"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
