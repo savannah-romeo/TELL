@@ -579,7 +579,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 727950454}
-  - component: {fileID: 727950468}
   - component: {fileID: 727950465}
   - component: {fileID: 727950456}
   - component: {fileID: 727950457}
@@ -612,7 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1065061408}
   displayText: {fileID: 1092177218}
-  checker: {fileID: 727950468}
+  checker: {fileID: 727950465}
 --- !u!4 &727950454
 Transform:
   m_ObjectHideFlags: 0
@@ -642,7 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1065061408}
   sceneName: SR_Grader
-  checker: {fileID: 727950468}
+  checker: {fileID: 727950465}
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 727950457}
   panel: {fileID: 0}
@@ -672,7 +671,7 @@ MonoBehaviour:
   responseField: {fileID: 0}
   primaryToggle: {fileID: 746151781}
   receptiveToggle: {fileID: 0}
-  expressiveToggle: {fileID: 302869374}
+  expressiveToggle: {fileID: 746151781}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 1423126920}
@@ -688,8 +687,6 @@ MonoBehaviour:
   sen2Toggle: {fileID: 0}
   sen3Toggle: {fileID: 0}
   sen4Toggle: {fileID: 0}
-  srToggleGroups:
-  - {fileID: 297538902}
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
   advanceCAPItem: {fileID: 0}
@@ -704,8 +701,7 @@ MonoBehaviour:
   csPromptText: []
   csResponseScore: []
   srScoreTotal: {fileID: 0}
-  srPromptText:
-  - {fileID: 1423126920}
+  srPromptText: []
   srResponseScore: []
   bookSumScoreTotal: {fileID: 0}
   writingNameScore: {fileID: 0}
@@ -760,10 +756,8 @@ MonoBehaviour:
   clickedButton: {fileID: 1065061408}
   complete: 0
   gradeMe: 0
-  checker: {fileID: 727950468}
+  checker: {fileID: 727950465}
   prompts: {fileID: 727950466}
-  srPromptText:
-  - {fileID: 1423126920}
 --- !u!114 &727950459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,7 +775,7 @@ MonoBehaviour:
   gradedQuestions: {fileID: 727950458}
   gradedQuestionsBS: {fileID: 0}
   gradedQuestionsCAP: {fileID: 0}
-  checker: {fileID: 727950468}
+  checker: {fileID: 727950465}
 --- !u!114 &727950460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,40 +847,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 727950451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846a16bce5dd444d69100b47b704b62b, type: 3}
+  m_Script: {fileID: 11500000, guid: 33477221eb86f4569ae9f38d27cf0633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prompts1:
-  - '(9) Who is the girl?(Answer: Emma)'
-  - '(10) What did she want to make? (Answer: A present/picture)'
-  - '(11) Who is it for? (Answer: Her father)'
-  - '(12) Why? (Answer: His Birthday)'
-  - '(13) What did Emma use to draw the picture? (Answer: Paper and crayons)'
-  - '(14) What did she draw? (Answer: Her family)'
-  - '(15) What did Emma do after she finished her picture? (Answer: Wrapped it)'
-  - '(16) What happened at the end? (Answer: Dad said ''thank you'' OR He was happy)'
+  - (1) Did the child use the main character's name?
+  - (2) Did the child say what the main character wanted to make?
+  - (3) Did the child say that the present was for Emma's father?
+  - (4) Did the child give a reason why Emma wanted to give a present to her father?
+  - (5) Did the child say what Emma used to make the picture?
+  - (6) Did the child say that Emma drew a pictire of her family?
+  - (7) Did the child say that Emma wrapped the present?
+  - (8) Did the child say that the father was very happy with Emma's present?
   prompts2:
-  - '(9) Who is this boy? (Answer: Johnny)'
-  - '(10) What did he want to make? (Answer: A cake)'
-  - '(11) Who is it for? (Answer: His mother)'
-  - '(12) Why? (Answer: For Mother''s Day)'
-  - '(13) What did Johnny use to make the cake? (Answer: Eggs, sugar and flour)'
-  - '(14) What did he do after he mixed the ingredients? (Answer: Put it in a pan
-    and in the oven)'
-  - '(15) What did Johnny do last? (Answer: Frosted it)'
-  - '(16) What happened at the end? (Answer: Mother said ''thank you'' OR I love
-    it!)'
+  - (1) Did the child use the main character's name?
+  - (2) Did the child say what the main character wanted to make?
+  - "(3) Did the child say that the cake was for Johnny\u2019s mother?"
+  - (4) Did the child give a reason why Johnny wanted to make a cake for his mother?
+  - (5) Did the child say what Johnny used to make the cake?
+  - (6) Did the child say that Johnny mixed the ingredients and/or put it in the
+    pan?
+  - (7) Did the child say that Johnny frosted the cake?
+  - "(8) Did the child say that the mother was very happy with Johnny\u2019s cake?"
   prompts3:
-  - '(9) Who is this boy? (Answer: Miguel)'
-  - '(10) What did he want to do? (Answer: Learn to ride his bike)'
-  - '(11) Where do Miguel and his dad go? (Answer: Outside)'
-  - '(12) What did Miguel do first? (Answer: Put on his helmet)'
-  - '(13) What did Miguel do next? (Answer: Climbed on his bike and/or dad held the
-    bike)'
-  - '(14) Where did Miguel ride? (Answer: Down the street)'
-  - '(15) How did Miguel feel at the end? (Answer: Happy)'
-  - "(16) What does Miguel\u2019s dad say at the end? (Answer: Great job, and/or
-    You did it!)"
+  - (1) Did the child use the main character's name?
+  - (2) Did the child say what the main character wanted to do?
+  - (3) Did the child say that Miguel and his dad went outside?
+  - (4) Did the child say that Miguel put on his helmet?
+  - (5) Did the child say Miguel climbed on his bike and/or that his dad held the
+    bike?
+  - (6) Did the child say that Miguel rode down the street?
+  - (7) Did the child say that Miguel was so happy that he could ride his bike?
+  - (8) Did the child say that the dad was very happy for Miguel?
   prompts4: []
   prompts5: []
   prompts6: []
@@ -910,23 +902,6 @@ MonoBehaviour:
   receptiveFlag: {fileID: 0}
   responseFlag: {fileID: 0}
   clickedButton: {fileID: 1065061408}
---- !u!114 &727950468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727950451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d86d7f43c71fc9d4bb4490ff49737a8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  srToggleGroups:
-  - {fileID: 297538902}
-  prompts: {fileID: 727950458}
-  validScene: 0
-  validInput: 0
 --- !u!1 &746151779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -138}
+  m_AnchoredPosition: {x: -6, y: -137}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092177218
@@ -2189,141 +2164,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1495207712
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1495207713}
-  - component: {fileID: 1495207715}
-  - component: {fileID: 1495207714}
-  m_Layer: 5
-  m_Name: remainder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1495207713
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495207712}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2105578180}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: -125}
-  m_SizeDelta: {x: 600, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1495207714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495207712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Attention test admin: Now you ARE asking the question.'
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1495207715
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495207712}
-  m_CullTransparentMesh: 1
 --- !u!1 &1762750655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,8 +2420,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 122.53003, y: -51.929993}
-  m_SizeDelta: {x: 118.5, y: 33.85}
+  m_AnchoredPosition: {x: 122.53003, y: -53.440002}
+  m_SizeDelta: {x: 118.5, y: 36.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092519758
 MonoBehaviour:
@@ -2765,7 +2605,6 @@ RectTransform:
   - {fileID: 297538901}
   - {fileID: 1065061407}
   - {fileID: 2092519757}
-  - {fileID: 1495207713}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

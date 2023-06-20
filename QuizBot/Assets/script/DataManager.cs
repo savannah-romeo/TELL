@@ -248,6 +248,7 @@ public class DataManager : MonoBehaviour
     public Toggle sen2Toggle;
     public Toggle sen3Toggle;
     public Toggle sen4Toggle;
+    public ToggleGroup[] srToggleGroups;
 
     //Grader Fields
     public AdvanceText promptCycler;
@@ -1233,8 +1234,8 @@ public class DataManager : MonoBehaviour
             {
                 if (completeVocabulary[loop] == 2)
                 {
-                    expressivePercent[loop].text = grade_vocabularyExpressive[loop].ToString("F0"); //Parameter ensures two decimal points
-                    receptivePercent[loop].text = grade_vocabularyReceptive[loop].ToString("F0");
+                    expressivePercent[loop].text = ((grade_vocabularyExpressive[loop]*vocabularyTotalQuestions)/100).ToString("F0"); //Parameter ensures two decimal points
+                    receptivePercent[loop].text = ((grade_vocabularyReceptive[loop] * vocabularyTotalQuestions)/ 100).ToString("F0");
                 }
                 else
                 {
@@ -1551,8 +1552,32 @@ public class DataManager : MonoBehaviour
             
         }
 
+        if(currentScene == "SR_Evaluator" || currentScene == "SR_Evaluator_2")
+        {
+            for(int i = 0; i < srToggleGroups.Length; i++)
+            {
+                individual_srQues.Add(srPromptText[i].text);
+                question_no++;
+                Toggle[] correctAndIncorrect = srToggleGroups[i].GetComponentsInChildren<Toggle>();
+                if (correctAndIncorrect[1].isOn)
+                {
+                    individual_sr.Add(true);
+                    score_sr++;
+                }
+                else
+                {
+                    individual_sr.Add(false);
+                }
+            }
+
+            if (question_no == 8 && score_sr > 0)
+            {
+                score_sr = score_sr + 8;
+            }
+
+        }
         //Calculate scores based on toggles
-        if (currentScene == "SR_Evaluator" || currentScene == "SR_Evaluator_2")
+        /*if (currentScene == "SR_Evaluator" || currentScene == "SR_Evaluator_2")
         {
             question_no++;
             if (primaryToggle.isOn)
@@ -1571,7 +1596,7 @@ public class DataManager : MonoBehaviour
 
             int timeIndex = globalTime - 1; //Global Time starts at 1 instead of 0
                         
-        }
+        }*/
 
         //Calculate scores based on toggles
         if (currentScene == "BookSum_Evaluator" || currentScene == "BookSum_Evaluator_2" || currentScene =="BookSum_Evaluator_3")

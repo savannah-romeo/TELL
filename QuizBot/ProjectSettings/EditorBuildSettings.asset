@@ -99,8 +99,11 @@ EditorBuildSettings:
     path: Assets/scenes/CBM Scenes/Story Retell/SR_Instructions_1.unity
     guid: a2ecbafd26b644d74ba94b7cdb05bf3a
   - enabled: 1
-    path: Assets/scenes/CBM Scenes/Story Retell/SR_Evaluator.unity
+    path: Assets/scenes/CBM Scenes/Story Retell/SR_Evaluator_Old.unity
     guid: f26789556e944478aa7c0d5f58ebf452
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Story Retell/SR_Evaluator.unity
+    guid: fe78ecd873c7f7e468a2fee5b536ec2b
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Story Retell/SR_Evaluator_2.unity
     guid: 452d2384690094aeda03a420052d6c07

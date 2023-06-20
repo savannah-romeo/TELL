@@ -294,7 +294,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -71.09999, y: 19}
-  m_SizeDelta: {x: 75, y: 30}
+  m_SizeDelta: {x: 107.89, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128908219
 MonoBehaviour:
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 1
+  m_text: Time Point 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -429,7 +429,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -71.09999, y: -70}
-  m_SizeDelta: {x: 75, y: 30}
+  m_SizeDelta: {x: 107.89, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183727700
 MonoBehaviour:
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 4
+  m_text: Time Point 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -695,7 +695,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -71.09999, y: -11}
-  m_SizeDelta: {x: 75, y: 30}
+  m_SizeDelta: {x: 107.89, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498894241
 MonoBehaviour:
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 2
+  m_text: Time Point 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -1025,6 +1025,13 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
   CAP_items: []
@@ -1123,7 +1130,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -71.09999, y: -100}
-  m_SizeDelta: {x: 75, y: 30}
+  m_SizeDelta: {x: 107.89, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583974409
 MonoBehaviour:
@@ -1145,7 +1152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 5
+  m_text: Time Point 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2598,7 +2605,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -71.09999, y: -40}
-  m_SizeDelta: {x: 75, y: 30}
+  m_SizeDelta: {x: 107.89, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923612035
 MonoBehaviour:
@@ -2620,7 +2627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 3
+  m_text: Time Point 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -2834,7 +2841,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -71.09999, y: -130}
-  m_SizeDelta: {x: 75, y: 30}
+  m_SizeDelta: {x: 107.89, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979315492
 MonoBehaviour:
@@ -2856,7 +2863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 6
+  m_text: Time Point 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

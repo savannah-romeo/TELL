@@ -17,6 +17,7 @@ public class AdvanceText : MonoBehaviour
     public bool gradeMe; //Seperate bool tracks actual last element, used for data sync purposes with other scripts
     public Validation_Games checker; //Used to check for valid answer before proceeding
     public Array_Prompts prompts; //Holds the list of prompts that the evaluator will be cycling through - select relevant child
+    public TextMeshProUGUI[] srPromptText;
     public Dictionary<string, string> alphabet_pronounciation = new Dictionary<string, string>(){
         {"A","/a/"},{"B","/b/"},{"C","/c/"},{"D","/d/"},{"E","/e/"},{"F","/f/"},{"G","/g/"},{"H","/h/"},{"I","/i/"},
         {"J","/j/"},{"K","/k/"},{"L","/l/"},{"M","/m/"},{"N","/n/"},{"O","/o/"},{"P","/p/"},{"Q","/q/"},{"R","/r/"},
@@ -41,8 +42,23 @@ public class AdvanceText : MonoBehaviour
         if (DataManager.globalGame != "Writing_Instructions"){
             textArray = PromptSelect(localTime);
             if (DataManager.globalGame == "LSI_Instructions") {
-             shownText.text = /*textArray[iterator] + sep + */alphabet_pronounciation[textArray[iterator]]; //Display the first text
-            } else{
+                shownText.text = /*textArray[iterator] + sep + */alphabet_pronounciation[textArray[iterator]]; //Display the first text
+            }
+            else if (DataManager.globalGame == "SR_Instructions" || DataManager.globalGame == "SR_Instructions_1" /*&& 
+                DataManager.question_no == 0*/) {
+                for (int i = 0; i < srPromptText.Length; i++) {
+                    srPromptText[i].text = textArray[i];
+                    if (i != 0)
+                    {
+                        iterator++;
+                    }
+                    //DataManager.individual_srQues.Add(textArray[i]);
+                }
+                if (iterator == textArray.Length - 1)
+                    complete = true;
+                //DataManager.question_no = 8;
+            }
+            else {
                 shownText.text = textArray[iterator]; //Display the first text
             }
         }
@@ -86,7 +102,20 @@ public class AdvanceText : MonoBehaviour
                 if (DataManager.globalGame == "LSI_Instructions")
                 {
                     shownText.text = /*textArray[iterator] + sep + */alphabet_pronounciation[textArray[iterator]]; //Display the first text
-                } else{
+                }
+                else if (DataManager.globalGame == "SR_Instructions" || DataManager.globalGame == "SR_Instructions_1" /*&& 
+                DataManager.question_no == 0*/)
+                {
+                    // only for questions 9 to 16 this taskonclick shall be called
+                    for (int i = 0; i < srPromptText.Length; i++)
+                    {
+                        srPromptText[i].text = textArray[iterator];
+                        //DataManager.individual_srQues.Add(textArray[i]);
+                    }
+                    //DataManager.question_no = 8;
+                }
+                else
+                {
                     shownText.text = textArray[iterator];
                 }
                 //On last question display, mark completed
