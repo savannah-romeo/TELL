@@ -83,7 +83,8 @@ public static Dictionary<string,double> prompts_UniversalMap_CAP = new Dictionar
         
         populateValues();
 
-        double initialValue = -0.029;
+        //double initialValue = -0.029;
+        double initialValue = -0.288;
         promptDisplayDifficulty.Add(initialValue);
 
         shownText.text = "("+(iterator+1)+") "+prompts_CAP.GetValueOrDefault(initialValue); //Display the first text

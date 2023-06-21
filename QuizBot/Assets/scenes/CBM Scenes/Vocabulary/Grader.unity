@@ -1438,8 +1438,10 @@ MonoBehaviour:
   sen2Toggle: {fileID: 0}
   sen3Toggle: {fileID: 0}
   sen4Toggle: {fileID: 0}
+  srToggleGroups: []
   promptCycler: {fileID: 519637037}
   promptCyclerBS: {fileID: 0}
+  advanceCAPItem: {fileID: 0}
   childText: {fileID: 551538698}
   promptText:
   - {fileID: 965793338}
@@ -1491,10 +1493,21 @@ MonoBehaviour:
   booksumScoresForResultPage: []
   RLNI_letterText: []
   RLSI_letterText: []
+  RLI_letterText1: []
+  RLI_letterText2: []
+  RLI_letterText3: []
+  RLI_letterText4: []
+  RLI_letterText5: []
+  RLI_letterText6: []
+  RLI_totalScore: []
   BS_items: []
   BS_letterText: []
+  CAP_items: []
+  CAP_letterText: []
+  CAP_PercentileScore: {fileID: 0}
   BS_EAPScore: []
   BS_PercentileScore: {fileID: 0}
+  CAP_EAPScore: []
   gameText: {fileID: 1220323454}
   timeText: {fileID: 1641621926}
 --- !u!4 &519637035
@@ -1545,6 +1558,7 @@ MonoBehaviour:
   gradeMe: 0
   checker: {fileID: 0}
   prompts: {fileID: 519637038}
+  srPromptText: []
 --- !u!114 &519637038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,7 +1666,7 @@ MonoBehaviour:
   panelForDone: {fileID: 1810775386}
   panelForLogout: {fileID: 2025925958}
   popUpText: {fileID: 0}
-  sceneName: UserInfo
+  sceneName: MainMenu
   cleanup: {fileID: 519637034}
 --- !u!1 &525340671
 GameObject:
@@ -2077,7 +2091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &646648520
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4391,8 +4405,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yes. I have an internet connection. Export the data to online Database
-    and Logout.
+  m_text: Yes. I have an internet connection. Export the data to online database
+    and go back to the main menu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -4419,8 +4433,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -185,6 +185,7 @@ MonoBehaviour:
   sen2Toggle: {fileID: 0}
   sen3Toggle: {fileID: 0}
   sen4Toggle: {fileID: 0}
+  srToggleGroups: []
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
   advanceCAPItem: {fileID: 0}
@@ -829,7 +830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.51487666}
   m_AnchorMax: {x: 0.5, y: 0.51487666}
-  m_AnchoredPosition: {x: -7, y: 174}
+  m_AnchoredPosition: {x: -9, y: 187.47}
   m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764828599
@@ -966,7 +967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: -169}
+  m_AnchoredPosition: {x: -65, y: -190}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108429013
@@ -1517,29 +1518,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Give child a piece of blank paper and say, <b>"Please write your name
-    on your paper. Just do your best."</b>
-
-    (You can administer this assesment
-    to several children in a small group.)
-
-
-    After the child writes their name,
-    say, <b>"Now please write, ''I like dogs.''"
-
-
-    **You may repeat the sentence
+  m_text: "Give child a piece of blank paper and say, <b>\"Please write your name
+    on your paper. Just do your best.\"</b>\n\n(You can administer this assesment
+    to several children in a small group.)\n\nAfter the child writes their name,
+    say, <b>\"Now please write, 'I like dogs.'\"\n\n**You may repeat the sentence
     several times, but do not prompt students with segmenting sounds, spacing, etc.**</b>
-
-
-    When
-    the child is done, write thier name and the date on the back of their paper.
-    Use the rubric in the next page to score the child''s respone. Click next to
-    score the child''s response.
-
-
-    Record items as INCORRECT if the child does
-    not respond within 5 seconds.'
+    Do not worry if the child cannot write words yet, this is collecting a writing
+    sample.\n\nWhen the child is done, write thier name and the date on the back
+    of their paper. Use the rubric in the next page to score the child's respone.
+    Click next to score the child's response.\n\nRecord items as, \u201CDoes not
+    attempt\u201D if child does not respond within 5 seconds."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -1653,7 +1641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65, y: -169}
+  m_AnchoredPosition: {x: 68, y: -190}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698277143
