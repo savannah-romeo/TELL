@@ -1665,7 +1665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &696626387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2415,7 +2415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1161198574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2609,6 +2609,7 @@ MonoBehaviour:
   gradedQuestions: {fileID: 1362174516}
   gradedQuestionsBS: {fileID: 0}
   gradedQuestionsCAP: {fileID: 0}
+  gradedQuestionsVocab: {fileID: 0}
   checker: {fileID: 1362174507}
 --- !u!114 &1362174511
 MonoBehaviour:
@@ -2636,6 +2637,7 @@ MonoBehaviour:
   primaryToggle: {fileID: 424348525}
   receptiveToggle: {fileID: 0}
   expressiveToggle: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
@@ -2651,9 +2653,11 @@ MonoBehaviour:
   sen2Toggle: {fileID: 0}
   sen3Toggle: {fileID: 0}
   sen4Toggle: {fileID: 0}
+  srToggleGroups: []
   promptCycler: {fileID: 1362174516}
   promptCyclerBS: {fileID: 0}
   advanceCAPItem: {fileID: 0}
+  advanceVocabItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -2769,6 +2773,7 @@ MonoBehaviour:
   gradeMe: 0
   checker: {fileID: 1362174507}
   prompts: {fileID: 1362174517}
+  srPromptText: []
   bigShownText: {fileID: 258039781}
 --- !u!114 &1362174517
 MonoBehaviour:

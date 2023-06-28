@@ -23,6 +23,7 @@ public class SetGame : MonoBehaviour
     public static string SaveGame(string btnGame) => btnGame switch
     {
         "buttonVocabulary" => "Instructions",
+        "buttonVocabularyNew" => "Instructions_Vocab",
         "buttonLNI" => "LNI_Instructions",
         "buttonLSI" => "LSI_Instructions",
         "buttonBS" => "BS_Instructions_1",

@@ -61,5 +61,6 @@ public class Prompts_Vocab : Array_Prompts
             "(5) Soil",
             "(6) Wheat"
         };
+        
     }
 }

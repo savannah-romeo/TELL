@@ -131,7 +131,7 @@ public class ScriptForDisablingTimePoints : MonoBehaviour
                 loadBtn.enabled = true;
             }
         }
-        if (DataManager.globalGame == "Instructions")
+        if (DataManager.globalGame == "Instructions" || DataManager.globalGame == "Instructions_Vocab")
         {
             if (DataManager.completeVocabulary[testNo] == 2)
             {
