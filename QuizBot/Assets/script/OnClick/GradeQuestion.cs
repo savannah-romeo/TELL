@@ -9,6 +9,7 @@ public class GradeQuestion : MonoBehaviour
     public AdvanceText gradedQuestions;
     public AdvanceBSItem gradedQuestionsBS;
     public AdvanceCAPItem gradedQuestionsCAP;
+    public AdvanceVocabItem gradedQuestionsVocab;
     public Validation_Games checker; //Used to check for valid answer before proceeding
 
     void Start()
@@ -31,7 +32,9 @@ public class GradeQuestion : MonoBehaviour
             else if ((DataManager.globalGame == "CAP_Instructions"
                  || DataManager.globalGame == "CAP_Instructions_1") && gradedQuestionsCAP.gradeMe)
                     gradeData.GradeQuestion();
-            else if (gradedQuestions.gradeMe)
+            else if ((DataManager.globalGame == "Instructions_Vocab") && gradedQuestionsVocab.gradeMe)
+                gradeData.GradeQuestion();
+            else if (null != gradedQuestions && gradedQuestions.gradeMe)
                 gradeData.GradeQuestion();
         }
     }

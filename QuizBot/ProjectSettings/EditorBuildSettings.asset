@@ -176,4 +176,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/CBM Scenes/Beginning Sounds/BS_Instructions_1.unity
     guid: 55ae5860200a14a8599da9fbc76070a8
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Vocabulary_New/Instructions_Vocab.unity
+    guid: 503d0d0ec47cbd44b855be3f4aaae45a
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Vocabulary_New/Evaluator_Vocab.unity
+    guid: 4ecd3368e0c688f4986644f211e70e92
+  - enabled: 1
+    path: Assets/scenes/CBM Scenes/Vocabulary_New/Grader_Vocab.unity
+    guid: b6cd7a043e9f60c42ae42c0c7e9fa23f
   m_configObjects: {}

@@ -10,9 +10,18 @@ public class Validation_Vocab : Validation_Games
     public Toggle receptive_yes;
     public Toggle receptive_no;
     public AdvanceText prompts;
+    public AdvanceVocabItem promptsVocab;
     public bool validScene; //Used for checks to advance scene
     public bool validInput; //Used for checks to advance prompts
 
+    public bool validCompleteForVocab()
+    {
+        if(promptsVocab.expressiveIterator == promptsVocab.textArray.Length - 1 && (!promptsVocab.expressive || promptsVocab.expressiveToggle.isOn))
+        {
+            return true;
+        }
+        return false;
+    }
     //Check the input
     public override bool Validator()
     {
@@ -20,11 +29,11 @@ public class Validation_Vocab : Validation_Games
         validInput = true;
 
         //Do not advance scene until prompts are done
-        if (!prompts.complete)
+        if ((null != prompts && !prompts.complete) || (null != promptsVocab && !validCompleteForVocab()))
             validScene = false;
 
         //Invalid if neither expressive is ticked
-        if (!expressive_yes.isOn && !expressive_no.isOn)
+        if (!expressive_yes.isOn && !expressive_no.isOn && !receptive_yes.isOn && !receptive_no.isOn)
         {
             validScene = false;
             validInput = false;
@@ -32,11 +41,11 @@ public class Validation_Vocab : Validation_Games
 
         //Invalid if expressive no is ticked AND 
         //neither receptive is ticked
-        if (expressive_no.isOn && !receptive_yes.isOn && !receptive_no.isOn)
+        /*if (expressive_no.isOn && !receptive_yes.isOn && !receptive_no.isOn)
         {
             validScene = false;
             validInput = false;
-        }
+        }*/
 
         return validScene;
     }

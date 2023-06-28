@@ -230,6 +230,7 @@ public class DataManager : MonoBehaviour
     public Toggle primaryToggle;
     public Toggle receptiveToggle; //Vocab
     public Toggle expressiveToggle;
+    public Toggle receptiveToggleNo;
     public Toggle expressiveFlag;
     public Toggle receptiveFlag;
     public TextMeshProUGUI questionField;
@@ -254,6 +255,7 @@ public class DataManager : MonoBehaviour
     public AdvanceText promptCycler;
     public AdvanceBSItem promptCyclerBS;
     public AdvanceCAPItem advanceCAPItem;
+    public AdvanceVocabItem advanceVocabItem;
     public TextMeshProUGUI childText; //Displays child ID
     public TextMeshProUGUI[] promptText;
     public TextMeshProUGUI[] responsesText; //Displays child answers
@@ -871,7 +873,7 @@ public class DataManager : MonoBehaviour
         }
 
         //Reset scores and wipe responses
-        if(currentScene == "Evaluator" || currentScene == "LNI_Evaluator" || 
+        if(currentScene == "Evaluator" || currentScene == "Evaluator_Vocab" || currentScene == "LNI_Evaluator" || 
            currentScene == "LSI_Evaluator" || currentScene == "BS_Evaluator" || currentScene == "CS_Evaluator"
            || currentScene == "Writing_Evaluator" || currentScene == "SR_Evaluator"
            || currentScene == "BookSum_Evaluator" || currentScene == "CAP_Evaluator")
@@ -915,7 +917,7 @@ public class DataManager : MonoBehaviour
         }
 
         //Display all our data!
-        if (currentScene == "Grader")
+        if (currentScene == "Grader" || currentScene == "Grader_Vocab")
         {
             childText.text = childID;
             completeVocabulary[globalTime - 1] = 2;
@@ -927,7 +929,14 @@ public class DataManager : MonoBehaviour
             for (int wheel = 0; wheel < 6; wheel++)
             {
                 promptText[wheel].text = promptStorage[wheel];
-                responsesText[wheel].text = responses[wheel];
+                if (responses.Count > 0)
+                {
+                    responsesText[wheel].text = responses[wheel];
+                }
+                else
+                {
+                    responsesText[wheel].text = "";
+                }
                 expressiveText[wheel].text = individual_expressive[wheel] ? "1" : "0";
                 receptiveText[wheel].text = individual_receptive[wheel] ? "1" : "0";
             }
@@ -1531,9 +1540,60 @@ public class DataManager : MonoBehaviour
             else
                 individual_receptiveFlag.Add(false);
 
-            responses.Add(responseField.text);
+            if (responseField != null)
+            {
+                responses.Add(responseField.text);
+            }
         }
 
+        else if (currentScene == "Evaluator_Vocab")
+        {
+            if (advanceVocabItem.expressive && primaryToggle.isOn)
+            {
+                individual_expressive.Add(true);
+                individual_receptive.Add(true);
+                individual_total.Add(2);
+                score_expressive++;
+                score_receptive++;
+            }
+            else if (!advanceVocabItem.expressive && receptiveToggle.isOn) //Only visible if expressive is off
+            {
+                individual_expressive.Add(false);
+                individual_receptive.Add(true);
+                individual_total.Add(1);
+                score_receptive++;
+            }
+            else if(!advanceVocabItem.expressive && receptiveToggleNo.isOn)
+            {
+                individual_expressive.Add(false);
+                individual_receptive.Add(false);
+                individual_total.Add(0);
+            }
+
+            if (advanceVocabItem.expressive)
+            {
+                if (expressiveFlag.isOn)
+                    individual_expressiveFlag.Add(true);
+                else
+                    individual_expressiveFlag.Add(false);
+
+                if(primaryToggle.isOn)
+                    individual_receptiveFlag.Add(false);
+
+            }
+            if (!advanceVocabItem.expressive)
+            {
+                if (receptiveFlag.isOn)
+                    individual_receptiveFlag.Add(true);
+                else
+                    individual_receptiveFlag.Add(false);
+            }
+
+            if (responseField != null)
+            {
+                responses.Add(responseField.text);
+            }
+        }
         //Calculate scores based on toggles
         if (currentScene == "CS_Evaluator" || currentScene == "CS_Evaluator_1")
         {
@@ -2093,7 +2153,7 @@ public class DataManager : MonoBehaviour
         }
 
         //Grade final question and calculate results before moving on
-        if (currentScene == "Evaluator")
+        if (currentScene == "Evaluator" || currentScene == "Evaluator_Vocab")
         {
             GradeQuestion();
             int timeIndex = globalTime - 1; //Global Time starts at 1 instead of 0
