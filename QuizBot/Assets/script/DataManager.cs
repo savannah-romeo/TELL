@@ -1572,6 +1572,10 @@ public class DataManager : MonoBehaviour
 
             if (advanceVocabItem.expressive)
             {
+                if (responseField != null)
+                {
+                    responses.Add(responseField.text);
+                }
                 if (expressiveFlag.isOn)
                     individual_expressiveFlag.Add(true);
                 else
@@ -1589,10 +1593,6 @@ public class DataManager : MonoBehaviour
                     individual_receptiveFlag.Add(false);
             }
 
-            if (responseField != null)
-            {
-                responses.Add(responseField.text);
-            }
         }
         //Calculate scores based on toggles
         if (currentScene == "CS_Evaluator" || currentScene == "CS_Evaluator_1")
