@@ -3,6 +3,7 @@
 //Used for prompt displays for each question
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,10 @@ public class HideAndShowCanvas : MonoBehaviour
         {
             if (hnsCanvas.enabled == true)
             {
+                if (DataManager.globalGame == "Instructions_Vocab")
+                {
+                    Thread.Sleep(2000);
+                }
                 hnsCanvas.enabled = false;
                 background.SetActive(false);
                 showButton.enabled = true;
