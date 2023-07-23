@@ -16,13 +16,18 @@ public class ExportData : MonoBehaviour
     public TMP_Text popUpText; // Value for childId
     void Start()
     {
-        clickedButton.onClick.AddListener(() => ExportActions());
-        doneBtn.onClick.AddListener(doneButtonClick);
+        if (DataManager.internetAvailable){
+            if (clickedButton != null)
+            {
+                clickedButton.onClick.AddListener(() => ExportActions());
+            }
+            doneBtn.onClick.AddListener(doneButtonClick);
+        }
         pdP = Application.persistentDataPath;
     }
 
     // Function that is responsible for exporting data into RedCap, triggered after button click.
-    void ExportActions()
+    public void ExportActions()
     {
         // Preparing export request
         RedCapRequest outboundRequest = new RedCapRequest();

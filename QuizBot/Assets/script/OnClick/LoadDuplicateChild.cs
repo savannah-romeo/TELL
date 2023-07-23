@@ -19,11 +19,20 @@ public class LoadDuplicateChild : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if(DataManager.childExists){
-            panel.gameObject.SetActive(true); 
+        if (!DataManager.internetAvailable)
+        {
+            displayText.text = "Previous test data exist for this child name/ID. Would you like to import the data and proceed with new tests?";
+            //yesBtn.gameObject.GetComponentInChildren<Text>().text = "Yes, download and proceed";
+            //GameObject.Find("buttonYes").GetComponentInChildren<Text>().text = "Yes, download and proceed";
+
         }
-        yesBtn.onClick.AddListener(yesButtonClick);
-        noBtn.onClick.AddListener(logoutButtonClick);
+            if (DataManager.childExists || DataManager.childFileExists)
+            {
+                panel.gameObject.SetActive(true);
+            }
+            yesBtn.onClick.AddListener(yesButtonClick);
+            noBtn.onClick.AddListener(logoutButtonClick);
+        //}
     }
 
     // Occurs when logout button is clicked
@@ -43,7 +52,9 @@ public class LoadDuplicateChild : MonoBehaviour
         DataManager.childFileExists = false;
         // Load new scene
         cleanup.SceneCleanup();
-        DataManager.currentScene = "UserInfo"; //Updates DataManager scene string
-        SceneManager.LoadScene("UserInfo");
+        DataManager.currentScene = "StartGame"; //Updates DataManager scene string
+        SceneManager.LoadScene("StartGame");
+        //DataManager.currentScene = "UserInfo"; //Updates DataManager scene string
+        //SceneManager.LoadScene("UserInfo");
     }
 }

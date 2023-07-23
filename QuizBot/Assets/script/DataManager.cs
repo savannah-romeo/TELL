@@ -17,6 +17,7 @@ public class DataManager : MonoBehaviour
 {  
     public static bool childExists;
     public static bool childFileExists;
+    public static bool internetAvailable;
 
     //User info
     //Note ID can be name or an ID #
@@ -710,7 +711,7 @@ public class DataManager : MonoBehaviour
             currentScene = "UserInfo";
 
         //Fill saved UserInfo
-        if(currentScene == "UserInfo")
+        if(currentScene == "UserInfo" || currentScene == "StartGame" || currentScene == "UserInfoMultiple")
         {
             // teacherIDField.text = teacherID;
             // assessorIDField.text = assessorID;
@@ -1957,8 +1958,32 @@ public class DataManager : MonoBehaviour
             
         }
 
+        if (currentScene == "UserInfoMultiple")
+        {
+            //Save child name or ID, with ID taking precedence
+            exportImportRef = "Name";
+            
+            childID = childNameField.text;
+            if (childNameField.text != "")
+            {
+                childNameField.text = childNameField.text.ToLower();
+            }
+            if (childIDField.text != "")
+            {
+                childID = childIDField.text;
+                childIDField.text = childIDField.text.ToLower();
+                exportImportRef = "ID";
+            }
+            if (childID != "")
+            {
+                childID = childID.ToLower();
+            }
+            
+
+        }
+
         //Store child name for letter randomization
-        if(currentScene == "LNI_Instructions" && null != lniNameField)
+        if (currentScene == "LNI_Instructions" && null != lniNameField)
         {
             childNameLNI = lniNameField.text;
         }

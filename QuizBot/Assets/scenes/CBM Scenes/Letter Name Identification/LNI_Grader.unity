@@ -181,8 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yes. I have an internet connection. Export the data to online database
-    and go back to the main menu.
+  m_text: Export the data to online database and go back to the main menu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -5515,6 +5514,7 @@ MonoBehaviour:
   primaryToggle: {fileID: 0}
   receptiveToggle: {fileID: 0}
   expressiveToggle: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
@@ -5534,6 +5534,7 @@ MonoBehaviour:
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
   advanceCAPItem: {fileID: 0}
+  advanceVocabItem: {fileID: 0}
   childText: {fileID: 1479311853}
   promptText:
   - {fileID: 0}
@@ -5719,6 +5720,7 @@ MonoBehaviour:
   panelForDone: {fileID: 1354730083}
   panelForLogout: {fileID: 2044898202}
   popUpText: {fileID: 0}
+  buttonExportText: {fileID: 1405677}
   sceneName: MainMenu
   cleanup: {fileID: 916252699}
 --- !u!114 &916252705
@@ -6481,11 +6483,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CBM test results should be uploaded to the online Database ASAP. Internet
+  m_text: CBM test results should be uploaded to the online Database ASAP. Internet
     connection is required for the export.
-
-    Are you connected to the internet
-    connection?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
