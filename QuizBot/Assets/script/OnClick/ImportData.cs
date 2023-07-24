@@ -100,7 +100,7 @@ public class ImportData  : MonoBehaviour
                 redCapRequestForRecords.records_0 = recordId;
 
                 // Execute import request
-                StartCoroutine(
+                yield return StartCoroutine(
                     RedCapService.Instance.ImportAllData(usersDetails => GetAndSaveRecords(usersDetails,load,compareFile), 
                             redCapRequestForRecords));
                 

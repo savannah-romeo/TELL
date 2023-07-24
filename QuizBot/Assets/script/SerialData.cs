@@ -2398,15 +2398,15 @@ public class SerialData
     public static void resultOfLearnerLNI(SerialData serialData)
     {
         string[] exceptionalCharactersLNI = new[] { "K", "M", "U", "W", "Z" };
+        Dictionary<int, int> letterVsCounter = new Dictionary<int, int>();
         for (int time = 0; time < 6; time++)
         {
             for (int letterChar = 0; letterChar < 26; letterChar++)
             {
                 string letter = ((char)(letterChar + 65)).ToString();
-                Dictionary<int, int> letterVsCounter = new Dictionary<int, int>();
 
                 int adaptiveCounter = 0;
-                if (letterVsCounter[letterChar] > 0)
+                if (letterVsCounter.ContainsKey(letterChar) && letterVsCounter[letterChar] > 0)
                 {
                     adaptiveCounter = letterVsCounter[letterChar];
 
@@ -2456,16 +2456,16 @@ public class SerialData
     public static void resultOfLearnerLSI(SerialData serialData)
     {
         string[] exceptionalCharactersLSI = new[] { "A", "B", "E", "O", "S", "U" };
+        Dictionary<int, int> letterVsCounter = new Dictionary<int, int>();
 
         for (int time = 0; time < 6; time++)
         {
             for (int letterChar = 0; letterChar < 26; letterChar++)
             {
                 string letter = ((char)(letterChar + 65)).ToString();
-                Dictionary<int, int> letterVsCounter = new Dictionary<int, int>();
 
                 int adaptiveCounter = 0;
-                if (letterVsCounter[letterChar] > 0)
+                if (letterVsCounter.ContainsKey(letterChar) && letterVsCounter[letterChar] > 0)
                 {
                     adaptiveCounter = letterVsCounter[letterChar];
 

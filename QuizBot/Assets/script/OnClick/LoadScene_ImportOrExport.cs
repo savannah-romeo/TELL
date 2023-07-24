@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections;
 
 public class LoadScene_ImportOrExport : MonoBehaviour
 {
@@ -27,7 +28,15 @@ public class LoadScene_ImportOrExport : MonoBehaviour
     void Start()
     {
         //Create listener for the button in question
-        clickedButton.onClick.AddListener(TaskOnClick);
+        if (clickedButton.name == "button_Import")
+        {
+            clickedButton.onClick.AddListener(TaskOnImportClick);
+        }
+        else if(clickedButton.name == "button_Export")
+        {
+            clickedButton.onClick.AddListener(() => StartCoroutine(TaskOnExportClick()));
+        }
+            //clickedButton.onClick.AddListener(TaskOnClick);
         close.onClick.AddListener(closeEvent);
         errorClose.onClick.AddListener(closeEvent);
     }
@@ -43,10 +52,36 @@ public class LoadScene_ImportOrExport : MonoBehaviour
             errorPanel.gameObject.SetActive(false);
         }
     }
-    protected void TaskOnClick()
+
+    protected void TaskOnImportClick()
     {
+
         cleanup.SceneCleanup();
         if (clickedButton.name == "button_Import")
+        {
+            if (!userInfoChecker.shouldDisplayDuplicateWarning())
+            {
+                // display warning
+                panel.gameObject.SetActive(true);
+            }
+            else
+            {
+                DataManager.childExists = true;
+                //ImportData importData = new ImportData();
+                StartCoroutine(importData.ImportActions(false, false));
+                //cleanup.SceneCleanup();
+                //SceneManager.LoadScene("UserInfoMultiple");
+                //DataManager.currentScene = "UserInfoMultiple";
+                importData.panel.SetActive(true);
+            }
+
+        }
+
+    }
+    protected IEnumerator TaskOnExportClick()
+    {
+        cleanup.SceneCleanup();
+        /*if (clickedButton.name == "button_Import")
         {
             if (!userInfoChecker.shouldDisplayDuplicateWarning())
             {
@@ -64,7 +99,7 @@ public class LoadScene_ImportOrExport : MonoBehaviour
                 importData.panel.SetActive(true);
             }
            
-        }
+        }*/
         if(clickedButton.name == "button_Export")
         {
             if (!userInfoChecker.shouldDisplayWarning())
@@ -84,7 +119,16 @@ public class LoadScene_ImportOrExport : MonoBehaviour
                     SerialData serialData = SaveLoad.getFileData(DataManager.childID);
                     if (serialData.sRecordId != null && serialData.sRecordId != "")
                     {
-                        StartCoroutine(importData.ImportActions(false, true));
+                        yield return StartCoroutine(importData.ImportActions(false, true));
+                        exportData.ExportActions();
+                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+                        {
+                            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
+                        }
+                        //cleanup.SceneCleanup();
+                        //SceneManager.LoadScene("UserInfoMultiple");
+                        //DataManager.currentScene = "UserInfoMultiple";
+                        exportData.panel.SetActive(true);
                     }
                     else
                     {
@@ -108,26 +152,39 @@ public class LoadScene_ImportOrExport : MonoBehaviour
                         DataManager.childID = DataManager.childID + "(1)";
                         showPanel = true;
                         //DataManager.childID = DataManager.childID + "dup";
+                        exportData.ExportActions();
+                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+                        {
+                            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
+                        }
+                        //cleanup.SceneCleanup();
+                        //SceneManager.LoadScene("UserInfoMultiple");
+                        //DataManager.currentScene = "UserInfoMultiple";
+                        errorPanel.SetActive(true);
+                        
                     }
                     //cleanup.SceneCleanup();
-                    
-                }
-                exportData.ExportActions();
-                if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
-                {
-                    File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
-                }
-                //cleanup.SceneCleanup();
-                //SceneManager.LoadScene("UserInfoMultiple");
-                //DataManager.currentScene = "UserInfoMultiple";
-                if (showPanel)
-                {
-                    errorPanel.SetActive(true);
-                    showPanel = false;
+
                 }
                 else
                 {
-                    exportData.panel.SetActive(true);
+                    exportData.ExportActions();
+                    if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+                    {
+                        File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
+                    }
+                    //cleanup.SceneCleanup();
+                    //SceneManager.LoadScene("UserInfoMultiple");
+                    //DataManager.currentScene = "UserInfoMultiple";
+                    /*if (showPanel)
+                    {
+                        errorPanel.SetActive(true);
+                        showPanel = false;
+                    }
+                    else
+                    {*/
+                        exportData.panel.SetActive(true);
+                    //}
                 }
             }
         }
