@@ -17,6 +17,7 @@ public class ExportDataAndLogout : MonoBehaviour
     public GameObject panelForDone; // Panel
     public GameObject panelForLogout;
     public TMP_Text popUpText; // Value for childId
+    public TMP_Text buttonExportText;
 
 
     // Non-UI Elements
@@ -26,12 +27,28 @@ public class ExportDataAndLogout : MonoBehaviour
 
     void Start()
     {
-        clickedButton.onClick.AddListener(() => ExportActions());
-        doneBtn.onClick.AddListener(doneButtonClick);
+        if (DataManager.internetAvailable)
+        {
+            clickedButton.onClick.AddListener(() => ExportActions());
+            doneBtn.onClick.AddListener(doneButtonClick);
+        }
+        else
+        {
+            if (buttonExportText != null)
+            {
+                buttonExportText.SetText("Save the data locally. I will export all new test data ASAP.");
+            }
+            clickedButton.onClick.AddListener(() => goBackToMainMenu());
+        }
         pdP = Application.persistentDataPath;
         // logoutBtn.onClick.AddListener(yesButtonClick);
     }
-
+    void goBackToMainMenu()
+    {
+        cleanup.SceneCleanup();
+        DataManager.currentScene = sceneName; //Updates DataManager scene string
+        SceneManager.LoadScene(sceneName);
+    }
     // Function that is responsible for exporting data into RedCap, triggered after button click.
     void ExportActions()
     {

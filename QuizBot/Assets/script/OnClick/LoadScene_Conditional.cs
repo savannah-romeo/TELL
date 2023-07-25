@@ -42,15 +42,30 @@ public class LoadScene_Conditional : MonoBehaviour
             } else{
                 SceneManager.LoadScene(sceneName);
             }
-            if(clickedButton.name == "button_next_userinfo" && sceneName== "MainMenu"){
-                bool showWarning = userInfoChecker.shouldDisplayDuplicateWarning();
-                bool fileAlreadyExists = userInfoChecker.shouldDisplayWarning();
-                if(showWarning){
-                    DataManager.childExists = true;
-                    if(fileAlreadyExists){
+            if(clickedButton.name == "button_next_userinfo" && sceneName== "MainMenu")
+            {
+                if (DataManager.internetAvailable)
+                {
+                    bool showWarning = userInfoChecker.shouldDisplayDuplicateWarning();
+                    bool fileAlreadyExists = userInfoChecker.shouldDisplayWarning();
+                    if (showWarning)
+                    {
+                        DataManager.childExists = true;
+                    }
+                    if (fileAlreadyExists)
+                    {
                         DataManager.childFileExists = true;
                     }
-                }                    
+                }
+                else
+                {
+                    bool fileAlreadyExists = userInfoChecker.shouldDisplayWarning();
+                    if (fileAlreadyExists)
+                    {
+                        DataManager.childExists = true;
+                        DataManager.childFileExists = true;
+                    }
+                }
             }
             
         }

@@ -236,9 +236,9 @@ public class RedCapService : MonoBehaviour
             }
             else
             {
-                if(File.Exists(fileName)){
-                    File.Delete(fileName);
-                }
+                //if(File.Exists(fileName)){
+                 //   File.Delete(fileName);
+                //}
                 Debug.Log("Data Exported");
             }
         }

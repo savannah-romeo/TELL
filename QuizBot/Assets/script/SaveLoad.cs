@@ -356,21 +356,48 @@ public class SaveLoad
 
 	}
 	
+	public static SerialData getFileData(String childId)
+    {
+		// if file exists:
+		string fileName = childId + ".dat";
+		string loadPath = Path.Combine(pdP, fileName);
+
+		// Open file and load data
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Open(loadPath, FileMode.Open);
+		SerialData fileData = (SerialData)bf.Deserialize(file);
+		file.Close();
+		return fileData;
+
+	}
 	// Creates files and saves data passed as parameter
 	// 1. Data is stored in a file -> <child_id>.dat
 	// 2. Only data of current user is stored
-	public void Save(UsersDetails usersDetails)
+	public void Save(UsersDetails usersDetails, bool compareWithFile)
 	{
 		if (usersDetails == null || usersDetails.users == null)
 			return;
-		
-		SerialData staging = SerialData.convertToSerialData(usersDetails);
+
+		SerialData staging = null;
+
+		if (compareWithFile)
+		{
+			staging = SerialData.convertToSerialDataCompareWithFile(usersDetails, getFileData(DataManager.childID));
+			//File.Delete(Path.Combine(pdP, staging.sChildID + ".dat"));
+		}
+        else
+        {
+			staging = SerialData.convertToSerialData(usersDetails);
+		}
 			
-		if (staging.sClassroomID == null || staging.sChildID == null)
+		if(File.Exists(Path.Combine(pdP, staging.sChildID + ".dat"))){
+			File.Delete(Path.Combine(pdP, staging.sChildID + ".dat"));
+        }
+		/*if (staging.sClassroomID == null || staging.sChildID == null)
 		{
 			Debug.LogError("Missing childID or classroomId, unable to save data");
 			return;
-		}
+		}*/
 		
 		string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
 		string savePath = Path.Combine(pdP, fileName); // File path for storage with the file name

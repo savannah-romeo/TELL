@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // Responsible for importing data into RedCap
 public class ImportData  : MonoBehaviour
@@ -17,13 +18,43 @@ public class ImportData  : MonoBehaviour
     void Start()
     {
         saveLoad = new SaveLoad();
-        clickedButton.onClick.AddListener(() => StartCoroutine(ImportActions()));
-        doneBtn.onClick.AddListener(doneButtonClick);
+        if (DataManager.internetAvailable && DataManager.childExists)
+        {
+            if (clickedButton != null)
+            {
+                clickedButton.onClick.AddListener(() => StartCoroutine(ImportActions(true, false)));
+            }
+            //doneBtn.onClick.AddListener(doneButtonClick);
+        }
+        else
+        {
+            if (clickedButton != null)
+            {
+                clickedButton.onClick.AddListener(importDataOfflineMode);
+            }
+        }
+        if(doneBtn != null)
+        {
+            doneBtn.onClick.AddListener(doneButtonClick);
+        }
     }
 
+    public void importDataOfflineMode()
+    {
+        string tempAssess = DataManager.assessorID;
+        string tempTeach = DataManager.teacherID;
+        string tempClass = DataManager.classroomID;
 
+        //Reload after importing so we have updated data if file already exists
+        saveLoad.Load(DataManager.childID, DataManager.classroomID);
+
+        //reset assessor and teacher
+        DataManager.assessorID = tempAssess;
+        DataManager.teacherID = tempTeach;
+        DataManager.classroomID = tempClass;
+    }
     // Function that is responsible for importing data into RedCap, triggered after button click.
-    IEnumerator ImportActions()
+    public IEnumerator ImportActions(bool load, bool compareFile)
     {
         // If classroomId was not entered in the first scene, import is not allowed.
         if (DataManager.classroomID == String.Empty)
@@ -69,8 +100,8 @@ public class ImportData  : MonoBehaviour
                 redCapRequestForRecords.records_0 = recordId;
 
                 // Execute import request
-                StartCoroutine(
-                    RedCapService.Instance.ImportAllData(usersDetails => GetAndSaveRecords(usersDetails), 
+                yield return StartCoroutine(
+                    RedCapService.Instance.ImportAllData(usersDetails => GetAndSaveRecords(usersDetails,load,compareFile), 
                             redCapRequestForRecords));
                 
                 
@@ -102,22 +133,25 @@ public class ImportData  : MonoBehaviour
     // 1. Records obtained from RedCap should contain classroomId and childId. If any of these are missing, record
     // is not stored locally.
     // 2. Once eligible records are obtained, they are stored locally.
-    void GetAndSaveRecords(UsersDetails usersDetails)
+    void GetAndSaveRecords(UsersDetails usersDetails, bool load, bool compareFile)
     {
         if (isRecordValid(usersDetails) == false)
             return;
         
         if (usersDetails.users.Count > 0)
         {
-            saveLoad.Save(usersDetails);
+            saveLoad.Save(usersDetails, compareFile);
 
             //Save teach and assessor since they'll be overwritten
             string tempAssess = DataManager.assessorID;
             string tempTeach = DataManager.teacherID;
             string tempClass = DataManager.classroomID;
 
-            //Reload after importing so we have updated data if file already exists
-            saveLoad.Load(DataManager.childID, DataManager.classroomID);
+            if (load)
+            {
+                //Reload after importing so we have updated data if file already exists
+                saveLoad.Load(DataManager.childID, DataManager.classroomID);
+            }
 
             //reset assessor and teacher
             DataManager.assessorID = tempAssess;
@@ -146,5 +180,9 @@ public class ImportData  : MonoBehaviour
     void doneButtonClick()
     {
         panel.gameObject.SetActive(false);
+        if (DataManager.currentScene == "UserInfoMultiple")
+        {
+            SceneManager.LoadScene("UserInfoMultiple");
+        }
     }
 }

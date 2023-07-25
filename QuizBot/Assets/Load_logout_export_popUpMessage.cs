@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class Load_logout_export_popUpMessage : MonoBehaviour
 {
@@ -41,6 +42,11 @@ public class Load_logout_export_popUpMessage : MonoBehaviour
     {
         loadBtn.interactable = true;
         panel.gameObject.SetActive(false);
+        if (DataManager.internetAvailable && 
+            File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+        {
+            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
+        }
         // Load new scene
         cleanup.SceneCleanup();
         DataManager.currentScene = sceneName; //Updates DataManager scene string
