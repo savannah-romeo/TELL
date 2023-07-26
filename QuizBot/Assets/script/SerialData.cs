@@ -1569,7 +1569,7 @@ public class SerialData
                 String sessionCSTeacherIdResponse = "";
                 String sessionCSAssesorNameResponse = "";
                 String sessionCSClassroomNameResponse = "";
-                String sessionCSTeacherNameResponse = ""; 
+                String sessionCSTeacherNameResponse = "";
                 if (serialData.sGradeCSTotal == null)
                     serialData.sGradeCSTotal = new int[6] { -1, -1, -1, -1, -1, -1 };
 
