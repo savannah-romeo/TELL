@@ -18,7 +18,7 @@ public class LoadScene_Conditional : MonoBehaviour
     void Start()
     {
         //Create listener for the button in question
-        clickedButton.onClick.AddListener(TaskOnClick); 
+        clickedButton.onClick.AddListener(TaskOnClick);
     }
 
     protected void TaskOnClick()
