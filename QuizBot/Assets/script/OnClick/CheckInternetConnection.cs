@@ -12,6 +12,7 @@ public class CheckInternetConnection : MonoBehaviour
     public Button startGame;
     public Button takeTest;// Yes Button in Panel
     public Button importOrExport;
+    public Button backButton;
     public GameObject panel; // Panel
     public GameObject takeTestsVsImportOrExportflowPanel;
     //public TextMeshProUGUI displayText; // Text display in Panel
@@ -28,6 +29,7 @@ public class CheckInternetConnection : MonoBehaviour
         internetUnavailable.onClick.AddListener(noButtonClick);
         takeTest.onClick.AddListener(takeTestClick);
         importOrExport.onClick.AddListener(importOrExportClick);
+        backButton.onClick.AddListener(backClick);
     }
     void startGameButtonClick()
     {
@@ -41,6 +43,11 @@ public class CheckInternetConnection : MonoBehaviour
         takeTestsVsImportOrExportflowPanel.gameObject.SetActive(true);
         //DataManager.currentScene = sceneName;
         //SceneManager.LoadScene(sceneName);
+    }
+
+    void backClick()
+    {
+        takeTestsVsImportOrExportflowPanel.gameObject.SetActive(false);
     }
 
     void takeTestClick()

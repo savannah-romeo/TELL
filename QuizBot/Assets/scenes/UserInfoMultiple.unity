@@ -1305,7 +1305,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'WARNING: There is an existing record in the online database under the
     same child''s name. The new test data have been exported under the child name
-    "childname (1)". Please contact the database manager of the app ASAP to resolve
+    "childname(1)". Please contact the database manager of the app ASAP to resolve
     this conflict. Possible scenarios include:
 
 
@@ -2630,10 +2630,10 @@ RectTransform:
   m_Father: {fileID: 1645352349}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -346.55, y: 399.38}
-  m_SizeDelta: {x: 113.1, y: 51.84}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 98, y: -70}
+  m_SizeDelta: {x: 113.1, y: 51.839996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818841719
 MonoBehaviour:
@@ -5702,7 +5702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0005187988, y: -0.000061035156}
+  m_AnchoredPosition: {x: -0.00048828125, y: -0.000061035156}
   m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1922444611

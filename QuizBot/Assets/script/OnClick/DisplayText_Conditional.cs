@@ -3,17 +3,30 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DisplayText_Conditional : MonoBehaviour
 {
     public Button clickedButton; //Button clicked
     public TextMeshProUGUI displayText; //Text that might be displayed
     public Validation_Parent checker; //Used to check game state
+    public Button backButton;
 
     void Start()
     {
         //Create listener for the button in question
         clickedButton.onClick.AddListener(TaskOnClick);
+        if (backButton != null)
+        {
+            backButton.onClick.AddListener(backClick);
+        }
+    }
+
+    void backClick()
+    {
+        //cleanup.SceneCleanup();
+        SceneManager.LoadScene("StartGame");
+        DataManager.currentScene = "StartGame";
     }
 
     void TaskOnClick()
