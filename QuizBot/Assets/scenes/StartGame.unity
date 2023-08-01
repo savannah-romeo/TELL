@@ -2564,8 +2564,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do you want take a test for a child or import or export the existing children
-    information?
+  m_text: Do you want to give a CBM to a child or import/export existing test data
+    for a child?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

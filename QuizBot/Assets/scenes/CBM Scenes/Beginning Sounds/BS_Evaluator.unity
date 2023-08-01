@@ -2747,6 +2747,7 @@ MonoBehaviour:
   gradedQuestions: {fileID: 0}
   gradedQuestionsBS: {fileID: 1362174520}
   gradedQuestionsCAP: {fileID: 0}
+  gradedQuestionsVocab: {fileID: 0}
   checker: {fileID: 1362174521}
 --- !u!114 &1362174511
 MonoBehaviour:
@@ -2774,6 +2775,7 @@ MonoBehaviour:
   primaryToggle: {fileID: 424348525}
   receptiveToggle: {fileID: 0}
   expressiveToggle: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
@@ -2789,9 +2791,11 @@ MonoBehaviour:
   sen2Toggle: {fileID: 0}
   sen3Toggle: {fileID: 0}
   sen4Toggle: {fileID: 0}
+  srToggleGroups: []
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 1362174520}
   advanceCAPItem: {fileID: 0}
+  advanceVocabItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -3072,6 +3076,7 @@ MonoBehaviour:
   receptiveFlag: {fileID: 0}
   responseFlag: {fileID: 0}
   clickedButton: {fileID: 867038192}
+  bsChildResponseField: {fileID: 1196330188}
 --- !u!1 &1379084409
 GameObject:
   m_ObjectHideFlags: 0

@@ -170,6 +170,7 @@ MonoBehaviour:
   primaryToggle: {fileID: 0}
   receptiveToggle: {fileID: 0}
   expressiveToggle: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
@@ -185,9 +186,11 @@ MonoBehaviour:
   sen2Toggle: {fileID: 0}
   sen3Toggle: {fileID: 0}
   sen4Toggle: {fileID: 0}
+  srToggleGroups: []
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
   advanceCAPItem: {fileID: 0}
+  advanceVocabItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -1395,21 +1398,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Turn on the recorder and say the child''s name and the date. Say, <b>"I''m
+  m_text: Turn on the recorder and say the child's name and the date. Say, <b>"I'm
     going to read this interesting book to you. Listen carefully because I am going
     to ask you questions about what you learned."</b> Read the book to the child.
     Paint to the pictires as you read. When you finish, hadn the book to the child
     and say, <b>"Now, I have some questions. You can look at the book and the pictures
     to help you answers the questions." </b>(model turning the pages and reviewing
     the pictures)
-
-
-    When the child is finished answering the questions. Turn
-    off the recorder.
-
-
-    Record items as INCORRECT if the child does not respond
-    within 5 seconds.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

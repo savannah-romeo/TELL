@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class RevertingBackTheToggle : MonoBehaviour
@@ -11,6 +12,7 @@ public class RevertingBackTheToggle : MonoBehaviour
     public Toggle receptiveFlag;
     public Toggle responseFlag;
     public Button clickedButton;
+    public TMP_InputField bsChildResponseField;
 
     void Start()
     {
@@ -73,6 +75,10 @@ public class RevertingBackTheToggle : MonoBehaviour
         if (responseFlag != null)
         {
             responseFlag.isOn = false;
+        }
+        if(bsChildResponseField != null)
+        {
+            bsChildResponseField.text = "";
         }
     }
 }
