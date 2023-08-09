@@ -175,6 +175,7 @@ public class DataManager : MonoBehaviour
     public static int score_bookSum;
     public static List<bool> individual_bookSum;
     public static List<string> individual_bookSumQues;
+    public static List<string> individual_bookSumResponsePerTime;
     public static double bookSumTotalQuestions; //How many cs questions are asked per unit?
     public static List<string> assessorIdBookSumReponses;
     public static List<string> teacherIdBookSumResponses;
@@ -188,6 +189,7 @@ public class DataManager : MonoBehaviour
     public static int[] grade_bookSumTotal;
     public static List<List<bool>> individual_bookSumResponse;
     public static List<List<string>> individual_bookSumQuestions;
+    public static List<List<string>> individual_bookSumChildResponse;
 
     //Continuation flags
     public static bool continuation_flag;
@@ -322,7 +324,9 @@ public class DataManager : MonoBehaviour
 
     public TextMeshProUGUI gameText;
     public TextMeshProUGUI timeText;
-    
+
+    public AdvanceTextBookSum advanceTextBookSum;
+
 
     // Start is called before the first frame update
     void Start()
@@ -657,7 +661,12 @@ public class DataManager : MonoBehaviour
                 individual_bookSumQuestions = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };
                 //individual_bookSumQuestions = new List<List<string>>();
             }
-            if(vocabDateTimeField == null)
+            if (individual_bookSumChildResponse == null)
+            {
+                individual_bookSumChildResponse = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };
+                //individual_bookSumQuestions = new List<List<string>>();
+            }
+            if (vocabDateTimeField == null)
             {
                 vocabDateTimeField = new List<string>() { "", "", "", "", "", "" };
             }
@@ -743,6 +752,7 @@ public class DataManager : MonoBehaviour
             individual_srQues = new List<string>();
             grade_bookSumTotal = new int[3] {-1,-1,-1};
             individual_bookSumQues = new List<string>();
+            individual_bookSumResponsePerTime = new List<string>();
             individual_bookSum = new List<bool>();
             continuation_flag = false;
             question_no = 0;
@@ -774,6 +784,7 @@ public class DataManager : MonoBehaviour
             individual_srQuestions = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() }; //{Capacity = 3};;
             individual_bookSumResponse = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>() };
             individual_bookSumQuestions = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };
+            individual_bookSumChildResponse = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };
             individual_LNI =  new AdaptiveResponse[26, 6];
             individual_LSI =  new AdaptiveResponse[26, 6];
             individual_BS =  new AdaptiveResponse[36, 6];
@@ -877,7 +888,7 @@ public class DataManager : MonoBehaviour
         if(currentScene == "Evaluator" || currentScene == "Evaluator_Vocab" || currentScene == "LNI_Evaluator" || 
            currentScene == "LSI_Evaluator" || currentScene == "BS_Evaluator" || currentScene == "CS_Evaluator"
            || currentScene == "Writing_Evaluator" || currentScene == "SR_Evaluator"
-           || currentScene == "BookSum_Evaluator" || currentScene == "CAP_Evaluator")
+           || currentScene == "BookSum_Evaluator" || currentScene == "CAP_Evaluator" || currentScene == "BookSum_Evaluator_New")
         {
             individual_expressive = new List<bool>();
             individual_expressiveFlag = new List<bool>();
@@ -897,6 +908,7 @@ public class DataManager : MonoBehaviour
             individual_sr = new List<bool>();
             individual_srQues = new List<string>();
             individual_bookSumQues = new List<string>();
+            individual_bookSumResponsePerTime = new List<string>();
             individual_bookSum = new List<bool>();
             responses = new List<string>();
             /*for (int letterIndex = 0; letterIndex < individual_LSI.GetLength(0); letterIndex++)
@@ -979,7 +991,7 @@ public class DataManager : MonoBehaviour
             srScoreTotal.text = grade_srTotal[globalTime - 1].ToString("F0");
         }
 
-        if (currentScene == "BookSum_Grader")
+        if (currentScene == "BookSum_Grader" || currentScene == "BookSum_Grader_New")
         {
             childText.text = childID;
             completeBookSum[globalTime - 1] = 2;
@@ -988,7 +1000,7 @@ public class DataManager : MonoBehaviour
             timeText.text = "Time : " + (2 * globalTime);
             //Access calculated total grades for this time
             //See https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings for formatting
-            bookSumScoreTotal.text = grade_bookSumTotal[globalTime - 1].ToString("F0")+" out of 11";
+            bookSumScoreTotal.text = grade_bookSumTotal[globalTime - 1].ToString("F0")+" out of 12";
         }
 
         if (currentScene == "Writing_Grader")
@@ -1659,6 +1671,65 @@ public class DataManager : MonoBehaviour
                         
         }*/
 
+
+        if (currentScene == "BookSum_Evaluator_New" || currentScene == "BookSum_Evaluator_2_New" || currentScene == "BookSum_Evaluator_3_New")
+        {
+            question_no++;
+            bool nonToggle = false;
+            foreach (Transform child in advanceTextBookSum.toggleGroup.transform)
+            {
+                UnityEngine.UI.Toggle toggleComponent = child.gameObject.GetComponentInChildren<UnityEngine.UI.Toggle>();
+                if (toggleComponent.isOn)
+                {
+                    Text labelComponent = toggleComponent.GetComponentInChildren<Text>();
+                    individual_bookSumResponsePerTime.Add(labelComponent.text);
+                    if(labelComponent.text == "None of the above (Incorrect)")
+                    {
+                        nonToggle = true;
+                    }
+                    else if(labelComponent.text == "Because you cook it in a hot oven" || 
+                        labelComponent.text == "Because you see the cheese bubble or hear it sizzle" ||
+                        labelComponent.text == "Because they travel in herds" ||
+                        labelComponent.text == "Because they can stay underwater for a long time")
+                    {
+                        score_bookSum++;
+                    }
+                }
+            }
+            if (!nonToggle)
+            {
+                individual_bookSum.Add(true);
+                score_bookSum++;
+                /*if (currentScene == "BookSum_Evaluator_2_New" && question_no == 7)
+                {
+                    if (bookSumExtraMarkToggle.isOn)
+                    {
+                        score_bookSum++;
+                    }
+                    bookSumExtraMarkToggle.gameObject.SetActive(false);
+                    textBookSumExtraMarkToggle.gameObject.SetActive(false);
+                }*/
+                /*else if (currentScene == "BookSum_Evaluator_2_New" && question_no == 6)
+                {
+                    bookSumExtraMarkToggle.gameObject.SetActive(true);
+                    textBookSumExtraMarkToggle.gameObject.SetActive(true);
+                }*/
+
+            }
+            else
+            {
+                individual_bookSum.Add(false);
+            }
+            if (question_no == 8 && score_bookSum > 0)
+            {
+                score_bookSum = score_bookSum + 3;
+            }
+            individual_bookSumQues.Add(questionField.text);
+
+            int timeIndex = globalTime - 1; //Global Time starts at 1 instead of 0
+
+        }
+
         //Calculate scores based on toggles
         if (currentScene == "BookSum_Evaluator" || currentScene == "BookSum_Evaluator_2" || currentScene =="BookSum_Evaluator_3")
         {
@@ -2095,6 +2166,67 @@ public class DataManager : MonoBehaviour
             }
         }
 
+        if (currentScene == "BookSum_Evaluator_New" || currentScene == "BookSum_Evaluator_2_New" || currentScene == "BookSum_Evaluator_3_New")
+        {
+            GradeQuestion();
+            int timeIndex = globalTime - 1;
+
+            if (currentScene == "BookSum_Evaluator_New" && question_no == 3 && score_bookSum == 0 /*grade_bookSumTotal[timeIndex] == 0*/)
+            {
+                continuation_flag = true;
+                continuation_scene = "BookSum_Evaluator_3_New";
+            }
+            else if (currentScene == "BookSum_Evaluator_New" && question_no == 3 && score_bookSum <= 3 /*grade_bookSumTotal[timeIndex] <=3*/)
+            {
+                continuation_flag = true;
+                continuation_scene = "BookSum_Evaluator_2_New";
+            }
+            if (currentScene == "BookSum_Evaluator_2_New" || currentScene == "BookSum_Evaluator_3_New")
+            {
+                continuation_flag = false;
+            }
+
+            if (grade_bookSumTotal == null)
+            {
+                grade_bookSumTotal = new int[3] { -1, -1, -1 };
+            }
+            if (continuation_flag == false)
+            {
+                grade_bookSumTotal[timeIndex] = score_bookSum;
+                individual_bookSumResponse[timeIndex] = (individual_bookSum);
+                individual_bookSumQuestions[timeIndex] = (individual_bookSumQues);
+                individual_bookSumChildResponse[timeIndex] = (individual_bookSumResponsePerTime);
+                //individual_bookSumResponse.Add(individual_bookSum);
+                //individual_bookSumQuestions.Add(individual_bookSumQues);
+                /*individual_bookSumResponse.Insert(timeIndex, individual_bookSum);
+                individual_bookSumQuestions.Insert(timeIndex, individual_bookSumQues);*/
+
+                if (exportImportRef == "ID")
+                {
+                    /*assessorIdBookSumReponses.Insert(timeIndex, assessorID);
+                    teacherIdBookSumResponses.Insert(timeIndex, teacherID);
+                    classroomIdBookSumResponses.Insert(timeIndex, classroomID);*/
+                    assessorIdBookSumReponses[timeIndex] = (assessorID);
+                    teacherIdBookSumResponses[timeIndex] = (teacherID);
+                    classroomIdBookSumResponses[timeIndex] = (classroomID);
+                    /*assessorIdBookSumReponses.Add(assessorID);
+                    teacherIdBookSumResponses.Add(teacherID);
+                    classroomIdBookSumResponses.Add(classroomID);*/
+                }
+                else
+                {
+                    /*assessorNameBookSumReponses.Insert(timeIndex, assessorID);
+                    teacherNameBookSumResponses.Insert(timeIndex, teacherID);
+                    classroomNameBookSumResponses.Insert(timeIndex, classroomID);*/
+                    /*assessorNameBookSumReponses.Add(assessorID);
+                    teacherNameBookSumResponses.Add(teacherID);
+                    classroomNameBookSumResponses.Add(classroomID);*/
+                    assessorNameBookSumReponses[timeIndex] = (assessorID);
+                    teacherNameBookSumResponses[timeIndex] = (teacherID);
+                    classroomNameBookSumResponses[timeIndex] = (classroomID);
+                }
+            }
+        }
         //Grade final question and calculate results before moving on
         if (currentScene == "BookSum_Evaluator" || currentScene == "BookSum_Evaluator_2" || currentScene == "BookSum_Evaluator_3")
         {
@@ -2120,8 +2252,8 @@ public class DataManager : MonoBehaviour
             grade_bookSumTotal[timeIndex] = score_bookSum;
             individual_bookSumResponse[timeIndex] = (individual_bookSum);
             individual_bookSumQuestions[timeIndex] = (individual_bookSumQues);
-             //individual_bookSumResponse.Add(individual_bookSum);
-             //individual_bookSumQuestions.Add(individual_bookSumQues);
+                //individual_bookSumResponse.Add(individual_bookSum);
+                //individual_bookSumQuestions.Add(individual_bookSumQues);
                 /*individual_bookSumResponse.Insert(timeIndex, individual_bookSum);
                 individual_bookSumQuestions.Insert(timeIndex, individual_bookSumQues);*/
 

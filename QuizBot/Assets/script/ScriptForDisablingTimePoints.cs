@@ -65,7 +65,7 @@ public class ScriptForDisablingTimePoints : MonoBehaviour
                 loadBtn.enabled = true;
             }
         }
-        if (DataManager.globalGame == "BookSum_Instructions_1")
+        if (DataManager.globalGame == "BookSum_Instructions_1" || DataManager.globalGame == "BookSum_Instructions_New_1")
         {
             if (DataManager.completeBookSum[testNo] == 2)
             {

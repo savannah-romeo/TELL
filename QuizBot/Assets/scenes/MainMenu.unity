@@ -518,8 +518,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: That's not the child I'm testing. Go back and use a different child name
-    to create a new child file.
+  m_text: "That's not the child I'm testing. Go back and \nuse a different child
+    name to create a new child file."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -1182,6 +1182,7 @@ MonoBehaviour:
   panelForDone: {fileID: 1318103227}
   panelForLogout: {fileID: 1224694053}
   popUpText: {fileID: 1346341665}
+  buttonExportText: {fileID: 0}
   sceneName: UserInfo
   cleanup: {fileID: 509879280}
 --- !u!114 &509879287
@@ -2678,8 +2679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 2, y: 302}
-  m_SizeDelta: {x: 469, y: 41}
+  m_AnchoredPosition: {x: 2, y: 291}
+  m_SizeDelta: {x: 469, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569529967
 MonoBehaviour:
@@ -2801,7 +2802,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 2, y: 381}
-  m_SizeDelta: {x: 469, y: 41.98}
+  m_SizeDelta: {x: 469, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1673011049
 MonoBehaviour:

@@ -287,46 +287,79 @@ public class RedCapRecord
     public string booksumQuestion1 = null;
     [JsonProperty("booksum_qs1_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs1result = null;
+    [JsonProperty("booksum_qs1_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion1Response = null;
     [JsonProperty("booksum_question_2", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion2 = null;
     [JsonProperty("booksum_qs2_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs2result = null;
+    [JsonProperty("booksum_qs2_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion2Response = null;
     [JsonProperty("booksum_question_3", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion3 = null;
     [JsonProperty("booksum_qs3_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs3result = null;
+    [JsonProperty("booksum_qs3_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion3Response = null;
     [JsonProperty("booksum_question_4", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion4 = null;
     [JsonProperty("booksum_qs4_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs4result = null;
+    [JsonProperty("booksum_qs4_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion4Response = null;
     [JsonProperty("booksum_question_5", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion5 = null;
     [JsonProperty("booksum_qs5_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs5result = null;
+    [JsonProperty("booksum_qs5_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion5Response = null;
     [JsonProperty("booksum_question_6", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion6 = null;
     [JsonProperty("booksum_qs6_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs6result = null;
+    [JsonProperty("booksum_qs6_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion6Response = null;
     [JsonProperty("booksum_question_7", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion7 = null;
     [JsonProperty("booksum_qs7_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs7result = null;
+    [JsonProperty("booksum_qs7_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion7Response = null;
     [JsonProperty("booksum_question_8", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion8 = null;
     [JsonProperty("booksum_qs8_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs8result = null;
+    [JsonProperty("booksum_qs8_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion8Response = null;
     [JsonProperty("booksum_question_9", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion9 = null;
     [JsonProperty("booksum_qs9_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs9result = null;
+    [JsonProperty("booksum_qs9_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion9Response = null;
     [JsonProperty("booksum_question_10", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion10 = null;
     [JsonProperty("booksum_qs10_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs10result = null;
+    [JsonProperty("booksum_qs10_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion10Response = null;
     [JsonProperty("booksum_question_11", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string booksumQuestion11 = null;
     [JsonProperty("booksum_qs11_result", NullValueHandling = NullValueHandling.Ignore)]
     public int? booksumQs11result = null;
+    [JsonProperty("booksum_qs11_response", NullValueHandling = NullValueHandling.Ignore)]
+    [CanBeNull]
+    public string booksumQuestion11Response = null;
 
     [JsonProperty("book_summary_complete", NullValueHandling = NullValueHandling.Ignore)]
     public int? bookSummaryComplete = null;
@@ -1436,6 +1469,7 @@ public class RedCapRecord
             RedCapRecord redCapRecord;
             List<bool> sessionData = inputData.sIndividualBookSumResponseList[responseIndex];
             List<string> sessionQuestionsData = inputData.sIndividualBookSumQuestionsList[responseIndex];
+            List<string> responseData = inputData.sIndividualBookSumChildResponseList[responseIndex];
             if (booksumRedCapRecords.Count - 1 < responseIndex)
                 booksumRedCapRecords.Add(new RedCapRecord());
             
@@ -1468,27 +1502,60 @@ public class RedCapRecord
                 redCapRecord.bookSumDateTimeField = (inputData.sDateTimeFieldBookSum[responseIndex]);
 
             if (sessionData.Count > 0)
+            {
                 redCapRecord.booksumQs1result = getBinaryTrueFalse(sessionData[0]);
+                redCapRecord.booksumQuestion1Response = responseData[0];
+            }
             if (sessionData.Count > 1)
+            {
                 redCapRecord.booksumQs2result = getBinaryTrueFalse(sessionData[1]);
+                redCapRecord.booksumQuestion2Response = responseData[1];
+            }
             if (sessionData.Count > 2)
+            {
                 redCapRecord.booksumQs3result = getBinaryTrueFalse(sessionData[2]);
+                redCapRecord.booksumQuestion3Response = responseData[2];
+            }
             if (sessionData.Count > 3)
+            {
                 redCapRecord.booksumQs4result = getBinaryTrueFalse(sessionData[3]);
+                redCapRecord.booksumQuestion4Response = responseData[3];
+            }
             if (sessionData.Count > 4)
+            {
                 redCapRecord.booksumQs5result = getBinaryTrueFalse(sessionData[4]);
+                redCapRecord.booksumQuestion5Response = responseData[4];
+            }
             if (sessionData.Count > 5)
+            {
                 redCapRecord.booksumQs6result = getBinaryTrueFalse(sessionData[5]);
+                redCapRecord.booksumQuestion6Response = responseData[5];
+            }
             if (sessionData.Count > 6)
+            {
                 redCapRecord.booksumQs7result = getBinaryTrueFalse(sessionData[6]);
+                redCapRecord.booksumQuestion7Response = responseData[6];
+            }
             if (sessionData.Count > 7)
+            {
                 redCapRecord.booksumQs8result = getBinaryTrueFalse(sessionData[7]);
+                redCapRecord.booksumQuestion8Response = responseData[7];
+            }
             if (sessionData.Count > 8)
+            {
                 redCapRecord.booksumQs9result = getBinaryTrueFalse(sessionData[8]);
+                redCapRecord.booksumQuestion9Response = responseData[8];
+            }
             if (sessionData.Count > 9)
+            {
                 redCapRecord.booksumQs10result = getBinaryTrueFalse(sessionData[9]);
+                redCapRecord.booksumQuestion10Response = responseData[9];
+            }
             if (sessionData.Count > 10)
+            {
                 redCapRecord.booksumQs11result = getBinaryTrueFalse(sessionData[10]);
+                redCapRecord.booksumQuestion11Response = responseData[10];
+            }
 
             if (sessionData.Count > 0)
                 redCapRecord.booksumQuestion1 = sessionQuestionsData[0];
