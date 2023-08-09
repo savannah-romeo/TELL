@@ -23,8 +23,11 @@ public class GradeQuestion : MonoBehaviour
         //Prevents incrementing during final question
         //Due to uncertain execution order, we let the data manager
         //grade the final question in its class
-        checker.Validator();
-        if (checker.GetValidInput())
+        if (checker != null)
+        {
+            checker.Validator();
+        }
+        if (checker != null && checker.GetValidInput())
         {
             if ((DataManager.globalGame == "BS_Instructions"
                 || DataManager.globalGame == "BS_Instructions_1") && gradedQuestionsBS.gradeMe)

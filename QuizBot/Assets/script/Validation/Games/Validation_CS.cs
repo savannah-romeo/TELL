@@ -23,7 +23,7 @@ public class Validation_CS : Validation_Games
             validScene = false;
 
         //Invalid if neither expressive is ticked
-        if (!expressive_yes.isOn && !expressive_no.isOn)
+        if (expressive_yes != null && !expressive_yes.isOn && expressive_no != null && !expressive_no.isOn)
         {
             validScene = false;
             validInput = false;

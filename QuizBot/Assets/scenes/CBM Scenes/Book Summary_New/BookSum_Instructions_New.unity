@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1698277143}
-  sceneName: BookSum_Evaluator
+  sceneName: BookSum_Evaluator_New
   checker: {fileID: 140666067}
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedButton: {fileID: 1553710895}
-  sceneName: BookSum_Instructions_1
+  sceneName: BookSum_Instructions_New_1
   checker: {fileID: 140666067}
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
@@ -1398,13 +1398,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Turn on the recorder and say the child's name and the date. Say, <b>"I'm
-    going to read this interesting book to you. Listen carefully because I am going
-    to ask you questions about what you learned."</b> Read the book to the child.
-    Paint to the pictires as you read. When you finish, hadn the book to the child
-    and say, <b>"Now, I have some questions. You can look at the book and the pictures
-    to help you answers the questions." </b>(model turning the pages and reviewing
-    the pictures)
+  m_text: '" Say <b>I''m going to read this interesting book to you. Listen carefully
+    because I am going to ask you questions about what you learned."</b> Read the
+    book to the child. Paint to the pictires as you read. When you finish, hadn the
+    book to the child and say, <b>"Now, I have some questions. You can look at the
+    book and the pictures to help you answers the questions." </b>(model turning
+    the pages and reviewing the pictures)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

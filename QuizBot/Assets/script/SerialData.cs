@@ -130,6 +130,7 @@ public class SerialData
     public List<string> sClassroomNameBookSumList;
     public List<List<bool>> sIndividualBookSumResponseList;
     public List<List<string>> sIndividualBookSumQuestionsList;
+    public List<List<string>> sIndividualBookSumChildResponseList;
     public List<string> sDateTimeFieldBookSum;
     public List<int> sCompleteBookSum;
 
@@ -242,6 +243,8 @@ public class SerialData
         List<List<string>> srQuestionsList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>()}; //{Capacity = 3};;
         List<List<bool>> booksumResponseList = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>() };//{ Capacity = 3};;
         List<List<string>> booksumQuestionsList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };//{ Capacity = 3};;
+        List<List<string>> booksumChildResponseList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };//{ Capacity = 3};;
+
         List<List<int>> writingScoreList = new List<List<int>>() { new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>() };// { Capacity = 6};;
         // List<int> writingSentenceScoreList = new List<int>(){Capacity = 6};;
         
@@ -700,30 +703,64 @@ public class SerialData
                 List<bool> sessionResultList = new List<bool>{false, false, false, false, false, false, false, false, 
                 false, false, false};
                 List<string> sessionIndividualQuestions = new List<string>{"", "", "", "", "", "", "", "", "", "", ""};
+                List<string> sessionChildResponse = new List<string> { "", "", "", "", "", "", "", "", "", "", "" };
 
-                 
+
                 if (redCapRecord.booksumQs1result != null)
+                {
                     sessionResultList[0] = getTrueFalse(redCapRecord.booksumQs1result);
+                    sessionChildResponse[0] = redCapRecord.booksumQuestion1Response;
+                }
                 if (redCapRecord.booksumQs2result != null)
+                {
                     sessionResultList[1] = getTrueFalse(redCapRecord.booksumQs2result);
+                    sessionChildResponse[1] = redCapRecord.booksumQuestion2Response;
+                }
                 if (redCapRecord.booksumQs3result != null)
+                {
                     sessionResultList[2] = getTrueFalse(redCapRecord.booksumQs3result);
+                    sessionChildResponse[2] = redCapRecord.booksumQuestion3Response;
+                }
                 if (redCapRecord.booksumQs4result != null)
+                {
                     sessionResultList[3] = getTrueFalse(redCapRecord.booksumQs4result);
+                    sessionChildResponse[3] = redCapRecord.booksumQuestion4Response;
+                }
                 if (redCapRecord.booksumQs5result != null)
+                {
                     sessionResultList[4] = getTrueFalse(redCapRecord.booksumQs5result);
+                    sessionChildResponse[4] = redCapRecord.booksumQuestion5Response;
+                }
                 if (redCapRecord.booksumQs6result != null)
+                {
                     sessionResultList[5] = getTrueFalse(redCapRecord.booksumQs6result);
+                    sessionChildResponse[5] = redCapRecord.booksumQuestion6Response;
+                }
                 if (redCapRecord.booksumQs7result != null)
+                {
                     sessionResultList[6] = getTrueFalse(redCapRecord.booksumQs7result);
+                    sessionChildResponse[6] = redCapRecord.booksumQuestion7Response;
+                }
                 if (redCapRecord.booksumQs8result != null)
+                {
                     sessionResultList[7] = getTrueFalse(redCapRecord.booksumQs8result);
+                    sessionChildResponse[7] = redCapRecord.booksumQuestion8Response;
+                }
                 if (redCapRecord.booksumQs9result != null)
+                {
                     sessionResultList[8] = getTrueFalse(redCapRecord.booksumQs9result);
+                    sessionChildResponse[8] = redCapRecord.booksumQuestion9Response;
+                }
                 if (redCapRecord.booksumQs10result != null)
+                {
                     sessionResultList[9] = getTrueFalse(redCapRecord.booksumQs10result);
+                    sessionChildResponse[9] = redCapRecord.booksumQuestion10Response;
+                }
                 if (redCapRecord.booksumQs11result != null)
+                {
                     sessionResultList[10] = getTrueFalse(redCapRecord.booksumQs11result);
+                    sessionChildResponse[10] = redCapRecord.booksumQuestion11Response;
+                }
 
                 if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion1))
                     sessionIndividualQuestions[0] = redCapRecord.booksumQuestion1;
@@ -768,7 +805,12 @@ public class SerialData
                 while (booksumQuestionsList.Count < redCapRecord.bookSumSession)
                     booksumQuestionsList.Add(new List<string>());
                 booksumQuestionsList[redCapRecord.bookSumSession.Value-1] = sessionIndividualQuestions;
-                
+
+                while (booksumChildResponseList.Count < redCapRecord.bookSumSession)
+                    booksumChildResponseList.Add(new List<string>());
+                booksumChildResponseList[redCapRecord.bookSumSession.Value - 1] = sessionChildResponse;
+
+
                 while (assessors_booksum_list.Count < redCapRecord.bookSumSession)
                     assessors_booksum_list.Add(sessionBookSumAssesorIdResponse);
                 
@@ -1426,6 +1468,7 @@ public class SerialData
 
         serialData.sIndividualBookSumResponseList = booksumResponseList;
         serialData.sIndividualBookSumQuestionsList = booksumQuestionsList;
+        serialData.sIndividualBookSumChildResponseList = booksumChildResponseList;
 
         return serialData;
     }
@@ -1797,30 +1840,64 @@ public class SerialData
                 List<bool> sessionResultList = new List<bool>{false, false, false, false, false, false, false, false,
                 false, false, false};
                 List<string> sessionIndividualQuestions = new List<string> { "", "", "", "", "", "", "", "", "", "", "" };
+                List<string> sessionResponseList = new List<string> { "", "", "", "", "", "", "", "", "", "", "" };
 
 
                 if (redCapRecord.booksumQs1result != null)
+                {
                     sessionResultList[0] = getTrueFalse(redCapRecord.booksumQs1result);
+                    sessionResponseList[0] = redCapRecord.booksumQuestion1Response;
+                }
                 if (redCapRecord.booksumQs2result != null)
+                {
                     sessionResultList[1] = getTrueFalse(redCapRecord.booksumQs2result);
+                    sessionResponseList[1] = redCapRecord.booksumQuestion2Response;
+                }
                 if (redCapRecord.booksumQs3result != null)
+                {
                     sessionResultList[2] = getTrueFalse(redCapRecord.booksumQs3result);
+                    sessionResponseList[2] = redCapRecord.booksumQuestion3Response;
+                }
                 if (redCapRecord.booksumQs4result != null)
+                {
                     sessionResultList[3] = getTrueFalse(redCapRecord.booksumQs4result);
+                    sessionResponseList[3] = redCapRecord.booksumQuestion4Response;
+                }
                 if (redCapRecord.booksumQs5result != null)
+                {
                     sessionResultList[4] = getTrueFalse(redCapRecord.booksumQs5result);
+                    sessionResponseList[4] = redCapRecord.booksumQuestion5Response;
+                }
                 if (redCapRecord.booksumQs6result != null)
+                {
                     sessionResultList[5] = getTrueFalse(redCapRecord.booksumQs6result);
+                    sessionResponseList[5] = redCapRecord.booksumQuestion6Response;
+                }
                 if (redCapRecord.booksumQs7result != null)
+                {
                     sessionResultList[6] = getTrueFalse(redCapRecord.booksumQs7result);
+                    sessionResponseList[6] = redCapRecord.booksumQuestion7Response;
+                }
                 if (redCapRecord.booksumQs8result != null)
+                {
                     sessionResultList[7] = getTrueFalse(redCapRecord.booksumQs8result);
+                    sessionResponseList[7] = redCapRecord.booksumQuestion8Response;
+                }
                 if (redCapRecord.booksumQs9result != null)
+                {
                     sessionResultList[8] = getTrueFalse(redCapRecord.booksumQs9result);
+                    sessionResponseList[8] = redCapRecord.booksumQuestion9Response;
+                }
                 if (redCapRecord.booksumQs10result != null)
+                {
                     sessionResultList[9] = getTrueFalse(redCapRecord.booksumQs10result);
+                    sessionResponseList[9] = redCapRecord.booksumQuestion10Response;
+                }
                 if (redCapRecord.booksumQs11result != null)
+                {
                     sessionResultList[10] = getTrueFalse(redCapRecord.booksumQs11result);
+                    sessionResponseList[10] = redCapRecord.booksumQuestion11Response;
+                }
 
                 if (!string.IsNullOrEmpty(redCapRecord.booksumQuestion1))
                     sessionIndividualQuestions[0] = redCapRecord.booksumQuestion1;
@@ -1860,6 +1937,7 @@ public class SerialData
 
                 serialData.sIndividualBookSumResponseList[redCapRecord.bookSumSession.Value - 1] = sessionResultList;
                 serialData.sIndividualBookSumQuestionsList[redCapRecord.bookSumSession.Value - 1] = sessionIndividualQuestions;
+                serialData.sIndividualBookSumChildResponseList[redCapRecord.bookSumSession.Value - 1] = sessionResponseList;
                 serialData.sAssessorIdBookSumList[redCapRecord.bookSumSession.Value - 1] = sessionBookSumAssesorIdResponse;
                 serialData.sClassroomIdBookSumList[redCapRecord.bookSumSession.Value - 1] = sessionBookSumClassroomIdResponse;
                 serialData.sTeacherIdBookSumList[redCapRecord.bookSumSession.Value - 1] = sessionBookSumTeacherIdResponse;

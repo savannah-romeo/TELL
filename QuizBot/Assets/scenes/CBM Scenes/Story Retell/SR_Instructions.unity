@@ -170,6 +170,7 @@ MonoBehaviour:
   primaryToggle: {fileID: 0}
   receptiveToggle: {fileID: 0}
   expressiveToggle: {fileID: 0}
+  receptiveToggleNo: {fileID: 0}
   expressiveFlag: {fileID: 0}
   receptiveFlag: {fileID: 0}
   questionField: {fileID: 0}
@@ -185,9 +186,11 @@ MonoBehaviour:
   sen2Toggle: {fileID: 0}
   sen3Toggle: {fileID: 0}
   sen4Toggle: {fileID: 0}
+  srToggleGroups: []
   promptCycler: {fileID: 0}
   promptCyclerBS: {fileID: 0}
   advanceCAPItem: {fileID: 0}
+  advanceVocabItem: {fileID: 0}
   childText: {fileID: 0}
   promptText: []
   responsesText: []
@@ -1395,23 +1398,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Turn on the recorder and say the child''s name and the date. Say, <b>"I''m
-    going to read you a story. Listen carefully, because I am going to ask you to
-    tell me about the story afterward." </b>
+  m_text: '"Say <b>I''m going to read you a story. Listen carefully, because I am
+    going to ask you to tell me about the story afterward." </b>
 
 
-    Read the story to the child. When
-    you finish say, <b>"Now, start at the beginning of the book, turn the pages,
-    and tell the story to me."</b> (demonstrate how to turn the pages)
-
-
-    Hand
-    the book to the child. When the child is finished telling the story, turn off
-    the recorder and score the retell on the score sheet.
-
-
-    Record items as INCORRECT
-    if the child does not respond within 5 seconds.'
+    Read the story
+    to the child. When you finish say, <b>"Now, start at the beginning of the book,
+    turn the pages, and tell the story to me."</b> (demonstrate how to turn the pages)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}

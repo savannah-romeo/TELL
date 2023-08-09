@@ -57,7 +57,7 @@ public class Load_popUp_Message : MonoBehaviour
         } else if (sceneName == "SR_Instructions_1") {
             gameName = "Story Retell";
             tpShown = (2 * tpShown) - 1;
-        } else if (sceneName == "BookSum_Instructions_1") {
+        } else if (sceneName == "BookSum_Instructions_1" || sceneName == "BookSum_Instructions_New_1") {
             gameName = "Book Summary";
             tpShown = tpShown*2;
         }else if (sceneName == "CAP_Instructions_1"){

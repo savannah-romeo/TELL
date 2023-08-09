@@ -31,7 +31,7 @@ public class HideAndShowCanvas : MonoBehaviour
             {
                 if (DataManager.globalGame == "Instructions_Vocab")
                 {
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                 }
                 hnsCanvas.enabled = false;
                 background.SetActive(false);

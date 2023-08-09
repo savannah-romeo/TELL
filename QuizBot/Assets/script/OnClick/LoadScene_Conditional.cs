@@ -11,7 +11,8 @@ public class LoadScene_Conditional : MonoBehaviour
     public Validation_Parent checker; //Used to check input
     public Validation_UserInfo userInfoChecker;
     public DataManager cleanup; //Saves data before loading
-    public GameObject panel; 
+    public GameObject panel;
+    public AdvanceTextBookSum advanceTextBookSum;
 
     public bool showExportMessage;
 
@@ -27,7 +28,10 @@ public class LoadScene_Conditional : MonoBehaviour
             DataManager.currentScene = sceneName; //Updates DataManager scene string
             SceneManager.LoadScene(sceneName);
         }
-        else if(!showExportMessage && checker.Validator()) //if input is invalid
+        else if(!showExportMessage && 
+            (((DataManager.currentScene == "BookSum_Evaluator_New" || DataManager.currentScene == "BookSum_Evaluator_2_New" 
+            || DataManager.currentScene == "BookSum_Evaluator_3_New") && null != advanceTextBookSum && advanceTextBookSum.validScene()) || 
+                (null != checker && checker.Validator()))) //if input is invalid
         {       
             cleanup.SceneCleanup();
             DataManager.currentScene = sceneName;   

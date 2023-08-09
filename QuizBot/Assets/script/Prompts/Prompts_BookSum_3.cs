@@ -10,7 +10,7 @@ public class Prompts_BookSum_3 : Array_Prompts
         //See array_prompts for definition
         prompts1 = new string[3] {
             "(9) What do we do first to make the pizza? (Turn to 3rd page)",
-            "(10) Whatdowedowith the dough after we make it? (Turn to 5th page)",
+            "(10) What do we do with the dough after we make it? (Turn to 5th page)",
             "(11) What do we do when the pizza is ready? (Turn to last page)"
 
         };
