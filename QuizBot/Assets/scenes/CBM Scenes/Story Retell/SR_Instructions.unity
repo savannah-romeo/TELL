@@ -237,6 +237,7 @@ MonoBehaviour:
   CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
 --- !u!114 &140666067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +283,7 @@ MonoBehaviour:
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
   panel: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &140666070
 MonoBehaviour:
@@ -301,6 +303,7 @@ MonoBehaviour:
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
   panel: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &140666071
 MonoBehaviour:
@@ -320,6 +323,7 @@ MonoBehaviour:
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
   panel: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
   showExportMessage: 0
 --- !u!1 &501855902
 GameObject:
@@ -1398,7 +1402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Say <b>I''m going to read you a story. Listen carefully, because I am
+  m_text: 'Say <b>"I''m going to read you a story. Listen carefully, because I am
     going to ask you to tell me about the story afterward." </b>
 
 
