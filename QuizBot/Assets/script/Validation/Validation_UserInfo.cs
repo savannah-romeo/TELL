@@ -66,7 +66,8 @@ public class Validation_UserInfo : Validation_Parent
     public bool shouldDisplayDuplicateWarning()
     {            
         RedCapRequest redCapRequestForRecordIDs = new RedCapRequest();
-        redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
+        redCapRequestForRecordIDs.token = DataManager.tokenSelected;
+        //redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
         redCapRequestForRecordIDs.content = "record";
         redCapRequestForRecordIDs.action = "export";
         redCapRequestForRecordIDs.format = "json";

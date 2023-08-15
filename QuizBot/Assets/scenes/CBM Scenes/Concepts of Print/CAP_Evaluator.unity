@@ -1985,7 +1985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1509012044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2392,7 +2392,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544957212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a92d3bbf709fc2440b305cf86946b3ef, type: 3}
   m_Name: 
@@ -2401,7 +2401,6 @@ MonoBehaviour:
   nextDummyBtn: {fileID: 1509012045}
   panel: {fileID: 2108435550}
   buttonNextText: {fileID: 1344616204}
-  oldWidth: 0
 --- !u!1 &1762750655
 GameObject:
   m_ObjectHideFlags: 0

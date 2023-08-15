@@ -1404,7 +1404,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' Say <b>"I''m going to read this interesting book to you. Listen carefully
     because I am going to ask you questions about what you learned."</b> Read the
-    book to the child. Paint to the pictires as you read. When you finish, hadn the
+    book to the child. Point to the pictures as you read. When you finish, hand the
     book to the child and say, <b>"Now, I have some questions. You can look at the
     book and the pictures to help you answers the questions." </b>(model turning
     the pages and reviewing the pictures)'
@@ -1434,8 +1434,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

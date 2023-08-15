@@ -12,7 +12,8 @@ public class HideAndShowCanvas : MonoBehaviour
     public Canvas hnsCanvas; //Canvas to hide and show
     public GameObject background; //BG image to hide and show (separate renderer)
     public Button showButton; //Button that shows canvas
-    
+    public AdvanceTextBookSum advanceTextBookSum;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,10 @@ public class HideAndShowCanvas : MonoBehaviour
                 hnsCanvas.enabled = false;
                 background.SetActive(false);
                 showButton.enabled = true;
+                if (advanceTextBookSum != null)
+                {
+                    advanceTextBookSum.toggleGroup.gameObject.SetActive(true);
+                }
             }
         }
     }
@@ -48,6 +53,10 @@ public class HideAndShowCanvas : MonoBehaviour
             hnsCanvas.enabled = true;
             background.SetActive(true);
             showButton.enabled = false;
+            if(advanceTextBookSum != null)
+            {
+                advanceTextBookSum.toggleGroup.gameObject.SetActive(false);
+            }
         }
     }
 }

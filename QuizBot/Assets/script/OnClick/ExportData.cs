@@ -31,7 +31,8 @@ public class ExportData : MonoBehaviour
     {
         // Preparing export request
         RedCapRequest outboundRequest = new RedCapRequest();
-        outboundRequest.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
+        outboundRequest.token = DataManager.tokenSelected;
+        //outboundRequest.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
         outboundRequest.content = "record";
         outboundRequest.action = "import";
         outboundRequest.format = "json";
