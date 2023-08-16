@@ -69,7 +69,8 @@ public class ImportData  : MonoBehaviour
             
             // 1. Getting all record_id corresponding to the classroom_id filter in hand
             RedCapRequest redCapRequestForRecordIDs = new RedCapRequest();
-            redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
+            redCapRequestForRecordIDs.token = DataManager.tokenSelected;
+            //redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
             redCapRequestForRecordIDs.content = "record";
             redCapRequestForRecordIDs.action = "export";
             redCapRequestForRecordIDs.format = "json";
@@ -89,7 +90,8 @@ public class ImportData  : MonoBehaviour
 
             // 2. Getting all records with the corresponding record_id and store locally.
             RedCapRequest redCapRequestForRecords = new RedCapRequest();
-            redCapRequestForRecords.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
+            redCapRequestForRecords.token = DataManager.tokenSelected;
+            //redCapRequestForRecords.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
             redCapRequestForRecords.content = "record";
             redCapRequestForRecords.action = "export";
             redCapRequestForRecords.format = "json";

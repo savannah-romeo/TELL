@@ -557,7 +557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &451900840
 Transform:
   m_ObjectHideFlags: 0
@@ -1529,6 +1529,7 @@ MonoBehaviour:
   hnsCanvas: {fileID: 1034122853}
   background: {fileID: 195968442}
   showButton: {fileID: 591335954}
+  advanceTextBookSum: {fileID: 1312513474}
 --- !u!114 &1312513457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,7 +1787,6 @@ MonoBehaviour:
   iterator: 0
   clickedButton: {fileID: 591335954}
   gradeMe: 0
-  checker: {fileID: 0}
   prompts: {fileID: 1312513457}
   promptsAnswers: {fileID: 1312513470}
   toggleGroup: {fileID: 451900841}

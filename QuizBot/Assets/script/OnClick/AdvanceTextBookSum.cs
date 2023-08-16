@@ -86,7 +86,7 @@ public class AdvanceTextBookSum : MonoBehaviour
         newPosition.y = newPosition.y + 4;
         newPosition.y = newPosition.y - (ind*0.75f); // Adjust the Y position as needed.
         togglePrefabClone.transform.position = newPosition;
-        togglePrefabClone.transform.localScale = new Vector3(0.04f, 0.04f, 0.04f);
+        togglePrefabClone.transform.localScale = new Vector3(0.0375f, 0.0375f, 0.0375f);
 
         // Access the Toggle component.
         UnityEngine.UI.Toggle toggleComponent = togglePrefabClone.GetComponentInChildren<UnityEngine.UI.Toggle>();
