@@ -171,6 +171,8 @@ public class RedCapRecord
     public int? nameWritingScore = null;
     [JsonProperty("sentence_points", NullValueHandling = NullValueHandling.Ignore)]
     public int? sentenceWritingScore = null;
+    [JsonProperty("image_writing", NullValueHandling = NullValueHandling.Ignore)]
+    public string? imageWriting = null;
 
     [JsonProperty("writing_complete", NullValueHandling = NullValueHandling.Ignore)]
     public int? writingComplete = null;
@@ -1301,6 +1303,8 @@ public class RedCapRecord
         {
             RedCapRecord writingRedCapRecord;
             List<int> sessionData = inputData.sIndividualWritingScoreList[responseIndex];
+            string imageData = inputData.sIndividualWritingImageList[responseIndex];
+            
             if (writingRedCapRecords.Count - 1 < responseIndex)
                 writingRedCapRecords.Add(new RedCapRecord());
             
@@ -1349,6 +1353,10 @@ public class RedCapRecord
                 writingRedCapRecord.nameWritingScore = sessionData[0];
             if (sessionData.Count > 1)
                 writingRedCapRecord.sentenceWritingScore = sessionData[1];
+            if (imageData != null && imageData != "")
+            {
+                writingRedCapRecord.imageWriting = imageData;
+            }
         }
         redCapRecords.AddRange(writingRedCapRecords);
 
