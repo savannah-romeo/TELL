@@ -49,6 +49,7 @@ public class SaveLoad
 			staging.sIndividualResponses = DataManager.individual_vocabularyResponses;
 			staging.sIndividualCSResponseList = DataManager.individual_csResponse;
 			staging.sIndividualWritingScoreList = DataManager.individual_writing_score;
+			staging.sIndividualWritingImageList = DataManager.individual_image_data;
 			staging.sIndividualSRQuestionsList = DataManager.individual_srQuestions;
 			staging.sIndividualSRResponseList = DataManager.individual_srResponse;
 			staging.sIndividualBookSumQuestionsList = DataManager.individual_bookSumQuestions;
@@ -210,6 +211,7 @@ public class SaveLoad
 		DataManager.individual_csResponse = staging.sIndividualCSResponseList;
 		DataManager.grade_csTotal = staging.sGradeCSTotal;
 		DataManager.individual_writing_score = staging.sIndividualWritingScoreList;
+		DataManager.individual_image_data = staging.sIndividualWritingImageList;
 		DataManager.individual_srResponse = staging.sIndividualSRResponseList;
 		DataManager.individual_srQuestions = staging.sIndividualSRQuestionsList;
 		DataManager.individual_bookSumResponse = staging.sIndividualBookSumResponseList;

@@ -48,6 +48,7 @@ public class SerialData
 
     //Writing Syllable storage
     public List<List<int>> sIndividualWritingScoreList;
+    public List<string> sIndividualWritingImageList;
     public List<string> sAssessorIdWritingList;
     public List<string> sTeacherIdWritingList;
     public List<string> sClassroomIdWritingList;
@@ -246,6 +247,7 @@ public class SerialData
         List<List<string>> booksumChildResponseList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>() };//{ Capacity = 3};;
 
         List<List<int>> writingScoreList = new List<List<int>>() { new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>() };// { Capacity = 6};;
+        List<string> imageDataList = new List<string>() { "", "", "", "", "", "" };
         // List<int> writingSentenceScoreList = new List<int>(){Capacity = 6};;
         
         foreach (var redCapRecord in usersDetails.users)
@@ -500,6 +502,8 @@ public class SerialData
                 if (redCapRecord.sentenceWritingScore != null)
                     sessionWiritngScoreList[1] = (int)redCapRecord.sentenceWritingScore;
 
+                string imageData = redCapRecord.imageWriting;
+
                 if (!string.IsNullOrEmpty(redCapRecord.assessorIdWriting))
                     sessionWritingAssesorIdResponse = redCapRecord.assessorIdWriting;
                 if (!string.IsNullOrEmpty(redCapRecord.classroomIdWriting))
@@ -535,6 +539,7 @@ public class SerialData
                     teachers_name_writing_list.Add(sessionWritingTeacherNameResponse);
 
                 writingScoreList[redCapRecord.writingSessionNo.Value-1] = sessionWiritngScoreList;
+                imageDataList[redCapRecord.writingSessionNo.Value - 1] = imageData;
                 serialData.sCompleteWriting[redCapRecord.writingSessionNo.Value - 1] = redCapRecord.writingComplete.Value;
                 serialData.sDateTimeFieldWriting[redCapRecord.writingSessionNo.Value - 1] = redCapRecord.writingDateTimeField.ToString();
             }
@@ -1400,6 +1405,7 @@ public class SerialData
         serialData.sIndividualResponses = individualResponses;
         serialData.sIndividualCSResponseList = csResponseList;
         serialData.sIndividualWritingScoreList = writingScoreList;
+        serialData.sIndividualWritingImageList = imageDataList;
         serialData.sIndividualSRResponseList = srResponseList;
         serialData.sIndividualSRQuestionsList = srQuestionsList;
 

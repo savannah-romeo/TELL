@@ -222,6 +222,7 @@ public class DataManager : MonoBehaviour
     public static int[] individual_cs_name;
     public static int[] individual_cs_sentence;
     public static List<List<int>> individual_writing_score;
+    public static List<string> individual_image_data;
 
     //UserInfo Fields
     public TMP_InputField teacherNameField;
@@ -385,6 +386,10 @@ public class DataManager : MonoBehaviour
             if (individual_writing_score == null)
             {
                 individual_writing_score = new List<List<int>>() { new List<int>(), new List<int>() , new List<int>() , new List<int>() , new List<int>() , new List<int>() };
+            }
+            if(individual_image_data == null)
+            {
+                individual_image_data = new List<string>() { "", "", "", "", "", "" };
             }
             individual_vocabularyExpressive = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };
             individual_vocabularyExpressiveFlag = new List<List<bool>>() { new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>(), new List<bool>() };
@@ -802,7 +807,7 @@ public class DataManager : MonoBehaviour
             individual_BSChildResponse =  new string[36, 6];
             individual_CAP = new AdaptiveResponse[13,6];
             individual_writing_score = new List<List<int>>() { new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>(), new List<int>() };
-
+            individual_image_data = new List<string>() { "", "", "", "", "", "" };
             //individual_CAPChildResponse = new string[13, 6];
 
             /*for (int loop = 0; loop < 6; loop++)
