@@ -28,10 +28,17 @@ public class CameraCaptureFunction : MonoBehaviour
 
     void CapturePictureClicked()
     {
-        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+        if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
         {
             // Request camera permission
-            Permission.RequestUserPermission(Permission.Camera);
+            Application.RequestUserAuthorization(UserAuthorization.WebCam);
+            return;
+        }
+
+        // Check microphone permission if needed
+        if (!Application.HasUserAuthorization(UserAuthorization.Microphone))
+        {
+            Application.RequestUserAuthorization(UserAuthorization.Microphone);
             return;
         }
 
