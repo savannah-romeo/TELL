@@ -172,7 +172,7 @@ public class RedCapRecord
     [JsonProperty("sentence_points", NullValueHandling = NullValueHandling.Ignore)]
     public int? sentenceWritingScore = null;
     [JsonProperty("image_writing", NullValueHandling = NullValueHandling.Ignore)]
-    public string? imageWriting = null;
+    public string imageWriting = null;
 
     [JsonProperty("writing_complete", NullValueHandling = NullValueHandling.Ignore)]
     public int? writingComplete = null;
