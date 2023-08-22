@@ -1,33 +1,55 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.iOS;
+//using UnityEngine.iOS;
 //using UnityEngine.Windows.WebCam;
 
 public class CameraCaptureFunction : MonoBehaviour
  {
     //private PhotoCapture photoCaptureObject = null;
     //public Button capturePicture;
-
+    private bool camAvailable;
     private WebCamTexture webCamTexture;
     public Button capturePicture;
+    public Button startStopButton;
+    public Button imageUploadButton;
+    public Button closeButton;
+    public TMP_Text buttonStartStopText;
+    private Texture defaultBackground;
+    public RawImage background;
+    private AspectRatioFitter aspectRatioFitter;
+    public GameObject imageCapturePanel;
 
     private void Start()
     {
-        capturePicture.onClick.AddListener(CapturePictureClicked);
+        
+        startStopButton.onClick.AddListener(StartStopCam_Clicked);
+        capturePicture.onClick.AddListener(CapturePicture);
+        imageUploadButton.onClick.AddListener(CapturePictureClicked);
+        closeButton.onClick.AddListener(closeButtonListener);
 
         // Initialize the camera texture
-        webCamTexture = new WebCamTexture();
-        webCamTexture.Play();
+        //webCamTexture = new WebCamTexture();
+        //webCamTexture.Play();
+    }
+
+    void closeButtonListener()
+    {
+        imageCapturePanel.gameObject.SetActive(false);
     }
 
     void CapturePictureClicked()
     {
+        imageCapturePanel.gameObject.SetActive(true);
+        defaultBackground = background.texture;
+
         if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
         {
             // Request camera permission
@@ -35,96 +57,88 @@ public class CameraCaptureFunction : MonoBehaviour
             return;
         }
 
-        // Check microphone permission if needed
-        if (!Application.HasUserAuthorization(UserAuthorization.Microphone))
+    }
+
+    /*private void Update()
+    {
+        if (camAvailable)
         {
-            Application.RequestUserAuthorization(UserAuthorization.Microphone);
-            return;
+            float ratio = (float) webCamTexture.width / (float)webCamTexture.height;
+            aspectRatioFitter.aspectRatio = ratio;
+            float scaleY = webCamTexture.videoVerticallyMirrored ? -1f:1f;
+            background.rectTransform.localScale = new Vector3(1f, scaleY, 1f);
+            int orient = -webCamTexture.videoRotationAngle;
+            background.rectTransform.localEulerAngles = new Vector3(0f, 0f, orient);
+
         }
-
-        CapturePhoto();
-    }
-    /* private void Start()
-     {
-         capturePicture.onClick.AddListener(capturePictureClicked);
-     }
-     void capturePictureClicked()
-     {
-         PhotoCapture.CreateAsync(false, OnPhotoCaptureCreated);
-     }
-     void OnPhotoCaptureCreated(PhotoCapture captureObject)
-     {
-         photoCaptureObject = captureObject;
-
-         Resolution cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
-
-         CameraParameters c = new CameraParameters();
-         c.hologramOpacity = 0.0f;
-         c.cameraResolutionWidth = cameraResolution.width;
-         c.cameraResolutionHeight = cameraResolution.height;
-         c.pixelFormat = CapturePixelFormat.BGRA32;
-
-         captureObject.StartPhotoModeAsync(c, OnPhotoModeStarted);
-     }
-     void OnStoppedPhotoMode(PhotoCapture.PhotoCaptureResult result)
-     {
-         photoCaptureObject.Dispose();
-         photoCaptureObject = null;
-     }
-     private void OnPhotoModeStarted(PhotoCapture.PhotoCaptureResult result)
-     {
-         if (result.success)
-         {
-             string filename = string.Format(@"CapturedImage{0}_n.jpg", Time.time);
-             string filePath = System.IO.Path.Combine(Application.persistentDataPath, filename);
-
-             //photoCaptureObject.TakePhotoAsync(filePath, PhotoCaptureFileOutputFormat.JPG, OnCapturedPhotoToDisk);
-             photoCaptureObject.TakePhotoAsync(filePath, PhotoCaptureFileOutputFormat.JPG, photoCaptureResult =>
-             {
-                 OnCapturedPhotoToDisk(photoCaptureResult, filePath);
-             });
-         }
-         else
-         {
-             Debug.LogError("Unable to start photo mode!");
-         }
-     }*/
-
-    void CapturePhoto()
+    }*/
+    public void StartStopCam_Clicked()
     {
-        // Create a new Texture2D to store the captured image
-        Texture2D photoTexture = new Texture2D(webCamTexture.width, webCamTexture.height);
-        photoTexture.SetPixels(webCamTexture.GetPixels());
-        photoTexture.Apply();
-
-        // Convert the Texture2D to bytes (PNG format)
-        byte[] imageBytes = photoTexture.EncodeToPNG();
-        string base64Image = Convert.ToBase64String(imageBytes);
-
-        // Save or process the captured image
-        DataManager.individual_image_data[DataManager.globalTime - 1] = base64Image;
-
-        Debug.Log("Saved Photo!");
-
-        // Clean up
-        Destroy(photoTexture);
-    }
-       /* void OnCapturedPhotoToDisk(PhotoCapture.PhotoCaptureResult result, string imagePath)
-    {
-        if (result.success)
+        /*if (webCamTexture != null) // Stop the camera
         {
+            StopWebCam();
+            camAvailable = false;
+            buttonStartStopText.SetText("Start Camera");
+            //startStopText.text = "Start Camera";
+        }
+        else // Start the camera
+        {*/
+            WebCamDevice[] devices = WebCamTexture.devices;
 
-            byte[] imageBytes = File.ReadAllBytes(imagePath);
+            for (int i = 0; i < devices.Length; i++)
+            {
+                webCamTexture = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
+            }
+            webCamTexture.Play();
+            background.texture = webCamTexture;
+            camAvailable = true;
+            startStopButton.enabled = false;
+
+
+           // buttonStartStopText.SetText("Stop Camera");
+           //}
+    }
+
+    private void StopWebCam()
+    {
+        //background.texture = null;
+        webCamTexture.Stop();
+        webCamTexture = null;
+    }
+
+    void CapturePicture()
+    {
+        if (webCamTexture != null && webCamTexture.isPlaying)
+        {
+            Texture2D capturedTexture = new Texture2D(webCamTexture.width, webCamTexture.height);
+            capturedTexture.SetPixels(webCamTexture.GetPixels());
+            capturedTexture.Apply();
+
+            // Convert the Texture2D to bytes (PNG format)
+            byte[] imageBytes = capturedTexture.EncodeToPNG();
+            // You can now save or process the image bytes as needed
             string base64Image = Convert.ToBase64String(imageBytes);
+
+            // Save or process the captured image
             DataManager.individual_image_data[DataManager.globalTime - 1] = base64Image;
 
-            Debug.Log("Saved Photo to disk!");
+            if (webCamTexture != null) // Stop the camera
+            {
+                background.texture = webCamTexture;
+                StopWebCam();
+                camAvailable = false;
+                startStopButton.enabled = true;
+                //buttonStartStopText.SetText("Start Camera");
+                //startStopText.text = "Start Camera";
+            }
 
-            photoCaptureObject.StopPhotoModeAsync(OnStoppedPhotoMode);
+            // Clean up
+            Destroy(capturedTexture);
         }
         else
         {
-            Debug.Log("Failed to save Photo to disk");
+            Debug.LogError("Camera is not active.");
         }
-    }*/
+    }
+
 }
