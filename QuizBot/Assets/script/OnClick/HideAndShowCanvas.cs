@@ -13,6 +13,9 @@ public class HideAndShowCanvas : MonoBehaviour
     public GameObject background; //BG image to hide and show (separate renderer)
     public Button showButton; //Button that shows canvas
     public AdvanceTextBookSum advanceTextBookSum;
+    //public Button viewImageButton;
+    public Button nextButton;
+    public Button showPromptButton;
 
     // Start is called before the first frame update
     void Start()
@@ -20,28 +23,57 @@ public class HideAndShowCanvas : MonoBehaviour
         //Call ShowOnClick when showButton is clicked
         showButton.onClick.AddListener(ShowOnClick);
         showButton.enabled = false; //Only enable button when canvas is hidden
+        /*if (viewImageButton != null)
+        {
+            viewImageButton.onClick.AddListener(viewImage);
+            viewImageButton.enabled = false;
+        }*/
+        if(nextButton != null)
+        {
+            nextButton.onClick.AddListener(nextOnClick);
+            nextButton.enabled = true;
+        }
+        if(showPromptButton != null)
+        {
+            showPromptButton.enabled = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         //Hide canvas on click if currently displayed
-        if (Input.GetMouseButtonDown(0))
+        if (DataManager.globalGame != "BS_Instructions_1")
         {
-            if (hnsCanvas.enabled == true)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (DataManager.globalGame == "Instructions_Vocab")
+                if (hnsCanvas.enabled == true)
                 {
-                    Thread.Sleep(1000);
-                }
-                hnsCanvas.enabled = false;
-                background.SetActive(false);
-                showButton.enabled = true;
-                if (advanceTextBookSum != null)
-                {
-                    advanceTextBookSum.toggleGroup.gameObject.SetActive(true);
+                    if (DataManager.globalGame == "Instructions_Vocab")
+                    {
+                        Thread.Sleep(1000);
+                    }
+                    hnsCanvas.enabled = false;
+                    background.SetActive(false);
+                    showButton.enabled = true;
+                    if (advanceTextBookSum != null)
+                    {
+                        advanceTextBookSum.toggleGroup.gameObject.SetActive(true);
+                    }
                 }
             }
+        }
+    }
+
+    void nextOnClick()
+    {
+        if (hnsCanvas.enabled == true)
+        {
+            hnsCanvas.enabled = false;
+            background.SetActive(false);
+            showButton.enabled = true;
+            nextButton.enabled = false;
+            showPromptButton.enabled = false;
         }
     }
 
@@ -56,6 +88,14 @@ public class HideAndShowCanvas : MonoBehaviour
             if(advanceTextBookSum != null)
             {
                 advanceTextBookSum.toggleGroup.gameObject.SetActive(false);
+            }
+            if(nextButton != null)
+            {
+                nextButton.enabled = true;
+            }
+            if (showPromptButton != null)
+            {
+                showPromptButton.enabled = true;
             }
         }
     }

@@ -7,6 +7,7 @@ using UnityEngine;
 public class AdvanceTextAlphabet : AdvanceText
 {
     public TextMeshProUGUI bigShownText; //holds the big text
+    public LNIToggleCheck lniToggleCheck;
 
     public override void Start()
     {
@@ -27,8 +28,8 @@ public class AdvanceTextAlphabet : AdvanceText
 
         if (DataManager.globalGame == "LNI_Instructions")
         {
-            int part1 = 6 - 1;
-            if (iterator == part1) //ok, we've hit 6
+            /*int part1 = 6 - 1;
+            if (iterator == part1 && lniToggleCheck.end) //ok, we've hit 6
             {
                 int wrongos = 0;
                 //if we can find 3+ incorrect answers, it's time to stop
@@ -39,7 +40,7 @@ public class AdvanceTextAlphabet : AdvanceText
                 }
                 if (wrongos >= 3)
                     complete = true;
-            }
+            }*/
             bigShownText.text = textArray[iterator];
         }
 
