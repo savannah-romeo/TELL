@@ -43,7 +43,9 @@ public class CameraCaptureFunction : MonoBehaviour
 
     void closeButtonListener()
     {
+        StopWebCam();
         imageCapturePanel.gameObject.SetActive(false);
+
     }
 
     void CapturePictureClicked()
@@ -73,17 +75,8 @@ public class CameraCaptureFunction : MonoBehaviour
 
         }
     }*/
-    public void StartStopCam_Clicked()
+    /*public void StartStopCam_Clicked()
     {
-        /*if (webCamTexture != null) // Stop the camera
-        {
-            StopWebCam();
-            camAvailable = false;
-            buttonStartStopText.SetText("Start Camera");
-            //startStopText.text = "Start Camera";
-        }
-        else // Start the camera
-        {*/
             WebCamDevice[] devices = WebCamTexture.devices;
 
             for (int i = 0; i < devices.Length; i++)
@@ -98,13 +91,69 @@ public class CameraCaptureFunction : MonoBehaviour
 
            // buttonStartStopText.SetText("Stop Camera");
            //}
+    }*/
+
+    public void StartStopCam_Clicked()
+    {
+        // Check if the camera is already running and stop it if necessary
+        /*if (webCamTexture != null)
+        {
+            StopWebCam();
+            camAvailable = false;
+            buttonStartStopText.SetText("Start Camera");
+        }
+        else
+        {*/
+            WebCamDevice[] devices = WebCamTexture.devices;
+            if (devices.Length == 0)
+            {
+                Debug.Log("No camera detected");
+                return;
+            }
+
+        // Find a suitable camera (e.g., the back camera on a phone)
+            bool isFrontFacing = true;
+            for (int i = 0; i < devices.Length; i++)
+            {
+                if (!devices[i].isFrontFacing) // Prefer back-facing camera
+                {
+                    isFrontFacing = false;
+                    webCamTexture = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
+                    break;
+                }
+            }
+
+            if (webCamTexture == null)
+            {
+                Debug.Log("Back Camera unavailable");
+                // If no back camera is found, default to the first available camera
+                webCamTexture = new WebCamTexture(devices[0].name, Screen.width, Screen.height);
+            }
+
+            webCamTexture.Play();
+            background.texture = webCamTexture;
+
+            // Check if the selected camera is front-facing or back-facing
+            //bool isFrontFacing = webCamTexture.deviceName != null && WebCamTexture.devices[0].isFrontFacing;
+
+            // Flip the camera preview horizontally if it's the back-facing camera
+            background.rectTransform.localScale = new Vector3(isFrontFacing ? 1 : -1, -1, 1);
+
+            camAvailable = true;
+            startStopButton.enabled = false;
+            //buttonStartStopText.SetText("Stop Camera");
+       // }
     }
+
 
     private void StopWebCam()
     {
         //background.texture = null;
-        webCamTexture.Stop();
-        webCamTexture = null;
+        if (webCamTexture != null)
+        {
+            webCamTexture.Stop();
+            webCamTexture = null;
+        }
     }
 
     void CapturePicture()
