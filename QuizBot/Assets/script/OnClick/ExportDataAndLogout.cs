@@ -89,7 +89,8 @@ public class ExportDataAndLogout : MonoBehaviour
             outboundRequest.data = data;
 
             // Execute export request
-            StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest, fileName));
+            RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapRecords[0].recordID);
+            //StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapRecords[0].recordID));
         }
         panelForLogout.gameObject.SetActive(false);
         cleanup.SceneCleanup();
