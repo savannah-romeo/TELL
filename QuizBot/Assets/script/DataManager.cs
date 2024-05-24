@@ -51,10 +51,10 @@ public class DataManager : MonoBehaviour
     public static string childNameLNI; //used to store child name for use in LNI
                                        //PII THAT SHOULD NOT BE SAVED LONG-TERM
 
-
+    //31E01A3558EFAD66A9769F0A6F338BDF
     public static Dictionary<string, string> schoolVsToken = new Dictionary<string, string>()
     {
-        {"Default", "31E01A3558EFAD66A9769F0A6F338BDF" },
+        {"Default", "DEACA46D3D4B5B1F1F5CA28A2B9E43DB" },
         { "New School", "15CFFB5288773B861105A1335A09FE7D"}
     };
     public static Dictionary<string, string> schoolVsPasscode = new Dictionary<string, string>()
