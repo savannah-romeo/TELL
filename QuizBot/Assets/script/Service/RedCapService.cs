@@ -1,10 +1,14 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Net.Http;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 using Random = UnityEngine.Random;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 // This class is responsible for creating and executing all requests (API calls) for RedCap Database. 
 public class RedCapService : MonoBehaviour
@@ -39,11 +43,11 @@ public class RedCapService : MonoBehaviour
             return _instance;
         }
     }
+   
 
-
-    // Responsible for executing API call for importing data from RedCap to local file system. 
-    // Files created with the file name -> <child_id>.dat
-    public IEnumerator ImportAllData(System.Action<UsersDetails> callBack, RedCapRequest redCapRequest){
+            // Responsible for executing API call for importing data from RedCap to local file system. 
+            // Files created with the file name -> <child_id>.dat
+            public IEnumerator ImportAllData(System.Action<UsersDetails> callBack, RedCapRequest redCapRequest){
         
         WWWForm form = new WWWForm();
         
@@ -192,9 +196,109 @@ public class RedCapService : MonoBehaviour
             }           
         }
     }
-    
+
+    public void ExportFileFromRedCap(string token, string redcapRecordId, int instanceIndex, List<string> imageDataList)
+    {
+        string redcapUrl = "https://redcap.rc.asu.edu/api/";
+        string redcapRepeatInstrument = "writing";
+        string redcapRepeatInstance = (instanceIndex + 1).ToString();
+
+        using (var client = new HttpClient())
+        {
+            var content = new MultipartFormDataContent();
+            content.Add(new StringContent(token), "token");
+            content.Add(new StringContent("file"), "content");
+            content.Add(new StringContent("export"), "action");
+            content.Add(new StringContent(redcapRecordId), "record");
+            content.Add(new StringContent("image_writing"), "field");
+            content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
+            content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
+
+            // Perform POST request
+            //HttpResponseMessage response = await client.PostAsync(redcapUrl, content);
+            HttpResponseMessage response = client.PostAsync(redcapUrl, content).Result;
+
+
+            // Check response status and content
+            if (response.IsSuccessStatusCode)
+            {
+                Debug.Log("File exported successfully.");
+                byte[] fileBytes = response.Content.ReadAsByteArrayAsync().Result;
+                DataManager.individual_image_data[instanceIndex] = Convert.ToBase64String(fileBytes);
+                imageDataList[instanceIndex] = Convert.ToBase64String(fileBytes);
+            }
+            else
+            {
+                Debug.Log("File export failed.");
+                string responseContent = response.Content.ReadAsStringAsync().Result;
+                Debug.Log(responseContent);
+            }
+        }
+    }
+
+    public async Task clientFileUploladTaskExecution(string token, String redcapRecordId, int i, string filePath)
+    {
+
+        string redcapUrl = "https://redcap.rc.asu.edu/api/";
+        string fieldName = "image_writing";
+        string redcapRepeatInstrument = "writing";
+        string redcapRepeatInstance = (i + 1).ToString();
+
+        using (var client = new HttpClient())
+        {
+            var content = new MultipartFormDataContent();
+            content.Add(new StringContent(token), "token");
+            content.Add(new StringContent("file"), "content");
+            content.Add(new StringContent("import"), "action");
+            content.Add(new StringContent(redcapRecordId), "record");
+            /*content.Add(new StringContent("[writing_session_no]=" + "\"" + redcapRepeatInstance + "\""),
+                "filterLogic");*/
+            content.Add(new StringContent(fieldName), "field");
+            content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
+            content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
+
+            byte[] fileBytes = Convert.FromBase64String(filePath);
+            var fileContent = new ByteArrayContent(fileBytes);
+            content.Add(fileContent, "file", "WritingImage_"+DataManager.childID+""+(i+1));
+            //byte[] fileBytes = File.ReadAllBytes(filePath);
+            //var fileContent = new ByteArrayContent(fileBytes);
+            //content.Add(fileContent, "file", Path.GetFileName(filePath));
+
+            // Perform POST request
+            HttpResponseMessage response = await client.PostAsync(redcapUrl, content);
+
+            // Check response status and content
+            if (response.IsSuccessStatusCode)
+            {
+                Debug.Log("File uploaded successfully.");
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Debug.Log(responseContent);
+            }
+            else
+            {
+                Debug.Log("File upload failed.");
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Debug.Log(responseContent);
+            }
+        }
+    }
+    public void exportFileUpload(string token, String redcapRecordId)
+    {
+        for (int i = 0; i < DataManager.individual_image_data.Count; i++)
+        {
+            string filePath = DataManager.individual_image_data[i];
+            if (filePath != null && filePath.Trim() != "")
+            {
+                Debug.Log("File is about to be uploaded");
+                //StartCoroutine(RedCapService.Instance.clientFileUploladTaskExecution(token, redcapRecordId, i, base64Image));
+                Task task = clientFileUploladTaskExecution(token, redcapRecordId, i, filePath);
+            }
+        }
+    }
+
+
     // Responsible for executing API call for importing data from local file system to RedCap. 
-    public IEnumerator ExportCredentials(RedCapRequest redCapRequest, String fileName)
+    public void ExportCredentials(RedCapRequest redCapRequest, String fileName, int? recordId)
     {
         WWWForm form = new WWWForm();
         
@@ -228,17 +332,39 @@ public class RedCapService : MonoBehaviour
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
         {
-            yield return www.SendWebRequest();
+            Debug.Log("About to be yielded ");
+
+            //yield return www.SendWebRequest();
+
+            www.SendWebRequest();
+
+            Debug.Log("Request is yielded ");
+
+            while (!www.isDone)
+            {
+                Debug.Log("waiting");
+            }
+            //yield return new WaitUntil(() => www.isDone);
+
+            Debug.Log("We have got the result");
 
             if (www.result != UnityWebRequest.Result.Success)
             {
+
                 Debug.Log(www.error);
             }
             else
             {
                 //if(File.Exists(fileName)){
-                 //   File.Delete(fileName);
+                //   File.Delete(fileName);
                 //}
+                if (String.IsNullOrEmpty(DataManager.recordID)) {
+                    string response = www.downloadHandler.text;
+                    List<string> ids = JsonConvert.DeserializeObject<List<string>>(response);
+                    //UsersDetails usersDetails = JsonConvert.DeserializeObject<UsersDetails>("{\"users\":" + response + "}");
+                    DataManager.recordID = ids[0];
+                }
+                exportFileUpload(redCapRequest.token, DataManager.recordID);
                 Debug.Log("Data Exported");
             }
         }

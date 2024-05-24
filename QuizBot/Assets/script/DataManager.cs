@@ -302,6 +302,8 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI[] writingNameScoreForResultPage;
     public TextMeshProUGUI[] writingSentenceScoreForResultPage;
 
+    public Button[] previewWritingButtons;
+
     //RSR Fields
     public TextMeshProUGUI[] srScoresForResultPage;
 
@@ -1316,17 +1318,27 @@ public class DataManager : MonoBehaviour
                     {
                         writingNameScoreForResultPage[loop].text = individual_writing_score[loop][0].ToString("F0"); //Parameter ensures two decimal points
                         writingSentenceScoreForResultPage[loop].text = individual_writing_score[loop][1].ToString("F0"); //Parameter ensures two decimal points
+                        if (DataManager.individual_image_data[loop] != null && DataManager.individual_image_data[loop].Trim() != "")
+                        {
+                            previewWritingButtons[loop].gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            previewWritingButtons[loop].gameObject.SetActive(false);
+                        }
                     }
                     else
                     {
                         writingNameScoreForResultPage[loop].text = (-999).ToString("F0");
                         writingSentenceScoreForResultPage[loop].text = (-999).ToString("F0"); //Parameter ensures two decimal points
+                        previewWritingButtons[loop].gameObject.SetActive(false);
                     }
                 }
                 else
                 {
                     writingNameScoreForResultPage[loop].text = "";
                     writingSentenceScoreForResultPage[loop].text = "";
+                    previewWritingButtons[loop].gameObject.SetActive(false);
                 }
             
             }

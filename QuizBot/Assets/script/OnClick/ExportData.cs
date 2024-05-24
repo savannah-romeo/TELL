@@ -64,9 +64,10 @@ public class ExportData : MonoBehaviour
             // string data = JsonUtility.ToJson(redCapRecords);
             outboundRequest.forceAutoNumber = redCapRecords[0].recordID == int.MaxValue ? "true" : "false";
             outboundRequest.data = data;
-
+            Debug.Log("DataManager redcap record " + DataManager.recordID);
             // Execute export request
-            StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest, fileName));
+            RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapRecords[0].recordID);
+            //StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapRecords[0].recordID));
         }
         
         panel.gameObject.SetActive(true);

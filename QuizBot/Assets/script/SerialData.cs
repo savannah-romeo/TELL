@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -502,7 +503,10 @@ public class SerialData
                 if (redCapRecord.sentenceWritingScore != null)
                     sessionWiritngScoreList[1] = (int)redCapRecord.sentenceWritingScore;
 
-                string imageData = redCapRecord.imageWriting;
+                //string imageData = redCapRecord.imageWriting;
+                RedCapService.Instance.ExportFileFromRedCap(DataManager.tokenSelected, ""+redCapRecord.recordID, redCapRecord.writingSessionNo.Value-1, imageDataList);
+
+                //string imageData = "";
 
                 if (!string.IsNullOrEmpty(redCapRecord.assessorIdWriting))
                     sessionWritingAssesorIdResponse = redCapRecord.assessorIdWriting;
@@ -539,7 +543,7 @@ public class SerialData
                     teachers_name_writing_list.Add(sessionWritingTeacherNameResponse);
 
                 writingScoreList[redCapRecord.writingSessionNo.Value-1] = sessionWiritngScoreList;
-                imageDataList[redCapRecord.writingSessionNo.Value - 1] = imageData;
+                //imageDataList[redCapRecord.writingSessionNo.Value - 1] = imageData;
                 serialData.sCompleteWriting[redCapRecord.writingSessionNo.Value - 1] = redCapRecord.writingComplete.Value;
                 serialData.sDateTimeFieldWriting[redCapRecord.writingSessionNo.Value - 1] = redCapRecord.writingDateTimeField.ToString();
             }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -118,8 +119,6 @@ public class CameraCaptureFunction : MonoBehaviour
             byte[] imageBytes = capturedTexture.EncodeToPNG();
             // You can now save or process the image bytes as needed
             string base64Image = Convert.ToBase64String(imageBytes);
-
-            // Save or process the captured image
             DataManager.individual_image_data[DataManager.globalTime - 1] = base64Image;
 
             if (webCamTexture != null) // Stop the camera
