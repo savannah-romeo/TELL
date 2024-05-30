@@ -259,7 +259,7 @@ public class RedCapService : MonoBehaviour
 
             byte[] fileBytes = Convert.FromBase64String(filePath);
             var fileContent = new ByteArrayContent(fileBytes);
-            content.Add(fileContent, "file", "WritingImage_"+DataManager.childID+""+(i+1));
+            content.Add(fileContent, "file", "WritingImage_"+DataManager.childID+"_TimePoint"+(i+1));
             //byte[] fileBytes = File.ReadAllBytes(filePath);
             //var fileContent = new ByteArrayContent(fileBytes);
             //content.Add(fileContent, "file", Path.GetFileName(filePath));
