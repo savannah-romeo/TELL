@@ -22,6 +22,8 @@ public class CameraCaptureFunction : MonoBehaviour
     public Button startStopButton;
     public Button imageUploadButton;
     public Button closeButton;
+    public Button saveAndcloseButton;
+    public Button retakeImageButton;
     public TMP_Text buttonStartStopText;
     private Texture defaultBackground;
     public RawImage background;
@@ -32,9 +34,11 @@ public class CameraCaptureFunction : MonoBehaviour
     {
         
         startStopButton.onClick.AddListener(StartStopCam_Clicked);
+        retakeImageButton.onClick.AddListener(StartStopCam_Clicked);
         capturePicture.onClick.AddListener(CapturePicture);
         imageUploadButton.onClick.AddListener(CapturePictureClicked);
         closeButton.onClick.AddListener(closeButtonListener);
+        saveAndcloseButton.onClick.AddListener(closeButtonListener);
 
         // Initialize the camera texture
         //webCamTexture = new WebCamTexture();
@@ -75,6 +79,41 @@ public class CameraCaptureFunction : MonoBehaviour
 
         }
     }*/
+
+    private void Update()
+    {
+        if (camAvailable)
+        {
+            UpdateOrientation();
+        }
+    }
+
+    private void UpdateOrientation()
+    {
+        if (webCamTexture != null && webCamTexture.isPlaying)
+        {
+            // Adjust the rotation of the texture based on the device orientation
+            switch (Input.deviceOrientation)
+            {
+                case DeviceOrientation.Portrait:
+                    background.rectTransform.localEulerAngles = new Vector3(0, 0, -90);
+                    break;
+                case DeviceOrientation.PortraitUpsideDown:
+                    background.rectTransform.localEulerAngles = new Vector3(0, 0, 90);
+                    break;
+                case DeviceOrientation.LandscapeLeft:
+                    background.rectTransform.localEulerAngles = new Vector3(0, 0, 0);
+                    break;
+                case DeviceOrientation.LandscapeRight:
+                    background.rectTransform.localEulerAngles = new Vector3(0, 0, 180);
+                    break;
+                default:
+                    background.rectTransform.localEulerAngles = new Vector3(0, 0, 0);
+                    break;
+            }
+        }
+    }
+
     /*public void StartStopCam_Clicked()
     {
             WebCamDevice[] devices = WebCamTexture.devices;
@@ -137,10 +176,16 @@ public class CameraCaptureFunction : MonoBehaviour
             //bool isFrontFacing = webCamTexture.deviceName != null && WebCamTexture.devices[0].isFrontFacing;
 
             // Flip the camera preview horizontally if it's the back-facing camera
-            background.rectTransform.localScale = new Vector3(isFrontFacing ? 1 : -1, -1, 1);
+            //background.rectTransform.localScale = new Vector3(isFrontFacing ? 1 : -1, -1, 1);
+
+            background.rectTransform.localScale = new Vector3(1, 1, 1);
+
+            // Adjust the rotation of the texture based on the device orientation
+            UpdateOrientation();
 
             camAvailable = true;
             startStopButton.enabled = false;
+            retakeImageButton.enabled = false;
             //buttonStartStopText.SetText("Stop Camera");
        // }
     }
@@ -153,6 +198,7 @@ public class CameraCaptureFunction : MonoBehaviour
         {
             webCamTexture.Stop();
             webCamTexture = null;
+            camAvailable = false;
         }
     }
 
@@ -176,6 +222,7 @@ public class CameraCaptureFunction : MonoBehaviour
                 StopWebCam();
                 camAvailable = false;
                 startStopButton.enabled = true;
+                retakeImageButton.enabled=true;
                 //buttonStartStopText.SetText("Start Camera");
                 //startStopText.text = "Start Camera";
             }
