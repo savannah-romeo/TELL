@@ -54,6 +54,11 @@ public class CameraCaptureFunction : MonoBehaviour
 
     void CapturePictureClicked()
     {
+        startStopButton.enabled = true;
+        capturePicture.enabled = false;
+        retakeImageButton.enabled = false;
+        saveAndcloseButton.enabled = false;
+
         imageCapturePanel.gameObject.SetActive(true);
         defaultBackground = background.texture;
 
@@ -185,7 +190,9 @@ public class CameraCaptureFunction : MonoBehaviour
 
             camAvailable = true;
             startStopButton.enabled = false;
+            capturePicture.enabled = true;
             retakeImageButton.enabled = false;
+            saveAndcloseButton.enabled = false;
             //buttonStartStopText.SetText("Stop Camera");
        // }
     }
@@ -194,6 +201,7 @@ public class CameraCaptureFunction : MonoBehaviour
     private void StopWebCam()
     {
         //background.texture = null;
+
         if (webCamTexture != null)
         {
             webCamTexture.Stop();
@@ -221,8 +229,11 @@ public class CameraCaptureFunction : MonoBehaviour
                 background.texture = webCamTexture;
                 StopWebCam();
                 camAvailable = false;
-                startStopButton.enabled = true;
-                retakeImageButton.enabled=true;
+
+                startStopButton.enabled = false;
+                capturePicture.enabled = false;
+                retakeImageButton.enabled = true;
+                saveAndcloseButton.enabled = true;
                 //buttonStartStopText.SetText("Start Camera");
                 //startStopText.text = "Start Camera";
             }
