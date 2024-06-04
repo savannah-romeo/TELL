@@ -1339,8 +1339,8 @@ MonoBehaviour:
   startStopButton: {fileID: 185679498}
   imageUploadButton: {fileID: 1550271653}
   closeButton: {fileID: 641246672}
-  saveAndcloseButton: {fileID: 0}
-  retakeImageButton: {fileID: 0}
+  saveAndcloseButton: {fileID: 748904307}
+  retakeImageButton: {fileID: 2011276805}
   buttonStartStopText: {fileID: 1324222910}
   background: {fileID: 624795342}
   imageCapturePanel: {fileID: 440558510}
