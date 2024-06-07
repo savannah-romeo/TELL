@@ -54,7 +54,8 @@ public class Validation_UserInfo : Validation_Parent
     // a warning if it is not possible to load file (missing either child or classroom information)
     public bool shouldDisplayWarning()
     {
-        string fileName = DataManager.childID + ".dat";
+        string fileName = DataManager.childFileName + ".dat";
+        //string fileName = DataManager.childID + ".dat";
         string loadPath = persistentDataPath + fileName;
         if (File.Exists(loadPath))
         {
@@ -66,7 +67,10 @@ public class Validation_UserInfo : Validation_Parent
     public bool shouldDisplayDuplicateWarning()
     {            
         RedCapRequest redCapRequestForRecordIDs = new RedCapRequest();
-        redCapRequestForRecordIDs.token = DataManager.tokenSelected;
+        //redCapRequestForRecordIDs.token = DataManager.tokenSelected;
+        redCapRequestForRecordIDs.token = DataManager.redCapMasterRecord.token;
+        redCapRequestForRecordIDs.redCapEventName = DataManager.redCapMasterRecord.classroomEventName;
+        redCapRequestForRecordIDs.arm = DataManager.redCapMasterRecord.teacherID;
         //redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
         redCapRequestForRecordIDs.content = "record";
         redCapRequestForRecordIDs.action = "export";

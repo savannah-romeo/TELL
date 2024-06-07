@@ -24,6 +24,8 @@ public class CheckInternetConnection : MonoBehaviour
     public TextMeshProUGUI invalidPasscodeError;
     public TMP_InputField passcode; // Text display in Panel
 
+    public static bool populateDistrict;
+
     // Non-UI Elements
     public string sceneName; // Name up upcoming scene after loading data
     //public DataManager cleanup; //Saves data before loading
@@ -31,6 +33,7 @@ public class CheckInternetConnection : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        populateDistrict = false;
         startGame.onClick.AddListener(startGameButtonClick);
         internetAvailable.onClick.AddListener(yesButtonClick);
         internetUnavailable.onClick.AddListener(noButtonClick);
@@ -50,8 +53,8 @@ public class CheckInternetConnection : MonoBehaviour
         panel.gameObject.SetActive(false);
         DataManager.internetAvailable = true;
         populateDropDown();
-        tokenPanel.gameObject.SetActive(true);
-        //takeTestsVsImportOrExportflowPanel.gameObject.SetActive(true);
+        //tokenPanel.gameObject.SetActive(true);
+        takeTestsVsImportOrExportflowPanel.gameObject.SetActive(true);
         //DataManager.currentScene = sceneName;
         //SceneManager.LoadScene(sceneName);
     }
@@ -131,6 +134,7 @@ public class CheckInternetConnection : MonoBehaviour
     void takeTestClick()
     {
         takeTestsVsImportOrExportflowPanel.gameObject.SetActive(false);
+        populateDistrict = true;
         DataManager.currentScene = "UserInfo";
         SceneManager.LoadScene("UserInfo");
     }
@@ -138,6 +142,7 @@ public class CheckInternetConnection : MonoBehaviour
     void importOrExportClick()
     {
         takeTestsVsImportOrExportflowPanel.gameObject.SetActive(false);
+        populateDistrict = true;
         DataManager.currentScene = "UserInfoMultiple";
         SceneManager.LoadScene("UserInfoMultiple");
     }
@@ -148,6 +153,7 @@ public class CheckInternetConnection : MonoBehaviour
     {
         panel.gameObject.SetActive(false);
         DataManager.internetAvailable = false;
+        populateDistrict = true;
         DataManager.currentScene = sceneName;
         SceneManager.LoadScene(sceneName);
     }

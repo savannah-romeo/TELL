@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 // This class is responsible for creating and executing all requests (API calls) for RedCap Database. 
 public class RedCapService : MonoBehaviour
@@ -80,6 +81,15 @@ public class RedCapService : MonoBehaviour
 
         if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
             form.AddField("filterLogic", redCapRequest.filterLogic);
+
+        if (!String.IsNullOrEmpty(redCapRequest.arm))
+        {
+            form.AddField("redcap_event_name", redCapRequest.redCapEventName);
+        }
+        if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
+        {
+            form.AddField("teacher_id_arc", redCapRequest.arm);
+        }
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
         {
@@ -154,6 +164,15 @@ public class RedCapService : MonoBehaviour
         if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
             form.AddField("filterLogic", redCapRequest.filterLogic);
 
+        if (!String.IsNullOrEmpty(redCapRequest.arm))
+        {
+            form.AddField("redcap_event_name", redCapRequest.redCapEventName);
+        }
+        if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
+        {
+            form.AddField("teacher_id_arc", redCapRequest.arm);
+        }
+
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
         {
@@ -197,7 +216,142 @@ public class RedCapService : MonoBehaviour
         }
     }
 
-    public void ExportFileFromRedCap(string token, string redcapRecordId, int instanceIndex, List<string> imageDataList)
+    public WWWForm prepareForm(RedCapRequest redCapRequest)
+    {
+
+        WWWForm form = new WWWForm();
+
+        if (!String.IsNullOrEmpty(redCapRequest.token))
+            form.AddField("token", redCapRequest.token);
+
+        if (!String.IsNullOrEmpty(redCapRequest.content))
+            form.AddField("content", redCapRequest.content);
+
+        if (!String.IsNullOrEmpty(redCapRequest.action))
+            form.AddField("action", redCapRequest.action);
+
+        if (!String.IsNullOrEmpty(redCapRequest.format))
+            form.AddField("format", redCapRequest.format);
+
+        if (!String.IsNullOrEmpty(redCapRequest.type))
+            form.AddField("type", redCapRequest.type);
+
+        if (!String.IsNullOrEmpty(redCapRequest.returnContent))
+            form.AddField("returnFormat", redCapRequest.returnContent);
+
+        if (!String.IsNullOrEmpty(redCapRequest.fields_0))
+            form.AddField("fields[0]", "record_id");
+
+        if (!String.IsNullOrEmpty(redCapRequest.form_0))
+            form.AddField("forms[0]", redCapRequest.form_0);
+
+        if (redCapRequest.records_0 != 0)
+            form.AddField("records[0]", redCapRequest.records_0);
+
+        if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
+            form.AddField("filterLogic", redCapRequest.filterLogic);
+
+        return form;
+    }
+
+    public MasterUsersDetails getAllMasterRecords(RedCapRequest redCapRequest)
+    {
+        WWWForm form = prepareForm(redCapRequest);
+
+        using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
+        {
+            //yield return www.SendWebRequest();
+            www.SendWebRequest();
+
+            /*while (!www.isDone)
+            {
+                yield return true;
+            }*/
+
+            while (!www.isDone)
+            {
+                Debug.Log("waiting");
+            }
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+                if (www.error != null)
+                {
+                    error = false;
+                    dataLoaded = true;
+                }
+            }
+            else
+            {
+                string response = www.downloadHandler.text;
+
+                MasterUsersDetails masterUsersDetails = JsonConvert.DeserializeObject<MasterUsersDetails>("{\"masterUsers\":" + response + "}");
+                return masterUsersDetails;
+            }
+        }
+        return null;
+    }
+    public void CheckIfTeacherDataExists_req(RedCapRequest redCapRequest, List<String> studentNamesList, List<String> studentIDsList, RedCapMasterRecord redCapMasterRecord)
+    {
+
+        WWWForm form = prepareForm(redCapRequest);
+
+        using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
+        {
+            //yield return www.SendWebRequest();
+            www.SendWebRequest();
+
+            /*while (!www.isDone)
+            {
+                yield return true;
+            }*/
+
+            while (!www.isDone)
+            {
+                Debug.Log("waiting");
+            }
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+                if (www.error != null)
+                {
+                    error = false;
+                    dataLoaded = true;
+                }
+            }
+            else
+            {
+                string response = www.downloadHandler.text;
+
+                MasterUsersDetails masterUsersDetails = JsonConvert.DeserializeObject<MasterUsersDetails>("{\"masterUsers\":" + response + "}");
+                if(masterUsersDetails != null && masterUsersDetails.masterUsers.Count>0)
+                {
+                    redCapMasterRecord.classroomEventName = masterUsersDetails.masterUsers[0].classroomEventName;
+                    redCapMasterRecord.passcode = masterUsersDetails.masterUsers[0].passcode;
+                    redCapMasterRecord.schoolName = masterUsersDetails.masterUsers[0].schoolName;
+                    redCapMasterRecord.classroomName = masterUsersDetails.masterUsers[0].classroomName;
+                    redCapMasterRecord.districtName = masterUsersDetails.masterUsers[0].districtName;
+                    redCapMasterRecord.teacherName = masterUsersDetails.masterUsers[0].teacherName;
+                    redCapMasterRecord.classroomID = masterUsersDetails.masterUsers[0].classroomID;
+                    redCapMasterRecord.schoolID = masterUsersDetails.masterUsers[0].schoolID;
+                    redCapMasterRecord.recordID = masterUsersDetails.masterUsers[0].recordID;
+                    redCapMasterRecord.districtID = masterUsersDetails.masterUsers[0].districtID;
+                    redCapMasterRecord.teacherID = masterUsersDetails.masterUsers[0].teacherID;
+                    redCapMasterRecord.token = masterUsersDetails.masterUsers[0].token;
+
+                    for (int ind = 0; ind< masterUsersDetails.masterUsers.Count; ind++)
+                    {
+                        studentIDsList.Add(masterUsersDetails.masterUsers[ind].studentID);
+                        studentNamesList.Add(masterUsersDetails.masterUsers[ind].studentName);
+                    }
+                }
+            }
+        }
+    }
+
+    public void ExportFileFromRedCap(RedCapMasterRecord redCapMasterRecord, string redcapRecordId, int instanceIndex, List<string> imageDataList)
     {
         string redcapUrl = "https://redcap.rc.asu.edu/api/";
         string redcapRepeatInstrument = "writing";
@@ -206,13 +360,15 @@ public class RedCapService : MonoBehaviour
         using (var client = new HttpClient())
         {
             var content = new MultipartFormDataContent();
-            content.Add(new StringContent(token), "token");
+            content.Add(new StringContent(redCapMasterRecord.token), "token");
             content.Add(new StringContent("file"), "content");
             content.Add(new StringContent("export"), "action");
             content.Add(new StringContent(redcapRecordId), "record");
             content.Add(new StringContent("image_writing"), "field");
             content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
             content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
+            content.Add(new StringContent(redCapMasterRecord.classroomEventName),"redcap_event_name");
+            content.Add(new StringContent(redCapMasterRecord.teacherID),"teacher_id_arc");
 
             // Perform POST request
             //HttpResponseMessage response = await client.PostAsync(redcapUrl, content);
@@ -236,7 +392,7 @@ public class RedCapService : MonoBehaviour
         }
     }
 
-    public async Task clientFileUploladTaskExecution(string token, String redcapRecordId, int i, string filePath)
+    public async Task clientFileUploladTaskExecution(RedCapMasterRecord redCapMasterRecord, String redcapRecordId, int i, string filePath)
     {
 
         string redcapUrl = "https://redcap.rc.asu.edu/api/";
@@ -247,7 +403,7 @@ public class RedCapService : MonoBehaviour
         using (var client = new HttpClient())
         {
             var content = new MultipartFormDataContent();
-            content.Add(new StringContent(token), "token");
+            content.Add(new StringContent(redCapMasterRecord.token), "token");
             content.Add(new StringContent("file"), "content");
             content.Add(new StringContent("import"), "action");
             content.Add(new StringContent(redcapRecordId), "record");
@@ -256,6 +412,9 @@ public class RedCapService : MonoBehaviour
             content.Add(new StringContent(fieldName), "field");
             content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
             content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
+
+            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "redcap_event_name");
+            content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
 
             byte[] fileBytes = Convert.FromBase64String(filePath);
             var fileContent = new ByteArrayContent(fileBytes);
@@ -282,7 +441,7 @@ public class RedCapService : MonoBehaviour
             }
         }
     }
-    public void exportFileUpload(string token, String redcapRecordId)
+    public void exportFileUpload(RedCapMasterRecord redCapMasterRecord, String redcapRecordId)
     {
         for (int i = 0; i < DataManager.individual_image_data.Count; i++)
         {
@@ -291,14 +450,14 @@ public class RedCapService : MonoBehaviour
             {
                 Debug.Log("File is about to be uploaded");
                 //StartCoroutine(RedCapService.Instance.clientFileUploladTaskExecution(token, redcapRecordId, i, base64Image));
-                Task task = clientFileUploladTaskExecution(token, redcapRecordId, i, filePath);
+                Task task = clientFileUploladTaskExecution(redCapMasterRecord, redcapRecordId, i, filePath);
             }
         }
     }
 
 
     // Responsible for executing API call for importing data from local file system to RedCap. 
-    public void ExportCredentials(RedCapRequest redCapRequest, String fileName, int? recordId)
+    public void ExportCredentials(RedCapRequest redCapRequest, String fileName, int? recordId, bool childExport)
     {
         WWWForm form = new WWWForm();
         
@@ -326,7 +485,16 @@ public class RedCapService : MonoBehaviour
         Debug.Log("redCapRequest.data "+redCapRequest.data);
         if (!String.IsNullOrEmpty(redCapRequest.data))
             form.AddField("data", redCapRequest.data);
-        
+
+        if (!String.IsNullOrEmpty(redCapRequest.arm))
+        {
+            form.AddField("redcap_event_name", redCapRequest.redCapEventName);
+        }
+        if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
+        {
+            form.AddField("teacher_id_arc", redCapRequest.arm);
+        }
+
         if (!String.IsNullOrEmpty(redCapRequest.returnContent))
             form.AddField("returnContent", redCapRequest.returnContent);
 
@@ -358,13 +526,17 @@ public class RedCapService : MonoBehaviour
                 //if(File.Exists(fileName)){
                 //   File.Delete(fileName);
                 //}
-                if (String.IsNullOrEmpty(DataManager.recordID)) {
-                    string response = www.downloadHandler.text;
-                    List<string> ids = JsonConvert.DeserializeObject<List<string>>(response);
-                    //UsersDetails usersDetails = JsonConvert.DeserializeObject<UsersDetails>("{\"users\":" + response + "}");
-                    DataManager.recordID = ids[0];
+                if (childExport)
+                {
+                    if (String.IsNullOrEmpty(DataManager.recordID))
+                    {
+                        string response = www.downloadHandler.text;
+                        List<string> ids = JsonConvert.DeserializeObject<List<string>>(response);
+                        //UsersDetails usersDetails = JsonConvert.DeserializeObject<UsersDetails>("{\"users\":" + response + "}");
+                        DataManager.recordID = ids[0];
+                    }
+                    exportFileUpload(DataManager.redCapMasterRecord, DataManager.recordID);
                 }
-                exportFileUpload(redCapRequest.token, DataManager.recordID);
                 Debug.Log("Data Exported");
             }
         }

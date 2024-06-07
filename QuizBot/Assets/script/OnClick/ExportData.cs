@@ -31,7 +31,10 @@ public class ExportData : MonoBehaviour
     {
         // Preparing export request
         RedCapRequest outboundRequest = new RedCapRequest();
-        outboundRequest.token = DataManager.tokenSelected;
+        //outboundRequest.token = DataManager.tokenSelected;
+        outboundRequest.token = DataManager.redCapMasterRecord.token;
+        outboundRequest.redCapEventName = DataManager.redCapMasterRecord.classroomEventName;
+        outboundRequest.arm = DataManager.redCapMasterRecord.teacherID;
         //outboundRequest.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
         outboundRequest.content = "record";
         outboundRequest.action = "import";
@@ -50,9 +53,13 @@ public class ExportData : MonoBehaviour
             string fileName = fileInDirectory.FullName;
             string[] splits = fileInDirectory.Name.Split('_');
 
-            // Only pick files in directory that belong to same class
-            if (splits.Length == 0 || splits[0] != (DataManager.childID + ".dat"))
+            if(fileInDirectory.Name != DataManager.childFileName+".dat")
+            {
                 continue;
+            }
+            // Only pick files in directory that belong to same class
+            //if (splits.Length == 0 || splits[0] != (DataManager.childID + ".dat"))
+              //  continue;
 
             // Read data in file and convert it into RedCap records
             FileStream file = File.Open(fileName, FileMode.Open);
@@ -65,8 +72,14 @@ public class ExportData : MonoBehaviour
             outboundRequest.forceAutoNumber = redCapRecords[0].recordID == int.MaxValue ? "true" : "false";
             outboundRequest.data = data;
             Debug.Log("DataManager redcap record " + DataManager.recordID);
+
+            if (outboundRequest.forceAutoNumber == "true")
+            {
+                ExportMasterData.exportTeacherStudentData();
+            }
+
             // Execute export request
-            RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapRecords[0].recordID);
+            RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapRecords[0].recordID, true);
             //StartCoroutine(RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapRecords[0].recordID));
         }
         

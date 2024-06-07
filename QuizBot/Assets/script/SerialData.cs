@@ -504,7 +504,7 @@ public class SerialData
                     sessionWiritngScoreList[1] = (int)redCapRecord.sentenceWritingScore;
 
                 //string imageData = redCapRecord.imageWriting;
-                RedCapService.Instance.ExportFileFromRedCap(DataManager.tokenSelected, ""+redCapRecord.recordID, redCapRecord.writingSessionNo.Value-1, imageDataList);
+                RedCapService.Instance.ExportFileFromRedCap(DataManager.redCapMasterRecord, ""+redCapRecord.recordID, redCapRecord.writingSessionNo.Value-1, imageDataList);
 
                 //string imageData = "";
 

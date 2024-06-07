@@ -52,9 +52,10 @@ public class LoadDuplicateChild : MonoBehaviour
         DataManager.childFileExists = false;
         // Load new scene
         cleanup.SceneCleanup();
-        DataManager.currentScene = "StartGame"; //Updates DataManager scene string
-        SceneManager.LoadScene("StartGame");
-        //DataManager.currentScene = "UserInfo"; //Updates DataManager scene string
-        //SceneManager.LoadScene("UserInfo");
+        //DataManager.currentScene = "StartGame"; //Updates DataManager scene string
+        //SceneManager.LoadScene("StartGame");
+        HideAndShowCanvasStudent.backClicked = true;
+        DataManager.currentScene = "UserInfo"; //Updates DataManager scene string
+        SceneManager.LoadScene("UserInfo");
     }
 }

@@ -34,7 +34,7 @@ public class LoadScene_ImportOrExport : MonoBehaviour
         }
         else if(clickedButton.name == "button_Export")
         {
-            clickedButton.onClick.AddListener(() => StartCoroutine(TaskOnExportClick()));
+            clickedButton.onClick.AddListener(TaskOnExportClick);
         }
             //clickedButton.onClick.AddListener(TaskOnClick);
         close.onClick.AddListener(closeEvent);
@@ -78,7 +78,7 @@ public class LoadScene_ImportOrExport : MonoBehaviour
         }
 
     }
-    protected IEnumerator TaskOnExportClick()
+    protected void TaskOnExportClick()
     {
         cleanup.SceneCleanup();
         /*if (clickedButton.name == "button_Import")
@@ -117,25 +117,35 @@ public class LoadScene_ImportOrExport : MonoBehaviour
                     DataManager.childExists = true;
                     //ImportData importData = new ImportData();
                     SerialData serialData = SaveLoad.getFileData(DataManager.childID);
-                    if (serialData.sRecordId != null && serialData.sRecordId != "")
+                    /*if (serialData.sRecordId != null && serialData.sRecordId != "")
                     {
-                        yield return StartCoroutine(importData.ImportActions(false, true));
+                        //yield return StartCoroutine(importData.ImportActions(false, true));
+                        StartCoroutine(importData.ImportActions(false, true));
                         exportData.ExportActions();
-                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+
+                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat")))
+                        {
+                            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat"));
+                        }
+                        /*if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
                         {
                             File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
-                        }
+                        }*/
                         //cleanup.SceneCleanup();
                         //SceneManager.LoadScene("UserInfoMultiple");
                         //DataManager.currentScene = "UserInfoMultiple";
-                        exportData.panel.SetActive(true);
+                        /*exportData.panel.SetActive(true);
                     }
-                    else
+                    else*/
+                    if(string.IsNullOrEmpty(serialData.sRecordId))
                     {
                         serialData.sChildID = serialData.sChildID + "(1)";
-
-                        string fileName = serialData.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
-                        string savePath = Path.Combine(Application.persistentDataPath, fileName); // File path for storage with the file name
+                        string fileName = serialData.sChildID + "_" + DataManager.teacherID + "_" + DataManager.schoolID + "_" +
+                            DataManager.classroomID + "_" + DataManager.districtID;
+                        
+                        //string fileName = serialData.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
+                        
+                        string savePath = Path.Combine(Application.persistentDataPath, fileName+".dat"); // File path for storage with the file name
                         //Debug.Log(fileName);
                         //Debug.Log(savePath);
 
@@ -145,23 +155,43 @@ public class LoadScene_ImportOrExport : MonoBehaviour
                         bf.Serialize(file, serialData);
                         file.Close();
 
-                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat")))
+                        {
+                            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat"));
+                        }
+
+                        DataManager.childFileName = fileName;
+
+                        /*if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
                         {
                             File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
-                        }
+                        }*/
                         DataManager.childID = DataManager.childID + "(1)";
                         showPanel = true;
                         //DataManager.childID = DataManager.childID + "dup";
                         exportData.ExportActions();
-                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat")))
+                        {
+                            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat"));
+                        }
+                        /*if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
                         {
                             File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
-                        }
+                        }*/
                         //cleanup.SceneCleanup();
                         //SceneManager.LoadScene("UserInfoMultiple");
                         //DataManager.currentScene = "UserInfoMultiple";
                         errorPanel.SetActive(true);
-                        
+
+                    }
+                    else
+                    {
+                        exportData.ExportActions();
+                        if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat")))
+                        {
+                            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat"));
+                        }
+                        exportData.panel.SetActive(true);
                     }
                     //cleanup.SceneCleanup();
 
@@ -169,10 +199,14 @@ public class LoadScene_ImportOrExport : MonoBehaviour
                 else
                 {
                     exportData.ExportActions();
-                    if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+                    if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat")))
+                    {
+                        File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childFileName + ".dat"));
+                    }
+                    /*if (File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
                     {
                         File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
-                    }
+                    }*/
                     //cleanup.SceneCleanup();
                     //SceneManager.LoadScene("UserInfoMultiple");
                     //DataManager.currentScene = "UserInfoMultiple";
