@@ -161,7 +161,8 @@ public class SaveLoad
 
 
 
-		string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
+		//string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
+		string fileName = DataManager.childFileName + ".dat";
 		Debug.Log(fileName);
 		string savePath = Path.Combine(pdP, fileName); // File path for storage with the file name
 		Debug.Log(savePath);
@@ -183,9 +184,10 @@ public class SaveLoad
 			Debug.LogError("Missing childID/classroomId, unable to load data");
 			return;
 		}
-		
+
 		// Obtain the filePath for loading
-		string fileName = childId + ".dat";
+		string fileName = DataManager.childFileName+".dat";
+		//string fileName = childId + ".dat";
 		string loadPath = Path.Combine(pdP, fileName);
 
 		// Open file and load data
@@ -363,7 +365,8 @@ public class SaveLoad
 	public static SerialData getFileData(String childId)
     {
 		// if file exists:
-		string fileName = childId + ".dat";
+		//string fileName = childId + ".dat";
+		string fileName = DataManager.childFileName + ".dat";
 		string loadPath = Path.Combine(pdP, fileName);
 
 		// Open file and load data
@@ -393,17 +396,24 @@ public class SaveLoad
         {
 			staging = SerialData.convertToSerialData(usersDetails);
 		}
-			
-		if(File.Exists(Path.Combine(pdP, staging.sChildID + ".dat"))){
+
+		/*if(File.Exists(Path.Combine(pdP, staging.sChildID + ".dat"))){
 			File.Delete(Path.Combine(pdP, staging.sChildID + ".dat"));
-        }
+        */
+
+		if (File.Exists(Path.Combine(pdP, DataManager.childFileName + ".dat")))
+		{
+			File.Delete(Path.Combine(pdP, DataManager.childFileName + ".dat"));
+		}
+
 		/*if (staging.sClassroomID == null || staging.sChildID == null)
 		{
 			Debug.LogError("Missing childID or classroomId, unable to save data");
 			return;
 		}*/
-		
-		string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
+
+		//string fileName = staging.sChildID + ".dat"; // File for saving, filename will be <childID>.dat
+		string fileName = DataManager.childFileName + ".dat";
 		string savePath = Path.Combine(pdP, fileName); // File path for storage with the file name
 		Debug.Log(fileName);
 		Debug.Log(savePath);

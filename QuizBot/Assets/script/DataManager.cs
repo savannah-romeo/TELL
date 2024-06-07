@@ -26,6 +26,12 @@ public class DataManager : MonoBehaviour
     public static string assessorID;
     public static string childID;
     public static string classroomID;
+    public static string districtID;
+    public static string schoolID;
+
+    public static RedCapMasterRecord redCapMasterRecord;
+    public static List<String> studentIdList;
+    public static List<String> studentNameList;
 
     public static string exportImportRef;
     public static int vocabTime;
@@ -229,10 +235,14 @@ public class DataManager : MonoBehaviour
     public TMP_InputField assessorNameField;
     public TMP_InputField childNameField;
     public TMP_InputField classroomField;
+    public TMP_InputField districtNameField;
+    public TMP_InputField schoolNameField;
     public TMP_InputField teacherIDField;
     public TMP_InputField assessorIDField;
     public TMP_InputField childIDField;
     public TMP_InputField classroomIDField;
+    public TMP_InputField districtIDField;
+    public TMP_InputField schoolIDField;
 
     //Instructions Fields
     public TMP_InputField lniNameField;
@@ -340,6 +350,8 @@ public class DataManager : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     public AdvanceTextBookSum advanceTextBookSum;
+
+    public static string childFileName;
 
 
     // Start is called before the first frame update
@@ -738,21 +750,33 @@ public class DataManager : MonoBehaviour
             currentScene = "UserInfo";
 
         //Fill saved UserInfo
+        if(currentScene == "StartGame")
+        {
+            studentIdList = null;
+            studentNameList = null;
+            redCapMasterRecord = null;
+            teacherID = null;
+            assessorID = null;
+            classroomID = null;
+            districtID = null;
+            schoolID = null;
+            //childFileName = null;
+        }
+
         if(currentScene == "UserInfo" || currentScene == "StartGame" || currentScene == "UserInfoMultiple")
         {
             // teacherIDField.text = teacherID;
             // assessorIDField.text = assessorID;
             // childIDField.text = childID;
             // classroomIDField.text = classroomID;
-            
+
             // Add logout code here
             childExists = false;
             childFileExists = false;
-            teacherID = null;
             recordID = null;
-            assessorID = null;
             childID = null;
-            classroomID = null;
+            childFileName = null;
+
             vocabTime = 0;
             BSTime = 0;
             LNITime = 0;
@@ -2027,7 +2051,7 @@ public class DataManager : MonoBehaviour
         Debug.Log("currentScene " + currentScene);
 
         //Save UserInfo
-        if (currentScene == "UserInfo")
+        if (currentScene == "UserInfo" || currentScene == "UserInfoMultiple")
         {
             //Save child name or ID, with ID taking precedence
             exportImportRef = "Name";
@@ -2037,6 +2061,12 @@ public class DataManager : MonoBehaviour
             assessorID = assessorNameField.text;
             if (assessorIDField.text != "")
                 assessorID = assessorIDField.text;
+            districtID = districtNameField.text;
+            if (districtIDField.text != "")
+                districtID = districtIDField.text;
+            schoolID = schoolNameField.text;
+            if (schoolIDField.text != "")
+                schoolID = schoolIDField.text;
             childID = childNameField.text;
             if(childNameField.text != "")
             {
@@ -2054,10 +2084,12 @@ public class DataManager : MonoBehaviour
             classroomID = classroomField.text;
             if(classroomIDField.text != "")
                 classroomID = classroomIDField.text;
-            
+
+            childFileName = childID+"_"+teacherID + "_" + schoolID + "_" + classroomID + "_" + districtID;
+
         }
 
-        if (currentScene == "UserInfoMultiple")
+        /*if (currentScene == "UserInfoMultiple")
         {
             //Save child name or ID, with ID taking precedence
             exportImportRef = "Name";
@@ -2079,7 +2111,7 @@ public class DataManager : MonoBehaviour
             }
             
 
-        }
+        }*/
 
         //Store child name for letter randomization
         if (currentScene == "LNI_Instructions" && null != lniNameField)

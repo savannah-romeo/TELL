@@ -69,7 +69,9 @@ public class ImportData  : MonoBehaviour
             
             // 1. Getting all record_id corresponding to the classroom_id filter in hand
             RedCapRequest redCapRequestForRecordIDs = new RedCapRequest();
-            redCapRequestForRecordIDs.token = DataManager.tokenSelected;
+            redCapRequestForRecordIDs.token = DataManager.redCapMasterRecord.token;
+            redCapRequestForRecordIDs.redCapEventName = DataManager.redCapMasterRecord.classroomEventName;
+            redCapRequestForRecordIDs.arm = DataManager.redCapMasterRecord.teacherID;
             //redCapRequestForRecordIDs.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
             redCapRequestForRecordIDs.content = "record";
             redCapRequestForRecordIDs.action = "export";
@@ -90,7 +92,10 @@ public class ImportData  : MonoBehaviour
 
             // 2. Getting all records with the corresponding record_id and store locally.
             RedCapRequest redCapRequestForRecords = new RedCapRequest();
-            redCapRequestForRecords.token = DataManager.tokenSelected;
+            //redCapRequestForRecords.token = DataManager.tokenSelected;
+            redCapRequestForRecords.token = DataManager.redCapMasterRecord.token;
+            redCapRequestForRecords.redCapEventName = DataManager.redCapMasterRecord.classroomEventName;
+            redCapRequestForRecords.arm = DataManager.redCapMasterRecord.teacherID;
             //redCapRequestForRecords.token = "31E01A3558EFAD66A9769F0A6F338BDF"; // This is Akshay's creds, to be replaced!
             redCapRequestForRecords.content = "record";
             redCapRequestForRecords.action = "export";
@@ -182,9 +187,9 @@ public class ImportData  : MonoBehaviour
     void doneButtonClick()
     {
         panel.gameObject.SetActive(false);
-        if (DataManager.currentScene == "UserInfoMultiple")
+        /*if (DataManager.currentScene == "UserInfoMultiple")
         {
             SceneManager.LoadScene("UserInfoMultiple");
-        }
+        }*/
     }
 }

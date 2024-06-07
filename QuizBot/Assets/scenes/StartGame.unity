@@ -1175,10 +1175,14 @@ MonoBehaviour:
   assessorNameField: {fileID: 0}
   childNameField: {fileID: 0}
   classroomField: {fileID: 0}
+  districtNameField: {fileID: 0}
+  schoolNameField: {fileID: 0}
   teacherIDField: {fileID: 0}
   assessorIDField: {fileID: 0}
   childIDField: {fileID: 0}
   classroomIDField: {fileID: 0}
+  districtIDField: {fileID: 0}
+  schoolIDField: {fileID: 0}
   lniNameField: {fileID: 0}
   bsChildResponseField: {fileID: 0}
   responseField: {fileID: 0}
@@ -1227,6 +1231,7 @@ MonoBehaviour:
   csScoresForResultPage: []
   writingNameScoreForResultPage: []
   writingSentenceScoreForResultPage: []
+  previewWritingButtons: []
   srScoresForResultPage: []
   booksumScoresForResultPage: []
   RLNI_letterText: []

@@ -17,4 +17,8 @@ public class RedCapRequest
     public string filterLogic { get; set; }
     public string fields_0 { get; set; }
     public int records_0 { get; set; }
+    public string redCapEventName { get; set; }
+    public string arm { get; set; }
+
+
 }

@@ -11,6 +11,7 @@ public class Load_logout_export_popUpMessage : MonoBehaviour
 {
     // UI Elements
     public Button onlyLogoutBtn; // No Button in Panel
+    public Button backToChildScreen;
     public Button exportLogoutBtn; // Yes Button in Panel
     public Button loadBtn; // Load Button in Panel
     public GameObject panel; // Panel
@@ -26,6 +27,10 @@ public class Load_logout_export_popUpMessage : MonoBehaviour
         loader = new SaveLoad();
         loadBtn.onClick.AddListener(loadButtonClick);
         onlyLogoutBtn.onClick.AddListener(logoutButtonClick);
+        if (backToChildScreen != null)
+        {
+            backToChildScreen.onClick.AddListener(backToChildScreenClick);
+        }
         // exportLogoutBtn.onClick.AddListener(exportLogoutButtonClick);
     }
 
@@ -37,15 +42,31 @@ public class Load_logout_export_popUpMessage : MonoBehaviour
 
     }
 
+    void backToChildScreenClick()
+    {
+        loadBtn.interactable = true;
+        panel.gameObject.SetActive(false);
+        if (DataManager.internetAvailable &&
+            File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childFileName/*DataManager.childID*/ + ".dat")))
+        {
+            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childFileName/*DataManager.childID*/ + ".dat"));
+        }
+        // Load new scene
+        cleanup.SceneCleanup();
+        HideAndShowCanvasStudent.backClicked = true;
+        DataManager.currentScene = "UserInfo"; //Updates DataManager scene string
+        SceneManager.LoadScene("UserInfo");
+    }
+
     // Occurs when logout button is clicked
     void logoutButtonClick()
     {
         loadBtn.interactable = true;
         panel.gameObject.SetActive(false);
         if (DataManager.internetAvailable && 
-            File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat")))
+            File.Exists(Path.Combine(Application.persistentDataPath, DataManager.childFileName/*DataManager.childID*/ + ".dat")))
         {
-            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childID + ".dat"));
+            File.Delete(Path.Combine(Application.persistentDataPath, DataManager.childFileName/*DataManager.childID*/ + ".dat"));
         }
         // Load new scene
         cleanup.SceneCleanup();
