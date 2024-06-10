@@ -289,30 +289,36 @@ public class HideAndShowCanvasClassroom : MonoBehaviour
         foreach (RedCapMasterRecord rcmr in list)
         {
             string studentId = rcmr.studentID;
-            if (!studentIds.Contains(studentId))
+            if (!string.IsNullOrEmpty(studentId))
             {
-                studentIds.Add(studentId);
+                if (!studentIds.Contains(studentId))
+                {
+                    studentIds.Add(studentId);
+                }
+
+                if (!studentIdVsList.ContainsKey(studentId))
+                {
+                    studentIdVsList[studentId] = new List<RedCapMasterRecord>();
+                }
+                List<RedCapMasterRecord> idList = studentIdVsList[studentId];
+                idList.Add(rcmr);
             }
-            
-            if(!studentIdVsList.ContainsKey(studentId))
-            {
-                studentIdVsList[studentId] = new List<RedCapMasterRecord>();
-            }
-            List<RedCapMasterRecord> idList = studentIdVsList[studentId];
-            idList.Add(rcmr);
 
             string studentName = rcmr.studentName;
-            if (!studentNames.Contains(studentName))
+            if (!string.IsNullOrEmpty(studentName))
             {
-                studentNames.Add(studentName);
+                if (!studentNames.Contains(studentName))
+                {
+                    studentNames.Add(studentName);
+                }
+
+                if (!studentNameVsList.ContainsKey(studentName))
+                {
+                    studentNameVsList[studentName] = new List<RedCapMasterRecord>();
+                }
+                List<RedCapMasterRecord> nameList = studentNameVsList[studentName];
+                nameList.Add(rcmr);
             }
-            
-            if (!studentNameVsList.ContainsKey(studentName))
-            {
-                studentNameVsList[studentName] = new List<RedCapMasterRecord>();
-            }
-            List<RedCapMasterRecord> nameList = studentNameVsList[studentName];
-            nameList.Add(rcmr);
         }
 
     }

@@ -21,7 +21,7 @@ public class ExportMasterData
         outboundRequest.overwriteBehavior = "overwrite";
         outboundRequest.returnContent = "ids";
 
-        string fileName = DataManager.teacherID + "_" + DataManager.schoolID + "_" +
+        /*string fileName = DataManager.teacherID + "_" + DataManager.schoolID + "_" +
             DataManager.classroomID + "_" + DataManager.districtID;
 
         BinaryFormatter bf = new BinaryFormatter();
@@ -31,8 +31,10 @@ public class ExportMasterData
         SerialMasterData serialMasterData = (SerialMasterData)bf.Deserialize(file);
         file.Close();
 
-        RedCapMasterRecord redCapMasterRecord = RedCapMasterRecord.convertToRedCapRecord(serialMasterData);
-        if (serialMasterData.refID == "ID") {
+        RedCapMasterRecord redCapMasterRecord = RedCapMasterRecord.convertToRedCapRecord(serialMasterData);*/
+
+        RedCapMasterRecord redCapMasterRecord = DataManager.redCapMasterRecord;
+        if (redCapMasterRecord.refID == "ID") {
             redCapMasterRecord.studentID = DataManager.childID;
             DataManager.studentIdList.Add(DataManager.childID);
         }
@@ -52,6 +54,6 @@ public class ExportMasterData
         // string data = JsonUtility.ToJson(redCapRecords);
         outboundRequest.forceAutoNumber = "true";
         outboundRequest.data = data;
-        RedCapService.Instance.ExportCredentials(outboundRequest, fileName, redCapMasterRecord.recordID, false);
+        RedCapService.Instance.ExportCredentials(outboundRequest, null, redCapMasterRecord.recordID, false);
     }
 }
