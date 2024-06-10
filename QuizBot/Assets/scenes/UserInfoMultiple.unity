@@ -2435,7 +2435,6 @@ GameObject:
   - component: {fileID: 99568393}
   - component: {fileID: 99568394}
   - component: {fileID: 99568395}
-  - component: {fileID: 99568396}
   - component: {fileID: 99568397}
   - component: {fileID: 99568401}
   - component: {fileID: 99568400}
@@ -2692,42 +2691,6 @@ MonoBehaviour:
   childID: {fileID: 99378696}
   classRoomName: {fileID: 0}
   classRoomId: {fileID: 0}
---- !u!114 &99568396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99568378}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5521c2c621197e445a54b4a69395ac3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  childCanvas: {fileID: 1645352348}
-  classroomCanvas: {fileID: 0}
-  districtCanvas: {fileID: 0}
-  schoolCanvas: {fileID: 0}
-  teacherNameField: {fileID: 1358042819}
-  classroomNameField: {fileID: 1663595070}
-  districtNameField: {fileID: 600379695}
-  schoolNameField: {fileID: 1382536497}
-  assessorNameField: {fileID: 1766020930}
-  teacherIDField: {fileID: 1579301914}
-  classroomIDField: {fileID: 182179560}
-  districtIDField: {fileID: 1631547748}
-  schoolIDField: {fileID: 1438835475}
-  assessorIDField: {fileID: 1956490157}
-  passcode: {fileID: 1233334539}
-  errorText: {fileID: 1896082257}
-  dropDownStudentID: {fileID: 1529636653}
-  dropDownStudentName: {fileID: 1237894948}
-  childNameField: {fileID: 1333115290}
-  childIDField: {fileID: 99378696}
-  childLabel: {fileID: 2010235553}
-  advanceTextBookSum: {fileID: 0}
-  nextButton: {fileID: 391079863}
-  backButton: {fileID: 1293168966}
 --- !u!114 &99568397
 MonoBehaviour:
   m_ObjectHideFlags: 0
