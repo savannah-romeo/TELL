@@ -175,8 +175,8 @@ public class HideAndShowCanvasClassroom : MonoBehaviour
                     HideAndShowCanvasStudent.studentIdVsRecord = new Dictionary<string, List<RedCapMasterRecord>>();
                     HideAndShowCanvasStudent.studentNameVsRecord = new Dictionary<string, List<RedCapMasterRecord>>();
 
-                    HideAndShowCanvasStudent.studentIds.Add("New User");
-                    HideAndShowCanvasStudent.studentNames.Add("New User");
+                    //HideAndShowCanvasStudent.studentIds.Add("New User");
+                    //HideAndShowCanvasStudent.studentNames.Add("New User");
 
                     getListFromMap(rcmrList, HideAndShowCanvasStudent.studentIds,
                             HideAndShowCanvasStudent.studentNames, HideAndShowCanvasStudent.studentIdVsRecord,
