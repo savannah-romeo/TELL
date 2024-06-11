@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class Load_answers_Prompt_Beginning_Sounds : MonoBehaviour
+public class Load_answers_Prompt : MonoBehaviour
 {
     // UI Elements
     public Button closeBtn;
@@ -28,7 +28,10 @@ public class Load_answers_Prompt_Beginning_Sounds : MonoBehaviour
     {
         answerBtn.interactable = false;
         nextBtn.interactable=false;
-        displayText.text = shownText.text;
+        if (shownText != null)
+        {
+            displayText.text = shownText.text;
+        }
         panel.gameObject.SetActive(true);
 
     }
