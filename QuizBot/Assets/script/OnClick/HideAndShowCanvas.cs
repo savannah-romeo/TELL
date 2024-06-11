@@ -43,16 +43,16 @@ public class HideAndShowCanvas : MonoBehaviour
     void Update()
     {
         //Hide canvas on click if currently displayed
-        if (DataManager.globalGame != "BS_Instructions_1")
+        if (DataManager.globalGame != "BS_Instructions_1" && DataManager.globalGame != "Instructions_Vocab")
         {
             if (Input.GetMouseButtonDown(0))
             {
                 if (hnsCanvas.enabled == true)
                 {
-                    if (DataManager.globalGame == "Instructions_Vocab")
+                    /*if (DataManager.globalGame == "Instructions_Vocab")
                     {
                         Thread.Sleep(1000);
-                    }
+                    }*/
                     hnsCanvas.enabled = false;
                     background.SetActive(false);
                     showButton.enabled = true;
