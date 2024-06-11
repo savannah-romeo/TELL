@@ -194,16 +194,16 @@ public class AdvanceVocabItem: MonoBehaviour
                 "(1) When we move things from one place to another, we use ___________________.",
                 "(2) At the front of the train we see the ___________________.",
                 "(3) These are all different kinds of ____________________.",
-                "(4) These children aren’t really cooks, they are just ___________________.",
+                "(4) These children aren't really cooks, they are just ___________________.",
                 "(5) Walking across the street when a car is coming is very ____________________.",
-                "(6) We don’t think pizza is just good. We think it is ____________________!"
+                "(6) We don't think pizza is just good. We think it is ____________________!"
             },
         3 => new string[6] {
                 "(1) When you pull the rubber band, you are making it ___________________.",
                 "(2) Snakes, birds, and crickets can all be called ________________.",
                 "(3) This kind of light that is good to take camping is called a ____________________.",
                 "(4) When crops are ripe and we gather them, it is called the ____________________.",
-                "(5) This ice cream cone isn’t just big, it is ______________________.",
+                "(5) This ice cream cone isn't just big, it is ______________________.",
                 "(6) When it gets colder and the leaves change color, it is _____________________!"
             },
         4 => new string[6] {
@@ -217,14 +217,14 @@ public class AdvanceVocabItem: MonoBehaviour
         5 => new string[6] {
                 "(1) This lion is not tame it is ____________________.",
                 "(2) There are lots of plants and vines in the _____________________.",
-                "(3) This rabbit isn’t wild, it is ____________________.",
-                "(4) There are no leaves on this tree’s ___________________.",
+                "(3) This rabbit isn't wild, it is ____________________.",
+                "(4) There are no leaves on this tree's ___________________.",
                 "(5) To grow plants first you have to plant ___________________.",
                 "(6) The main part of a plant that the leaves and flowers grow from is the _____________________."
             },
         6 => new string[6] {
                 "(1) A doctor who takes care of animals is a ________________________.",
-                "(2) The band around this cat’s neck is a ____________________.",
+                "(2) The band around this cat's neck is a ____________________.",
                 "(3) When you take your dog for a walk, he needs to wear a _________________________.",
                 "(4) A person who grows crops is a ____________________.",
                 "(5) To grow, seeds must be planted in _____________________.",
