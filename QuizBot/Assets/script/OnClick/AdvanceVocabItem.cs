@@ -218,7 +218,7 @@ public class AdvanceVocabItem: MonoBehaviour
                 "(1) This lion is not tame it is ____________________.",
                 "(2) There are lots of plants and vines in the _____________________.",
                 "(3) This rabbit isn't wild, it is ____________________.",
-                "(4) There are no leaves on this tree�s ___________________.",
+                "(4) There are no leaves on this tree's ___________________.",
                 "(5) To grow plants first you have to plant ___________________.",
                 "(6) The main part of a plant that the leaves and flowers grow from is the _____________________."
             },
