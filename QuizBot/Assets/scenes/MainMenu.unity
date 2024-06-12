@@ -4481,11 +4481,16 @@ MonoBehaviour:
     point, you cannot re-administer the same time point for that test.
 
 
-    3. If
-    you wish to DISCONTINUE administering a test, click the "Main Menu" button on
-    the top left corner. All test data you have just entered for this particular
-    test will be deleted. Then you may re-administer the same time point of the test
-    from the beginning again.'
+    3. You
+    may click the "PAUSE" button when you have to leave an ongoing test and resume
+    later. But DO NOT quit the app entirely while paused. Leave the app running in
+    the background.
+
+
+    4. If you wish to DISCONTINUE administering a test, click
+    the "Main Menu" button on the top left corner. All test data you have just entered
+    for this particular test will be deleted. Then you may re-administer the same
+    time point of the test from the beginning again.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
   m_sharedMaterial: {fileID: 3214921493735848429, guid: e9b7c3fb143f34f7ca40f0bc59f42e8d, type: 2}
@@ -4512,8 +4517,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
