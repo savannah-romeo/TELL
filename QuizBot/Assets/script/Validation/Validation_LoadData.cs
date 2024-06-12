@@ -13,8 +13,8 @@ public class Validation_LoadData : Validation_UserInfo
         if (teacherName.text == empty && teacherID.text == empty)
             valid = false;
 
-        if (assessorName.text == empty && assessorID.text == empty)
-            valid = false;
+        /*if (assessorName.text == empty && assessorID.text == empty)
+            valid = false;*/
 
         if (childName.text == empty && childID.text == empty)
             valid = false;
