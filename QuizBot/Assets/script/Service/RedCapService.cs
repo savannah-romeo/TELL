@@ -367,8 +367,8 @@ public class RedCapService : MonoBehaviour
             content.Add(new StringContent("image_writing"), "field");
             content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
             content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
-            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "redcap_event_name");
-            content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
+            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "event");
+            //content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
 
             // Perform POST request
             //HttpResponseMessage response = await client.PostAsync(redcapUrl, content);
@@ -413,8 +413,8 @@ public class RedCapService : MonoBehaviour
             content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
             content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
 
-            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "redcap_event_name");
-            content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
+            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "event");
+            //content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
 
             byte[] fileBytes = Convert.FromBase64String(filePath);
             var fileContent = new ByteArrayContent(fileBytes);
