@@ -37,8 +37,8 @@ public class Validation_UserInfo : Validation_Parent
 
         if (teacherName.text == empty && teacherID.text == empty)
             valid = false;
-        if (assessorName.text == empty && assessorID.text == empty)
-            valid = false;
+        /*if (assessorName.text == empty && assessorID.text == empty)
+            valid = false;*/
         if(childName.text == empty && childID.text == empty)
             valid = false;
         if(classRoomName.text == empty && classRoomId.text == empty)

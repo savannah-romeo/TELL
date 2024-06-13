@@ -82,14 +82,14 @@ public class RedCapService : MonoBehaviour
         if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
             form.AddField("filterLogic", redCapRequest.filterLogic);
 
-        if (!String.IsNullOrEmpty(redCapRequest.arm))
-        {
-            form.AddField("redcap_event_name", redCapRequest.redCapEventName);
-        }
         if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
         {
-            form.AddField("teacher_id_arc", redCapRequest.arm);
+            form.AddField("events", redCapRequest.redCapEventName);
         }
+        /*if (!String.IsNullOrEmpty(redCapRequest.arm))
+        {
+            form.AddField("arm", redCapRequest.arm);
+        }*/
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
         {
@@ -164,14 +164,14 @@ public class RedCapService : MonoBehaviour
         if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
             form.AddField("filterLogic", redCapRequest.filterLogic);
 
-        if (!String.IsNullOrEmpty(redCapRequest.arm))
-        {
-            form.AddField("redcap_event_name", redCapRequest.redCapEventName);
-        }
         if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
         {
-            form.AddField("teacher_id_arc", redCapRequest.arm);
+            form.AddField("events", redCapRequest.redCapEventName);
         }
+        /*if (!String.IsNullOrEmpty(redCapRequest.arm))
+        {
+            form.AddField("arm", redCapRequest.arm);
+        }*/
 
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://redcap.rc.asu.edu/api/", form))
@@ -367,8 +367,8 @@ public class RedCapService : MonoBehaviour
             content.Add(new StringContent("image_writing"), "field");
             content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
             content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
-            content.Add(new StringContent(redCapMasterRecord.classroomEventName),"redcap_event_name");
-            content.Add(new StringContent(redCapMasterRecord.teacherID),"teacher_id_arc");
+            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "event");
+            //content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
 
             // Perform POST request
             //HttpResponseMessage response = await client.PostAsync(redcapUrl, content);
@@ -413,8 +413,8 @@ public class RedCapService : MonoBehaviour
             content.Add(new StringContent(redcapRepeatInstrument), "repeat_instrument");
             content.Add(new StringContent(redcapRepeatInstance), "repeat_instance");
 
-            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "redcap_event_name");
-            content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
+            content.Add(new StringContent(redCapMasterRecord.classroomEventName), "event");
+            //content.Add(new StringContent(redCapMasterRecord.teacherID), "teacher_id_arc");
 
             byte[] fileBytes = Convert.FromBase64String(filePath);
             var fileContent = new ByteArrayContent(fileBytes);
@@ -486,14 +486,14 @@ public class RedCapService : MonoBehaviour
         if (!String.IsNullOrEmpty(redCapRequest.data))
             form.AddField("data", redCapRequest.data);
 
-        if (!String.IsNullOrEmpty(redCapRequest.arm))
+        /*if (!String.IsNullOrEmpty(redCapRequest.arm))
         {
-            form.AddField("redcap_event_name", redCapRequest.redCapEventName);
+            form.AddField("arm", redCapRequest.arm);
         }
         if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
         {
-            form.AddField("teacher_id_arc", redCapRequest.arm);
-        }
+            form.AddField("event", redCapRequest.redCapEventName);
+        }*/
 
         if (!String.IsNullOrEmpty(redCapRequest.returnContent))
             form.AddField("returnContent", redCapRequest.returnContent);

@@ -30,7 +30,16 @@ public class Load_answers_Prompt : MonoBehaviour
         nextBtn.interactable=false;
         if (shownText != null)
         {
-            displayText.text = shownText.text;
+            string originalText = shownText.text;
+            int start = originalText.IndexOf("/");
+            int end = originalText.LastIndexOf("/");
+
+            if (start != -1 && end != -1 && end > start)
+            {
+                originalText = originalText.Substring(0, start) + originalText.Substring(end + 1);
+            }
+
+            displayText.text = "This is a <i><b>" + (originalText.Trim()).ToLower() + "</b></i>. What is the first sound you hear in <i><b>" + (originalText.Trim()).ToLower()+ "</b></i>?";
         }
         panel.gameObject.SetActive(true);
 

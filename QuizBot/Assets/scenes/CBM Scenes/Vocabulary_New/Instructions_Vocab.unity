@@ -160,10 +160,14 @@ MonoBehaviour:
   assessorNameField: {fileID: 0}
   childNameField: {fileID: 0}
   classroomField: {fileID: 0}
+  districtNameField: {fileID: 0}
+  schoolNameField: {fileID: 0}
   teacherIDField: {fileID: 0}
   assessorIDField: {fileID: 0}
   childIDField: {fileID: 0}
   classroomIDField: {fileID: 0}
+  districtIDField: {fileID: 0}
+  schoolIDField: {fileID: 0}
   lniNameField: {fileID: 0}
   bsChildResponseField: {fileID: 0}
   responseField: {fileID: 0}
@@ -216,6 +220,7 @@ MonoBehaviour:
   csScoresForResultPage: []
   writingNameScoreForResultPage: []
   writingSentenceScoreForResultPage: []
+  previewWritingButtons: []
   srScoresForResultPage: []
   booksumScoresForResultPage: []
   RLNI_letterText: []
@@ -237,6 +242,7 @@ MonoBehaviour:
   CAP_EAPScore: []
   gameText: {fileID: 0}
   timeText: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
 --- !u!114 &140666067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +288,7 @@ MonoBehaviour:
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
   panel: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &140666070
 MonoBehaviour:
@@ -301,6 +308,7 @@ MonoBehaviour:
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
   panel: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
   showExportMessage: 0
 --- !u!114 &140666071
 MonoBehaviour:
@@ -320,6 +328,7 @@ MonoBehaviour:
   userInfoChecker: {fileID: 0}
   cleanup: {fileID: 140666066}
   panel: {fileID: 0}
+  advanceTextBookSum: {fileID: 0}
   showExportMessage: 0
 --- !u!1 &501855902
 GameObject:
@@ -1522,7 +1531,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Each word will be tested in two ways: expressive and receptive. The <b>expressive</b>
     question will be given first. If answered incorrectly, the <b>receptive</b> question
-    is given next; otherwise, the receptive question is skipped."
+    is given next; otherwise, the receptive question is skipped.
 
 
     <b>Expressive

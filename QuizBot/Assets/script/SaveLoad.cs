@@ -30,6 +30,9 @@ public class SaveLoad
 		staging.sTeacherID = DataManager.teacherID;
 		staging.sClassroomID = DataManager.classroomID;
 
+		staging.sRedCapEventName = DataManager.redCapMasterRecord.classroomEventName;
+		staging.sTeacherIdArc = DataManager.redCapMasterRecord.teacherID;
+
 		if (staging.sClassroomID == null || staging.sChildID == null)
 		{
 			Debug.LogError("Missing childID or classroomId, unable to save data");
