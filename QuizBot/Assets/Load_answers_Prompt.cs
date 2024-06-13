@@ -39,7 +39,7 @@ public class Load_answers_Prompt : MonoBehaviour
                 originalText = originalText.Substring(0, start) + originalText.Substring(end + 1);
             }
 
-            displayText.text = "This is a "+ (originalText.Trim()).ToLower() + ". What is the first sound you hear in "+ (originalText.Trim()).ToLower()+ "?";
+            displayText.text = "This is a <i><b>" + (originalText.Trim()).ToLower() + "</b></i>. What is the first sound you hear in <i><b>" + (originalText.Trim()).ToLower()+ "</b></i>?";
         }
         panel.gameObject.SetActive(true);
 
