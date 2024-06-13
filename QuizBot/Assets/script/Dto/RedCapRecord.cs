@@ -10,6 +10,10 @@ public class RedCapRecord
 {
     [JsonProperty("record_id", NullValueHandling = NullValueHandling.Ignore)]
     public int? recordID = null;
+    [JsonProperty("teacher_id_arc", NullValueHandling = NullValueHandling.Ignore)]
+    public string teacherIdArc = null;
+    [JsonProperty("redcap_event_name", NullValueHandling = NullValueHandling.Ignore)]
+    public string redcapEventName = null;
     [JsonProperty("teacher_id", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public string teacherID = null;
     [JsonProperty("assessor_id", NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
@@ -1013,6 +1017,12 @@ public class RedCapRecord
         string classroomID = inputData.sClassroomID;
         string teacherID = inputData.sTeacherID;
 
+        RedCapRecord formRecord = new RedCapRecord();
+        formRecord.recordID = recordID;
+        formRecord.teacherIdArc = inputData.sTeacherIdArc;
+        formRecord.redcapEventName = inputData.sRedCapEventName;
+        redCapRecords.Add(formRecord);
+
         // Populate fields for Credentials Instrument in RedCap
         RedCapRecord credentialRedCapRecord = new RedCapRecord();
         credentialRedCapRecord.recordID = recordID;
@@ -1027,6 +1037,7 @@ public class RedCapRecord
             credentialRedCapRecord.classroomName = classroomID;
             credentialRedCapRecord.teacherName = teacherID;
         }
+        credentialRedCapRecord.redcapEventName = inputData.sRedCapEventName;
         redCapRecords.Add(credentialRedCapRecord);
         
         
@@ -1042,6 +1053,7 @@ public class RedCapRecord
             redCapRecord = vocabularyRedCapRecords[responseIndex];
             redCapRecord.vocabSession = responseIndex + 1;
             redCapRecord.recordID = recordID;
+            redCapRecord.redcapEventName = inputData.sRedCapEventName;
             redCapRecord.redcapRepeatInstrument = "vocabulary";
             redCapRecord.redcapRepeatInstance = redCapRecord.vocabSession;
             if(inputData.sAssessorIdVocabList.Count > responseIndex) {
@@ -1090,6 +1102,7 @@ public class RedCapRecord
                 vocabularyRedCapRecords.Add(new RedCapRecord());
             
             redCapRecord = vocabularyRedCapRecords[responseIndex];
+            redCapRecord.redcapEventName = inputData.sRedCapEventName;
             redCapRecord.vocabSession = responseIndex + 1;
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "vocabulary";
@@ -1128,6 +1141,7 @@ public class RedCapRecord
                 vocabularyRedCapRecords.Add(new RedCapRecord());
             
             redCapRecord = vocabularyRedCapRecords[responseIndex];
+            redCapRecord.redcapEventName = inputData.sRedCapEventName;
             redCapRecord.vocabSession = responseIndex + 1;
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "vocabulary";
@@ -1168,6 +1182,7 @@ public class RedCapRecord
                 vocabularyRedCapRecords.Add(new RedCapRecord());
             
             redCapRecord = vocabularyRedCapRecords[responseIndex];
+            redCapRecord.redcapEventName = inputData.sRedCapEventName;
             redCapRecord.vocabSession = responseIndex + 1;
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "vocabulary";
@@ -1206,6 +1221,7 @@ public class RedCapRecord
                 vocabularyRedCapRecords.Add(new RedCapRecord());
             
             redCapRecord = vocabularyRedCapRecords[responseIndex];
+            redCapRecord.redcapEventName = inputData.sRedCapEventName;
             redCapRecord.vocabSession = responseIndex + 1;
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "vocabulary";
@@ -1250,6 +1266,7 @@ public class RedCapRecord
             csRedCapRecord = csRedCapRecords[responseIndex];
             csRedCapRecord.csSession = responseIndex + 1;
             csRedCapRecord.recordID = recordID;
+            csRedCapRecord.redcapEventName = inputData.sRedCapEventName;
             csRedCapRecord.redcapRepeatInstrument = "clapping_syllables";
             csRedCapRecord.redcapRepeatInstance = csRedCapRecord.csSession;
             if(inputData.sAssessorIdCSList.Count > 0 && responseIndex< inputData.sAssessorIdCSList.Count && inputData.sAssessorIdCSList[responseIndex] != "")
@@ -1310,6 +1327,7 @@ public class RedCapRecord
                 writingRedCapRecords.Add(new RedCapRecord());
             
             writingRedCapRecord = writingRedCapRecords[responseIndex];
+            writingRedCapRecord.redcapEventName = inputData.sRedCapEventName;
             writingRedCapRecord.writingSessionNo = responseIndex + 1;
             writingRedCapRecord.recordID = recordID;
             writingRedCapRecord.redcapRepeatInstrument = "writing";
@@ -1369,6 +1387,7 @@ public class RedCapRecord
                 srRedCapRecords.Add(new RedCapRecord());
             
             redCapRecord = srRedCapRecords[responseIndex];
+            redCapRecord.redcapEventName = inputData.sRedCapEventName;
             redCapRecord.srSession = responseIndex + 1;
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "story_retell";
@@ -1479,6 +1498,7 @@ public class RedCapRecord
                 booksumRedCapRecords.Add(new RedCapRecord());
             
             redCapRecord = booksumRedCapRecords[responseIndex];
+            redCapRecord.redcapEventName = inputData.sRedCapEventName;
             redCapRecord.bookSumSession = responseIndex + 1;
             redCapRecord.recordID = recordID;
             redCapRecord.redcapRepeatInstrument = "book_summary";
@@ -1594,6 +1614,7 @@ public class RedCapRecord
         RedCapRecord lniSpRecord = new();
 
         lniSpRecord.recordID = recordID;
+        lniSpRecord.redcapEventName = inputData.sRedCapEventName;
         lniSpRecord.redcapRepeatInstrument = "letter_name_identification_student_progress";
         lniSpRecord.redcapRepeatInstance = 1;
         //go through each element of sLearnedLetterNames and map to flag
@@ -1645,6 +1666,7 @@ public class RedCapRecord
 
             lniRRecord = lniRedCapRecords[lnrRIndex];
             lniRRecord.lnirSessionNumber = lnrRIndex + 1;
+            lniRRecord.redcapEventName = inputData.sRedCapEventName;
             lniRRecord.recordID = recordID;
             lniRRecord.redcapRepeatInstrument = "letter_name_identification_results";
             lniRRecord.redcapRepeatInstance = lniRRecord.lnirSessionNumber;
@@ -1713,9 +1735,10 @@ public class RedCapRecord
         lsiSpRecord.recordID = recordID;
         lsiSpRecord.redcapRepeatInstrument = "letter_sound_identification_student_progress";
         lsiSpRecord.redcapRepeatInstance = 1;
+        lsiSpRecord.redcapEventName = inputData.sRedCapEventName;
         //go through each element of sLearnedLetterNames and map to flag
         //handle null case for data w/o letternames
-        if(inputData.sLearnedLetterNamesLSI is null)
+        if (inputData.sLearnedLetterNamesLSI is null)
         {
             inputData.sLearnedLetterNamesLSI = new bool[26];
         }
@@ -1762,6 +1785,7 @@ public class RedCapRecord
 
             lsiRRecord = lsiRedCapRecords[lsrRIndex];
             lsiRRecord.lsirSessionNumber = lsrRIndex + 1;
+            lsiRRecord.redcapEventName = inputData.sRedCapEventName;
             lsiRRecord.recordID = recordID;
             lsiRRecord.redcapRepeatInstrument = "letter_sound_identification_results";
             lsiRRecord.redcapRepeatInstance = lsiRRecord.lsirSessionNumber;
@@ -1833,6 +1857,7 @@ public class RedCapRecord
 
             bsRecord = bsRedCapRecords[bsIndex];
             bsRecord.bsSessionNumber = bsIndex + 1;
+            bsRecord.redcapEventName = inputData.sRedCapEventName;
             bsRecord.recordID = recordID;
             bsRecord.redcapRepeatInstrument = "beginning_sounds";
             bsRecord.redcapRepeatInstance = bsRecord.bsSessionNumber;
@@ -1968,6 +1993,7 @@ public class RedCapRecord
                 CAPRecord = CAPRedCapRecords[CAPIndex];
                 CAPRecord.CAPSessionNumber = CAPIndex + 1;
                 CAPRecord.recordID = recordID;
+                CAPRecord.redcapEventName = inputData.sRedCapEventName;
                 CAPRecord.redcapRepeatInstrument = "concepts_of_print";
                 CAPRecord.redcapRepeatInstance = CAPRecord.CAPSessionNumber;
 

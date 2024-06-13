@@ -15,6 +15,9 @@ public class SerialData
     public string sChildID;
     public string sClassroomID;
 
+    public string sTeacherIdArc;
+    public string sRedCapEventName;
+
     public string sExportImportRef = DataManager.exportImportRef=="ID" ? "ID" : "Name";
 
     //Vocab storage
@@ -255,6 +258,9 @@ public class SerialData
         {
             if (redCapRecord.recordID != null && redCapRecord.recordID != 0)
                 serialData.sRecordId = redCapRecord.recordID.ToString();
+
+            serialData.sTeacherIdArc = redCapRecord.teacherIdArc;
+            serialData.sRedCapEventName = redCapRecord.redcapEventName;
 
             if(DataManager.exportImportRef == "ID"){
                 // serialData.sExportImportRef = "ID";
