@@ -82,11 +82,11 @@ public class RedCapService : MonoBehaviour
         if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
             form.AddField("filterLogic", redCapRequest.filterLogic);
 
-        /*if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
+        if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
         {
-            form.AddField("event", redCapRequest.redCapEventName);
+            form.AddField("events", redCapRequest.redCapEventName);
         }
-        if (!String.IsNullOrEmpty(redCapRequest.arm))
+        /*if (!String.IsNullOrEmpty(redCapRequest.arm))
         {
             form.AddField("arm", redCapRequest.arm);
         }*/
@@ -164,11 +164,11 @@ public class RedCapService : MonoBehaviour
         if (!String.IsNullOrEmpty(redCapRequest.filterLogic))
             form.AddField("filterLogic", redCapRequest.filterLogic);
 
-        /*if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
+        if (!String.IsNullOrEmpty(redCapRequest.redCapEventName))
         {
-            form.AddField("event", redCapRequest.redCapEventName);
+            form.AddField("events", redCapRequest.redCapEventName);
         }
-        if (!String.IsNullOrEmpty(redCapRequest.arm))
+        /*if (!String.IsNullOrEmpty(redCapRequest.arm))
         {
             form.AddField("arm", redCapRequest.arm);
         }*/
