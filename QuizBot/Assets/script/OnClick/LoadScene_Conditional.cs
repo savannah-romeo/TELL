@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadScene_Conditional : MonoBehaviour
 {
     public Button clickedButton; //Button clicked
+    public Button exitButton;
     public string sceneName; //Name of the scene to load
     public Validation_Parent checker; //Used to check input
     public Validation_UserInfo userInfoChecker;
@@ -20,6 +21,10 @@ public class LoadScene_Conditional : MonoBehaviour
     {
         //Create listener for the button in question
         clickedButton.onClick.AddListener(TaskOnClick);
+        if(exitButton != null)
+        {
+            exitButton.onClick.AddListener(TaskOnClick);
+        }
     }
 
     protected void TaskOnClick()

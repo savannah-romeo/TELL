@@ -45,6 +45,12 @@ public class HideAndShowCanvas : MonoBehaviour
         //Hide canvas on click if currently displayed
         if (DataManager.globalGame != "BS_Instructions_1" && DataManager.globalGame != "Instructions_Vocab")
         {
+            if((DataManager.globalGame == "LNI_Instructions" && AdvanceText.terminateLNI) || 
+                (DataManager.globalGame == "LSI_Instructions" && AdvanceText.terminateLSI))
+            {
+                return;
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (hnsCanvas.enabled == true)
@@ -80,6 +86,11 @@ public class HideAndShowCanvas : MonoBehaviour
     //Show canvas if not shown and not in the middle of a click
     void ShowOnClick()
     {
+        if((DataManager.globalGame == "LNI_Instructions" || DataManager.globalGame == "LSI_Instructions") 
+            && EvaluatorInputError.errorOcurred)
+        {
+            return;
+        }
         if (hnsCanvas.enabled == false)
         {
             hnsCanvas.enabled = true;

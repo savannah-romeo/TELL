@@ -52,17 +52,17 @@ public class LNIToggleCheck : MonoBehaviour
                 {
                     panel.gameObject.SetActive(true);
                 }
-                else
+                /*else
                 {
                     advanceTextAlphabet.complete = false;
-                }
+                }*/
             }
         }
     }
     void yesProceedOnClick()
     {
         panel.gameObject.SetActive(false);
-        advanceTextAlphabet.complete = false;
+        //advanceTextAlphabet.complete = false;
         next.onClick.Invoke();
         //end = false;
 
