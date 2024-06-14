@@ -45,6 +45,12 @@ public class HideAndShowCanvas : MonoBehaviour
         //Hide canvas on click if currently displayed
         if (DataManager.globalGame != "BS_Instructions_1" && DataManager.globalGame != "Instructions_Vocab")
         {
+            if((DataManager.globalGame == "LNI_Instructions" && AdvanceText.terminateLNI) || 
+                (DataManager.globalGame == "LSI_Instructions" && AdvanceText.terminateLSI))
+            {
+                return;
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (hnsCanvas.enabled == true)

@@ -3,16 +3,40 @@
 //Used by LNI and LSi
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AdvanceTextAlphabet : AdvanceText
 {
     public TextMeshProUGUI bigShownText; //holds the big text
     public LNIToggleCheck lniToggleCheck;
+    public TextMeshProUGUI description;
+    public Button exitButton;
 
     public override void Start()
     {
         base.Start();
-        bigShownText.text = textArray[iterator]; //Display the first text
+        if ((DataManager.globalGame == "LNI_Instructions" && terminateLNI) || 
+                (DataManager.globalGame == "LSI_Instructions" && terminateLSI))
+        {
+            bigShownText.gameObject.SetActive(false);
+            bigShownText.text = "";
+            description.gameObject.SetActive(true);
+            exitButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            bigShownText.gameObject.SetActive(true);
+            bigShownText.text = textArray[iterator]; //Display the first text
+
+            if (description != null)
+            {
+                description.gameObject.SetActive(false);
+            }
+            if (exitButton != null)
+            {
+                exitButton.gameObject.SetActive(false);
+            }
+        }
     }
 
     //Alphabet prompts do not depend on time, so we store all in prompts 1

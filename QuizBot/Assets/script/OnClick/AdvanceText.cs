@@ -18,6 +18,8 @@ public class AdvanceText : MonoBehaviour
     public Validation_Games checker; //Used to check for valid answer before proceeding
     public Array_Prompts prompts; //Holds the list of prompts that the evaluator will be cycling through - select relevant child
     public TextMeshProUGUI[] srPromptText;
+    public static bool terminateLNI;
+    public static bool terminateLSI;
     public Dictionary<string, string> alphabet_pronounciation = new Dictionary<string, string>(){
         {"A","/a/"},{"B","/b/"},{"C","/c/"},{"D","/d/"},{"E","/e/"},{"F","/f/"},{"G","/g/"},{"H","/h/"},{"I","/i/"},
         {"J","/j/"},{"K","/k/"},{"L","/l/"},{"M","/m/"},{"N","/n/"},{"O","/o/"},{"P","/p/"},{"Q","/q/"},{"R","/r/"},
@@ -41,8 +43,22 @@ public class AdvanceText : MonoBehaviour
         }
         if (DataManager.globalGame != "Writing_Instructions"){
             textArray = PromptSelect(localTime);
+            if ((DataManager.globalGame == "LSI_Instructions" || DataManager.globalGame == "LNI_Instructions") 
+                && textArray != null && iterator == textArray.Length - 1)
+            {
+                complete = true;
+            }
+
             if (DataManager.globalGame == "LSI_Instructions") {
-                shownText.text = /*textArray[iterator] + sep + */alphabet_pronounciation[textArray[iterator]]; //Display the first text
+                if (textArray == null || textArray.Length == 0)
+                {
+                    terminateLSI = true;
+                }
+                else
+                {
+                    terminateLSI = false;
+                    shownText.text = /*textArray[iterator] + sep + */alphabet_pronounciation[textArray[iterator]]; //Display the first text
+                }
             }
             else if (DataManager.globalGame == "SR_Instructions" || DataManager.globalGame == "SR_Instructions_1" /*&& 
                 DataManager.question_no == 0*/) {
@@ -59,7 +75,16 @@ public class AdvanceText : MonoBehaviour
                 //DataManager.question_no = 8;
             }
             else {
-                shownText.text = textArray[iterator]; //Display the first text
+                if (DataManager.globalGame == "LNI_Instructions" 
+                        && (textArray == null || textArray.Length == 0))
+                {
+                    terminateLNI = true;
+                }
+                else
+                {
+                    terminateLNI = false;
+                    shownText.text = textArray[iterator]; //Display the first text
+                }
             }
         }
         clickedButton.onClick.AddListener(TaskOnClick);
