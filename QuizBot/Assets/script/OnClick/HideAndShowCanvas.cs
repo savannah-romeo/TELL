@@ -86,6 +86,11 @@ public class HideAndShowCanvas : MonoBehaviour
     //Show canvas if not shown and not in the middle of a click
     void ShowOnClick()
     {
+        if((DataManager.globalGame == "LNI_Instructions" || DataManager.globalGame == "LSI_Instructions") 
+            && EvaluatorInputError.errorOcurred)
+        {
+            return;
+        }
         if (hnsCanvas.enabled == false)
         {
             hnsCanvas.enabled = true;
